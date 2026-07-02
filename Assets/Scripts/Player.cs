@@ -130,7 +130,7 @@ public class Player : MonoBehaviour
         // }
         // if (canMove)
         // {
-        transform.position += (moveDir * moveDistance).normalized;
+        transform.position += moveDir.normalized * moveDistance;
         // }
 
         // isWalking = moveDir != Vector3.zero;
