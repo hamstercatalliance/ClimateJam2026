@@ -8,13 +8,12 @@ public class Player : MonoBehaviour
 {
     
 
-    private bool isWalking;
-    //private Vector3 lastInteractDir;
-    //private BaseCounter selectedCounter;
-    //private KitchenObject kitchenObject;
-    
-    // [SerializeField] private Transform kitchenObjectHoldPoint;
+    private bool isGrounded = true;
+    private Rigidbody rb;
+    private Vector3 lastMoveDir;
     [SerializeField] private float moveSpeed = 7f;
+    [SerializeField] float rotateSpeed = 10f;
+    [SerializeField] float jumpHeight = 15f;
     [SerializeField] private GameInput gameInput;
     // [SerializeField] private LayerMask countersLayerMask;
 
@@ -36,8 +35,19 @@ public class Player : MonoBehaviour
     }
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
+        gameInput.OnJumpAction += GameInput_OnJumpAction;
     //     gameInput.OnInteractAction += GameInput_OnInteractAction;
     //     gameInput.OnInteractAlternateAction += GameInput_OnInteractAlternateAction;
+    }
+    private void GameInput_OnJumpAction(object sender, System.EventArgs e)
+    {
+        Debug.Log("Jumping");
+        if (isGrounded)
+        {
+            isGrounded = false;
+            rb.AddForce(Vector3.up * jumpHeight, ForceMode.VelocityChange);
+        }
     }
     // private void GameInput_OnInteractAction(object sender, System.EventArgs e)
     // {
@@ -56,14 +66,18 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(isGrounded);
         HandleMovement();
-        //HandleInteractions();
     }
 
-    // public bool IsWalking()
-    // {
-    //     return isWalking;
-    // }
+    public void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(collision.gameObject.tag);
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+    }
 
     // private void HandleInteractions()
     // {
@@ -85,7 +99,7 @@ public class Player : MonoBehaviour
     //             {
     //                 SetSelectedCounter(baseCounter);
     //             }
-                
+
     //         }
     //         else
     //         {
@@ -103,40 +117,24 @@ public class Player : MonoBehaviour
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
         Vector3 moveDir = new Vector3(inputVector.x, 0, inputVector.y);
 
+        if (moveDir.x != 0)
+        {
+            lastMoveDir = moveDir;
+        }
+
         float moveDistance = moveSpeed * Time.deltaTime;
 
-
-        // float playerRadius = .6f;
-        // float playerHeight = 2f;
-        //bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDir, moveDistance);
-
-        // if (!canMove)
-        // {
-        //     Vector3 moveDirX = new Vector3(moveDir.x, 0, 0).normalized;
-        //     canMove = moveDir.x != 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirX, moveDistance);
-        //     if (canMove)
-        //     {
-        //         moveDir = moveDirX;
-        //     }
-        //     else
-        //     {
-        //         Vector3 moveDirZ = new Vector3(0, 0, moveDir.z).normalized;
-        //         canMove = moveDir.z != 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirZ, moveDistance);
-        //         if (canMove)
-        //         {
-        //             moveDir = moveDirZ;
-        //         }
-        //     }
-        // }
-        // if (canMove)
-        // {
         transform.position += moveDir.normalized * moveDistance;
-        // }
 
-        // isWalking = moveDir != Vector3.zero;
-
-        float rotateSpeed = 15f;
-        transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed); //turning player to face the direction of movement
+        if (lastMoveDir.x < 0)
+        {
+            transform.forward = Vector3.Slerp(transform.forward, new Vector3(0, 0, 1), Time.deltaTime * rotateSpeed); //turning player to face the direction of movement
+        }
+        else if (lastMoveDir.x > 0)
+        {
+            transform.forward = Vector3.Slerp(transform.forward, new Vector3(0, 0, -1), Time.deltaTime * rotateSpeed); //turning player to face the direction of movement
+        }
+    
     }
 
     // private void SetSelectedCounter(BaseCounter selectedCounter)
