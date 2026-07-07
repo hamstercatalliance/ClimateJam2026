@@ -19,20 +19,20 @@ public class ProgressBarUI : MonoBehaviour
 
         barImage.fillAmount = 0f;
 
-        Hide();
+        //Hide();
     }
     private void HasProgress_OnProgressChanged(object sender, IHasProgress.OnProgressChangedEventArgs e)
     {
         barImage.fillAmount = e.progressNormalized;
-
-        if (e.progressNormalized == 1f || e.progressNormalized == 0f)
-        {
-            Hide();
-        }
-        else
-        {
-            Show();
-        }
+        Debug.Log("Progress: " + e.progressNormalized);
+        // if (e.progressNormalized == 1f || e.progressNormalized == 0f)
+        // {
+        //     Hide();
+        // }
+        // else
+        // {
+        //     Show();
+        // }
     }
 
     private void Show()
