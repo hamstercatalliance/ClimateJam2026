@@ -14,10 +14,10 @@ public class Conversation : MonoBehaviour
         // Set to cannot move 
         for (int i = 0; i < dialogue.Length; i++)
         {
-            DialogueRenderer.Execute(dialogue[i]);
+            DialogueRenderer.Render(dialogue[i]);
             // Wait for dialogue to be inactive
             bool continueDialogue = false;
-            while (!continueDialogue)
+            while (!continueDialogue) // TODO: REPLACE WITH EVENT LISTENER
             {
                 if (!dialogue[i].active)
                 {
