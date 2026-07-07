@@ -25,4 +25,12 @@ public class DialogueBox {
     {
         this.active = false;
     }
+
+    public string getContent() {
+        return dialogue;
+    }
+
+    public string getCharacterID() { 
+        return characterID;
+    }
 }

@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class DialogueRenderer : MonoBehaviour
 {
     static GameObject box;
@@ -19,7 +19,8 @@ public class DialogueRenderer : MonoBehaviour
         Transform dialogueButton1 = dialoguePanel.transform.Find("DialogueButton1");
         Transform dialogueButton2 = dialoguePanel.transform.Find("DialogueButton2");
 
-        
+        contentText.GetComponent<TMP_Text>().text = dialogueObject.getContent();
+        characterText.GetComponent<TMP_Text>().text = dialogueObject.getCharacterID();
 
         // Basic dialogue listener
         dialogueButton1.GetComponent<Button>().onClick.AddListener(() => { 
