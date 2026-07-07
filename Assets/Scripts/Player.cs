@@ -32,6 +32,8 @@ public class Player : MonoBehaviour
             Debug.LogError("There is more than one Player instance");
         }
         Instance = this;
+        //DontDestroyOnLoad(gameObject);
+        //some scenes shouldnt have the player in them so just prefab the player in every necessary scene
     }
     private void Start()
     {

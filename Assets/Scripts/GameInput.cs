@@ -11,6 +11,7 @@ public class GameInput : MonoBehaviour
     private PlayerInputActions playerInputActions;
     private void Awake()
     {
+        Debug.Log("GameInput Awake");
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
         playerInputActions.Player.Jump.performed += Jump_performed;
@@ -35,6 +36,7 @@ public class GameInput : MonoBehaviour
     }
     public Vector2 GetMovementVectorNormalized()
     {
+        //Debug.Log(playerInputActions);
         Vector2 inputVector = playerInputActions.Player.Move.ReadValue<Vector2>();
 
         inputVector = inputVector.normalized;
