@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class InventoryManager : MonoBehaviour
 {
-    public static Inventory Instance { get; private set; } //singleton
+    public static InventoryManager Instance { get; private set; } //singleton
 
     [SerializeField] private List<GameItemSO> gameItemSOList; 
     //all possible storable items in the game
