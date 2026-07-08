@@ -8,6 +8,7 @@ public class GameInput : MonoBehaviour
     public event EventHandler OnInteractAction;
     public event EventHandler OnInteractAlternateAction;
     public event EventHandler OnJumpAction;
+    public event EventHandler OnMenuAction;
     private PlayerInputActions playerInputActions;
     private void Awake()
     {
@@ -15,8 +16,13 @@ public class GameInput : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
         playerInputActions.Player.Jump.performed += Jump_performed;
+        playerInputActions.Player.MenuToggle.performed += MenuToggle_performed;
         //playerInputActions.Player.Interact.performed += Interact_performed;
         //playerInputActions.Player.InteractAlternate.performed += InteractAlternate_performed;
+    }
+    private void MenuToggle_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnMenuAction?.Invoke(this, EventArgs.Empty);
     }
     private void Jump_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {

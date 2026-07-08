@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Unity.VisualScripting;
+using UnityEngine.Experimental.AI;
 
 public class Player : MonoBehaviour
 {
-    
+    public event EventHandler<OnPickupEventArgs> OnPickup;
+    public class OnPickupEventArgs : EventArgs
+    {
+        public GameItemSO gameItemSO;
+        public GameObject gameItemGameObject;
+    }
 
     private bool isGrounded = true;
     private Rigidbody rb;
@@ -80,7 +86,23 @@ public class Player : MonoBehaviour
             isGrounded = true;
         }
     }
-
+    public void OnTriggerEnter(Collider other)
+    {
+        //IN THE UFTURE ITEMS WONT BE PICKED UP UPON TOUCH
+        //THE PLAYER WILL COLLIDE AND HIT A BUTTON TO PICK UP THE ITEM
+        if (other.gameObject.CompareTag("Item"))
+        {
+            Debug.Log("I AM THE PLAYER AND I HAVE COLLIDED WITH AN ITEM");
+  
+            GameItem gameItem = other.GetComponent<GameItem>();
+            OnPickup?.Invoke(this, new OnPickupEventArgs
+            {
+                gameItemSO = gameItem.GetGameItemSO(),
+                gameItemGameObject = gameItem.gameObject
+            });
+            Debug.Log("Player picked up " + gameItem.GetGameItemSO().name);
+        }    
+    }
     // private void HandleInteractions()
     // {
     //     Vector2 inputVector = gameInput.GetMovementVectorNormalized();
