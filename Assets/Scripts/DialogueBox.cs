@@ -14,11 +14,11 @@ public class DialogueBox {
     public float wait { get; private set; }
 
 
-    public DialogueBox(string dialogue, string characterID,  float wait) { 
+    public DialogueBox(string dialogue, string characterID, float? wait = null) { 
         this.dialogue = dialogue;
         this.characterID = characterID;
         this.active = true;
-        this.wait = wait;
+        this.wait = wait ?? 0.0f;
     }
 
     public void setInactive()
