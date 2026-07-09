@@ -17,21 +17,30 @@ public class Conversation : MonoBehaviour
 
     public void Execute() {
         // Set to cannot move 
-        for (int i = 0; i < dialogue.Length; i++)
-        {
-            // Wait for dialogue to be inactive
-            DialogueRenderer.Render(dialogue[i]);
-            //while (true) 
-            //{
-            //    if (!dialogue[i].active)
-            //    {
-            //        break;
-            //    }
-            //}
-            StartCoroutine(Wait(dialogue[i].wait));
+        StartCoroutine(DialogueLoop());
+        IEnumerator DialogueLoop () {
+            for (int i = 0; i < dialogue.Length; i++)
+            {
+                // Wait for dialogue to be inactive
+                DialogueRenderer.Render(dialogue[i]);
+                //while (true) 
+                //{
+                //    if (!dialogue[i].active)
+                //    {
+                //        break;
+                //    }
+                //}
+                yield return StartCoroutine(WaitForButtonPress(dialogue[i]));
+                yield return StartCoroutine(Wait(dialogue[i].wait));
+            }
         }
-        IEnumerator Wait (float delay) {
+        IEnumerator Wait(float delay) { 
             yield return new WaitForSecondsRealtime(delay);
+        }
+        IEnumerator WaitForButtonPress (DialogueBox box) { 
+            while (box.active) {
+                yield return null;
+            }
         }
         // set to can move
     }

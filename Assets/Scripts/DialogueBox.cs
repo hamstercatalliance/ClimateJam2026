@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +15,7 @@ public class DialogueBox {
     public float wait { get; private set; }
 
 
-    public DialogueBox(string dialogue, string characterID, float? wait = null) { 
+    public DialogueBox(string characterID, string dialogue, float? wait = null, string button1, Func<System.Object,System.Object>? func1, string? button2, Func<System.Object, System.Object>? func2) { 
         this.dialogue = dialogue;
         this.characterID = characterID;
         this.active = true;
