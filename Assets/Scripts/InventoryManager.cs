@@ -1,12 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance { get; private set; } //singleton
-
     [SerializeField] private List<GameItemSO> gameItemSOList; 
+    public event EventHandler<InventoryAdditionEventArgs> OnInventoryAddition;
+    public class InventoryAdditionEventArgs : EventArgs
+    {
+        public InventorySlot slot;
+    }
+    public event EventHandler<InventoryRemovalEventArgs> OnInventoryRemoval;
+    public class InventoryRemovalEventArgs : EventArgs
+    {
+        public int row;
+        public int col;
+    }
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
     //all possible storable items in the game
     //depending on whether or not we make storable vs non storable items this may come in handy 
     //but it has not been implemented yet
@@ -15,11 +34,15 @@ public class InventoryManager : MonoBehaviour
         public GameItemSO gameItemSO;
         public int? amount;
         public bool isOccupied;
-        public InventorySlot(GameItemSO gameItemSO, int? amount, bool isOccupied)
+        public int row;
+        public int col;
+        public InventorySlot(GameItemSO gameItemSO, int? amount, bool isOccupied, int row, int col)
         {
             this.gameItemSO = gameItemSO;
             this.amount = amount;
             this.isOccupied = isOccupied;
+            this.row = row;
+            this.col = col;
         }
     }
     private InventorySlot[,] inventorySlots = new InventorySlot[3, 4];
@@ -30,14 +53,13 @@ public class InventoryManager : MonoBehaviour
         {
             for (int j = 0; j < inventorySlots.GetLength(1); j++)
             {
-                inventorySlots[i, j] = new InventorySlot(null, null, false);
+                inventorySlots[i, j] = new InventorySlot(null, null, false, i, j);
             }
         }
         Player.Instance.OnPickup += Player_OnPickup;
     }
     private void Player_OnPickup(object sender, Player.OnPickupEventArgs e)
     {
-        Debug.Log("Player stored " + e.gameItemSO.name);
         AddItemToInventory(e.gameItemSO);
         Destroy(e.gameItemGameObject);
     }
@@ -53,8 +75,15 @@ public class InventoryManager : MonoBehaviour
         if (existingItem != null)
         {
             //player already has this item in their inventory
-            InventorySlot item = existingItem.Value;
-            item.amount += 1;
+            InventorySlot slot = existingItem.Value;
+            slot.amount += 1;
+
+            OnInventoryAddition?.Invoke(this, new InventoryAdditionEventArgs
+            {
+                slot = slot
+            });
+            Debug.Log("Player stored an additional" + slot.gameItemSO.name);
+
             return true;
         }
         else
@@ -69,6 +98,15 @@ public class InventoryManager : MonoBehaviour
                         inventorySlots[i, j].amount = 1;
                         inventorySlots[i, j].isOccupied = true;
                         inventorySlots[i, j].gameItemSO = gameItemSO;
+                        inventorySlots[i, j].row = i;
+                        inventorySlots[i, j].col = j;
+
+                        OnInventoryAddition?.Invoke(this, new InventoryAdditionEventArgs
+                        {
+                            slot = inventorySlots[i, j]
+                        });
+                        Debug.Log("Player stored " + inventorySlots[i, j].gameItemSO.name + "at" + i + "," + j);
+                        
                         return true;
                     }
                 }
@@ -86,6 +124,11 @@ public class InventoryManager : MonoBehaviour
             item.amount -= 1;
             if (item.amount <= 0)
             {
+                OnInventoryRemoval?.Invoke(this, new InventoryRemovalEventArgs
+                {
+                    row = item.row,
+                    col = item.col
+                });
                 //empty the slot
                 item.isOccupied = false;
                 item.gameItemSO = null;
@@ -108,5 +151,9 @@ public class InventoryManager : MonoBehaviour
             }
         }
         return null;
+    }
+    public bool ItemExistsAtSlot(int row, int col)
+    {
+        return inventorySlots[row, col].isOccupied;
     }
 }

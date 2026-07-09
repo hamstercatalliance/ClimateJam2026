@@ -92,7 +92,7 @@ public class Player : MonoBehaviour
         //THE PLAYER WILL COLLIDE AND HIT A BUTTON TO PICK UP THE ITEM
         if (other.gameObject.CompareTag("Item"))
         {
-            Debug.Log("I AM THE PLAYER AND I HAVE COLLIDED WITH AN ITEM");
+            //Debug.Log("I AM THE PLAYER AND I HAVE COLLIDED WITH AN ITEM");
   
             GameItem gameItem = other.GetComponent<GameItem>();
             OnPickup?.Invoke(this, new OnPickupEventArgs
@@ -100,7 +100,7 @@ public class Player : MonoBehaviour
                 gameItemSO = gameItem.GetGameItemSO(),
                 gameItemGameObject = gameItem.gameObject
             });
-            Debug.Log("Player picked up " + gameItem.GetGameItemSO().name);
+            //Debug.Log("Player picked up " + gameItem.GetGameItemSO().name);
         }    
     }
     // private void HandleInteractions()
