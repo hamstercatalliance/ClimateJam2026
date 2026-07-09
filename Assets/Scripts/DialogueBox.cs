@@ -14,19 +14,26 @@ public class DialogueBox {
     public bool active { get; set; }
     public float wait { get; private set; }
 
+    public string? button1 { get; set; }
+    public string? button2 { get; set; }
 
-    public DialogueBox(string characterID, string dialogue, float? wait = null, string button1, Func<System.Object,System.Object>? func1, string? button2, Func<System.Object, System.Object>? func2) { 
+    public bool? button1press { get; set; } = null;
+
+
+    public DialogueBox(string characterID, string dialogue, string? button1 = null, string? button2 = null, float? wait = null) { 
         this.dialogue = dialogue;
         this.characterID = characterID;
         this.active = true;
         this.wait = wait ?? 0.0f;
+        this.button1 = button1;
+        this.button2 = button2;
     }
 
     public void setInactive()
     {
         this.active = false;
     }
-
+     
     public string getContent() {
         return dialogue;
     }
