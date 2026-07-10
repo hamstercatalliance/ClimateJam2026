@@ -6,6 +6,7 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] private GameInput gameInput;
     [SerializeField] private GameObject menuUI;
+    [SerializeField] private List<GameObject> menuScreens;
     private bool isMenuOpen;
     // Start is called before the first frame update
     void Start()
@@ -13,6 +14,10 @@ public class MenuManager : MonoBehaviour
         gameInput.OnMenuAction += GameInput_OnMenuAction;
         menuUI.SetActive(false);
         isMenuOpen = false;
+    }
+    private void OnDestroy()
+    {
+        gameInput.OnMenuAction -= GameInput_OnMenuAction;
     }
     private void GameInput_OnMenuAction(object sender, System.EventArgs e)
     {
@@ -31,5 +36,13 @@ public class MenuManager : MonoBehaviour
     void Update()
     {
         
+    }
+    public void Display(GameObject gameObject)
+    {
+        foreach (GameObject screen in menuScreens)
+        {
+            screen.SetActive(false);
+        }
+        gameObject.SetActive(true);
     }
 }

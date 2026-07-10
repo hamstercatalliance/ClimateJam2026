@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7013358773035230646}
   m_Layer: 0
   m_Name: Portal
-  m_TagString: Untagged
+  m_TagString: SceneLoader
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,3 +119,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Home
+  IHasPersistentDataGameObjects:
+  - {fileID: 9015818030024076417, guid: 6aa268ee2224f03499fd7aad5277be87, type: 3}
+  - {fileID: 6391401622150508014, guid: 60b16ca50c8f1f14dba51e166f28d4db, type: 3}
+  - {fileID: 6622573530550111118, guid: 743cad8e2b6c75d4886516989e988ab0, type: 3}
+  - {fileID: 5108389219574776871, guid: 80eba9334e6182d4d8aba2e601e118b9, type: 3}

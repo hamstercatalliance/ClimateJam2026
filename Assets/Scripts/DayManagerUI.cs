@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
-public class DayManagerUI : MonoBehaviour
+using System;
+using Unity.VisualScripting;
+public class DayManagerUI : MonoBehaviour, IHasPersistentData
 {
+    [SerializeField] private float spriteTransitionDuration = 20f;
     [SerializeField] private GameObject progressBarStartPoint;
     [SerializeField] private GameObject progressBarEndPoint;
     //[SerializeField] private DayManager dayManager;
@@ -16,25 +18,87 @@ public class DayManagerUI : MonoBehaviour
     private Vector3 startPos;
     private Vector3 endPos;
     private float progressNormalized;
+    private float? transitionProgress;
+    public bool DataSuccessfullyWritten { get; private set; }
     // Start is called before the first frame update
     void Start()
     {
+        DayManager.Instance.OnDayChanged += DayManager_OnDayChanged;
+        DayManager.Instance.OnMoonrise += DayManager_OnMoonrise;
+        SceneLoader.OnSceneTransition += OnSceneTransitionHandler;
+        DayManager.Instance.OnDayManagerDataLoaded += DayManager_OnDayManagerDataLoaded;
+
         startPos = progressBarStartPoint.transform.position;
         endPos = progressBarEndPoint.transform.position;
 
-        progressTracker.transform.position = startPos;
-        
+        // progressTracker.transform.position = startPos;
+        progressTracker.transform.position = DayManager.Instance.GetProgressNormalized() * (endPos - startPos) + startPos;
+
         sun.SetActive(true);
         moon.SetActive(true);
-        SetGameObjectImageAlpha(sun, 1f);
-        SetGameObjectImageAlpha(moon, 0f);
-
-        DayManager.Instance.OnDayChanged += DayManager_OnDayChanged;
-        DayManager.Instance.OnMoonrise += DayManager_OnMoonrise;
+    }
+    private void DayManager_OnDayManagerDataLoaded(object sender, EventArgs e)
+    {
+        //ALWAYS LOAD DAY MANAGER DATA BEFORE DAY MANAGER UI DATA
+        LoadGameData();
+    }
+    public void LoadGameData()
+    {
+        if (GameData.Instance != null && GameData.Instance.HasLoadedRunData)
+        {
+            DayManager.State state = DayManager.Instance.GetState();
+            Debug.Log("Game data found.");
+            // Load UI elements based on saved game data
+            if (GameData.Instance.DayManagerUITransitionProgress.HasValue)
+            {
+                Debug.Log("In the middle of a transition (moonrising).");
+                transitionProgress = GameData.Instance.DayManagerUITransitionProgress;
+                ContinueTransition(transitionProgress);
+            }
+            else
+            {
+                Debug.Log("No transition in progress.");
+                if (state == DayManager.State.Moonrising || state == DayManager.State.Nighttime)
+                {
+                    
+                    SetGameObjectImageAlpha(sun, 0f);
+                    SetGameObjectImageAlpha(moon, 1f);
+                }
+                else if (state == DayManager.State.Sunrising || state == DayManager.State.Daytime)
+                {
+                    SetGameObjectImageAlpha(sun, 1f);
+                    SetGameObjectImageAlpha(moon, 0f);
+                }
+                Debug.Log(state);
+            }
+        }
+        else
+        {
+            Debug.Log("No game data found. Initializing default values.");
+            // Initialize UI elements
+            SetGameObjectImageAlpha(sun, 1f);
+            SetGameObjectImageAlpha(moon, 0f);
+            transitionProgress = null;
+        }
+    }
+    private void OnSceneTransitionHandler(object sender, EventArgs e)
+    {
+        WriteToGameData();
+    }
+    private void ContinueTransition(float? transitionProgress)
+    {
+        float transitionProgressNormalized = transitionProgress.Value / spriteTransitionDuration;
+        SetGameObjectImageAlpha(sun, 1f - transitionProgressNormalized);
+        SetGameObjectImageAlpha(moon, transitionProgressNormalized);
+        StartCoroutine(TransitionFade(spriteTransitionDuration-transitionProgress.Value));
     }
     private void DayManager_OnMoonrise(object sender, System.EventArgs e)
     {
-        StartCoroutine(TransitionFade(20f));
+        if (transitionProgress == null)
+        {
+            transitionProgress = 0f;
+        }
+        StartCoroutine(TransitionFade(spriteTransitionDuration-transitionProgress.Value));
     }
     private void DayManager_OnDayChanged(object sender, DayManager.OnDayChangedEventArgs e)
     {
@@ -76,11 +140,15 @@ public class DayManagerUI : MonoBehaviour
 
             Debug.Log("Sun Alpha: " + sc.a + " Moon Alpha: " + mc.a);
             t += Time.deltaTime;
+            transitionProgress += Time.deltaTime;
+
             yield return null;
         }
 
         SetGameObjectImageAlpha(sun, 0f);
         SetGameObjectImageAlpha(moon, 1f);
+        //GameData.Instance.TransitionProgress = null;
+        transitionProgress = null;
     }
     private void SetGameObjectImageAlpha(GameObject obj, float alpha)
     {
@@ -91,5 +159,10 @@ public class DayManagerUI : MonoBehaviour
             c.a = Mathf.Clamp01(alpha);
             img.color = c;
         }
+    }
+    public void WriteToGameData()
+    {
+        GameData.Instance.DayManagerUITransitionProgress = transitionProgress;
+        DataSuccessfullyWritten = true;
     }
 }
