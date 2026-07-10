@@ -7,11 +7,11 @@ public class DialogueBoxTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Conversation conversation = gameObject.AddComponent<Conversation>();
-        conversation.addDialogue(new DialogueBox("Sam", "I sit"));
-        conversation.addDialogue(new DialogueBox("Anderdingu", "bleh", "Eat", "Dont eat", 2.0f));
-        conversation.addDialogue(new DialogueBox("Sam", "YIPEEEEEEEE"));
+        //Conversation conversation = gameObject.AddComponent<Conversation>();
+        //conversation.addDialogue(new DialogueBox("Sam", "I sit"));
+        //conversation.addDialogue(new DialogueBox("Anderdingu", "bleh", "Eat", "Dont eat", 2.0f));
+        //conversation.addDialogue(new DialogueBox("Sam", "YIPEEEEEEEE"));
 
-        conversation.Execute();
+        //conversation.Execute();
     }
 }
