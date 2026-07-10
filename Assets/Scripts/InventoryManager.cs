@@ -46,7 +46,7 @@ public class InventoryManager : MonoBehaviour, IHasPersistentData
             this.col = col;
         }
     }
-    private InventorySlot[,] inventorySlots = new InventorySlot[3, 4];
+    private InventorySlot[,] inventorySlots = new InventorySlot[4, 3];
     // Start is called before the first frame update
     void Start()
     {
@@ -98,13 +98,14 @@ public class InventoryManager : MonoBehaviour, IHasPersistentData
             //player already has this item in their inventory
             InventorySlot slot = existingItem.Value;
             slot.amount += 1;
-
+            inventorySlots[slot.row, slot.col] = slot;
+            
             OnInventoryAddition?.Invoke(this, new InventoryAdditionEventArgs
             {
                 slot = slot
             });
             Debug.Log("Player stored an additional" + slot.gameItemSO.name);
-
+            Debug.Log("Player now has " + slot.amount + " " + slot.gameItemSO.name);
             return true;
         }
         else
@@ -155,6 +156,7 @@ public class InventoryManager : MonoBehaviour, IHasPersistentData
                 item.gameItemSO = null;
                 item.amount = null;
             }
+            inventorySlots[item.row, item.col] = item;
             return true;
         }
         return false;

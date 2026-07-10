@@ -15,6 +15,10 @@ public class MenuManager : MonoBehaviour
         menuUI.SetActive(false);
         isMenuOpen = false;
     }
+    private void OnDestroy()
+    {
+        gameInput.OnMenuAction -= GameInput_OnMenuAction;
+    }
     private void GameInput_OnMenuAction(object sender, System.EventArgs e)
     {
         if (isMenuOpen)

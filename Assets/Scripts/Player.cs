@@ -56,11 +56,7 @@ public class Player : MonoBehaviour, IHasPersistentData
     }
     private void OnDestroy()
     {
-        if (gameInput != null)
-        {
-            gameInput.OnJumpAction -= GameInput_OnJumpAction;
-        }
-
+        gameInput.OnJumpAction -= GameInput_OnJumpAction;
         SceneLoader.OnSceneTransition -= OnSceneTransitionHandler;
     }
     private void GameInput_OnJumpAction(object sender, System.EventArgs e)

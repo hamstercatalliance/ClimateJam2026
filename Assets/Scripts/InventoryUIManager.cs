@@ -48,6 +48,7 @@ public class InventoryUIManager : MonoBehaviour
 
     public InventorySlotUI GetSlotUI(int row, int col)
     {
+        Debug.Log($"Getting slot UI for row {row}, col {col}");
         switch (row)
         {
             case 0:
