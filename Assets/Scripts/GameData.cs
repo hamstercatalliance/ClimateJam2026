@@ -5,16 +5,16 @@ using UnityEngine;
 public class GameData : MonoBehaviour
 {
     public static GameData Instance { get; private set; }
-    public bool HasLoadedRunData { get; set; }
+    public bool HasLoadedRunData = false;
 
-    public InventoryManager.InventorySlot[,] Inventory { get; set; }
+    public InventoryManager.InventorySlot[,] InventorySlots;
 
-    public float DayManagerTimeElapsed { get; set; }
-    public int DayManagerDayCount { get; set; }
+    public float DayManagerTimeElapsed;
+    public int DayManagerDayCount;
     
-    public float? DayManagerUITransitionProgress { get; set; }
+    public float? DayManagerUITransitionProgress;
 
-    
+    public Vector3 PlayerFacingDirection;
     private void Awake()
     {
         if (Instance != null && Instance != this)

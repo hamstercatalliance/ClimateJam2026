@@ -5,8 +5,9 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine.Experimental.AI;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IHasPersistentData
 {
+    public event EventHandler OnSceneLoaderCollided;
     public event EventHandler<OnPickupEventArgs> OnPickup;
     public class OnPickupEventArgs : EventArgs
     {
@@ -28,8 +29,7 @@ public class Player : MonoBehaviour
     // {
     //     public BaseCounter selectedCounter;
     // }
-
-
+    public bool DataSuccessfullyWritten { get; private set; }
     public static Player Instance { get; private set; } //PLAYER SINGLETON
     private void Awake()
     {
@@ -45,8 +45,23 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         gameInput.OnJumpAction += GameInput_OnJumpAction;
+        SceneLoader.OnSceneTransition += OnSceneTransitionHandler;
+        LoadGameData();
     //     gameInput.OnInteractAction += GameInput_OnInteractAction;
     //     gameInput.OnInteractAlternateAction += GameInput_OnInteractAlternateAction;
+    }
+    private void OnSceneTransitionHandler(object sender, System.EventArgs e)
+    {
+        WriteToGameData();
+    }
+    private void OnDestroy()
+    {
+        if (gameInput != null)
+        {
+            gameInput.OnJumpAction -= GameInput_OnJumpAction;
+        }
+
+        SceneLoader.OnSceneTransition -= OnSceneTransitionHandler;
     }
     private void GameInput_OnJumpAction(object sender, System.EventArgs e)
     {
@@ -84,6 +99,10 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+        }
+        if (collision.gameObject.CompareTag("SceneLoader"))
+        {
+            OnSceneLoaderCollided?.Invoke(this, EventArgs.Empty);
         }
     }
     public void OnTriggerEnter(Collider other)
@@ -170,4 +189,17 @@ public class Player : MonoBehaviour
     //         selectedCounter = selectedCounter
     //     });
     // }
+    public void WriteToGameData()
+    {
+        GameData.Instance.PlayerFacingDirection = transform.forward;
+        DataSuccessfullyWritten = true;
+    }
+
+    public void LoadGameData()
+    {
+        if (GameData.Instance != null && GameData.Instance.HasLoadedRunData)
+        {
+            transform.forward = GameData.Instance.PlayerFacingDirection;
+        }
+    }
 }

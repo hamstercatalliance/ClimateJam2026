@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-public class InventoryManager : MonoBehaviour
+public class InventoryManager : MonoBehaviour, IHasPersistentData
 {
     public static InventoryManager Instance { get; private set; } //singleton
     [SerializeField] private List<GameItemSO> gameItemSOList; 
@@ -17,6 +17,7 @@ public class InventoryManager : MonoBehaviour
         public int row;
         public int col;
     }
+    public bool DataSuccessfullyWritten { get; private set; }
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -49,24 +50,44 @@ public class InventoryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < inventorySlots.GetLength(0); i++)
-        {
-            for (int j = 0; j < inventorySlots.GetLength(1); j++)
-            {
-                inventorySlots[i, j] = new InventorySlot(null, null, false, i, j);
-            }
-        }
         Player.Instance.OnPickup += Player_OnPickup;
+        SceneLoader.OnSceneTransition += SceneLoader_OnSceneTransition;
+        LoadGameData();
+    }
+    private void SceneLoader_OnSceneTransition(object sender, System.EventArgs e)
+    {
+        WriteToGameData();
     }
     private void Player_OnPickup(object sender, Player.OnPickupEventArgs e)
     {
         AddItemToInventory(e.gameItemSO);
         Destroy(e.gameItemGameObject);
     }
-    // Update is called once per frame
-    void Update()
+    public void LoadGameData()
     {
+        if (GameData.Instance != null && GameData.Instance.HasLoadedRunData)
+        {
+            inventorySlots = GameData.Instance.InventorySlots;
+            InventoryUIManager.Instance.LoadSlotUIData();
+        }
+        else
+        {
+            //new game
+            for (int i = 0; i < inventorySlots.GetLength(0); i++)
+            {
+                for (int j = 0; j < inventorySlots.GetLength(1); j++)
+                {
+                    inventorySlots[i, j] = new InventorySlot(null, null, false, i, j);
+                }
+            }
+        }
         
+    }
+
+    public void WriteToGameData()
+    {
+        GameData.Instance.InventorySlots = inventorySlots;
+        DataSuccessfullyWritten = true;
     }
 
     public bool AddItemToInventory(GameItemSO gameItemSO)

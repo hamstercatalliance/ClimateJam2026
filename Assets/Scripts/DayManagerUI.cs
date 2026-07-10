@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using Unity.VisualScripting;
-public class DayManagerUI : MonoBehaviour
+public class DayManagerUI : MonoBehaviour, IHasPersistentData
 {
     [SerializeField] private float spriteTransitionDuration = 20f;
     [SerializeField] private GameObject progressBarStartPoint;
@@ -19,6 +19,7 @@ public class DayManagerUI : MonoBehaviour
     private Vector3 endPos;
     private float progressNormalized;
     private float? transitionProgress;
+    public bool DataSuccessfullyWritten { get; private set; }
     // Start is called before the first frame update
     void Start()
     {
@@ -39,9 +40,9 @@ public class DayManagerUI : MonoBehaviour
     private void DayManager_OnDayManagerDataLoaded(object sender, EventArgs e)
     {
         //ALWAYS LOAD DAY MANAGER DATA BEFORE DAY MANAGER UI DATA
-        LoadDayManagerUI();
+        LoadGameData();
     }
-    private void LoadDayManagerUI()
+    public void LoadGameData()
     {
         if (GameData.Instance != null && GameData.Instance.HasLoadedRunData)
         {
@@ -159,8 +160,9 @@ public class DayManagerUI : MonoBehaviour
             img.color = c;
         }
     }
-    private void WriteToGameData()
+    public void WriteToGameData()
     {
         GameData.Instance.DayManagerUITransitionProgress = transitionProgress;
+        DataSuccessfullyWritten = true;
     }
 }

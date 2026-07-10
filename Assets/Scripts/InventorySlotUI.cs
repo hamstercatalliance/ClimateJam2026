@@ -12,13 +12,12 @@ public class InventorySlotUI : MonoBehaviour
         Debug.Log("Setting icon for slot");
         //set the sprite (image for UI)
         icon.GetComponent<Image>().sprite = sprite;
-        icon.SetActive(true);
+        icon.SetActive(true); //EVENTUALLY HANDLE THIS ELSEWHERE
     }
     public void ClearSlot()
     {
-
         //clear the slot
-        icon.SetActive(false);
+        icon.SetActive(false); //EVENTUALLY HANDLE THIS ELSEWHERE
         amountText.text = "";
     }
     public void SetAmount(int amount)

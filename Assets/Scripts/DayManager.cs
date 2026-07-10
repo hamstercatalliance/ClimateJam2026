@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using System;
 
-public class DayManager : MonoBehaviour//, IHasProgress
+public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
 {
     //public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
     public event EventHandler OnMoonrise;
@@ -21,7 +21,7 @@ public class DayManager : MonoBehaviour//, IHasProgress
     [SerializeField] private Volume night;
     [SerializeField] private Volume transition;
     private int dayCount = 0;
-
+    public bool DataSuccessfullyWritten { get; private set; }
     // sunrise->day : 0.65 minute
     // day : 2.75 minutes
     // day->sunset : 0.5 minute
@@ -59,14 +59,15 @@ public class DayManager : MonoBehaviour//, IHasProgress
     private void Start()
     {
         minutesInADay = secondsInADay / 60f;
-        LoadDayData();
+        LoadGameData();
         SceneLoader.OnSceneTransition += OnSceneTransitionHandler;
     }
     private void OnSceneTransitionHandler(object sender, EventArgs e)
     {
+        Debug.Log("I will write day data to game data.");
         WriteToGameData();
     }
-    private void LoadDayData()
+    public void LoadGameData()
     {
         if (GameData.Instance != null && GameData.Instance.HasLoadedRunData)
         {
@@ -86,12 +87,6 @@ public class DayManager : MonoBehaviour//, IHasProgress
             timeElapsed = 0f;
             dayCount = 0;
             state = State.Sunrising;
-
-            if (GameData.Instance != null)
-            {
-                WriteToGameData();
-                GameData.Instance.HasLoadedRunData = true;
-            }
         }
 
         OnDayManagerDataLoaded?.Invoke(this, EventArgs.Empty);
@@ -204,9 +199,12 @@ public class DayManager : MonoBehaviour//, IHasProgress
             return State.Nighttime;
         }
     }
-    private void WriteToGameData()
+    public void WriteToGameData()
     {
         GameData.Instance.DayManagerTimeElapsed = timeElapsed;
         GameData.Instance.DayManagerDayCount = dayCount;
+        Debug.Log("Writing day data to game data.");
+        DataSuccessfullyWritten = true;
+        Debug.Log(DataSuccessfullyWritten);
     }
 }

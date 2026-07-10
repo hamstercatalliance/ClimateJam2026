@@ -26,19 +26,18 @@ public class InventoryUIManager : MonoBehaviour
         InventoryManager.Instance.OnInventoryAddition += InventoryManager_OnInventoryAddition;
         InventoryManager.Instance.OnInventoryRemoval += InventoryManager_OnInventoryRemoval;
     }
+    
     private void InventoryManager_OnInventoryAddition(object sender, InventoryManager.InventoryAdditionEventArgs e)
     {
         Debug.Log("Inventory addition event triggered");
         InventoryManager.InventorySlot slot = e.slot;
         InventorySlotUI slotUI = GetSlotUI(slot.row, slot.col);
 
-        Debug.Log(slot);
-        Debug.Log(slot.gameItemSO.name);
-        Debug.Log(slot.gameItemSO.inventorySprite);
+        // Debug.Log(slot);
+        // Debug.Log(slot.gameItemSO.name);
+        // Debug.Log(slot.gameItemSO.inventorySprite);
 
-        slotUI.SetIcon(slot.gameItemSO.inventorySprite);
-        slotUI.SetAmount((int) slot.amount);
-        slotUI.ShowChildren();
+        ShowSlot(slotUI, slot);
     }
     private void InventoryManager_OnInventoryRemoval(object sender, InventoryManager.InventoryRemovalEventArgs e)
     {
@@ -64,5 +63,26 @@ public class InventoryUIManager : MonoBehaviour
         }
     }
 
-    
+    public void LoadSlotUIData()
+    {
+        for (int row = 0; row < GameData.Instance.InventorySlots.GetLength(0); row++)
+        {
+            for (int col = 0; col < GameData.Instance.InventorySlots.GetLength(1); col++)
+            {
+                InventoryManager.InventorySlot slot = GameData.Instance.InventorySlots[row, col];
+                InventorySlotUI slotUI = GetSlotUI(row, col);
+                
+                if (slot.isOccupied)
+                {
+                    ShowSlot(slotUI, slot);
+                }
+            }
+        }
+    }
+    private void ShowSlot(InventorySlotUI slotUI, InventoryManager.InventorySlot slot)
+    {
+        slotUI.SetIcon(slot.gameItemSO.inventorySprite);
+        slotUI.SetAmount((int) slot.amount);
+        slotUI.ShowChildren();
+    }
 }
