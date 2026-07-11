@@ -9,4 +9,6 @@ public class GameItemSO : ScriptableObject
     public GameObject worldSpacePrefab;
     public Sprite inventorySprite;
     public string itemName;
+    public string itemDescription;
+    public string sourceLink;
 }

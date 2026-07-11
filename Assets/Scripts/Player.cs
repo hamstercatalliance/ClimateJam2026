@@ -96,10 +96,7 @@ public class Player : MonoBehaviour, IHasPersistentData
         {
             isGrounded = true;
         }
-        if (collision.gameObject.CompareTag("SceneLoader"))
-        {
-            OnSceneLoaderCollided?.Invoke(this, EventArgs.Empty);
-        }
+        
     }
     public void OnTriggerEnter(Collider other)
     {
@@ -117,6 +114,10 @@ public class Player : MonoBehaviour, IHasPersistentData
             });
             //Debug.Log("Player picked up " + gameItem.GetGameItemSO().name);
         }    
+        if (other.gameObject.CompareTag("SceneLoader"))
+        {
+            OnSceneLoaderCollided?.Invoke(this, EventArgs.Empty);
+        }
     }
     // private void HandleInteractions()
     // {
@@ -162,8 +163,59 @@ public class Player : MonoBehaviour, IHasPersistentData
         }
 
         float moveDistance = moveSpeed * Time.deltaTime;
+        float playerRadius = .6f;
+        float playerHeight = 2f;
+        bool canMove = !Physics.CapsuleCast(
+            transform.position,
+            transform.position + Vector3.up * playerHeight,
+            playerRadius,
+            moveDir,
+            moveDistance,
+            Physics.AllLayers,
+            QueryTriggerInteraction.Ignore
+        );
 
-        transform.position += moveDir.normalized * moveDistance;
+
+
+        if (!canMove)
+        {
+            Vector3 moveDirX = new Vector3(moveDir.x, 0, 0).normalized;
+            canMove = moveDir.x != 0 && !Physics.CapsuleCast(
+                transform.position,
+                transform.position + Vector3.up * playerHeight,
+                playerRadius,
+                moveDirX,
+                moveDistance,
+                Physics.AllLayers,
+                QueryTriggerInteraction.Ignore
+            );
+            if (canMove)
+            {
+                moveDir = moveDirX;
+            }
+            else
+            {
+                Vector3 moveDirZ = new Vector3(0, 0, moveDir.z).normalized;
+                canMove = moveDir.z != 0 && !Physics.CapsuleCast(
+                    transform.position,
+                    transform.position + Vector3.up * playerHeight,
+                    playerRadius,
+                    moveDirZ,
+                    moveDistance,
+                    Physics.AllLayers,
+                    QueryTriggerInteraction.Ignore
+                );
+                if (canMove)
+                {
+                    moveDir = moveDirZ;
+                }
+            }
+        }
+        if (canMove)
+        {
+            transform.position += moveDir * moveDistance;
+        }
+
 
         if (lastMoveDir.x < 0)
         {
