@@ -19,13 +19,24 @@ public class DialogueRenderer : MonoBehaviour
         Transform dialogueButton1 = dialoguePanel.transform.Find("DialogueButton1");
         Transform dialogueButton2 = dialoguePanel.transform.Find("DialogueButton2");
 
+        dialogueButton2.gameObject.SetActive(!(dialogueObject.button2 == null));
+
         contentText.GetComponent<TMP_Text>().text = dialogueObject.getContent();
         characterText.GetComponent<TMP_Text>().text = dialogueObject.getCharacterID();
+
+        dialogueButton1.GetChild(0).GetComponent<TMP_Text>().text = dialogueObject.button1;
+        dialogueButton2.GetChild(0).GetComponent<TMP_Text>().text = dialogueObject.button2;
 
         // Basic dialogue listener
         dialogueButton1.GetComponent<Button>().onClick.AddListener(() => { 
             Destroy(dialoguePanel);
             dialogueObject.setInactive();
+            dialogueObject.button1press = true;
+        });
+        dialogueButton2.GetComponent<Button>().onClick.AddListener(() => {
+            Destroy(dialoguePanel);
+            dialogueObject.setInactive();
+            dialogueObject.button1press = false;
         });
         // End basic dialogue listener
     }

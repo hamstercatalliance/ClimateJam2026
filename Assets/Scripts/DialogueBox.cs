@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,19 +14,26 @@ public class DialogueBox {
     public bool active { get; set; }
     public float wait { get; private set; }
 
+    public string? button1 { get; set; }
+    public string? button2 { get; set; }
 
-    public DialogueBox(string dialogue, string characterID,  float wait) { 
+    public bool? button1press { get; set; } = null;
+
+
+    public DialogueBox(string characterID, string dialogue, string? button1 = null, string? button2 = null, float? wait = null) { 
         this.dialogue = dialogue;
         this.characterID = characterID;
         this.active = true;
-        this.wait = wait;
+        this.wait = wait ?? 0.0f;
+        this.button1 = button1;
+        this.button2 = button2;
     }
 
     public void setInactive()
     {
         this.active = false;
     }
-
+     
     public string getContent() {
         return dialogue;
     }
