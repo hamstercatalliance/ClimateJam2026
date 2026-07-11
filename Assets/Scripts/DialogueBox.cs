@@ -14,13 +14,13 @@ public class DialogueBox {
     public bool active { get; set; }
     public float wait { get; private set; }
 
-    public string button1 { get; set; }
-    public string button2 { get; set; }
+    public string? button1 { get; set; }
+    public string? button2 { get; set; }
 
     public bool? button1press { get; set; } = null;
 
 
-    public DialogueBox(string characterID, string dialogue, string button1 = null, string button2 = null, float? wait = null) { 
+    public DialogueBox(string characterID, string dialogue, string? button1 = null, string? button2 = null, float? wait = null) { 
         this.dialogue = dialogue;
         this.characterID = characterID;
         this.active = true;

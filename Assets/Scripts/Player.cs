@@ -163,14 +163,8 @@ public class Player : MonoBehaviour, IHasPersistentData
 
         float moveDistance = moveSpeed * Time.deltaTime;
 
-        float playerSize = .7f;
+        transform.position += moveDir.normalized * moveDistance;
 
-        bool canMove = !Physics.Raycast(transform.position, moveDir, playerSize);
-
-        if (canMove)
-        {
-            transform.position += moveDir.normalized * moveDistance;
-        }
         if (lastMoveDir.x < 0)
         {
             transform.forward = Vector3.Slerp(transform.forward, new Vector3(0, 0, 1), Time.deltaTime * rotateSpeed); //turning player to face the direction of movement
