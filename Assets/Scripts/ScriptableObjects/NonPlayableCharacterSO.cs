@@ -7,6 +7,8 @@ public class NonPlayableCharacterSO : ScriptableObject
 {
     public string CharacterName;
     public string CharacterID;
+    public float interactionRadius = 2.0f; 
+
 
     public GameObject prefab;
     public Sprite idleSprite;

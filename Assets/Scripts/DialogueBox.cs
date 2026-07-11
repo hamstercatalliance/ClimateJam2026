@@ -10,8 +10,10 @@ public class DialogueBox {
     private string dialogue;
     private string characterID;
 
-
+    public static bool dialogueActive { get; set; } = false;
     public bool active { get; set; }
+
+    public bool lastBox { get; set; }
     public float wait { get; private set; }
 
     public string? button1 { get; set; }
@@ -27,6 +29,7 @@ public class DialogueBox {
         this.wait = wait ?? 0.0f;
         this.button1 = button1;
         this.button2 = button2;
+        lastBox = true;
     }
 
     public void setInactive()

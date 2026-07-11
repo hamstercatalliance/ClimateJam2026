@@ -11,9 +11,9 @@ public class TestNPC1Script : NonPlayableCharacter
 
 
     // Update is called once per frame
-
     public override void Init() {
-        OnTalk();
+        characterID = scriptableNPC.CharacterID;
+        characterName = scriptableNPC.CharacterName;
     }
 
     public override void OnTalk()

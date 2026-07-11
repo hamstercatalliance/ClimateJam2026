@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ public class Conversation : MonoBehaviour
 
     public void Execute() {
         // Set to cannot move 
+        DialogueBox.dialogueActive = true;
         StartCoroutine(DialogueLoop());
         IEnumerator DialogueLoop () {
             for (int i = 0; i < dialogue.Length; i++)
@@ -44,7 +46,12 @@ public class Conversation : MonoBehaviour
         }
         // set to can move
     }
-    public void addDialogue(DialogueBox dialogueBox) { 
+
+    public void addDialogue(DialogueBox dialogueBox) {
+        if (dialogue.Length > 0)
+        {
+            dialogue[dialogue.Length - 1].lastBox = false;
+        }
         Array.Resize(ref dialogue, dialogue.Length+1);
         dialogue[dialogue.Length-1] = dialogueBox;
     }

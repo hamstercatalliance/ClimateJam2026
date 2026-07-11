@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Runtime.CompilerServices;
 public class DialogueRenderer : MonoBehaviour
 {
     static GameObject box;
@@ -28,16 +29,22 @@ public class DialogueRenderer : MonoBehaviour
         dialogueButton2.GetChild(0).GetComponent<TMP_Text>().text = dialogueObject.button2;
 
         // Basic dialogue listener
-        dialogueButton1.GetComponent<Button>().onClick.AddListener(() => { 
-            Destroy(dialoguePanel);
-            dialogueObject.setInactive();
+        dialogueButton1.GetComponent<Button>().onClick.AddListener(() => {
+            endDialogue(dialogueObject, dialoguePanel);
             dialogueObject.button1press = true;
         });
         dialogueButton2.GetComponent<Button>().onClick.AddListener(() => {
-            Destroy(dialoguePanel);
-            dialogueObject.setInactive();
+            endDialogue(dialogueObject, dialoguePanel);
             dialogueObject.button1press = false;
         });
         // End basic dialogue listener
     }
-}
+    private static void endDialogue(DialogueBox dialogue, GameObject dialoguePanel) {
+        dialogue.setInactive();
+        if (dialogue.lastBox)
+        {
+            DialogueBox.dialogueActive = false;
+        }
+        Destroy(dialoguePanel);
+    }
+}  

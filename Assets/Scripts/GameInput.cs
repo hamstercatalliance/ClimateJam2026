@@ -17,24 +17,32 @@ public class GameInput : MonoBehaviour
         playerInputActions.Player.Enable();
         playerInputActions.Player.Jump.performed += Jump_performed;
         playerInputActions.Player.MenuToggle.performed += MenuToggle_performed;
-        //playerInputActions.Player.Interact.performed += Interact_performed;
+        playerInputActions.Player.Interact.performed += Interact_performed;
         //playerInputActions.Player.InteractAlternate.performed += InteractAlternate_performed;
     }
     private void MenuToggle_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        OnMenuAction?.Invoke(this, EventArgs.Empty);
+        if (!DialogueBox.dialogueActive)
+        {
+            OnMenuAction?.Invoke(this, EventArgs.Empty);
+        }
     }
     private void Jump_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        OnJumpAction?.Invoke(this, EventArgs.Empty);
+        if (!DialogueBox.dialogueActive)
+        {
+            OnJumpAction?.Invoke(this, EventArgs.Empty);
+        }
     }
     private void Interact_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        // if (OnInteractAction != null)
-        // {
-        //     OnInteractAction(this, EventArgs.Empty);
-        // }
-        OnInteractAction?.Invoke(this, EventArgs.Empty); //same as above but more compact
+        if (OnInteractAction != null)
+        {
+            OnInteractAction(this, EventArgs.Empty);
+        }
+        OnInteractAction?.Invoke(this, EventArgs.Empty); //same as above but more compact 
+        Debug.Log("GameInput: Interact action triggered");
+        //send out event ^
     }
     private void InteractAlternate_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
@@ -46,7 +54,9 @@ public class GameInput : MonoBehaviour
         Vector2 inputVector = playerInputActions.Player.Move.ReadValue<Vector2>();
 
         inputVector = inputVector.normalized;
-
+        if (DialogueBox.dialogueActive) {
+            return Vector2.zero;
+        }
         return inputVector;
     }
 }
