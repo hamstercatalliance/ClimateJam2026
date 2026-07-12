@@ -11,7 +11,9 @@ public class GameData : MonoBehaviour
 
     public float DayManagerTimeElapsed;
     public int DayManagerDayCount;
-    
+
+    public int? SympathyPoints;
+
     public float? DayManagerUITransitionProgress;
 
     public Vector3 PlayerFacingDirection;
