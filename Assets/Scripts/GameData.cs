@@ -47,6 +47,11 @@ public class GameData : MonoBehaviour
     #region Player data
     public Vector3 PlayerFacingDirection;
     #endregion
+
+    #region Sympathy Points Data
+    public int? SympathyPoints;
+    #endregion
+
     #region Quest Manager Data (DOES NOT SAVE QUEST SPECIFIC PROGRESS. ONLY SAVES: questSO, isCompleted, isInitiated)
     public List<QuestManager.QuestData> QuestDataList = new List<QuestManager.QuestData>();
     #endregion
