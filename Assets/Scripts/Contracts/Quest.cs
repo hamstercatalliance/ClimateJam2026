@@ -2,14 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-public abstract class Quest : MonoBehaviour
+public abstract partial class Quest : MonoBehaviour, IHasPersistentData
 {
     public QuestSO questSO;
     public bool isInitiated;
     public bool isCompleted;
     public static event EventHandler OnQuestInitiated;
     public static event EventHandler OnQuestCompleted;
-    
+    public bool DataSuccessfullyWritten { get; private set; }
+    protected virtual void Start()
+    {
+        LoadGameData();
+        SceneLoader.OnSceneTransition += OnSceneTransitionHandler;
+    }
+    protected virtual void OnDestroy()
+    {
+        SceneLoader.OnSceneTransition -= OnSceneTransitionHandler;
+    }
+    protected virtual void OnSceneTransitionHandler(object sender, System.EventArgs e)
+    {
+        WriteToGameData();
+    }
     public virtual void InitiateQuest()
     {
         if (!isInitiated)
@@ -24,5 +37,15 @@ public abstract class Quest : MonoBehaviour
         isCompleted = true;
         isCompleted = true;
         OnQuestCompleted?.Invoke(this, EventArgs.Empty);
+    }
+    public virtual void WriteToGameData()
+    {
+        DataSuccessfullyWritten = true;
+    }
+    public virtual void LoadGameData()
+    {
+        //QUESTS DO NOT NEED TO WORRY ABOUT LOADING IS INITIATED OR IS COMPLETED
+        //IS INITIATED AND IS COMPLETED WILL BE SET IN QUESTMANAGER WHEN LOADING
+        //THIS IS FOR QUEST SPECIFIC PROGRESS DATA THAT NEEDS TO BE SAVED AND LOADED
     }
 }

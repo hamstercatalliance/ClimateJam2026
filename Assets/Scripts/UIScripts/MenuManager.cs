@@ -1,12 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class MenuManager : MonoBehaviour
 {
+    public static MenuManager Instance { get; private set; }
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
     [SerializeField] private GameInput gameInput;
     [SerializeField] private GameObject menuUI;
     [SerializeField] private List<GameObject> menuScreens;
+    public event EventHandler OnMenuClosed;
     private bool isMenuOpen;
     // Start is called before the first frame update
     void Start()
@@ -25,6 +36,7 @@ public class MenuManager : MonoBehaviour
         {
             menuUI.SetActive(false);
             isMenuOpen = false;
+            OnMenuClosed?.Invoke(this, EventArgs.Empty);
         }
         else
         {
