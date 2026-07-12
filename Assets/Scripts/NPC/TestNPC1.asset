@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: TestNPC1
   m_EditorClassIdentifier: 
   CharacterName: The Sun
-  CharacterID: 
+  CharacterID: thesun
+  interactionRadius: 10
   prefab: {fileID: 0}
   idleSprite: {fileID: 0}
   talkingSprite: {fileID: 0}
