@@ -37,12 +37,6 @@ public class PlayerInteract : MonoBehaviour
         gameInput.OnInteractAction += GameInput_OnInteractAction;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 
     public string closestNPCID()
     {

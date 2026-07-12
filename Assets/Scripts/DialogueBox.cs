@@ -21,6 +21,8 @@ public class DialogueBox {
 
     public bool? button1press { get; set; } = null;
 
+    public Dictionary<string, Action> buttons { get; private set; }
+
 
     public DialogueBox(string characterID, string dialogue, string? button1 = null, string? button2 = null, float? wait = null) { 
         this.dialogue = dialogue;
@@ -30,6 +32,7 @@ public class DialogueBox {
         this.button1 = button1;
         this.button2 = button2;
         lastBox = true;
+        buttons = new Dictionary<string, Action>();
     }
 
     public void setInactive()
@@ -43,5 +46,9 @@ public class DialogueBox {
 
     public string getCharacterID() { 
         return characterID;
+    }
+
+    public void addButton(string button, Action function) { 
+        buttons.Add(button, function);
     }
 }

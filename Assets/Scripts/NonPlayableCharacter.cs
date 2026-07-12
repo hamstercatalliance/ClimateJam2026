@@ -15,12 +15,13 @@ public abstract class NonPlayableCharacter : MonoBehaviour
 
     private void Start()
     {
+        characterID = scriptableNPC.CharacterID;
+        characterName = scriptableNPC.CharacterName;
         transform.position = scriptableNPC.location;
         player = FindFirstObjectByType<Player>();
         player.GetComponent<PlayerInteract>().NPCActivate += PlayerInteract_NPCActivate;
         //player = FindFirstObjectByType<Player>();
         Init();
-
     }
 
     private void PlayerInteract_NPCActivate(object sender, System.EventArgs e)

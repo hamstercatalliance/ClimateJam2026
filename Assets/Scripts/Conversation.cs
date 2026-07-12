@@ -10,11 +10,17 @@ public class Conversation : MonoBehaviour
 {
     // Start is called before the first frame update
     public DialogueBox[] dialogue = new DialogueBox[0];
+    private DialogueRenderer dialogueRenderer;
 
-    //private void Start()
-    //{
-    //    dialogue = new DialogueBox[0];
-    //}
+    private void Awake()
+    {
+        
+        dialogueRenderer = FindFirstObjectByType<DialogueRenderer>();
+        if (dialogueRenderer == null)
+        {
+            Debug.LogError("Conversation: DialogueRenderer not found in the scene.");
+        }
+    }
 
     public void Execute() {
         // Set to cannot move 
@@ -24,7 +30,7 @@ public class Conversation : MonoBehaviour
             for (int i = 0; i < dialogue.Length; i++)
             {
                 // Wait for dialogue to be inactive
-                DialogueRenderer.Render(dialogue[i]);
+                StartCoroutine(dialogueRenderer.Render(dialogue[i]));
                 //while (true) 
                 //{
                 //    if (!dialogue[i].active)
@@ -54,5 +60,9 @@ public class Conversation : MonoBehaviour
         }
         Array.Resize(ref dialogue, dialogue.Length+1);
         dialogue[dialogue.Length-1] = dialogueBox;
+    }
+
+    public void ResetConverstation() {
+        Array.Resize(ref dialogue, 0);   
     }
 }
