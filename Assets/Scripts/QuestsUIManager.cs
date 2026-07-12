@@ -27,6 +27,7 @@ public class QuestsUIManager : MonoBehaviour
         if (questData.isCompleted)
         {
             questSlotUI.SetIcon(finishedQuestIcon);
+            questSlotUI.SetCompleted(true);
         }
         else
         {
@@ -57,6 +58,7 @@ public class QuestsUIManager : MonoBehaviour
                 if (questData.isCompleted)
                 {
                     questSlotUI.SetIcon(finishedQuestIcon);
+                    questSlotUI.SetCompleted(true);
                 }
                 else
                 {

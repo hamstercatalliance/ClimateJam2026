@@ -7,5 +7,4 @@ public class QuestSO : ScriptableObject
 {
     public string questName;
     public string questDescription;
-    public GameObject questPrefab;
 }
