@@ -13,6 +13,19 @@ public class QuestDisplay : MonoBehaviour
         QuestSlotUI.OnQuestSlotHovered += OnQuestSlotHovered;
         QuestSlotUI.OnQuestSlotHoverExit += OnQuestSlotHoverExit;
         QuestSlotUI.OnQuestSlotClicked += OnQuestSlotClicked;
+        MenuManager.Instance.OnMenuClosed += OnMenuClosedHandler;
+        HideDisplay();
+    }
+    private void OnDestroy()
+    {
+        QuestSlotUI.OnQuestSlotHovered -= OnQuestSlotHovered;
+        QuestSlotUI.OnQuestSlotHoverExit -= OnQuestSlotHoverExit;
+        QuestSlotUI.OnQuestSlotClicked -= OnQuestSlotClicked;
+        MenuManager.Instance.OnMenuClosed -= OnMenuClosedHandler;
+    }
+    private void OnMenuClosedHandler(object sender, System.EventArgs e)
+    {
+        stayVisible = false;
         HideDisplay();
     }
     private void OnQuestSlotHovered(object sender, QuestSlotUI.OnSlotHoveredEventArgs e)
