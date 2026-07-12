@@ -15,6 +15,8 @@ public class GameData : MonoBehaviour
     public float? DayManagerUITransitionProgress;
 
     public Vector3 PlayerFacingDirection;
+
+    public List<QuestManager.QuestData> QuestDataList = new List<QuestManager.QuestData>();
     private void Awake()
     {
         if (Instance != null && Instance != this)
