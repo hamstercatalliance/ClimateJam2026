@@ -104,8 +104,8 @@ public class InventoryManager : MonoBehaviour, IHasPersistentData
             {
                 slot = slot
             });
-            Debug.Log("Player stored an additional" + slot.gameItemSO.name);
-            Debug.Log("Player now has " + slot.amount + " " + slot.gameItemSO.name);
+            //Debug.Log("Player stored an additional" + slot.gameItemSO.name);
+            //Debug.Log("Player now has " + slot.amount + " " + slot.gameItemSO.name);
             return true;
         }
         else

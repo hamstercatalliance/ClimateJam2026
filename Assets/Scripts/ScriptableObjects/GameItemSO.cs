@@ -11,4 +11,5 @@ public class GameItemSO : ScriptableObject
     public string itemName;
     public string itemDescription;
     public string sourceLink;
+    public int cost;
 }

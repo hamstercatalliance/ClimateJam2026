@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using System;
 using UnityEngine.EventSystems;
 
-public class InventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class InventorySlotUI : SlotUI
 {
     [SerializeField] private float hoverScale = 1.1f;
     private Vector3 originalScale;
@@ -26,7 +26,7 @@ public class InventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public static event EventHandler OnSlotClicked;
     public void SetIcon(GameItemSO gameItemSO)
     {
-        Debug.Log("Setting icon for slot");
+        //Debug.Log("Setting icon for slot");
         item = gameItemSO;
         icon.GetComponent<Image>().sprite = gameItemSO.inventorySprite;
         icon.SetActive(true); //EVENTUALLY HANDLE THIS ELSEWHERE
@@ -40,7 +40,7 @@ public class InventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public void SetAmount(int amount)
     {
         amountText.text = amount.ToString();
-        Debug.Log("Setting amount for slot");
+        //Debug.Log("Setting amount for slot");
     }
     public void ShowChildren()
     {
@@ -49,7 +49,7 @@ public class InventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
             child.gameObject.SetActive(true);
         }
     }
-    public void OnPointerEnter(PointerEventData eventData)
+    public override void OnPointerEnter(PointerEventData eventData)
     {
         Debug.Log("Mouse over slot");
         if (item != null)
@@ -61,13 +61,13 @@ public class InventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
             });
         }
     }
-    public void OnPointerExit(PointerEventData eventData)
+    public override void OnPointerExit(PointerEventData eventData)
     {
         Debug.Log("Mouse exited slot");
         icon.transform.localScale = originalScale;
         OnSlotHoverExit?.Invoke(this, EventArgs.Empty);
     }
-    public void OnPointerClick(PointerEventData eventData)
+    public override void OnPointerClick(PointerEventData eventData)
     {
         OnSlotClicked?.Invoke(this, EventArgs.Empty);
     }
