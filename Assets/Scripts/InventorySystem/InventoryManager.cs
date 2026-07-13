@@ -5,7 +5,7 @@ using System;
 public class InventoryManager : MonoBehaviour, IHasPersistentData
 {
     public static InventoryManager Instance { get; private set; } //singleton
-    [SerializeField] private List<GameItemSO> gameItemSOList; 
+    //[SerializeField] private List<GameItemSO> gameItemSOList; 
     public event EventHandler<InventoryAdditionEventArgs> OnInventoryAddition;
     public class InventoryAdditionEventArgs : EventArgs
     {

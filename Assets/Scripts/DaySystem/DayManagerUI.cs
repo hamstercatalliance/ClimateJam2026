@@ -47,6 +47,7 @@ public class DayManagerUI : MonoBehaviour, IHasPersistentData
         if (GameData.Instance != null && GameData.Instance.HasLoadedRunData)
         {
             DayManager.State state = DayManager.Instance.GetState();
+            dayCountText.text = "Day " + GameData.Instance.DayManagerDayCount;
             Debug.Log("Game data found.");
             // Load UI elements based on saved game data
             if (GameData.Instance.DayManagerUITransitionProgress.HasValue)

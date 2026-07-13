@@ -49,7 +49,7 @@ public class GameData : MonoBehaviour
     #endregion
 
     #region Sympathy Points Data
-    public int? SympathyPoints;
+    public int? SympathyPoints; 
     #endregion
 
     #region Quest Manager Data (DOES NOT SAVE QUEST SPECIFIC PROGRESS. ONLY SAVES: questSO, isCompleted, isInitiated)
