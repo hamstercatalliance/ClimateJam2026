@@ -81,6 +81,7 @@ public class CurrencyManager : MonoBehaviour, IHasPersistentData
             { 
                 newCurrencyAmount = currencyAmount 
             });
+            CurrencyDisplayManager.Instance.UpdateCurrencyDisplay(currencyAmount);
             Debug.Log("No game data found. Starting with default currency amount: " + currencyAmount);
         }
     }

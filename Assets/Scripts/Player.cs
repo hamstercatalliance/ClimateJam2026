@@ -7,7 +7,11 @@ using UnityEngine.Experimental.AI;
 
 public class Player : MonoBehaviour, IHasPersistentData
 {
-    public event EventHandler OnSceneLoaderCollided;
+    public event EventHandler<OnSceneLoaderCollidedEventArgs> OnSceneLoaderCollided;
+    public class OnSceneLoaderCollidedEventArgs : EventArgs
+    {
+        public GameObject sceneLoaderGameObject;
+    }
     public event EventHandler<OnPickupEventArgs> OnPickup;
     public class OnPickupEventArgs : EventArgs
     {
@@ -22,13 +26,6 @@ public class Player : MonoBehaviour, IHasPersistentData
     [SerializeField] float rotateSpeed = 10f;
     [SerializeField] float jumpHeight = 15f;
     [SerializeField] private GameInput gameInput;
-    // [SerializeField] private LayerMask countersLayerMask;
-
-    // public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
-    // public class OnSelectedCounterChangedEventArgs : EventArgs
-    // {
-    //     public BaseCounter selectedCounter;
-    // }
     public bool DataSuccessfullyWritten { get; private set; }
     public static Player Instance { get; private set; } //PLAYER SINGLETON
     private void Awake()
@@ -120,7 +117,10 @@ public class Player : MonoBehaviour, IHasPersistentData
         }    
         if (other.gameObject.CompareTag("SceneLoader"))
         {
-            OnSceneLoaderCollided?.Invoke(this, EventArgs.Empty);
+            OnSceneLoaderCollided?.Invoke(this, new OnSceneLoaderCollidedEventArgs
+            {
+                sceneLoaderGameObject = other.gameObject
+            });
         }
     }
     // private void HandleInteractions()

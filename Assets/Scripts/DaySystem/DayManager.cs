@@ -41,7 +41,6 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
         Sunsetting,
         Moonrising,
         Nighttime,
-        Paused
     }
     private State state;
     public State GetState()
@@ -68,6 +67,10 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
         minutesInADay = secondsInADay / 60f;
         LoadGameData();
         SceneLoader.OnSceneTransition += OnSceneTransitionHandler;
+    }
+    private void OnDestroy()
+    {
+        SceneLoader.OnSceneTransition -= OnSceneTransitionHandler;
     }
     private void OnSceneTransitionHandler(object sender, EventArgs e)
     {
@@ -100,19 +103,16 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
     }
     private void Update()
     {
-        if (state != State.Paused)
+        timeElapsed += Time.deltaTime;
+        PostProcessVolumeTransition(GetProgressNormalized());
+        if (timeElapsed >= secondsInADay)
         {
-            timeElapsed += Time.deltaTime;
-            PostProcessVolumeTransition(GetProgressNormalized());
-            if (timeElapsed >= secondsInADay)
+            timeElapsed = 0f;
+            dayCount++;
+            OnDayChanged?.Invoke(this, new OnDayChangedEventArgs
             {
-                timeElapsed = 0f;
-                dayCount++;
-                OnDayChanged?.Invoke(this, new OnDayChangedEventArgs
-                {
-                    day = dayCount
-                });
-            }
+                day = dayCount
+            });
         }
     }
     public float GetProgressNormalized()
@@ -180,12 +180,8 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
                     // Debug.Log("New day");
                     // state = State.Sunrising;
                     Debug.Log("Day complete. Showing transition screen.");
-                    state = State.Paused;
                     OnDayEnd?.Invoke(this, EventArgs.Empty);
                 }
-                break;
-            case State.Paused:
-                Debug.Log("Paused");
                 break;
         }
     }
@@ -212,6 +208,7 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
         }
         else
         {
+            Debug.Log(timeElapsed);
             return State.Nighttime;
         }
     }

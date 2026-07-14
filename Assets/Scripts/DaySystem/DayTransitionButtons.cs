@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 public class DayTransitionButtons : MonoBehaviour
 {
-    public static event EventHandler OnDayContinuePressed;
+    [SerializeField] private string HOME_SCENE = "Home";
     public void SaveAndContinue()
     {
         Save();
@@ -23,12 +24,12 @@ public class DayTransitionButtons : MonoBehaviour
     public void Continue()
     {
         //can be directly called to continue without saving
-        OnDayContinuePressed?.Invoke(this, EventArgs.Empty);
+        SceneManager.LoadScene(HOME_SCENE); //NOT USING SCENE LOADER BECAUSE NO SCENE DATA DOES NEEDS TO BE SAVED ONTO GAMEDATA
     }
     private void Save()
     {
         //SET THE SAVE TO THE NEXT DAY
-        //DAY MANAGER 
         //SAVE TO JSON
+        //LOAD TO HOME SCENE
     }
 }
