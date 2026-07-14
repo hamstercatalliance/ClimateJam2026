@@ -105,15 +105,15 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
     {
         timeElapsed += Time.deltaTime;
         PostProcessVolumeTransition(GetProgressNormalized());
-        if (timeElapsed >= secondsInADay)
-        {
-            timeElapsed = 0f;
-            dayCount++;
-            OnDayChanged?.Invoke(this, new OnDayChangedEventArgs
-            {
-                day = dayCount
-            });
-        }
+        // if (timeElapsed >= secondsInADay)
+        // {
+        //     timeElapsed = 0f;
+        //     dayCount++;
+        //     OnDayChanged?.Invoke(this, new OnDayChangedEventArgs
+        //     {
+        //         day = dayCount
+        //     });
+        // } this is now handled int the switch statement
     }
     public float GetProgressNormalized()
     {
@@ -178,7 +178,13 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
                 if (progressNormalized >= sunriseDayTransitionWeight + dayWeight + daySunsetTransitionWeight + sunsetNightTransitionWeight + nightWeight)
                 {
                     // Debug.Log("New day");
-                    // state = State.Sunrising;
+                    state = State.Sunrising;
+                    timeElapsed = 0f;
+                    dayCount++;
+                    OnDayChanged?.Invoke(this, new OnDayChangedEventArgs
+                    {
+                        day = dayCount
+                    });
                     Debug.Log("Day complete. Showing transition screen.");
                     OnDayEnd?.Invoke(this, EventArgs.Empty);
                 }
