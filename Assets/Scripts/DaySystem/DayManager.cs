@@ -14,6 +14,8 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
         public int day;
     }
     public event EventHandler OnDayManagerDataLoaded;
+    public bool HasFiredDataLoaded { get; private set; }
+    public event EventHandler OnDayEnd;
     [SerializeField] private float secondsInADay = 300f;
     private float minutesInADay;
     [SerializeField] private float timeElapsed = 0f;
@@ -39,11 +41,16 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
         Sunsetting,
         Moonrising,
         Nighttime,
+        Paused
     }
     private State state;
     public State GetState()
     {
         return state;
+    }
+    public void SetState(State newState)
+    {
+        state = newState;
     }
     public static DayManager Instance { get; private set; } //DayManager singleton
     private void Awake()
@@ -76,10 +83,10 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
             dayCount = GameData.Instance.DayManagerDayCount;
             state = GetStateFromProgress(timeElapsed);
             Debug.Log("Time elapsed: " + timeElapsed + "/" + secondsInADay);
-            OnDayChanged?.Invoke(this, new OnDayChangedEventArgs
-            {
-                day = dayCount
-            });
+            // OnDayChanged?.Invoke(this, new OnDayChangedEventArgs
+            // {
+            //     day = dayCount
+            // });
         }
         else
         {
@@ -88,21 +95,24 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
             dayCount = 0;
             state = State.Sunrising;
         }
-
         OnDayManagerDataLoaded?.Invoke(this, EventArgs.Empty);
+        HasFiredDataLoaded = true;
     }
     private void Update()
     {
-        timeElapsed += Time.deltaTime;
-        PostProcessVolumeTransition(GetProgressNormalized());
-        if (timeElapsed >= secondsInADay)
+        if (state != State.Paused)
         {
-            timeElapsed = 0f;
-            dayCount++;
-            OnDayChanged?.Invoke(this, new OnDayChangedEventArgs
+            timeElapsed += Time.deltaTime;
+            PostProcessVolumeTransition(GetProgressNormalized());
+            if (timeElapsed >= secondsInADay)
             {
-                day = dayCount
-            });
+                timeElapsed = 0f;
+                dayCount++;
+                OnDayChanged?.Invoke(this, new OnDayChangedEventArgs
+                {
+                    day = dayCount
+                });
+            }
         }
     }
     public float GetProgressNormalized()
@@ -167,9 +177,15 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
                 night.weight = 1f;
                 if (progressNormalized >= sunriseDayTransitionWeight + dayWeight + daySunsetTransitionWeight + sunsetNightTransitionWeight + nightWeight)
                 {
-                    Debug.Log("New day");
-                    state = State.Sunrising;
+                    // Debug.Log("New day");
+                    // state = State.Sunrising;
+                    Debug.Log("Day complete. Showing transition screen.");
+                    state = State.Paused;
+                    OnDayEnd?.Invoke(this, EventArgs.Empty);
                 }
+                break;
+            case State.Paused:
+                Debug.Log("Paused");
                 break;
         }
     }
@@ -204,6 +220,19 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
         GameData.Instance.DayManagerTimeElapsed = timeElapsed;
         GameData.Instance.DayManagerDayCount = dayCount;
         Debug.Log("Writing day data to game data.");
+        DataSuccessfullyWritten = true;
+        Debug.Log(DataSuccessfullyWritten);
+    }
+
+
+
+
+    //IM MAKING THIS FOR THE SAVE AND CONINTUE / SAVE AND QUIT
+    public void WriteNextDayDataToGameData()
+    {
+        GameData.Instance.DayManagerTimeElapsed = 0f;
+        GameData.Instance.DayManagerDayCount = dayCount + 1;
+        Debug.Log("Writing next day data to game data.");
         DataSuccessfullyWritten = true;
         Debug.Log(DataSuccessfullyWritten);
     }

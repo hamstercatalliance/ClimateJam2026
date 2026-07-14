@@ -18,25 +18,26 @@ public class GameInput : MonoBehaviour
         playerInputActions.Player.Jump.performed += Jump_performed;
         playerInputActions.Player.MenuToggle.performed += MenuToggle_performed;
         playerInputActions.Player.Interact.performed += Interact_performed;
+
         //playerInputActions.Player.InteractAlternate.performed += InteractAlternate_performed;
     }
     private void MenuToggle_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        if (!DialogueBox.dialogueActive)
+        if (!DialogueBox.dialogueActive && DayManager.Instance.GetState() != DayManager.State.Paused)
         {
             OnMenuAction?.Invoke(this, EventArgs.Empty);
         }
     }
     private void Jump_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        if (!DialogueBox.dialogueActive)
+        if (!DialogueBox.dialogueActive && DayManager.Instance.GetState() != DayManager.State.Paused)
         {
             OnJumpAction?.Invoke(this, EventArgs.Empty);
         }
     }
     private void Interact_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        if (OnInteractAction != null)
+        if (OnInteractAction != null && DayManager.Instance.GetState() != DayManager.State.Paused)
         {
             OnInteractAction(this, EventArgs.Empty);
         }

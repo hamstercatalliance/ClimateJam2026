@@ -50,6 +50,10 @@ public class Player : MonoBehaviour, IHasPersistentData
     //     gameInput.OnInteractAction += GameInput_OnInteractAction;
     //     gameInput.OnInteractAlternateAction += GameInput_OnInteractAlternateAction;
     }
+    private void DayManager_OnDayEnd(object sender, EventArgs e)
+    {
+        WriteToGameData();
+    }
     private void OnSceneTransitionHandler(object sender, System.EventArgs e)
     {
         WriteToGameData();
