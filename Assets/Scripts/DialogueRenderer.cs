@@ -6,11 +6,24 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Runtime.CompilerServices;
+using System;
+
+public class DialogueSignal : EventArgs
+{
+    public string signal;
+    public DialogueSignal(string signal)
+    {
+        this.signal = signal;
+    }
+}
+
+
 public class DialogueRenderer : MonoBehaviour
 {
     GameObject box;
     GameInput gameInput;
-
+    public EventHandler buttonPress { get; private set; }
+    public EventHandler dialogueSignal { get; private set; }
     private void Start()
     {
         gameInput = FindFirstObjectByType<GameInput>();
@@ -47,6 +60,7 @@ public class DialogueRenderer : MonoBehaviour
                 optionButton.GetComponent<Button>().onClick.AddListener(() => {
                     StartCoroutine(endDialogue(dialogueObject, dialoguePanel));
                     Debug.Log("DialogueRenderer: Button clicked with text: " + button.text + " and path: " + button.path);
+                    buttonPress?.Invoke(this, new DialogueSignal(button.id));
                     conversation.ChooseOption(button.path);
                 });
             }
@@ -57,10 +71,19 @@ public class DialogueRenderer : MonoBehaviour
 
             yield return new WaitForSecondsRealtime(0.1f); // Wait for 0.1 seconds to ensure the dialogue box is rendered before proceeding
         gameInput.OnInteractAction += (sender, e) => {
-            if (dialogueObject.active && !hasOptions)
+            if (dialogueObject.active )
             {
-                //Debug.Log("DialogueRenderer: Interact key pressed, ending dialogue box for character " + dialogueObject.getCharacterID() + " with content: " + dialogueObject.getContent());
-                StartCoroutine(endDialogue(dialogueObject, dialoguePanel));
+                if (dialogueObject.signal != null && dialogueObject.signal != "")
+                {
+                    Debug.Log("DialogueRenderer: Interact key pressed, sending signal for character " + dialogueObject.getCharacterID() + " with content: " + dialogueObject.getContent() + " and signal: " + dialogueObject.signal);
+                    dialogueSignal?.Invoke(this, new DialogueSignal(dialogueObject.signal));
+                }
+                if (!hasOptions)
+                {
+                    //Debug.Log("DialogueRenderer: Interact key pressed, ending dialogue box for character " + dialogueObject.getCharacterID() + " with content: " + dialogueObject.getContent());
+
+                    StartCoroutine(endDialogue(dialogueObject, dialoguePanel));
+                }
             }
         };
 

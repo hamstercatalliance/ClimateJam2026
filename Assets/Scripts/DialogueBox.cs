@@ -35,6 +35,8 @@ public class DialogueBox {
     [JsonProperty("wait",Required=Required.Default)]
     public float? wait = null;
 
+
+
     [JsonProperty("buttons", Required = Required.Default)]
     public List<DialogueButton> buttons = new List<DialogueButton>();
 

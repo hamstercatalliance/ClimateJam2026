@@ -26,6 +26,8 @@ public class ConversationObject
     public List<ConversationPath> data = new List<ConversationPath>();
 }
 
+
+
 public class Conversation : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -81,11 +83,11 @@ public class Conversation : MonoBehaviour
 
     public void ChooseOption(string pathName=null) {
         // Load the next dialogue path from the JSON file
-        string filePath = Path.Combine(Application.dataPath, "DialogueFiles", dialogueName + ".json");
+        TextAsset jsonAsset = Resources.Load<TextAsset>("DialogueFiles/" + dialogueName);
 
-        if (File.Exists(filePath))
+        if (jsonAsset != null)
         {
-            string json = File.ReadAllText(filePath);
+            string json = jsonAsset.text;
 
             JsonSerializerSettings settings = new JsonSerializerSettings
             {
