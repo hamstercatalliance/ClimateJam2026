@@ -8,9 +8,10 @@ using TMPro;
 using System.Runtime.CompilerServices;
 public class DialogueRenderer : MonoBehaviour
 {
-    GameObject box;
+    //GameObject box;
     GameInput gameInput;
-
+    [SerializeField] private GameObject buttonPrefab;
+    [SerializeField] private GameObject box;
     private void Start()
     {
         gameInput = FindFirstObjectByType<GameInput>();
@@ -19,7 +20,7 @@ public class DialogueRenderer : MonoBehaviour
     public IEnumerator Render(DialogueBox dialogueObject) {
         //Instantiate(box);
         Debug.Log("DialogueRenderer: Rendering dialogue box for character " + dialogueObject.getCharacterID() + " with content: " + dialogueObject.getContent());
-        box = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Textbox.prefab");
+        //box = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Textbox.prefab");
         GameObject dialoguePanel = Instantiate(box, GameObject.Find("Canvas").transform);
 
 
@@ -35,7 +36,7 @@ public class DialogueRenderer : MonoBehaviour
         characterText.GetComponent<TMP_Text>().text = dialogueObject.getCharacterID();
         bool hasOptions = dialogueObject.buttons.Count > 0;
 
-        GameObject buttonPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/ButtonTemplate.prefab");
+        //GameObject buttonPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/ButtonTemplate.prefab");
 
         if (hasOptions) 
         {

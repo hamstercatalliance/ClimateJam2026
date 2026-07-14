@@ -14,6 +14,7 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
         public int day;
     }
     public event EventHandler OnDayManagerDataLoaded;
+    public bool HasFiredDataLoaded { get; private set; }
     public event EventHandler OnDayEnd;
     [SerializeField] private float secondsInADay = 300f;
     private float minutesInADay;
@@ -94,8 +95,8 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
             dayCount = 0;
             state = State.Sunrising;
         }
-
         OnDayManagerDataLoaded?.Invoke(this, EventArgs.Empty);
+        HasFiredDataLoaded = true;
     }
     private void Update()
     {

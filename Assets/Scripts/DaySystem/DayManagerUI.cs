@@ -27,7 +27,11 @@ public class DayManagerUI : MonoBehaviour, IHasPersistentData
         DayManager.Instance.OnMoonrise += DayManager_OnMoonrise;
         SceneLoader.OnSceneTransition += OnSceneTransitionHandler;
         DayManager.Instance.OnDayManagerDataLoaded += DayManager_OnDayManagerDataLoaded;
-
+        if (DayManager.Instance.HasFiredDataLoaded)
+        {
+            // we subscribed too late, event already fired — call it manually
+            LoadGameData();
+        }
         startPos = progressBarStartPoint.transform.position;
         endPos = progressBarEndPoint.transform.position;
 
