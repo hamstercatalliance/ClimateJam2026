@@ -17,10 +17,10 @@ public class PlayerInteract : MonoBehaviour
     private void GameInput_OnInteractAction(object sender, System.EventArgs e)
     {
         string closestNPC = this.closestNPCID();
-        Debug.Log("PlayerInteract: Interact action triggered, NPC = " + closestNPC);
+        //Debug.Log("PlayerInteract: Interact action triggered, NPC = " + closestNPC);
         if (!DialogueBox.dialogueActive && closestNPC != null)
         {
-          Debug.Log("PlayerInteract: Interact action triggered, closest NPC ID: " + closestNPC);
+          //Debug.Log("PlayerInteract: Interact action triggered, closest NPC ID: " + closestNPC);
             NPCActivate?.Invoke(this, new NPCActivateEventArgs { npcID = closestNPC });
         }
 
@@ -48,7 +48,7 @@ public class PlayerInteract : MonoBehaviour
         {
             if (!(npc.scriptableNPC.interactionRadius <= (transform.position-npc.GetComponent<Transform>().position).magnitude))
             {
-                Debug.Log("PlayerInteract: NPC " + npc.characterID + " is in interaction radius.");
+                //Debug.Log("PlayerInteract: NPC " + npc.characterID + " is in interaction radius.");
                 float distance = Vector3.Distance(transform.position, npc.transform.position);
                 if (distance < closestDistance)
                 {
