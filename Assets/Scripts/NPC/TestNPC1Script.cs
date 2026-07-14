@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class TestNPC1Script : NonPlayableCharacter
@@ -18,10 +17,16 @@ public class TestNPC1Script : NonPlayableCharacter
     public override void OnTalk()
     {
         Conversation conversation = gameObject.AddComponent<Conversation>();
-        DialogueBox testOptions = new DialogueBox(scriptableNPC.name, "I like cat");
-        testOptions.addButton("Option 1", () => { 
-            Debug.Log("Option 1 selected"); 
-        });
+        conversation.Execute("TestConversation1");
+        //conversation.addDialogue(new DialogueBox(scriptableNPC.name, "Hello, I am " + scriptableNPC.name + ". Nice to meet you!", wait: 1.0f));
+        //conversation.addDialogue(new DialogueBox(scriptableNPC.name, "I am a test NPC. I don't have much to say."));
+
+
+        //DialogueBox testOptions = new DialogueBox(scriptableNPC.name, "I like cat");
+        //testOptions.addButton("Option 1", () =>
+        //{
+        //    Debug.Log("Option 1 selected");
+        //});
         //testOptions.addButton("Option 2", () =>
         //{
         //    Debug.Log("Option 2 selected");
@@ -42,7 +47,7 @@ public class TestNPC1Script : NonPlayableCharacter
         //{
         //    Debug.Log("Option 6 selected");
         //});
-        conversation.addDialogue(testOptions);
-        conversation.Execute();
+        //conversation.addDialogue(testOptions);
+        //conversation.Execute();
     }
 }
