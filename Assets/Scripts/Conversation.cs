@@ -76,6 +76,7 @@ public class Conversation : MonoBehaviour
             dialogue[dialogue.Count - 1].lastBox = false;
         }
         this.dialogue.AddRange(dialogue);
+        dialogue[dialogue.Count - 1].lastBox = true;
     }
 
     public void ChooseOption(string pathName=null) {
@@ -97,7 +98,14 @@ public class Conversation : MonoBehaviour
             ConversationPath startingPath = conversationObject.data.Find(path => path.name == (pathName??conversationObject.startingPath));
             if (startingPath != null)
             {
-                dialogue = startingPath.dialogue;
+                if (dialogue != null)
+                {
+                    AddDialogue(startingPath.dialogue);
+                }
+                else
+                {
+                    dialogue = startingPath.dialogue;
+                }
                 //StartDialogue();
             }
             else

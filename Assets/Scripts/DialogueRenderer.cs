@@ -33,6 +33,8 @@ public class DialogueRenderer : MonoBehaviour
         characterText.GetComponent<TMP_Text>().text = dialogueObject.getCharacterID();
         bool hasOptions = dialogueObject.buttons.Count > 0;
 
+        dialogueObject.active = true; // FIX
+
         GameObject buttonPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/ButtonTemplate.prefab");
 
         if (hasOptions) 
