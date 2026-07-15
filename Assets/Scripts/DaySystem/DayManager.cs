@@ -86,10 +86,6 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
             dayCount = GameData.Instance.DayManagerDayCount;
             state = GetStateFromProgress(timeElapsed);
             Debug.Log("Time elapsed: " + timeElapsed + "/" + secondsInADay);
-            // OnDayChanged?.Invoke(this, new OnDayChangedEventArgs
-            // {
-            //     day = dayCount
-            // });
         }
         else
         {

@@ -15,6 +15,10 @@ public class CurrencyManager : MonoBehaviour, IHasPersistentData
         Instance = this;
     }
     private int currencyAmount = 0;
+    public int GetCurrency()
+    {
+        return currencyAmount;
+    }
     public bool DataSuccessfullyWritten { get; private set;}
     public event EventHandler<OnCurrencyChangedEventArgs> OnCurrencyChanged;
     public class OnCurrencyChangedEventArgs : EventArgs

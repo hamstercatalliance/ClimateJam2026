@@ -62,7 +62,6 @@ public class Player : MonoBehaviour, IHasPersistentData
     }
     private void GameInput_OnJumpAction(object sender, System.EventArgs e)
     {
-        Debug.Log("Jumping");
         if (isGrounded)
         {
             isGrounded = false;
@@ -86,13 +85,11 @@ public class Player : MonoBehaviour, IHasPersistentData
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(isGrounded);
         HandleMovement();
     }
 
     public void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
@@ -105,15 +102,12 @@ public class Player : MonoBehaviour, IHasPersistentData
         //THE PLAYER WILL COLLIDE AND HIT A BUTTON TO PICK UP THE ITEM
         if (other.gameObject.CompareTag("Item"))
         {
-            //Debug.Log("I AM THE PLAYER AND I HAVE COLLIDED WITH AN ITEM");
-  
             GameItem gameItem = other.GetComponent<GameItem>();
             OnPickup?.Invoke(this, new OnPickupEventArgs
             {
                 gameItemSO = gameItem.GetGameItemSO(),
                 gameItemGameObject = gameItem.gameObject
             });
-            //Debug.Log("Player picked up " + gameItem.GetGameItemSO().name);
         }    
         if (other.gameObject.CompareTag("SceneLoader"))
         {
