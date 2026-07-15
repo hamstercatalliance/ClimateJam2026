@@ -34,6 +34,11 @@
                     "characterID": "testnpc1",
                     "wait": 0,
                     "dialogue": "I don't like you either."
+                },
+                {
+                    "characterID": "testnpc1",
+                    "wait": 0,
+                    "dialogue": "I really don't like you."
                 }
             ]
         },
