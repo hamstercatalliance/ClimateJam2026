@@ -5,6 +5,7 @@ using System;
 public class QuestManager : MonoBehaviour, IHasPersistentData
 {
     public static QuestManager Instance { get; private set; }
+    [Serializable]
     public struct QuestData
     {
         public QuestSO questSO;
