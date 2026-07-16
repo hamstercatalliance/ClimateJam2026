@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7359999547863680241}
   - component: {fileID: 7515880946963687406}
   - component: {fileID: 8681647547261972288}
-  - component: {fileID: 7013358773035230646}
+  - component: {fileID: 7354116474864284672}
   m_Layer: 0
   m_Name: Portal
   m_TagString: SceneLoader
@@ -106,7 +106,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7013358773035230646
+--- !u!114 &7354116474864284672
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,12 +115,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1915997435753853742}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 204df339fc75fc249a218578588b17a8, type: 3}
+  m_Script: {fileID: 11500000, guid: ed7cdd9197d105d4a8a886253887a00d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Home
-  IHasPersistentDataGameObjects:
-  - {fileID: 9015818030024076417, guid: 6aa268ee2224f03499fd7aad5277be87, type: 3}
-  - {fileID: 6391401622150508014, guid: 60b16ca50c8f1f14dba51e166f28d4db, type: 3}
-  - {fileID: 6622573530550111118, guid: 743cad8e2b6c75d4886516989e988ab0, type: 3}
-  - {fileID: 5108389219574776871, guid: 80eba9334e6182d4d8aba2e601e118b9, type: 3}
+  sceneName: 
+  IHasPersistentDataGameObjects: []

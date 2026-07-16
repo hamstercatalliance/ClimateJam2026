@@ -23,21 +23,21 @@ public class GameInput : MonoBehaviour
     }
     private void MenuToggle_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        if (!DialogueBox.dialogueActive && DayManager.Instance.GetState() != DayManager.State.Paused)
+        if (!DialogueBox.dialogueActive)
         {
             OnMenuAction?.Invoke(this, EventArgs.Empty);
         }
     }
     private void Jump_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        if (!DialogueBox.dialogueActive && DayManager.Instance.GetState() != DayManager.State.Paused)
+        if (!DialogueBox.dialogueActive)
         {
             OnJumpAction?.Invoke(this, EventArgs.Empty);
         }
     }
     private void Interact_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        if (OnInteractAction != null && DayManager.Instance.GetState() != DayManager.State.Paused)
+        if (OnInteractAction != null)
         {
             OnInteractAction(this, EventArgs.Empty);
         }

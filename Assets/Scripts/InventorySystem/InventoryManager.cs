@@ -179,4 +179,10 @@ public class InventoryManager : MonoBehaviour, IHasPersistentData
     {
         return inventorySlots[row, col].isOccupied;
     }
+
+    public int GetItemCount(GameItemSO gameItemSO)
+    {
+        InventorySlot? slot = InventoryContainsItem(gameItemSO);
+        return slot?.amount ?? 0;
+    }
 }

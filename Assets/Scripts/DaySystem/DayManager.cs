@@ -41,7 +41,6 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
         Sunsetting,
         Moonrising,
         Nighttime,
-        Paused
     }
     private State state;
     public State GetState()
@@ -69,6 +68,10 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
         LoadGameData();
         SceneLoader.OnSceneTransition += OnSceneTransitionHandler;
     }
+    private void OnDestroy()
+    {
+        SceneLoader.OnSceneTransition -= OnSceneTransitionHandler;
+    }
     private void OnSceneTransitionHandler(object sender, EventArgs e)
     {
         Debug.Log("I will write day data to game data.");
@@ -83,10 +86,6 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
             dayCount = GameData.Instance.DayManagerDayCount;
             state = GetStateFromProgress(timeElapsed);
             Debug.Log("Time elapsed: " + timeElapsed + "/" + secondsInADay);
-            // OnDayChanged?.Invoke(this, new OnDayChangedEventArgs
-            // {
-            //     day = dayCount
-            // });
         }
         else
         {
@@ -100,20 +99,17 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
     }
     private void Update()
     {
-        if (state != State.Paused)
-        {
-            timeElapsed += Time.deltaTime;
-            PostProcessVolumeTransition(GetProgressNormalized());
-            if (timeElapsed >= secondsInADay)
-            {
-                timeElapsed = 0f;
-                dayCount++;
-                OnDayChanged?.Invoke(this, new OnDayChangedEventArgs
-                {
-                    day = dayCount
-                });
-            }
-        }
+        timeElapsed += Time.deltaTime;
+        PostProcessVolumeTransition(GetProgressNormalized());
+        // if (timeElapsed >= secondsInADay)
+        // {
+        //     timeElapsed = 0f;
+        //     dayCount++;
+        //     OnDayChanged?.Invoke(this, new OnDayChangedEventArgs
+        //     {
+        //         day = dayCount
+        //     });
+        // } this is now handled int the switch statement
     }
     public float GetProgressNormalized()
     {
@@ -178,14 +174,16 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
                 if (progressNormalized >= sunriseDayTransitionWeight + dayWeight + daySunsetTransitionWeight + sunsetNightTransitionWeight + nightWeight)
                 {
                     // Debug.Log("New day");
-                    // state = State.Sunrising;
+                    state = State.Sunrising;
+                    timeElapsed = 0f;
+                    dayCount++;
+                    OnDayChanged?.Invoke(this, new OnDayChangedEventArgs
+                    {
+                        day = dayCount
+                    });
                     Debug.Log("Day complete. Showing transition screen.");
-                    state = State.Paused;
                     OnDayEnd?.Invoke(this, EventArgs.Empty);
                 }
-                break;
-            case State.Paused:
-                Debug.Log("Paused");
                 break;
         }
     }
@@ -212,6 +210,7 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
         }
         else
         {
+            Debug.Log(timeElapsed);
             return State.Nighttime;
         }
     }

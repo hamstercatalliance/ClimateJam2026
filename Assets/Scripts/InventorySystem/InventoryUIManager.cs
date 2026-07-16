@@ -33,10 +33,6 @@ public class InventoryUIManager : MonoBehaviour
         InventoryManager.InventorySlot slot = e.slot;
         InventorySlotUI slotUI = GetSlotUI(slot.row, slot.col);
 
-        // Debug.Log(slot);
-        // Debug.Log(slot.gameItemSO.name);
-        // Debug.Log(slot.gameItemSO.inventorySprite);
-
         ShowSlot(slotUI, slot);
     }
     private void InventoryManager_OnInventoryRemoval(object sender, InventoryManager.InventoryRemovalEventArgs e)
@@ -48,7 +44,6 @@ public class InventoryUIManager : MonoBehaviour
 
     public InventorySlotUI GetSlotUI(int row, int col)
     {
-        Debug.Log($"Getting slot UI for row {row}, col {col}");
         switch (row)
         {
             case 0:
