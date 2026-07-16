@@ -78,7 +78,7 @@ public class InventoryUIManager : MonoBehaviour
     private void ShowSlot(InventorySlotUI slotUI, InventoryManager.InventorySlot slot)
     {
         slotUI.SetIcon(slot.gameItemSO);
-        slotUI.SetAmount((int) slot.amount);
+        slotUI.SetAmount(slot.amount);
         slotUI.ShowChildren();
     }
 }

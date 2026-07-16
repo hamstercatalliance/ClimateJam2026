@@ -7,6 +7,16 @@ using System;
 using Unity.VisualScripting;
 public class DayManagerUI : MonoBehaviour, IHasPersistentData
 {
+    public static DayManagerUI Instance { get; private set; }
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
     [SerializeField] private float spriteTransitionDuration = 20f;
     [SerializeField] private GameObject progressBarStartPoint;
     [SerializeField] private GameObject progressBarEndPoint;
@@ -18,7 +28,13 @@ public class DayManagerUI : MonoBehaviour, IHasPersistentData
     private Vector3 startPos;
     private Vector3 endPos;
     private float progressNormalized;
-    private float? transitionProgress;
+    private float transitionProgress;
+    public void ResetTransitionProgress()
+    {
+        transitionProgress = 0f;
+        SetGameObjectImageAlpha(sun, 1f);
+        SetGameObjectImageAlpha(moon, 0f);
+    }
     public bool DataSuccessfullyWritten { get; private set; }
     // Start is called before the first frame update
     void Start()
@@ -54,7 +70,7 @@ public class DayManagerUI : MonoBehaviour, IHasPersistentData
             dayCountText.text = "Day " + GameData.Instance.DayManagerDayCount;
             Debug.Log("Game data found.");
             // Load UI elements based on saved game data
-            if (GameData.Instance.DayManagerUITransitionProgress.HasValue)
+            if (GameData.Instance.DayManagerUITransitionProgress != 0f)
             {
                 Debug.Log("In the middle of a transition (moonrising).");
                 transitionProgress = GameData.Instance.DayManagerUITransitionProgress;
@@ -83,7 +99,7 @@ public class DayManagerUI : MonoBehaviour, IHasPersistentData
             // Initialize UI elements
             SetGameObjectImageAlpha(sun, 1f);
             SetGameObjectImageAlpha(moon, 0f);
-            transitionProgress = null;
+            transitionProgress = 0;
         }
     }
     private void OnSceneTransitionHandler(object sender, EventArgs e)
@@ -99,11 +115,8 @@ public class DayManagerUI : MonoBehaviour, IHasPersistentData
     }
     private void DayManager_OnMoonrise(object sender, System.EventArgs e)
     {
-        if (transitionProgress == null)
-        {
-            transitionProgress = 0f;
-        }
-        StartCoroutine(TransitionFade(spriteTransitionDuration-transitionProgress.Value));
+        transitionProgress = 0f;
+        StartCoroutine(TransitionFade(spriteTransitionDuration-transitionProgress));
     }
     private void DayManager_OnDayChanged(object sender, DayManager.OnDayChangedEventArgs e)
     {
@@ -153,7 +166,7 @@ public class DayManagerUI : MonoBehaviour, IHasPersistentData
         SetGameObjectImageAlpha(sun, 0f);
         SetGameObjectImageAlpha(moon, 1f);
         //GameData.Instance.TransitionProgress = null;
-        transitionProgress = null;
+        transitionProgress = 0;
     }
     private void SetGameObjectImageAlpha(GameObject obj, float alpha)
     {

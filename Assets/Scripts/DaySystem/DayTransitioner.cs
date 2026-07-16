@@ -18,6 +18,7 @@ public class DayTransitioner : MonoBehaviour
     }
     private void DayManager_OnDayEnd(object sender, EventArgs e)
     {
+        //scene loader will trigger a save when switching scene
         dayTransitionSceneLoader.LoadSceneRoutine();
     }
 }

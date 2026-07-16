@@ -21,6 +21,13 @@ public class ItemDisplay : MonoBehaviour
         InventorySlotUI.OnSlotClicked += OnSlotClicked;
         LinkOpener.OnLinkClicked += OnLinkClicked;
     }
+    private void OnDestroy()
+    {
+        InventorySlotUI.OnSlotHovered -= OnSlotHovered;
+        InventorySlotUI.OnSlotHoverExit -= OnSlotHoverExit;
+        InventorySlotUI.OnSlotClicked -= OnSlotClicked;
+        LinkOpener.OnLinkClicked -= OnLinkClicked;
+    }
     private void OnLinkClicked(object sender, EventArgs e)
     {
         if (sourceLink != null)
