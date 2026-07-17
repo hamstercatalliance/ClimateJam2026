@@ -41,7 +41,7 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
         Sunsetting,
         Moonrising,
         Nighttime,
-        Paused
+        DayEnded
     }
     private State state;
     public State GetState()
@@ -65,13 +65,18 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
     }
     private void Start()
     {
+        DynamicGI.UpdateEnvironment();//This thing fixes the weird lighting issue upon loadscene
+
         minutesInADay = secondsInADay / 60f;
         LoadGameData();
         SceneLoader.OnSceneTransition += OnSceneTransitionHandler;
     }
+    private void OnDestroy()
+    {
+        SceneLoader.OnSceneTransition -= OnSceneTransitionHandler;
+    }
     private void OnSceneTransitionHandler(object sender, EventArgs e)
     {
-        Debug.Log("I will write day data to game data.");
         WriteToGameData();
     }
     public void LoadGameData()
@@ -83,10 +88,6 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
             dayCount = GameData.Instance.DayManagerDayCount;
             state = GetStateFromProgress(timeElapsed);
             Debug.Log("Time elapsed: " + timeElapsed + "/" + secondsInADay);
-            // OnDayChanged?.Invoke(this, new OnDayChangedEventArgs
-            // {
-            //     day = dayCount
-            // });
         }
         else
         {
@@ -100,20 +101,12 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
     }
     private void Update()
     {
-        if (state != State.Paused)
+        if (state == State.DayEnded)
         {
-            timeElapsed += Time.deltaTime;
-            PostProcessVolumeTransition(GetProgressNormalized());
-            if (timeElapsed >= secondsInADay)
-            {
-                timeElapsed = 0f;
-                dayCount++;
-                OnDayChanged?.Invoke(this, new OnDayChangedEventArgs
-                {
-                    day = dayCount
-                });
-            }
+            return; // frozen-- no more time ticking & no more volume changes until scene reload
         }
+        timeElapsed += Time.deltaTime;
+        PostProcessVolumeTransition(GetProgressNormalized());
     }
     public float GetProgressNormalized()
     {
@@ -177,17 +170,28 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
                 night.weight = 1f;
                 if (progressNormalized >= sunriseDayTransitionWeight + dayWeight + daySunsetTransitionWeight + sunsetNightTransitionWeight + nightWeight)
                 {
-                    // Debug.Log("New day");
-                    // state = State.Sunrising;
-                    Debug.Log("Day complete. Showing transition screen.");
-                    state = State.Paused;
-                    OnDayEnd?.Invoke(this, EventArgs.Empty);
+                    EndDay();
                 }
                 break;
-            case State.Paused:
-                Debug.Log("Paused");
-                break;
         }
+    }
+    public void EndDay()
+    {
+        if (state == State.DayEnded)
+        {
+            return;
+        }
+
+        state = State.DayEnded;
+        dayCount++;
+        timeElapsed = 0f;
+        DayManagerUI.Instance.ResetTransitionProgress();
+        Debug.Log("Day complete. Showing transition screen.");
+        OnDayChanged?.Invoke(this, new OnDayChangedEventArgs 
+        { 
+            day = dayCount 
+        });
+        OnDayEnd?.Invoke(this, EventArgs.Empty);
     }
     private State GetStateFromProgress(float timeElapsed)
     {
@@ -212,28 +216,25 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
         }
         else
         {
+            Debug.Log(timeElapsed);
             return State.Nighttime;
         }
     }
-    public void WriteToGameData()
+    private void WriteTimeAndDayToGameData(float time, int day)
     {
-        GameData.Instance.DayManagerTimeElapsed = timeElapsed;
-        GameData.Instance.DayManagerDayCount = dayCount;
-        Debug.Log("Writing day data to game data.");
+        GameData.Instance.DayManagerTimeElapsed = time;
+        GameData.Instance.DayManagerDayCount = day;
         DataSuccessfullyWritten = true;
-        Debug.Log(DataSuccessfullyWritten);
+        Debug.Log("Wrote day data. Time: " + time + " Day: " + day);
     }
-
-
-
-
-    //IM MAKING THIS FOR THE SAVE AND CONINTUE / SAVE AND QUIT
-    public void WriteNextDayDataToGameData()
+    public void WriteToGameData() //this is called when the scene is transitioning
     {
-        GameData.Instance.DayManagerTimeElapsed = 0f;
-        GameData.Instance.DayManagerDayCount = dayCount + 1;
-        Debug.Log("Writing next day data to game data.");
-        DataSuccessfullyWritten = true;
-        Debug.Log(DataSuccessfullyWritten);
+        WriteTimeAndDayToGameData(timeElapsed, dayCount);
     }
+    // public void WriteNextDayDataToGameData()//this is only called when the day ends
+    // {
+    //     //since EndDay() already does dayCount++, 
+    //     //DO NOT WRITE dayCount + 1
+    //     WriteTimeAndDayToGameData(0f, dayCount);
+    // }
 }

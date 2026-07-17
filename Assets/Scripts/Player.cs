@@ -7,7 +7,11 @@ using UnityEngine.Experimental.AI;
 
 public class Player : MonoBehaviour, IHasPersistentData
 {
-    public event EventHandler OnSceneLoaderCollided;
+    public event EventHandler<OnSceneLoaderCollidedEventArgs> OnSceneLoaderCollided;
+    public class OnSceneLoaderCollidedEventArgs : EventArgs
+    {
+        public GameObject sceneLoaderGameObject;
+    }
     public event EventHandler<OnPickupEventArgs> OnPickup;
     public class OnPickupEventArgs : EventArgs
     {
@@ -22,13 +26,6 @@ public class Player : MonoBehaviour, IHasPersistentData
     [SerializeField] float rotateSpeed = 10f;
     [SerializeField] float jumpHeight = 15f;
     [SerializeField] private GameInput gameInput;
-    // [SerializeField] private LayerMask countersLayerMask;
-
-    // public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
-    // public class OnSelectedCounterChangedEventArgs : EventArgs
-    // {
-    //     public BaseCounter selectedCounter;
-    // }
     public bool DataSuccessfullyWritten { get; private set; }
     public static Player Instance { get; private set; } //PLAYER SINGLETON
     private void Awake()
@@ -65,7 +62,6 @@ public class Player : MonoBehaviour, IHasPersistentData
     }
     private void GameInput_OnJumpAction(object sender, System.EventArgs e)
     {
-        Debug.Log("Jumping");
         if (isGrounded)
         {
             isGrounded = false;
@@ -89,13 +85,11 @@ public class Player : MonoBehaviour, IHasPersistentData
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(isGrounded);
         HandleMovement();
     }
 
     public void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
@@ -108,19 +102,19 @@ public class Player : MonoBehaviour, IHasPersistentData
         //THE PLAYER WILL COLLIDE AND HIT A BUTTON TO PICK UP THE ITEM
         if (other.gameObject.CompareTag("Item"))
         {
-            //Debug.Log("I AM THE PLAYER AND I HAVE COLLIDED WITH AN ITEM");
-  
             GameItem gameItem = other.GetComponent<GameItem>();
             OnPickup?.Invoke(this, new OnPickupEventArgs
             {
                 gameItemSO = gameItem.GetGameItemSO(),
                 gameItemGameObject = gameItem.gameObject
             });
-            //Debug.Log("Player picked up " + gameItem.GetGameItemSO().name);
         }    
         if (other.gameObject.CompareTag("SceneLoader"))
         {
-            OnSceneLoaderCollided?.Invoke(this, EventArgs.Empty);
+            OnSceneLoaderCollided?.Invoke(this, new OnSceneLoaderCollidedEventArgs
+            {
+                sceneLoaderGameObject = other.gameObject
+            });
         }
     }
     // private void HandleInteractions()

@@ -4,6 +4,16 @@ using UnityEngine;
 using TMPro;
 public class CurrencyDisplayManager : MonoBehaviour
 {
+    public static CurrencyDisplayManager Instance { get; private set; }
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
     [SerializeField] private TextMeshProUGUI currencyText;
     private void Start()
     {
@@ -17,7 +27,7 @@ public class CurrencyDisplayManager : MonoBehaviour
     {
         UpdateCurrencyDisplay(e.newCurrencyAmount);
     }
-    private void UpdateCurrencyDisplay(int newCurrencyAmount)
+    public void UpdateCurrencyDisplay(int newCurrencyAmount)
     {
         Debug.Log("Updating currency display to: " + newCurrencyAmount);
         currencyText.text = "Coins:" + newCurrencyAmount.ToString();

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-public abstract partial class Quest : MonoBehaviour, IHasPersistentData
+public abstract class Quest : MonoBehaviour, IHasPersistentData
 {
     public QuestSO questSO;
     public bool isInitiated;

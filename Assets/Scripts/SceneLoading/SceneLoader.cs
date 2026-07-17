@@ -8,25 +8,13 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private string sceneName;
     [SerializeField] private GameObject[] IHasPersistentDataGameObjects;
     public static event EventHandler OnSceneTransition;
-    private void Start()
+    public void LoadSceneRoutine()
     {
-        Player.Instance.OnSceneLoaderCollided += SceneLoader_OnSceneLoaderCollided;
-
-    }
-    private void OnDestroy()
-    {
-        if (Player.Instance != null)
-        {
-            Player.Instance.OnSceneLoaderCollided -= SceneLoader_OnSceneLoaderCollided;
-        }
-    }
-    public void SceneLoader_OnSceneLoaderCollided(object sender, EventArgs e)
-    {
+        //this makes it so that a scene loader doesnt neccesarily have ot be a collidable object
         OnSceneTransition?.Invoke(this, EventArgs.Empty);
         GameData.Instance.HasLoadedRunData = true;
         StartCoroutine(WaitForAllDataToBeWrittenAndLoadScene());
     }
-
     private IEnumerator WaitForAllDataToBeWrittenAndLoadScene()
     {
         Debug.Log("Waiting for condition...");
@@ -53,5 +41,4 @@ public class SceneLoader : MonoBehaviour
         }
         return true;
     }
-
 }

@@ -27,17 +27,15 @@ public class InventoryManager : MonoBehaviour, IHasPersistentData
         }
         Instance = this;
     }
-    //all possible storable items in the game
-    //depending on whether or not we make storable vs non storable items this may come in handy 
-    //but it has not been implemented yet
+    [Serializable]
     public struct InventorySlot
     {
         public GameItemSO gameItemSO;
-        public int? amount;
+        public int amount;
         public bool isOccupied;
         public int row;
         public int col;
-        public InventorySlot(GameItemSO gameItemSO, int? amount, bool isOccupied, int row, int col)
+        public InventorySlot(GameItemSO gameItemSO, int amount, bool isOccupied, int row, int col)
         {
             this.gameItemSO = gameItemSO;
             this.amount = amount;
@@ -77,7 +75,7 @@ public class InventoryManager : MonoBehaviour, IHasPersistentData
             {
                 for (int j = 0; j < inventorySlots.GetLength(1); j++)
                 {
-                    inventorySlots[i, j] = new InventorySlot(null, null, false, i, j);
+                    inventorySlots[i, j] = new InventorySlot(null, 0, false, i, j);
                 }
             }
         }
@@ -154,7 +152,7 @@ public class InventoryManager : MonoBehaviour, IHasPersistentData
                 //empty the slot
                 item.isOccupied = false;
                 item.gameItemSO = null;
-                item.amount = null;
+                item.amount = 0;
             }
             inventorySlots[item.row, item.col] = item;
             return true;
@@ -178,5 +176,11 @@ public class InventoryManager : MonoBehaviour, IHasPersistentData
     public bool ItemExistsAtSlot(int row, int col)
     {
         return inventorySlots[row, col].isOccupied;
+    }
+
+    public int GetItemCount(GameItemSO gameItemSO)
+    {
+        InventorySlot? slot = InventoryContainsItem(gameItemSO);
+        return slot?.amount ?? 0;
     }
 }
