@@ -13,6 +13,10 @@ public class ItemDisplay : MonoBehaviour
     [SerializeField] private GameObject learnMoreObject;
     private bool stayVisible = false;
     private string sourceLink;
+    private void OnEnable()
+    {
+        HideDisplay();
+    }
     void Start()
     {
         HideDisplay();
@@ -38,7 +42,10 @@ public class ItemDisplay : MonoBehaviour
     private void OnSlotHovered(object sender, InventorySlotUI.OnSlotHoveredEventArgs e)
     {
         GameItemSO item = e.item;
-        ShowDisplay(item);
+        if (stayVisible == false)
+        {
+            ShowDisplay(item);
+        }
     }
 
     private void OnSlotHoverExit(object sender, EventArgs e)

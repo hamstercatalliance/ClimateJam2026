@@ -70,5 +70,6 @@ public class InventorySlotUI : SlotUI
     public override void OnPointerClick(PointerEventData eventData)
     {
         OnSlotClicked?.Invoke(this, EventArgs.Empty);
+        icon.transform.localScale = originalScale;
     }
 }

@@ -22,13 +22,25 @@ public class BuyItemButtonUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
     }
     private void OnSelectButtonPressed()
     {
-        uiManager.SelectAndShowItemDisplay(gameItemSO);
-        store.SetSelectedItemButton(gameObject);
+        if (store.GetSelectedItemButton() == gameObject)
+        {
+            uiManager.DeselectItemDisplay(gameItemSO);
+            store.SetSelectedItemButton(null);
+            store.SetSelectedItem(null);
+        }
+        else
+        {
+            uiManager.SelectAndShowItemDisplay(gameItemSO);
+            store.SetSelectedItemButton(gameObject);
+        }
     }
 
     public virtual void OnPointerEnter(PointerEventData eventData)
     {
-        uiManager.ShowItemDisplay(gameItemSO);
+        if (uiManager.GetDisplayStayVisible() == false)
+        {
+            uiManager.ShowItemDisplay(gameItemSO);
+        }
         //hover
     }
     public virtual void OnPointerExit(PointerEventData eventData)

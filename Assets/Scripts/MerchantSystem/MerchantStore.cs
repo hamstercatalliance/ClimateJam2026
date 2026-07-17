@@ -12,6 +12,10 @@ public class MerchantStore : MonoBehaviour
     [SerializeField] private GameObject sellItemButtonPrefab;
     [SerializeField] private GameObject storeContent;
 
+    [SerializeField] private OnClickButtonDisplay modeSwitchButtonDisplay;
+    [SerializeField] private GameObject buyModeSwitchButton;
+    // [SerializeField] private GameObject sellModeSwitchButton;
+    public static bool merchantStoreOpen = false;
     private GameItemSO selectedItem;
     public GameItemSO GetSelectedItem()
     {
@@ -106,10 +110,14 @@ public class MerchantStore : MonoBehaviour
     public void LeaveStore()
     {
         storeContent.SetActive(false);
+        merchantStoreOpen = false;
+        selectedItemButton = null;
     }
     public void EnterStore()
     {
         storeContent.SetActive(true);
+        modeSwitchButtonDisplay.OnClick(buyModeSwitchButton); //select the buy mode button by default
+        merchantStoreOpen = true;
         EnterBuyMode();
     }
 }

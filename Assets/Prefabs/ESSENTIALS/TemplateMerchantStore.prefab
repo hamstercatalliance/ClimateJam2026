@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5385656463101738197
 RectTransform:
   m_ObjectHideFlags: 0
@@ -94,7 +94,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000017881393, y: -0.000035362766}
+  m_AnchoredPosition: {x: 0.000017881393, y: 0.00088191667}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &5878680820262551567
@@ -2102,7 +2102,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 376657676957146263}
   m_HandleRect: {fileID: 3345498581586424826}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2668,6 +2668,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4584177640050874664}
   - component: {fileID: 3634840924088191124}
+  - component: {fileID: 5127983508360756154}
   m_Layer: 5
   m_Name: ModeSwitches
   m_TagString: Untagged
@@ -2722,6 +2723,21 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &5127983508360756154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7091995663641039615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdbfdf3fca80901498c89a19bee11db3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalColor: {r: 0.66666657, g: 0.66666657, b: 0.66666657, a: 1}
+  onClickColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedButtonIsDeselectable: 0
 --- !u!1 &7737889397728524512
 GameObject:
   m_ObjectHideFlags: 0
@@ -3054,6 +3070,8 @@ MonoBehaviour:
   buyItemButtonPrefab: {fileID: 2191943347773942260}
   sellItemButtonPrefab: {fileID: 7737889397728524512}
   storeContent: {fileID: 49824497788201418}
+  modeSwitchButtonDisplay: {fileID: 5127983508360756154}
+  buyModeSwitchButton: {fileID: 2462787631936030009}
 --- !u!1 &8588096313010897602
 GameObject:
   m_ObjectHideFlags: 0
@@ -3086,9 +3104,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4099053341220411258}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -83.65393}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -75}
   m_SizeDelta: {x: 300, y: 52.6921}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4408322459643353566
