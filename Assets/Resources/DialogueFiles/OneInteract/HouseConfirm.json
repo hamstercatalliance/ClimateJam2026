@@ -1,0 +1,23 @@
+{
+    "startingPath": "test1",
+    "data": [
+        {
+            "name": "test1",
+            "dialogue": [
+                {
+                    "dialogue": "Go to sleep and end the day early?",
+                    "buttons": [
+                        {
+                            "id": "sleepPositive",
+                            "text": "Yes"
+                        },
+                        {
+                            "id": "sleepNegative",
+                            "text": "No"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -63,7 +63,10 @@ public class DialogueRenderer : MonoBehaviour
                     StartCoroutine(endDialogue(dialogueObject, dialoguePanel));
                     Debug.Log("DialogueRenderer: Button clicked with text: " + button.text + " and path: " + button.path);
                     buttonPress?.Invoke(this, new DialogueSignal(button.id));
-                    conversation.ChooseOption(button.path);
+                    if (button.path != null && button.path != "")
+                    {
+                        conversation.ChooseOption(button.path);
+                    }
                 });
             }
         }
@@ -95,10 +98,10 @@ public class DialogueRenderer : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.1f); // Wait for 0.1 seconds to ensure the dialogue box is rendered before proceeding
         dialogue.setInactive();
         Debug.Log("DialogueRenderer: Ending dialogue box for character " + dialogue.getCharacterID() + " with content: " + dialogue.getContent());
-        if (dialogue.lastBox)
-        {
-            DialogueBox.dialogueActive = false;
-        }
+        //if (dialogue.lastBox)
+        //{
+        //    DialogueBox.dialogueActive = false;
+        //}
         Destroy(dialoguePanel);
     }
 }  
