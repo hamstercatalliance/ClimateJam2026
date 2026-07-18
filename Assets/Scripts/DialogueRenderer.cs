@@ -37,10 +37,20 @@ public class DialogueRenderer : MonoBehaviour
     [SerializeField] private GameObject buttonPrefab;
     [SerializeField] private GameObject box;
 
-    public static DialogueRenderer Instance { get; private set; }
+    public static DialogueRenderer Instance { get; private set; } 
     private void Start()
     {
         gameInput = FindFirstObjectByType<GameInput>();
+    }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
     }
 
     public IEnumerator Render(DialogueBox dialogueObject, Conversation conversation) {
@@ -74,7 +84,7 @@ public class DialogueRenderer : MonoBehaviour
                 optionButton.GetComponent<Button>().onClick.AddListener(() => {
                     StartCoroutine(endDialogue(dialogueObject, dialoguePanel));
                     Debug.Log("DialogueRenderer: Button clicked with text: " + button.text + " and path: " + button.path);
-                    SendDialogueSignal(dialogueObject.signal, dialogueObject.sympathyPointsChange);
+                    SendDialogueSignal(button.id, dialogueObject.sympathyPointsChange);
                     if (button.path != null && button.path != "")
                     {
                         conversation.ChooseOption(button.path);
@@ -107,13 +117,14 @@ public class DialogueRenderer : MonoBehaviour
     }
 
     private void SendDialogueSignal(string signal, int? points = null) {
+        Debug.Log("Sending dialogue signal: " + signal + " with points: " + (points.HasValue ? points.Value.ToString() : "null"));
         if (points == null || points == 0)
         {
-            dialogueSignal.Invoke(this, new DialogueSignal(signal));
+            dialogueSignal?.Invoke(this, new DialogueSignal(signal));
         }
         else if (signal == "addPoints") 
         { 
-            dialogueSignal.Invoke(this, new AddPointsDialogueSignal(signal, points.Value));
+            dialogueSignal?.Invoke(this, new AddPointsDialogueSignal(signal, points.Value));
         }
     }
 

@@ -8,11 +8,11 @@
                     "dialogue": "Go to sleep and end the day early?",
                     "buttons": [
                         {
-                            "id": "sleepPositive",
+                            "id": "EndDayEarly",
                             "text": "Yes"
                         },
                         {
-                            "id": "sleepNegative",
+                            "id": "EndDayEarlyNegative",
                             "text": "No"
                         }
                     ]
