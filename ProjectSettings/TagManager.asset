@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Item
   - SceneLoader
+  - NPC
   layers:
   - Default
   - TransparentFX

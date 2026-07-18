@@ -1,0 +1,20 @@
+
+{
+
+    "startingPath": "test4",
+    "data": [
+        {
+            "name": "test4",
+            "dialogue": [
+                {
+                    "characterID": "testnpc1",
+                    "dialogue": "I already talked to you"
+                },
+                {
+                    "characterID": "testnpc1",
+                    "dialogue0": "Go away"
+                }
+            ]
+        }
+    ]
+}
