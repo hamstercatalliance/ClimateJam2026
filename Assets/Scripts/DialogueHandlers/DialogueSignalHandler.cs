@@ -3,26 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EndDayEarlyManager : MonoBehaviour
+public abstract class DialogueSignalHandler : MonoBehaviour
 {
-    private bool isSubscribed = false;
     // Start is called before the first frame update
-    private void HandleDialogueSignal(System.Object sender, EventArgs e)
-    {
-        //DialogueRenderer.Instance.dialogueSignal += (sender, e) => {
-            Debug.Log("DialogueRenderer: Received dialogue signal: " + e.ToString());
-            if (e is DialogueSignal signal && signal.signal == "EndDayEarly")
-            {
-                DayManager.Instance.EndDay();
-            }
-        //};
-    }
-    private void OnEnable()
+    protected abstract void HandleDialogueSignal(System.Object sender, EventArgs e);
+    protected void OnEnable()
     {
         StartCoroutine(SubscribeToDialogue());
     }
 
-    private IEnumerator SubscribeToDialogue() { 
+    protected IEnumerator SubscribeToDialogue() { 
         while (DialogueRenderer.Instance == null)
         {
             yield return null; // Wait for the next frame
@@ -31,7 +21,7 @@ public class EndDayEarlyManager : MonoBehaviour
         DialogueRenderer.Instance.dialogueSignal += HandleDialogueSignal;
     }
 
-    private void OnDisable()
+    protected void OnDisable()
     {
         // Always unsubscribe to prevent memory leaks and ghost crashes
         if (DialogueRenderer.Instance != null)
