@@ -6,12 +6,26 @@ using System;
 using UnityEngine.UI;
 public class ItemDisplay : MonoBehaviour
 {
+    public static ItemDisplay Instance { get; private set; }
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
     [SerializeField] private GameObject itemImageObject;
     [SerializeField] private GameObject textObjects;
     [SerializeField] private TextMeshProUGUI itemNameText;
     [SerializeField] private TextMeshProUGUI itemDescriptionText;
     [SerializeField] private GameObject learnMoreObject;
     private bool stayVisible = false;
+    public void SetStayVisible(bool value)
+    {
+        stayVisible = value;
+    }
     private string sourceLink;
     private void OnEnable()
     {
@@ -55,17 +69,21 @@ public class ItemDisplay : MonoBehaviour
             HideDisplay();
         }
     }
-    private void OnSlotClicked(object sender, EventArgs e)
+    private GameItemSO lockedItem;
+    private void OnSlotClicked(object sender, InventorySlotUI.OnSlotClickedEventArgs e)
     {
-        if (stayVisible == false)
-        {
-            stayVisible = true;
-        }
-        else 
+        if (stayVisible && lockedItem == e.item)
         {
             stayVisible = false;
+            lockedItem = null;
+            HideDisplay();
         }
-        // Handle slot click event
+        else
+        {
+            stayVisible = true;
+            lockedItem = e.item;
+            ShowDisplay(e.item);
+        }
     }
     private void HideDisplay()
     {

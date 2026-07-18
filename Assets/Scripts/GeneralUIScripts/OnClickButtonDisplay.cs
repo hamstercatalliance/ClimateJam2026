@@ -38,7 +38,7 @@ public class OnClickButtonDisplay : MonoBehaviour
     {
         foreach (GameObject button in buttonGroup)
         {
-            //Debug.Log("Deselecting button: " + button.name);
+            Debug.Log("Deselecting button: " + button.name);
             Deselect(button);
         }
     }
@@ -54,7 +54,7 @@ public class OnClickButtonDisplay : MonoBehaviour
         foreach (Transform child in transform)
         {
             buttonGroup.Add(child.gameObject);
-            child.GetComponent<Image>().color = originalColor;
+            child.GetComponent<Image>().color = (child.gameObject == selectedButton) ? onClickColor : originalColor;
         }
     }
 }
