@@ -59,7 +59,10 @@ public class MenuManager : MonoBehaviour
         {
             screen.SetActive(false);
         }
-        ItemDisplay.Instance.SetStayVisible(false);
+        if (ItemDisplay.Instance != null)
+            ItemDisplay.Instance.SetStayVisible(false);
+        if (DiscardUIManager.Instance != null)
+            DiscardUIManager.Instance.ClearGameItem();
         gameObject.SetActive(true);
     }
 }

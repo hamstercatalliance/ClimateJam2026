@@ -38,6 +38,7 @@ public class InventorySlotUI : SlotUI
     public void ClearSlot()
     {
         //clear the slot
+        item = null;
         icon.SetActive(false); //EVENTUALLY HANDLE THIS ELSEWHERE
         amountText.text = "";
     }
@@ -73,6 +74,7 @@ public class InventorySlotUI : SlotUI
     }
     public override void OnPointerClick(PointerEventData eventData)
     {
+        DiscardUIManager.Instance.CloseDiscardUI();
         OnSlotClicked?.Invoke(this, new OnSlotClickedEventArgs
         {
             item = item

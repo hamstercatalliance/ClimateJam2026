@@ -21,6 +21,7 @@ public class ItemDisplay : MonoBehaviour
     [SerializeField] private TextMeshProUGUI itemNameText;
     [SerializeField] private TextMeshProUGUI itemDescriptionText;
     [SerializeField] private GameObject learnMoreObject;
+    [SerializeField] private GameObject trashButton;
     private bool stayVisible = false;
     public void SetStayVisible(bool value)
     {
@@ -85,10 +86,11 @@ public class ItemDisplay : MonoBehaviour
             ShowDisplay(e.item);
         }
     }
-    private void HideDisplay()
+    public void HideDisplay()
     {
         itemImageObject.SetActive(false);
         textObjects.SetActive(false);
+        trashButton.SetActive(false);
 
         itemNameText.text = "";
         itemDescriptionText.text = "";
@@ -105,5 +107,6 @@ public class ItemDisplay : MonoBehaviour
         
         itemImageObject.SetActive(true);
         textObjects.SetActive(true);
+        trashButton.SetActive(true);
     }
 }
