@@ -36,6 +36,8 @@ public class DialogueBox {
     public float? wait = null;
 
 
+    [JsonProperty("pointsAdded", Required = Required.Default)]
+    public int? sympathyPointsChange = null;
 
     [JsonProperty("buttons", Required = Required.Default)]
     public List<DialogueButton> buttons = new List<DialogueButton>();

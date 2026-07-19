@@ -17,18 +17,40 @@ public class DialogueSignal : EventArgs
     }
 }
 
+public class AddPointsDialogueSignal : DialogueSignal 
+{
+    public int points;
+    public AddPointsDialogueSignal (string signal, int points) : base(signal)
+    {
+        this.points = points;
+    }
+}
+
+
 
 public class DialogueRenderer : MonoBehaviour
 {
     //GameObject box;
     GameInput gameInput;
-    public EventHandler buttonPress { get; private set; }
-    public EventHandler dialogueSignal { get; private set; }
+    //public EventHandler buttonPress { get; private set; }
+    public EventHandler dialogueSignal { get; set; }
     [SerializeField] private GameObject buttonPrefab;
     [SerializeField] private GameObject box;
+
+    public static DialogueRenderer Instance { get; private set; } 
     private void Start()
     {
         gameInput = FindFirstObjectByType<GameInput>();
+    }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
     }
 
     public IEnumerator Render(DialogueBox dialogueObject, Conversation conversation) {
@@ -62,8 +84,11 @@ public class DialogueRenderer : MonoBehaviour
                 optionButton.GetComponent<Button>().onClick.AddListener(() => {
                     StartCoroutine(endDialogue(dialogueObject, dialoguePanel));
                     Debug.Log("DialogueRenderer: Button clicked with text: " + button.text + " and path: " + button.path);
-                    buttonPress?.Invoke(this, new DialogueSignal(button.id));
-                    conversation.ChooseOption(button.path);
+                    SendDialogueSignal(button.id, dialogueObject.sympathyPointsChange);
+                    if (button.path != null && button.path != "")
+                    {
+                        conversation.ChooseOption(button.path);
+                    }
                 });
             }
         }
@@ -78,7 +103,7 @@ public class DialogueRenderer : MonoBehaviour
                 if (dialogueObject.signal != null && dialogueObject.signal != "")
                 {
                     Debug.Log("DialogueRenderer: Interact key pressed, sending signal for character " + dialogueObject.getCharacterID() + " with content: " + dialogueObject.getContent() + " and signal: " + dialogueObject.signal);
-                    dialogueSignal?.Invoke(this, new DialogueSignal(dialogueObject.signal));
+                    SendDialogueSignal(dialogueObject.signal, dialogueObject.sympathyPointsChange);
                 }
                 if (!hasOptions)
                 {
@@ -91,14 +116,26 @@ public class DialogueRenderer : MonoBehaviour
 
     }
 
+    private void SendDialogueSignal(string signal, int? points = null) {
+        Debug.Log("Sending dialogue signal: " + signal + " with points: " + (points.HasValue ? points.Value.ToString() : "null"));
+        if (points == null || points == 0)
+        {
+            dialogueSignal?.Invoke(this, new DialogueSignal(signal));
+        }
+        else if (signal == "addPoints") 
+        { 
+            dialogueSignal?.Invoke(this, new AddPointsDialogueSignal(signal, points.Value));
+        }
+    }
+
     private IEnumerator endDialogue(DialogueBox dialogue, GameObject dialoguePanel) {
         yield return new WaitForSecondsRealtime(0.1f); // Wait for 0.1 seconds to ensure the dialogue box is rendered before proceeding
         dialogue.setInactive();
         Debug.Log("DialogueRenderer: Ending dialogue box for character " + dialogue.getCharacterID() + " with content: " + dialogue.getContent());
-        if (dialogue.lastBox)
-        {
-            DialogueBox.dialogueActive = false;
-        }
+        //if (dialogue.lastBox)
+        //{
+        //    DialogueBox.dialogueActive = false;
+        //}
         Destroy(dialoguePanel);
     }
 }  
