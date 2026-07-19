@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static CurrencyManager;
 
-public class SympathyPointsManager : MonoBehaviour, IHasPersistentData
+public class SympathyPointsManager : DialogueSignalHandler, IHasPersistentData
 {
     public static SympathyPointsManager Instance { get; private set; }
     public int SympathyPoints { get; private set; }
@@ -12,14 +13,17 @@ public class SympathyPointsManager : MonoBehaviour, IHasPersistentData
     private void Start()
     {
         LoadGameData();
-        DialogueRenderer.Instance.dialogueSignal += (sender, e) => {
+    }
+
+
+    protected override void HandleDialogueSignal(object sender, EventArgs e)
+    {
+        if (e is AddPointsDialogueSignal)
+        {
             AddPointsDialogueSignal addPointsSignal = e as AddPointsDialogueSignal;
-            if (e is AddPointsDialogueSignal)
-            {
-                addSympathyPoints(addPointsSignal.points);
-                Debug.Log("Sympathy points changed by " + addPointsSignal.points + ". Total sympathy points: " + SympathyPoints);
-            }
-        };
+            addSympathyPoints(addPointsSignal.points);
+            Debug.Log("Sympathy points changed by " + addPointsSignal.points + ". Total sympathy points: " + SympathyPoints);
+        }
     }
 
     private void Awake()
