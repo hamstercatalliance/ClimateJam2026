@@ -10,13 +10,11 @@ public class TestNPC1Script : NonPlayableCharacter
 
 
     // Update is called once per frame
-    public override void Init() {
 
-    }
-
-    public override void OnTalk()
+    protected override void OnTalk()
     {
-        Conversation conversation = gameObject.AddComponent<Conversation>();
+
+        // Conversation conversation = FindFirstObjectByType<Conversation>();
         conversation.Execute("TestConversation1");
 
     }

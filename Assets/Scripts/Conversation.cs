@@ -59,6 +59,8 @@ public class Conversation : MonoBehaviour
                 yield return StartCoroutine(WaitForButtonPress(dialogue[i]));
                 yield return StartCoroutine(Wait((dialogue[i].wait??0.0f)+0.1f));
             }
+            ResetConverstation();
+            DialogueBox.dialogueActive = false;
         }
         IEnumerator Wait(float delay) {
             yield return new WaitForSecondsRealtime(delay);

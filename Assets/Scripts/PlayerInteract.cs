@@ -6,9 +6,9 @@ using UnityEngine.TextCore.Text;
 
 public class PlayerInteract : MonoBehaviour
 {
-    public EventHandler NPCActivate;
+    public EventHandler InteractableActivate;
     [SerializeField] private GameInput gameInput;
-    public class NPCActivateEventArgs : EventArgs
+    public class InteractableActivateEventArgs : EventArgs
     {
         public string npcID;
 
@@ -16,12 +16,12 @@ public class PlayerInteract : MonoBehaviour
 
     private void GameInput_OnInteractAction(object sender, System.EventArgs e)
     {
-        string closestNPC = this.closestNPCID();
+        string closestNPC = this.closestInteractableID();
         //Debug.Log("PlayerInteract: Interact action triggered, NPC = " + closestNPC);
         if (!DialogueBox.dialogueActive && closestNPC != null)
         {
           //Debug.Log("PlayerInteract: Interact action triggered, closest NPC ID: " + closestNPC);
-            NPCActivate?.Invoke(this, new NPCActivateEventArgs { npcID = closestNPC });
+            InteractableActivate?.Invoke(this, new InteractableActivateEventArgs { npcID = closestNPC });
         }
 
     }
@@ -38,25 +38,25 @@ public class PlayerInteract : MonoBehaviour
     }
 
 
-    public string closestNPCID()
+    public string closestInteractableID()
     {
-        NonPlayableCharacter[] npcs = FindObjectsOfType<NonPlayableCharacter>();
+        InteractableObject[] interactableObjects = FindObjectsOfType<InteractableObject>();
         float closestDistance = Mathf.Infinity;
-        string closestNPCID = null;
+        string closestInteractableID = null;
 
-        foreach (NonPlayableCharacter npc in npcs)
+        foreach (InteractableObject interactableObject in interactableObjects)
         {
-            if (!(npc.scriptableNPC.interactionRadius <= (transform.position-npc.GetComponent<Transform>().position).magnitude))
+            if (!(interactableObject.scriptableInteractable.interactionRadius <= (transform.position-interactableObject.GetComponent<Transform>().position).magnitude))
             {
                 //Debug.Log("PlayerInteract: NPC " + npc.characterID + " is in interaction radius.");
-                float distance = Vector3.Distance(transform.position, npc.transform.position);
+                float distance = Vector3.Distance(transform.position, interactableObject.transform.position);
                 if (distance < closestDistance)
                 {
                     closestDistance = distance;
-                    closestNPCID = npc.characterID;
+                    closestInteractableID = interactableObject.id;
                 }
             }
         }
-        return closestNPCID;
+        return closestInteractableID;
     }
 }
