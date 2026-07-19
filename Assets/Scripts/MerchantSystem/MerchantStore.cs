@@ -12,11 +12,6 @@ public class MerchantStore : MonoBehaviour
     [SerializeField] private GameObject sellItemButtonPrefab;
     [SerializeField] private GameObject storeContent;
 
-    [SerializeField] private OnClickButtonDisplay modeSwitchButtonDisplay;
-    [SerializeField] private OnClickButtonDisplay itemListButtonDisplay;
-    [SerializeField] private GameObject buyModeSwitchButton;
-    // [SerializeField] private GameObject sellModeSwitchButton;
-    public static bool merchantStoreOpen = false;
     private GameItemSO selectedItem;
     public GameItemSO GetSelectedItem()
     {
@@ -70,9 +65,8 @@ public class MerchantStore : MonoBehaviour
             GameObject buttonObj = Instantiate(buyItemButtonPrefab, buttonContainer);
             buttonObj.SetActive(true);
             BuyItemButtonUI buttonUI = buttonObj.GetComponent<BuyItemButtonUI>();
-            buttonUI.SetUp(item, uiManager, this);
+            buttonUI.SetUp(item);
         }
-        itemListButtonDisplay.UpdateButtonGroup(); //update the button group to include the newly created buttons
     }
     public void PopulateSellList()
     {
@@ -82,21 +76,14 @@ public class MerchantStore : MonoBehaviour
             GameObject buttonObj = Instantiate(sellItemButtonPrefab, buttonContainer);
             buttonObj.SetActive(true);
             SellItemButtonUI buttonUI = buttonObj.GetComponent<SellItemButtonUI>();
-            buttonUI.SetUp(item, InventoryManager.Instance.GetItemCount(item), uiManager, this);
+            buttonUI.SetUp(item, InventoryManager.Instance.GetItemCount(item));
         }
-        itemListButtonDisplay.UpdateButtonGroup(); //update the button group to include the newly created buttons
     }
     private void ClearButtonContainer()
     {
-        List<Transform> toDestroy = new List<Transform>();
         foreach (Transform child in buttonContainer)
         {
             if (child == sellItemButtonPrefab.transform || child == buyItemButtonPrefab.transform) continue;
-            toDestroy.Add(child);
-        }
-        foreach (Transform child in toDestroy)
-        {
-            child.SetParent(null); // detaches immediately, unlike Destroy()
             Destroy(child.gameObject);
         }
     }
@@ -119,14 +106,10 @@ public class MerchantStore : MonoBehaviour
     public void LeaveStore()
     {
         storeContent.SetActive(false);
-        merchantStoreOpen = false;
-        selectedItemButton = null;
     }
     public void EnterStore()
     {
         storeContent.SetActive(true);
-        modeSwitchButtonDisplay.OnClick(buyModeSwitchButton); //select the buy mode button by default
-        merchantStoreOpen = true;
         EnterBuyMode();
     }
 }

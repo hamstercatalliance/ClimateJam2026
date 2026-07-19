@@ -7,7 +7,7 @@ using System;
 public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
 {
     //public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
-    //public event EventHandler OnMoonrise;
+    public event EventHandler OnMoonrise;
     public EventHandler<OnDayChangedEventArgs> OnDayChanged;
     public class OnDayChangedEventArgs : EventArgs
     {
@@ -112,18 +112,6 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
     {
         return timeElapsed / secondsInADay;
     }
-    public float GetMoonriseProgressNormalized()
-    {
-        float sunriseDayTransitionWeight = sunriseDayTransitionMinutes / minutesInADay;
-        float dayWeight = dayMinutes / minutesInADay;
-        float daySunsetTransitionWeight = daySunsetTransitionMinutes / minutesInADay;
-        float sunsetNightTransitionWeight = sunsetNightTransitionMinutes / minutesInADay;
-
-        float moonriseStart = sunriseDayTransitionWeight + dayWeight + daySunsetTransitionWeight;
-        float progress = GetProgressNormalized();
-
-        return Mathf.Clamp01((progress - moonriseStart) / sunsetNightTransitionWeight);
-    }
     private void PostProcessVolumeTransition(float progressNormalized)
     {
         float sunriseDayTransitionWeight = sunriseDayTransitionMinutes / minutesInADay;
@@ -163,7 +151,7 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
                     Debug.Log("Switching to moonrising");
                     state = State.Moonrising;
 
-                    //OnMoonrise?.Invoke(this, EventArgs.Empty);
+                    OnMoonrise?.Invoke(this, EventArgs.Empty);
                 }
                 break;
             case State.Moonrising:

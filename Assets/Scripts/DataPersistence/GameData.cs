@@ -26,9 +26,9 @@ public class GameData : MonoBehaviour
     public float DayManagerTimeElapsed;
     public int DayManagerDayCount;
     #endregion
-    // #region Day Manager UI Data
-    // public float DayManagerUITransitionProgress;
-    // #endregion
+    #region Day Manager UI Data
+    public float DayManagerUITransitionProgress;
+    #endregion
     #region Player data
     public Vector3 PlayerFacingDirection;
     #endregion
@@ -56,7 +56,7 @@ public class GameData : MonoBehaviour
         public int InventoryCols;
         public float DayManagerTimeElapsed;
         public int DayManagerDayCount;
-        //public float DayManagerUITransitionProgress;
+        public float DayManagerUITransitionProgress;
         public Vector3 PlayerFacingDirection;
         public int SympathyPoints;
         public List<QuestManager.QuestData> QuestDataList = new List<QuestManager.QuestData>();
@@ -80,7 +80,7 @@ public class GameData : MonoBehaviour
         }
         saveData.DayManagerTimeElapsed = DayManagerTimeElapsed;
         saveData.DayManagerDayCount = DayManagerDayCount;
-        //saveData.DayManagerUITransitionProgress = 0; //loading data should always be at the start of the day
+        saveData.DayManagerUITransitionProgress = 0; //loading data should always be at the start of the day
         saveData.PlayerFacingDirection = PlayerFacingDirection;
         saveData.SympathyPoints = SympathyPoints;
         saveData.QuestDataList = QuestDataList;
@@ -93,7 +93,7 @@ public class GameData : MonoBehaviour
         UnflattenInventorySlots(data);
         DayManagerTimeElapsed = data.DayManagerTimeElapsed;
         DayManagerDayCount = data.DayManagerDayCount;
-        //DayManagerUITransitionProgress = data.DayManagerUITransitionProgress;
+        DayManagerUITransitionProgress = data.DayManagerUITransitionProgress;
         PlayerFacingDirection = data.PlayerFacingDirection;
         SympathyPoints = data.SympathyPoints;
         QuestDataList = data.QuestDataList;
@@ -109,7 +109,7 @@ public class GameData : MonoBehaviour
         InventorySlots = null;
         DayManagerTimeElapsed = 0f;
         DayManagerDayCount = 1;
-        //DayManagerUITransitionProgress = 0;
+        DayManagerUITransitionProgress = 0;
         PlayerFacingDirection = Vector3.zero;
         SympathyPoints = 0;
         QuestDataList.Clear();

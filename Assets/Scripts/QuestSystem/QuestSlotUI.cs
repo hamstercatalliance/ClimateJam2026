@@ -50,8 +50,6 @@ public class QuestSlotUI : SlotUI
     public override void OnPointerClick(UnityEngine.EventSystems.PointerEventData eventData)
     {
         OnQuestSlotClicked?.Invoke(this, EventArgs.Empty);
-        questNameObject.transform.localScale = textOriginalScale;
-        questStatusIcon.transform.localScale = iconOriginalScale;
     }
     public override void OnPointerEnter(UnityEngine.EventSystems.PointerEventData eventData)
     {

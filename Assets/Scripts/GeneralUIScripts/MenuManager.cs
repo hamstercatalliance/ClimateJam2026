@@ -19,7 +19,6 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private List<GameObject> menuScreens;
     public event EventHandler OnMenuClosed;
     private bool isMenuOpen;
-    [SerializeField] private OnClickButtonDisplay menuButtonDisplay;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,13 +38,10 @@ public class MenuManager : MonoBehaviour
             isMenuOpen = false;
             OnMenuClosed?.Invoke(this, EventArgs.Empty);
         }
-        else if (!DialogueBox.dialogueActive && !MerchantStore.merchantStoreOpen)
+        else
         {
             menuUI.SetActive(true);
             isMenuOpen = true;
-            menuButtonDisplay.UpdateButtonGroup();
-            menuButtonDisplay.OnClick(menuButtonDisplay.transform.GetChild(0).gameObject); //select the first button in the menu by default
-            Display(menuScreens[0]); //display the first screen in the menu by default
         }
     }
     // Update is called once per frame
@@ -59,10 +55,6 @@ public class MenuManager : MonoBehaviour
         {
             screen.SetActive(false);
         }
-        if (ItemDisplay.Instance != null)
-            ItemDisplay.Instance.SetStayVisible(false);
-        if (DiscardUIManager.Instance != null)
-            DiscardUIManager.Instance.ClearGameItem();
         gameObject.SetActive(true);
     }
 }

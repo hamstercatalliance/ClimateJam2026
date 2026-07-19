@@ -23,11 +23,7 @@ public class InventorySlotUI : SlotUI
         public GameItemSO item;
     }
     public static event EventHandler OnSlotHoverExit;
-    public static event EventHandler<OnSlotClickedEventArgs> OnSlotClicked;
-    public class OnSlotClickedEventArgs : EventArgs
-    {
-        public GameItemSO item;
-    }
+    public static event EventHandler OnSlotClicked;
     public void SetIcon(GameItemSO gameItemSO)
     {
         //Debug.Log("Setting icon for slot");
@@ -38,7 +34,6 @@ public class InventorySlotUI : SlotUI
     public void ClearSlot()
     {
         //clear the slot
-        item = null;
         icon.SetActive(false); //EVENTUALLY HANDLE THIS ELSEWHERE
         amountText.text = "";
     }
@@ -74,11 +69,6 @@ public class InventorySlotUI : SlotUI
     }
     public override void OnPointerClick(PointerEventData eventData)
     {
-        DiscardUIManager.Instance.CloseDiscardUI();
-        OnSlotClicked?.Invoke(this, new OnSlotClickedEventArgs
-        {
-            item = item
-        });
-        icon.transform.localScale = originalScale;
+        OnSlotClicked?.Invoke(this, EventArgs.Empty);
     }
 }
