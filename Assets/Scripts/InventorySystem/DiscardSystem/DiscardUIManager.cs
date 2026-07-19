@@ -29,7 +29,7 @@ public class DiscardUIManager : MonoBehaviour
     {
         InventorySlotUI.OnSlotClicked += OnSlotClicked;
     }
-    private void Destroy()
+    private void OnDestroy()
     {
         InventorySlotUI.OnSlotClicked -= OnSlotClicked;
     }
