@@ -96,6 +96,25 @@ public class Player : MonoBehaviour, IHasPersistentData
         }
         
     }
+
+    private IEnumerator getOffNPC ()
+    {
+        // Wait for a short duration to allow the player to move away from the NPC
+        yield return new WaitForSeconds(0.1f);
+        // Check if the player is still colliding with the NPC
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 0.5f);
+        foreach (Collider collider in colliders)
+        {
+            if (collider.CompareTag("NPC"))
+            {
+                // If still colliding, move the player slightly away from the NPC
+                Vector3 directionAwayFromNPC = (transform.position - collider.transform.position).normalized;
+                transform.position += directionAwayFromNPC * 0.1f; // Move the player away by 0.1 units
+            }
+        }
+    }
+
+
     public void OnTriggerEnter(Collider other)
     {
         //IN THE UFTURE ITEMS WONT BE PICKED UP UPON TOUCH
