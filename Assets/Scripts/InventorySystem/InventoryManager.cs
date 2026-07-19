@@ -183,4 +183,23 @@ public class InventoryManager : MonoBehaviour, IHasPersistentData
         InventorySlot? slot = InventoryContainsItem(gameItemSO);
         return slot?.amount ?? 0;
     }
+
+    public void DiscardAllOfGameItem(GameItemSO gameItemSO)
+    {
+        InventorySlot? existingItem = InventoryContainsItem(gameItemSO);
+        if (existingItem != null)
+        {
+            InventorySlot item = existingItem.Value;
+            OnInventoryRemoval?.Invoke(this, new InventoryRemovalEventArgs
+            {
+                row = item.row,
+                col = item.col
+            });
+            //empty the slot
+            item.isOccupied = false;
+            item.gameItemSO = null;
+            item.amount = 0;
+            inventorySlots[item.row, item.col] = item;
+        }
+    }
 }

@@ -13,7 +13,6 @@ public class MerchantUIManager : MonoBehaviour
 
     [SerializeField] private GameObject buyModeButtons;
     [SerializeField] private GameObject sellModeButtons;
-
     private bool displayStayVisible = false;
     public bool GetDisplayStayVisible()
     {
@@ -58,30 +57,11 @@ public class MerchantUIManager : MonoBehaviour
         selectedItemNameText.text = "";
         selectedItemDescriptionText.text = "";
     }
-    private void OnBuyButtonPressed()
+    public void DeselectItemDisplay(GameItemSO itemSO)
     {
-        if (store.GetSelectedItem() != null)
-        {
-            store.PurchaseItem();
-        }
+        displayStayVisible = false;
+        ShowItemDisplay(itemSO); // mouse is prolly still hovering so keep it visible in hover mode
     }
-
-    private void OnSellButtonPressed()
-    {
-        if (store.GetSelectedItem() != null)
-        {
-            store.SellItem();
-        }
-    }
-
-    private void OnDonateButtonPressed()
-    {
-        if (store.GetSelectedItem() != null)
-        {
-            store.DonateItem();
-        }
-    }
-
     public void ShowBuyModeButtons()
     {
         buyModeButtons.SetActive(true);
