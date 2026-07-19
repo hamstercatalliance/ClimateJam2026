@@ -12,6 +12,9 @@ public class DialogueButton {
     public string text { get; set; }
     [JsonProperty("path")]
     public string path { get; set; }
+
+    [JsonProperty("points")]
+    public int? points = null;
 }
 
 

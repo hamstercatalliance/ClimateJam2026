@@ -84,7 +84,7 @@ public class DialogueRenderer : MonoBehaviour
                 optionButton.GetComponent<Button>().onClick.AddListener(() => {
                     StartCoroutine(endDialogue(dialogueObject, dialoguePanel));
                     Debug.Log("DialogueRenderer: Button clicked with text: " + button.text + " and path: " + button.path);
-                    SendDialogueSignal(button.id, dialogueObject.sympathyPointsChange);
+                    SendDialogueSignal(button.id, button.points);
                     if (button.path != null && button.path != "")
                     {
                         conversation.ChooseOption(button.path);

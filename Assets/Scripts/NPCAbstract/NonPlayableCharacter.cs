@@ -4,7 +4,10 @@ using UnityEngine;
 
 public abstract class NonPlayableCharacter : InteractableObject
 {
-
+    private void Update()
+    {
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+    }
 
     protected override void Init() {
         NonPlayableCharacterSO nonPlayableCharacterSO = scriptableInteractable as NonPlayableCharacterSO;
