@@ -6,13 +6,32 @@ using System;
 using UnityEngine.UI;
 public class ItemDisplay : MonoBehaviour
 {
+    public static ItemDisplay Instance { get; private set; }
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
     [SerializeField] private GameObject itemImageObject;
     [SerializeField] private GameObject textObjects;
     [SerializeField] private TextMeshProUGUI itemNameText;
     [SerializeField] private TextMeshProUGUI itemDescriptionText;
     [SerializeField] private GameObject learnMoreObject;
+    [SerializeField] private GameObject trashButton;
     private bool stayVisible = false;
+    public void SetStayVisible(bool value)
+    {
+        stayVisible = value;
+    }
     private string sourceLink;
+    private void OnEnable()
+    {
+        HideDisplay();
+    }
     void Start()
     {
         HideDisplay();
@@ -38,7 +57,10 @@ public class ItemDisplay : MonoBehaviour
     private void OnSlotHovered(object sender, InventorySlotUI.OnSlotHoveredEventArgs e)
     {
         GameItemSO item = e.item;
-        ShowDisplay(item);
+        if (stayVisible == false)
+        {
+            ShowDisplay(item);
+        }
     }
 
     private void OnSlotHoverExit(object sender, EventArgs e)
@@ -48,22 +70,27 @@ public class ItemDisplay : MonoBehaviour
             HideDisplay();
         }
     }
-    private void OnSlotClicked(object sender, EventArgs e)
+    private GameItemSO lockedItem;
+    private void OnSlotClicked(object sender, InventorySlotUI.OnSlotClickedEventArgs e)
     {
-        if (stayVisible == false)
-        {
-            stayVisible = true;
-        }
-        else 
+        if (stayVisible && lockedItem == e.item)
         {
             stayVisible = false;
+            lockedItem = null;
+            HideDisplay();
         }
-        // Handle slot click event
+        else
+        {
+            stayVisible = true;
+            lockedItem = e.item;
+            ShowDisplay(e.item);
+        }
     }
-    private void HideDisplay()
+    public void HideDisplay()
     {
         itemImageObject.SetActive(false);
         textObjects.SetActive(false);
+        trashButton.SetActive(false);
 
         itemNameText.text = "";
         itemDescriptionText.text = "";
@@ -80,5 +107,6 @@ public class ItemDisplay : MonoBehaviour
         
         itemImageObject.SetActive(true);
         textObjects.SetActive(true);
+        trashButton.SetActive(true);
     }
 }

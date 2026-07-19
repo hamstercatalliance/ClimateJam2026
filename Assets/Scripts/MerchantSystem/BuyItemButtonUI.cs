@@ -9,11 +9,13 @@ public class BuyItemButtonUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
     [SerializeField] private TextMeshProUGUI itemText;
     [SerializeField] private Button buyButton;
     private GameItemSO gameItemSO;
-    [SerializeField] private MerchantUIManager uiManager;
-    [SerializeField] private MerchantStore store;
+    private MerchantUIManager uiManager;
+    private MerchantStore store;
     
-    public void SetUp(GameItemSO item)
+    public void SetUp(GameItemSO item, MerchantUIManager uiManager, MerchantStore store)
     {
+        this.uiManager = uiManager;
+        this.store = store;
         gameItemSO = item;
         itemText.text = gameItemSO.name + " - $" + gameItemSO.cost.ToString();
         
@@ -22,13 +24,25 @@ public class BuyItemButtonUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
     }
     private void OnSelectButtonPressed()
     {
-        uiManager.SelectAndShowItemDisplay(gameItemSO);
-        store.SetSelectedItemButton(gameObject);
+        if (store.GetSelectedItemButton() == gameObject)
+        {
+            uiManager.DeselectItemDisplay(gameItemSO);
+            store.SetSelectedItemButton(null);
+            store.SetSelectedItem(null);
+        }
+        else
+        {
+            uiManager.SelectAndShowItemDisplay(gameItemSO);
+            store.SetSelectedItemButton(gameObject);
+        }
     }
 
     public virtual void OnPointerEnter(PointerEventData eventData)
     {
-        uiManager.ShowItemDisplay(gameItemSO);
+        if (uiManager.GetDisplayStayVisible() == false)
+        {
+            uiManager.ShowItemDisplay(gameItemSO);
+        }
         //hover
     }
     public virtual void OnPointerExit(PointerEventData eventData)
