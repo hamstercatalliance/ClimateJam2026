@@ -86,6 +86,7 @@ public class GameData : MonoBehaviour
         saveData.QuestDataList = QuestDataList;
         saveData.currencyAmount = currencyAmount;
 
+
         return saveData;
     }
     private void SetSaveData(SaveData data)

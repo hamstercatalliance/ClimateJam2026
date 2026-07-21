@@ -46,7 +46,7 @@ JSON Example (i know json doesn't have comments but im using them anyway bc this
 }
 
 
-Processing dialogueSignals: DialogueRenderer will send out a DialogueSignal when a button is clicked or a dialogueBox with "signal" assigned is destroyed. An abstract class DialogueSignalHandler exists which allows the processing of DialogueSignals (implement protected abstract void HandleDialogueSignal(System.Object sender, EventArgs e)). SympathyPointsManager handles any dialogue or button with the signal AddPoints (adding either the DialogeBox's or button's "points").
+Processing dialogueSignals: DialogueRenderer will send out a DialogueSignal when a button is clicked or a dialogueBox with "signal" assigned is destroyed. An abstract class DialogueSignalHandler exists which allows the processing of DialogueSignals (implement protected abstract void HandleDialogueSignal(System.Object sender, EventArgs e)). SympathyPointsManager handles any dialogue or button with the signal "AddPoints" (adding either the DialogeBox's or button's "points").
 
 SPECIAL CASES FOR NPC:
 If you need to create an NPC that only has two conversations (one for the initial interaction and one for every interaction afterwards), attach the concrete class OneInteractNPC to the GameObject.

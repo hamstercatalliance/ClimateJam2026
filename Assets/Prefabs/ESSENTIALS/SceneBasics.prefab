@@ -2620,6 +2620,50 @@ MonoBehaviour:
   - {fileID: 4441348741426918606}
   - {fileID: 8689710154324420335}
   menuButtonDisplay: {fileID: 5615785743016414996}
+--- !u!1 &2043650877109659168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 712754860084341068}
+  - component: {fileID: 3452936726308655123}
+  m_Layer: 0
+  m_Name: SympathyPointsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &712754860084341068
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043650877109659168}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7789248478945971772}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3452936726308655123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043650877109659168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7efbbd1147674d34186195a7876aa89a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2132759128660290242
 GameObject:
   m_ObjectHideFlags: 0
@@ -6114,6 +6158,7 @@ Transform:
   - {fileID: 3721543275111207980}
   - {fileID: 7088875757099047828}
   - {fileID: 5015919303239374843}
+  - {fileID: 712754860084341068}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4097551325337915196
@@ -7753,7 +7798,6 @@ GameObject:
   - component: {fileID: 4372622472497199596}
   - component: {fileID: 1068010713484479927}
   - component: {fileID: 1192735997557879414}
-  - component: {fileID: 3670006147782772417}
   - component: {fileID: 896028971408742589}
   m_Layer: 0
   m_Name: Player
@@ -7845,19 +7889,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &3670006147782772417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5330884795642023806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebd65bd32657f254db38ac16cea2882b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameInput: {fileID: 2428035754577097061}
 --- !u!114 &896028971408742589
 MonoBehaviour:
   m_ObjectHideFlags: 0
