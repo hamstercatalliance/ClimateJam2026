@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerAnimator : MonoBehaviour
 {
     private const string IS_WALKING = "IsWalking";
+    private const string IS_JUMPING = "IsJumping";
     private Animator animator;
 
     void Awake()
@@ -13,6 +14,15 @@ public class PlayerAnimator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.SetBool(IS_WALKING, Player.Instance.IsWalking);
+        if (Player.Instance.IsGrounded)
+        {
+            animator.SetBool(IS_WALKING, Player.Instance.IsWalking);
+            animator.SetBool(IS_JUMPING, false);
+        }
+        else
+        {
+            animator.SetBool(IS_WALKING, false);
+            animator.SetBool(IS_JUMPING, true); 
+        }
     }
 }
