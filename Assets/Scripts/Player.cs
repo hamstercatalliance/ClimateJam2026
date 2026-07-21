@@ -94,9 +94,11 @@ public class Player : MonoBehaviour, IHasPersistentData
         {
             isGrounded = true;
         }
-        
+        else if (collision.gameObject.CompareTag("NPC"))
+        {
+            StartCoroutine(getOffNPC());
+        }
     }
-
     private IEnumerator getOffNPC ()
     {
         // Wait for a short duration to allow the player to move away from the NPC
