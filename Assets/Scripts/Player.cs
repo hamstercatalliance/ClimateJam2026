@@ -7,6 +7,7 @@ using UnityEngine.Experimental.AI;
 
 public class Player : MonoBehaviour, IHasPersistentData
 {
+    public bool IsWalking {get; private set; }
     public event EventHandler<OnSceneLoaderCollidedEventArgs> OnSceneLoaderCollided;
     public class OnSceneLoaderCollidedEventArgs : EventArgs
     {
@@ -68,21 +69,7 @@ public class Player : MonoBehaviour, IHasPersistentData
             rb.AddForce(Vector3.up * jumpHeight, ForceMode.VelocityChange);
         }
     }
-    // private void GameInput_OnInteractAction(object sender, System.EventArgs e)
-    // {
-    //     if (selectedCounter != null)
-    //     {
-    //         selectedCounter.Interact(this);
-    //     }
-    // }
-    // private void GameInput_OnInteractAlternateAction(object sender, System.EventArgs e)
-    // {
-    //     if (selectedCounter != null)
-    //     {
-    //         selectedCounter.InteractAlternate(this);
-    //     }
-    // }
-    // Update is called once per frame
+
     void Update()
     {
         HandleMovement();
@@ -231,6 +218,7 @@ public class Player : MonoBehaviour, IHasPersistentData
         if (canMove)
         {
             transform.position += moveDir * moveDistance;
+            IsWalking = moveDir != Vector3.zero;
         }
 
 
