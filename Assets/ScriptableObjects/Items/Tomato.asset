@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Tomato
   m_EditorClassIdentifier: 
   worldSpacePrefab: {fileID: 0}
-  inventorySprite: {fileID: 21300000, guid: c0801eb2632994743b346a421f76c505, type: 3}
+  inventorySprite: {fileID: 65318267, guid: edd697a80e6006b4d88ddaaf776bdddd, type: 3}
   itemName: Tomato
   itemDescription: this is a tomato
   sourceLink: 
