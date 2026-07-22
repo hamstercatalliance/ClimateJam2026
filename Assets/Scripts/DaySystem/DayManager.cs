@@ -6,8 +6,6 @@ using System;
 
 public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
 {
-    //public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
-    //public event EventHandler OnMoonrise;
     public EventHandler<OnDayChangedEventArgs> OnDayChanged;
     public class OnDayChangedEventArgs : EventArgs
     {
@@ -243,10 +241,4 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
     {
         WriteTimeAndDayToGameData(timeElapsed, dayCount);
     }
-    // public void WriteNextDayDataToGameData()//this is only called when the day ends
-    // {
-    //     //since EndDay() already does dayCount++, 
-    //     //DO NOT WRITE dayCount + 1
-    //     WriteTimeAndDayToGameData(0f, dayCount);
-    // }
 }
