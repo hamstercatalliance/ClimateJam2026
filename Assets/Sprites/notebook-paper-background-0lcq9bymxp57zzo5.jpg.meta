@@ -1,0 +1,1170 @@
+fileFormatVersion: 2
+guid: d4784129952042643946fe45b9150bef
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1680
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd77a7c9087848c4dae8381412a3fff5
+      internalID: 998645639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_1
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 1680
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bab6d8b1639f1b2469d57dcbf7770226
+      internalID: -1497243192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_2
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 1680
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72af5ca0147d5ab4d8016147fcaf3994
+      internalID: -350855108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_3
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 1680
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb96481d5292fe747b672aaff295d3b6
+      internalID: -1121132673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_4
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 1680
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e682639a8b16b3a4599723c888ee7607
+      internalID: -1174673425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_5
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 1680
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee13395a498699240af447647d0986e0
+      internalID: 691749157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1440
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c179cef590e81ce46bb4a7f15ff000e7
+      internalID: 1531574622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_7
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 1440
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23eea2913038692468e84a7208aa8d80
+      internalID: -505528233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_8
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 1440
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0968b723fad2a2748824f287969bd031
+      internalID: 1431110486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_9
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 1440
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d766c78db49c5240866237498fe7dcf
+      internalID: -1051507630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_10
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 1440
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ecd5e669b93d23498531bf99ba966d0
+      internalID: 204321181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_11
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 1440
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c707a1864943d2f478ea317d617b05fc
+      internalID: -31918107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1200
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d55437df1685a0c4ea0d5a502e21f6d4
+      internalID: 1352582716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_13
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 1200
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9132a5762ca9859468e6a90a71bfdcc3
+      internalID: -1755466706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_14
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 1200
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a26d8dde938f6548acf92ec6a207044
+      internalID: 667084271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_15
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 1200
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 204fff8d09571534ea43a8748e8b7195
+      internalID: 35837524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_16
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 1200
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b8ac4c165247884ba939c9aec2b3fe9
+      internalID: -1457921713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_17
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 1200
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 063dbed137e7c5c4fa30a503a1677568
+      internalID: -1782528670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b1d70aae9aa3664cb0ca3f283c199a5
+      internalID: 541666829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_19
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 960
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f39a142f5517804c9364c24fff0e10e
+      internalID: 726904381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_20
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 960
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d7ecec5f73773f429685b179eb6af19
+      internalID: 1851886455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_21
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 960
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba48f8e0c4622fe4bbe77cfd146a7e09
+      internalID: 662605133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_22
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 960
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73ff1b06134b9bb459b7b723a8f92fd3
+      internalID: 1916818289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_23
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 960
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c35582987eaf12d4c8540043c3ac54cd
+      internalID: -1545069765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 720
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7c0cf45e1bebc44991cd8de79a6f9bb
+      internalID: 1567664246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_25
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 720
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 294a8abb5a60d46488fca063d4175878
+      internalID: 882527426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_26
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 720
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd67ae57c37f4664bb0fde253edfe8f2
+      internalID: -345412596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_27
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 720
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 254b03bc34e1af54fbcdfb8d334d011b
+      internalID: -8549551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_28
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 720
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b64bb5b60f0ee55458cdc0058b222617
+      internalID: 500469542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_29
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 720
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33f74ab685eae0b4baac335f94b780cd
+      internalID: -984764095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 480
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f02a56505c2a47f409da50173334a1ea
+      internalID: -1700797451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_31
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 480
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9a18fe5c68755e4f8c9fff9f13219d7
+      internalID: -1558870105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_32
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 480
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 906bc467ab584a64281ab047606ed07c
+      internalID: 964327563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_33
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 480
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34225d94223c7a246a48d3cbf84ffbb8
+      internalID: -998642700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_34
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 480
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 085ea9a1bd2ffc54cb80639bb8fa780f
+      internalID: 1858319692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_35
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 480
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65e78a702ef1ba44f983373a74d6f3b8
+      internalID: -141607632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33d1d3012ac8c7441b69abd1b3352f8b
+      internalID: -1790869189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_37
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 240
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2439fd5d6c530ff4a83821b9d81dbbcf
+      internalID: -1455439453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_38
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 240
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fbe984b8cf5e7e479eb19f51b7fcd01
+      internalID: 840862954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_39
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 240
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eef5441a962022e4689c21e5be255c5d
+      internalID: -427768166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_40
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 240
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8367cd4a7be800c459b92a2e4872b598
+      internalID: -333292358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_41
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 240
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e1a16c89b0af3947a878995f2c5f527
+      internalID: 240102204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f98504d21d0c90347bee39e94fc836a8
+      internalID: 1122211197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_43
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 0
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df40fcb3e9625ee4c8dc99434bbb8a9a
+      internalID: 538200351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_44
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 0
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ff7f0c5e0bbf534592ff1cf1eae4cea
+      internalID: 1735296384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_45
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 0
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 979e75cf8e26a874a8f210499f332ff5
+      internalID: -1877031426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_46
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 0
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c647751c34f42cb4d87f81975e18fa98
+      internalID: 1620515779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notebook-paper-background-0lcq9bymxp57zzo5_47
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 0
+        width: 245.16667
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01c5955561794bd48a40726431bfd3c6
+      internalID: -1389564803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      notebook-paper-background-0lcq9bymxp57zzo5_0: 998645639
+      notebook-paper-background-0lcq9bymxp57zzo5_1: -1497243192
+      notebook-paper-background-0lcq9bymxp57zzo5_10: 204321181
+      notebook-paper-background-0lcq9bymxp57zzo5_11: -31918107
+      notebook-paper-background-0lcq9bymxp57zzo5_12: 1352582716
+      notebook-paper-background-0lcq9bymxp57zzo5_13: -1755466706
+      notebook-paper-background-0lcq9bymxp57zzo5_14: 667084271
+      notebook-paper-background-0lcq9bymxp57zzo5_15: 35837524
+      notebook-paper-background-0lcq9bymxp57zzo5_16: -1457921713
+      notebook-paper-background-0lcq9bymxp57zzo5_17: -1782528670
+      notebook-paper-background-0lcq9bymxp57zzo5_18: 541666829
+      notebook-paper-background-0lcq9bymxp57zzo5_19: 726904381
+      notebook-paper-background-0lcq9bymxp57zzo5_2: -350855108
+      notebook-paper-background-0lcq9bymxp57zzo5_20: 1851886455
+      notebook-paper-background-0lcq9bymxp57zzo5_21: 662605133
+      notebook-paper-background-0lcq9bymxp57zzo5_22: 1916818289
+      notebook-paper-background-0lcq9bymxp57zzo5_23: -1545069765
+      notebook-paper-background-0lcq9bymxp57zzo5_24: 1567664246
+      notebook-paper-background-0lcq9bymxp57zzo5_25: 882527426
+      notebook-paper-background-0lcq9bymxp57zzo5_26: -345412596
+      notebook-paper-background-0lcq9bymxp57zzo5_27: -8549551
+      notebook-paper-background-0lcq9bymxp57zzo5_28: 500469542
+      notebook-paper-background-0lcq9bymxp57zzo5_29: -984764095
+      notebook-paper-background-0lcq9bymxp57zzo5_3: -1121132673
+      notebook-paper-background-0lcq9bymxp57zzo5_30: -1700797451
+      notebook-paper-background-0lcq9bymxp57zzo5_31: -1558870105
+      notebook-paper-background-0lcq9bymxp57zzo5_32: 964327563
+      notebook-paper-background-0lcq9bymxp57zzo5_33: -998642700
+      notebook-paper-background-0lcq9bymxp57zzo5_34: 1858319692
+      notebook-paper-background-0lcq9bymxp57zzo5_35: -141607632
+      notebook-paper-background-0lcq9bymxp57zzo5_36: -1790869189
+      notebook-paper-background-0lcq9bymxp57zzo5_37: -1455439453
+      notebook-paper-background-0lcq9bymxp57zzo5_38: 840862954
+      notebook-paper-background-0lcq9bymxp57zzo5_39: -427768166
+      notebook-paper-background-0lcq9bymxp57zzo5_4: -1174673425
+      notebook-paper-background-0lcq9bymxp57zzo5_40: -333292358
+      notebook-paper-background-0lcq9bymxp57zzo5_41: 240102204
+      notebook-paper-background-0lcq9bymxp57zzo5_42: 1122211197
+      notebook-paper-background-0lcq9bymxp57zzo5_43: 538200351
+      notebook-paper-background-0lcq9bymxp57zzo5_44: 1735296384
+      notebook-paper-background-0lcq9bymxp57zzo5_45: -1877031426
+      notebook-paper-background-0lcq9bymxp57zzo5_46: 1620515779
+      notebook-paper-background-0lcq9bymxp57zzo5_47: -1389564803
+      notebook-paper-background-0lcq9bymxp57zzo5_5: 691749157
+      notebook-paper-background-0lcq9bymxp57zzo5_6: 1531574622
+      notebook-paper-background-0lcq9bymxp57zzo5_7: -505528233
+      notebook-paper-background-0lcq9bymxp57zzo5_8: 1431110486
+      notebook-paper-background-0lcq9bymxp57zzo5_9: -1051507630
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

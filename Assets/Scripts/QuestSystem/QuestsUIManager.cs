@@ -9,6 +9,7 @@ public class QuestsUIManager : MonoBehaviour
     [SerializeField] private Sprite activeQuestIcon;
     [SerializeField] private Sprite finishedQuestIcon;
     [SerializeField] private Transform contentParent;
+    [SerializeField] private Sprite[] questSlotBkgs;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -22,6 +23,7 @@ public class QuestsUIManager : MonoBehaviour
     {
         GameObject questSlot = Instantiate(questUITemplate, contentParent);
         questSlot.SetActive(true);
+        questSlot.GetComponent<Image>().sprite = questSlotBkgs[Random.Range(0, questSlotBkgs.Length)];
         QuestSlotUI questSlotUI = questSlot.GetComponent<QuestSlotUI>();
         questSlotUI.SetQuestName(questData.questSO.questName);
         if (questData.isCompleted)

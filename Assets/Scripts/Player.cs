@@ -7,6 +7,7 @@ using UnityEngine.Experimental.AI;
 
 public class Player : MonoBehaviour, IHasPersistentData
 {
+    public bool IsWalking {get; private set; }
     public event EventHandler<OnSceneLoaderCollidedEventArgs> OnSceneLoaderCollided;
     public class OnSceneLoaderCollidedEventArgs : EventArgs
     {
@@ -19,7 +20,7 @@ public class Player : MonoBehaviour, IHasPersistentData
         public GameObject gameItemGameObject;
     }
 
-    private bool isGrounded = true;
+    public bool IsGrounded {get; private set; }
     private Rigidbody rb;
     private Vector3 lastMoveDir;
     [SerializeField] private float moveSpeed = 7f;
@@ -40,6 +41,7 @@ public class Player : MonoBehaviour, IHasPersistentData
     }
     private void Start()
     {
+        IsGrounded = true;
         rb = GetComponent<Rigidbody>();
         gameInput.OnJumpAction += GameInput_OnJumpAction;
         SceneLoader.OnSceneTransition += OnSceneTransitionHandler;
@@ -62,27 +64,13 @@ public class Player : MonoBehaviour, IHasPersistentData
     }
     private void GameInput_OnJumpAction(object sender, System.EventArgs e)
     {
-        if (isGrounded)
+        if (IsGrounded)
         {
-            isGrounded = false;
+            IsGrounded = false;
             rb.AddForce(Vector3.up * jumpHeight, ForceMode.VelocityChange);
         }
     }
-    // private void GameInput_OnInteractAction(object sender, System.EventArgs e)
-    // {
-    //     if (selectedCounter != null)
-    //     {
-    //         selectedCounter.Interact(this);
-    //     }
-    // }
-    // private void GameInput_OnInteractAlternateAction(object sender, System.EventArgs e)
-    // {
-    //     if (selectedCounter != null)
-    //     {
-    //         selectedCounter.InteractAlternate(this);
-    //     }
-    // }
-    // Update is called once per frame
+
     void Update()
     {
         HandleMovement();
@@ -92,7 +80,7 @@ public class Player : MonoBehaviour, IHasPersistentData
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isGrounded = true;
+            IsGrounded = true;
         }
         
     }
@@ -231,6 +219,7 @@ public class Player : MonoBehaviour, IHasPersistentData
         if (canMove)
         {
             transform.position += moveDir * moveDistance;
+            IsWalking = moveDir != Vector3.zero;
         }
 
 

@@ -65,19 +65,7 @@ public class GameData : MonoBehaviour
     public SaveData GetSaveData()
     {
         SaveData saveData = new SaveData();
-        if (InventorySlots != null)
-        {
-            saveData.InventoryRows = InventorySlots.GetLength(0);
-            saveData.InventoryCols = InventorySlots.GetLength(1);
-            saveData.InventorySlotsFlat = new List<InventoryManager.InventorySlot>();
-            for (int row = 0; row < saveData.InventoryRows; row++)
-            {
-                for (int col = 0; col < saveData.InventoryCols; col++)
-                {
-                    saveData.InventorySlotsFlat.Add(InventorySlots[row, col]);
-                }
-            }
-        }
+        FlattenInventorySlots(saveData);
         saveData.DayManagerTimeElapsed = DayManagerTimeElapsed;
         saveData.DayManagerDayCount = DayManagerDayCount;
         //saveData.DayManagerUITransitionProgress = 0; //loading data should always be at the start of the day
@@ -118,7 +106,22 @@ public class GameData : MonoBehaviour
     }
 
 
-
+    private void FlattenInventorySlots(SaveData data)
+    {
+        if (InventorySlots != null)
+        {
+            data.InventoryRows = InventorySlots.GetLength(0);
+            data.InventoryCols = InventorySlots.GetLength(1);
+            data.InventorySlotsFlat = new List<InventoryManager.InventorySlot>();
+            for (int row = 0; row < data.InventoryRows; row++)
+            {
+                for (int col = 0; col < data.InventoryCols; col++)
+                {
+                    data.InventorySlotsFlat.Add(InventorySlots[row, col]);
+                }
+            }
+        }
+    }
     private void UnflattenInventorySlots(SaveData data)
     {
         if (data.InventorySlotsFlat != null && data.InventoryRows > 0 && data.InventoryCols > 0)
