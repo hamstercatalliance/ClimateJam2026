@@ -12,7 +12,9 @@
                 },
                 {
                     "characterID": "testnpc1",
-                    "dialogue0": "Go away"
+                    "dialogue": "Go away",
+                    "signal": "addPoints",
+                    "pointsAdded": 200
                 }
             ]
         }

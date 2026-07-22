@@ -117,13 +117,14 @@ public class DialogueRenderer : MonoBehaviour
     }
 
     private void SendDialogueSignal(string signal, int? points = null) {
-        Debug.Log("Sending dialogue signal: " + signal + " with points: " + (points.HasValue ? points.Value.ToString() : "null"));
         if (points == null || points == 0)
         {
             dialogueSignal?.Invoke(this, new DialogueSignal(signal));
+            Debug.Log("Sending dialogue signal: " + signal);
         }
         else if (signal == "addPoints") 
         { 
+            Debug.Log("Sending addPoints dialogue signal: " + signal + " with points: " + points.Value);
             dialogueSignal?.Invoke(this, new AddPointsDialogueSignal(signal, points.Value));
         }
     }

@@ -49,7 +49,7 @@ public class PlayerInteract : MonoBehaviour
             if (!(interactableObject.scriptableInteractable.interactionRadius <= (transform.position-interactableObject.GetComponent<Transform>().position).magnitude))
             {
                 //Debug.Log("PlayerInteract: NPC " + npc.characterID + " is in interaction radius.");
-                float distance = Vector3.Distance(transform.position, interactableObject.transform.position);
+                float distance = interactableObject.getDistance();//Vector3.Distance(transform.position, interactableObject.transform.position);
                 if (distance < closestDistance)
                 {
                     closestDistance = distance;

@@ -13,6 +13,7 @@ public class SympathyPointsManager : DialogueSignalHandler, IHasPersistentData
     private void Start()
     {
         LoadGameData();
+        SceneLoader.OnSceneTransition += OnSceneTransitionHandler;
     }
 
 
@@ -40,7 +41,7 @@ public class SympathyPointsManager : DialogueSignalHandler, IHasPersistentData
 
 
     public void addSympathyPoints(int addedPoints) {
-        addedPoints += SympathyPoints;
+        SympathyPoints += addedPoints;
     }
 
 
@@ -57,8 +58,12 @@ public class SympathyPointsManager : DialogueSignalHandler, IHasPersistentData
         if (GameData.Instance != null && GameData.Instance.HasLoadedRunData)
         {
             SympathyPoints = GameData.Instance.SympathyPoints;
+            Debug.Log("Loaded sympathy points: " + SympathyPoints);
         }
     }
-
+    private void OnSceneTransitionHandler(object sender, System.EventArgs e)
+    {
+        WriteToGameData();
+    }
 
 }
