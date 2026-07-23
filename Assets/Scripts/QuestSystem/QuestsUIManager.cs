@@ -25,7 +25,9 @@ public class QuestsUIManager : MonoBehaviour
         questSlot.SetActive(true);
         questSlot.GetComponent<Image>().sprite = questSlotBkgs[Random.Range(0, questSlotBkgs.Length)];
         QuestSlotUI questSlotUI = questSlot.GetComponent<QuestSlotUI>();
-        questSlotUI.SetQuestName(questData.questSO.questName);
+        
+        QuestSO questSO = ScriptableObjectDatabase.Instance.GetScriptableObjectByID(questData.questID) as QuestSO;
+        questSlotUI.SetQuestName(questSO.questName);
         if (questData.isCompleted)
         {
             questSlotUI.SetIcon(finishedQuestIcon);
@@ -35,7 +37,7 @@ public class QuestsUIManager : MonoBehaviour
         {
             questSlotUI.SetIcon(activeQuestIcon);
         }
-        questSlotUI.SetQuestSO(questData.questSO);
+        questSlotUI.SetQuestSO(questSO);
     }
     public void LoadQuestUIData()
     {
@@ -50,9 +52,8 @@ public class QuestsUIManager : MonoBehaviour
     }
     public void UpdateQuestUI(QuestManager.QuestData questData)
     {
-        Debug.Log("Updating quest UI for quest: " + questData.questSO.questName);
         QuestSlotUI[] questSlotUIs = contentParent.GetComponentsInChildren<QuestSlotUI>();
-        QuestSO questSO = questData.questSO;
+        QuestSO questSO = ScriptableObjectDatabase.Instance.GetScriptableObjectByID(questData.questID) as QuestSO;
         foreach (QuestSlotUI questSlotUI in questSlotUIs)
         {
             if (questSlotUI.GetQuestSO() == questSO)
@@ -66,7 +67,7 @@ public class QuestsUIManager : MonoBehaviour
                 {
                     questSlotUI.SetIcon(activeQuestIcon);
                 }
-                Debug.Log("Update quest called for quest: " + questData.questSO.questName);
+                //Debug.Log("Update quest called for quest: " + questSO.questName);
                 break;
             }
         }

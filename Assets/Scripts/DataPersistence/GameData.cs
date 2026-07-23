@@ -26,13 +26,9 @@ public class GameData : MonoBehaviour
     public float DayManagerTimeElapsed;
     public int DayManagerDayCount;
     #endregion
-    // #region Day Manager UI Data
-    // public float DayManagerUITransitionProgress;
-    // #endregion
     #region Player data
     public Vector3 PlayerFacingDirection;
     #endregion
-
     #region Sympathy Points Data
     public int SympathyPoints; 
     #endregion
@@ -59,7 +55,7 @@ public class GameData : MonoBehaviour
         public float DayManagerTimeElapsed;
         public int DayManagerDayCount;
         //public float DayManagerUITransitionProgress;
-        public Vector3 PlayerFacingDirection;
+        //public Vector3 PlayerFacingDirection;
         public int SympathyPoints;
         public List<QuestManager.QuestData> QuestDataList = new List<QuestManager.QuestData>();
         public int currencyAmount;
@@ -72,7 +68,7 @@ public class GameData : MonoBehaviour
         saveData.DayManagerTimeElapsed = DayManagerTimeElapsed;
         saveData.DayManagerDayCount = DayManagerDayCount;
         //saveData.DayManagerUITransitionProgress = 0; //loading data should always be at the start of the day
-        saveData.PlayerFacingDirection = PlayerFacingDirection;
+        //saveData.PlayerFacingDirection = PlayerFacingDirection;
         saveData.SympathyPoints = SympathyPoints;
         saveData.QuestDataList = QuestDataList;
         saveData.currencyAmount = currencyAmount;
@@ -85,7 +81,7 @@ public class GameData : MonoBehaviour
         DayManagerTimeElapsed = data.DayManagerTimeElapsed;
         DayManagerDayCount = data.DayManagerDayCount;
         //DayManagerUITransitionProgress = data.DayManagerUITransitionProgress;
-        PlayerFacingDirection = data.PlayerFacingDirection;
+        //PlayerFacingDirection = data.PlayerFacingDirection;
         SympathyPoints = data.SympathyPoints;
         QuestDataList = data.QuestDataList;
         currencyAmount = data.currencyAmount;
@@ -102,7 +98,7 @@ public class GameData : MonoBehaviour
         DayManagerTimeElapsed = 0f;
         DayManagerDayCount = 1;
         //DayManagerUITransitionProgress = 0;
-        PlayerFacingDirection = Vector3.zero;
+        //PlayerFacingDirection = Vector3.zero;
         SympathyPoints = 0;
         QuestDataList.Clear();
         currencyAmount = 0;

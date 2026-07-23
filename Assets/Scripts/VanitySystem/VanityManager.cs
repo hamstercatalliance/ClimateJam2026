@@ -58,10 +58,14 @@ public class VanityManager : MonoBehaviour, IHasPersistentData
             {
                 foreach (string id in savedIDs)
                 {
-                    //GameItemSO match = FindItemByID(id); IMPLEMENT IN REFACTOR
+                    GameItemSO match = ScriptableObjectDatabase.Instance.GetScriptableObjectByID(id) as GameItemSO; 
                     if (match != null)
                     {
                         ownedVanityItems.Add(match);
+                    }
+                    else
+                    {
+                        Debug.LogError("VanityManager: LoadGameData: Could not find GameItemSO with ID: " + id);
                     }
                 }
             }

@@ -30,14 +30,16 @@ public class InventoryManager : MonoBehaviour, IHasPersistentData
     [Serializable]
     public struct InventorySlot
     {
-        public GameItemSO gameItemSO;
+        //public GameItemSO gameItemSO;
+        public string itemID; //store the itemID instead of the GameItemSO reference
         public int amount;
         public bool isOccupied;
         public int row;
         public int col;
         public InventorySlot(GameItemSO gameItemSO, int amount, bool isOccupied, int row, int col)
         {
-            this.gameItemSO = gameItemSO;
+            //this.gameItemSO = gameItemSO;
+            this.itemID = gameItemSO.itemID; 
             this.amount = amount;
             this.isOccupied = isOccupied;
             this.row = row;
@@ -67,7 +69,7 @@ public class InventoryManager : MonoBehaviour, IHasPersistentData
         {
             inventorySlots = GameData.Instance.InventorySlots;
             InventoryUIManager.Instance.LoadSlotUIData();
-            Debug.Log(inventorySlots[0,0].gameItemSO);
+            Debug.Log(ScriptableObjectDatabase.Instance.GetScriptableObjectByID(inventorySlots[0,0].itemID));
         }
         else
         {
@@ -118,7 +120,8 @@ public class InventoryManager : MonoBehaviour, IHasPersistentData
                     {
                         inventorySlots[i, j].amount = 1;
                         inventorySlots[i, j].isOccupied = true;
-                        inventorySlots[i, j].gameItemSO = gameItemSO;
+                        //inventorySlots[i, j].gameItemSO = gameItemSO;
+                        inventorySlots[i, j].itemID = gameItemSO.itemID;
                         inventorySlots[i, j].row = i;
                         inventorySlots[i, j].col = j;
 
@@ -126,7 +129,6 @@ public class InventoryManager : MonoBehaviour, IHasPersistentData
                         {
                             slot = inventorySlots[i, j]
                         });
-                        Debug.Log("Player stored " + inventorySlots[i, j].gameItemSO.name + "at" + i + "," + j);
                         
                         return true;
                     }
@@ -152,7 +154,8 @@ public class InventoryManager : MonoBehaviour, IHasPersistentData
                 });
                 //empty the slot
                 item.isOccupied = false;
-                item.gameItemSO = null;
+                //item.gameItemSO = null;
+                item.itemID = null;
                 item.amount = 0;
             }
             inventorySlots[item.row, item.col] = item;
@@ -162,11 +165,12 @@ public class InventoryManager : MonoBehaviour, IHasPersistentData
     }
     public InventorySlot? InventoryContainsItem(GameItemSO gameItemSO)
     {
+        string itemID = gameItemSO.itemID;
         for (int i = 0; i < inventorySlots.GetLength(0); i++)
         {
             for (int j = 0; j < inventorySlots.GetLength(1); j++)
             {
-                if (inventorySlots[i, j].isOccupied && inventorySlots[i, j].gameItemSO == gameItemSO)
+                if (inventorySlots[i, j].isOccupied && inventorySlots[i, j].itemID == itemID)
                 {
                     return inventorySlots[i, j];
                 }
@@ -198,7 +202,8 @@ public class InventoryManager : MonoBehaviour, IHasPersistentData
             });
             //empty the slot
             item.isOccupied = false;
-            item.gameItemSO = null;
+            //item.gameItemSO = null;
+            item.itemID = null;
             item.amount = 0;
             inventorySlots[item.row, item.col] = item;
         }

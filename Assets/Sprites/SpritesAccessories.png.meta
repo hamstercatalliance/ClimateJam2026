@@ -100,19 +100,19 @@ TextureImporter:
       name: SpriteTieStripe
       rect:
         serializedVersion: 2
-        x: 632
-        y: 4521
-        width: 260
-        height: 598
+        x: 0
+        y: 1024
+        width: 1024
+        height: 1024
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a16a32ff800ef0143b1bd8f2df75036e
-      internalID: 999972048
+      spriteID: 893226b719c208a44960f1d61a39a4de
+      internalID: -1424426196
       vertices: []
       indices: 
       edges: []
@@ -121,19 +121,19 @@ TextureImporter:
       name: SpriteTieBlack
       rect:
         serializedVersion: 2
-        x: 2648
-        y: 4520
-        width: 284
-        height: 620
+        x: 1024
+        y: 1024
+        width: 1024
+        height: 1024
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 114c3c6fd4d075b4292a7c480a543f04
-      internalID: -81323270
+      spriteID: f5fa6503db9cb9f4e99b8ffd3f5c345a
+      internalID: -436564453
       vertices: []
       indices: 
       edges: []
@@ -142,19 +142,19 @@ TextureImporter:
       name: SpriteTieDots
       rect:
         serializedVersion: 2
-        x: 4739
-        y: 4547
-        width: 236
-        height: 584
+        x: 2048
+        y: 1024
+        width: 1024
+        height: 1024
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 488f872f67ecd9547b44e091bd058a6e
-      internalID: -221709358
+      spriteID: da088717d45a0354c9efbfa647b08bce
+      internalID: -1445286148
       vertices: []
       indices: 
       edges: []
@@ -163,19 +163,19 @@ TextureImporter:
       name: SpriteBowBlue
       rect:
         serializedVersion: 2
-        x: 716
-        y: 3497
-        width: 470
-        height: 302
+        x: 0
+        y: 0
+        width: 1024
+        height: 1024
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 557bc0989eb37524e8eb972efcebb38f
-      internalID: -422407023
+      spriteID: c85877a1074ff5244b013759c876f5ec
+      internalID: 1518672036
       vertices: []
       indices: 
       edges: []
@@ -184,19 +184,19 @@ TextureImporter:
       name: SpriteBowPink
       rect:
         serializedVersion: 2
-        x: 2762
-        y: 3425
-        width: 446
-        height: 326
+        x: 1024
+        y: 0
+        width: 1024
+        height: 1024
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d85605a26dba754d84fb9ed5f23d6d0
-      internalID: -839018861
+      spriteID: ae803d461b34c9d4184210817645ebd8
+      internalID: 1292741849
       vertices: []
       indices: 
       edges: []
@@ -205,103 +205,19 @@ TextureImporter:
       name: SpriteBowPurple
       rect:
         serializedVersion: 2
-        x: 4820
-        y: 3434
-        width: 473
-        height: 353
+        x: 2048
+        y: 0
+        width: 1024
+        height: 1024
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e485986076a57b04281b675f2922432f
-      internalID: 703563969
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DONTUSE
-      rect:
-        serializedVersion: 2
-        x: 356
-        y: 1259
-        width: 944
-        height: 245
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3d2a1c1bf28f7b34a8546869b269e4be
-      internalID: 68632865
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DONTUSE1
-      rect:
-        serializedVersion: 2
-        x: 2453
-        y: 1304
-        width: 809
-        height: 176
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1c3b823904c793441baa9bf9b2736064
-      internalID: -1688761197
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DONTUSE3
-      rect:
-        serializedVersion: 2
-        x: 2864
-        y: 1280
-        width: 215
-        height: 116
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ea5b7ef8f0073164ba384bd680f7dcab
-      internalID: -71092386
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DONTUSE2
-      rect:
-        serializedVersion: 2
-        x: 4460
-        y: 1298
-        width: 839
-        height: 119
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 96c8e5d081b5a9641adfb7ca4c33773d
-      internalID: -608959124
+      spriteID: 75cbf76da19901743bf04e5f16a1b3f6
+      internalID: -669368617
       vertices: []
       indices: 
       edges: []
@@ -317,16 +233,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      DONTUSE: 68632865
-      DONTUSE1: -1688761197
-      DONTUSE2: -608959124
-      DONTUSE3: -71092386
-      SpriteBowBlue: -422407023
-      SpriteBowPink: -839018861
-      SpriteBowPurple: 703563969
-      SpriteTieBlack: -81323270
-      SpriteTieDots: -221709358
-      SpriteTieStripe: 999972048
+      SpriteBowBlue: 1518672036
+      SpriteBowPink: 1292741849
+      SpriteBowPurple: -669368617
+      SpriteTieBlack: -436564453
+      SpriteTieDots: -1445286148
+      SpriteTieStripe: -1424426196
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
