@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 503d9c67db0c6f04c937f28131dde267, type: 3}
-  m_Name: Tomato
+  m_Name: BowBlue
   m_EditorClassIdentifier: 
   worldSpacePrefab: {fileID: 0}
-  inventorySprite: {fileID: 65318267, guid: edd697a80e6006b4d88ddaaf776bdddd, type: 3}
-  itemName: Tomato
-  itemID: item.tomato
-  itemDescription: this is a tomato
+  inventorySprite: {fileID: 1518672036, guid: 5075cf523a2b44d4cbb9972ba6087c86, type: 3}
+  itemName: Blue Bow
+  itemID: item.vanity.bow_blue
+  itemDescription: It's blue for an amazing reason...
   sourceLink: 
-  cost: 2
-  isVanityItem: 0
+  cost: 200
+  isVanityItem: 1

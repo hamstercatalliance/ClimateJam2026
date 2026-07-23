@@ -103,8 +103,14 @@ public class ItemDisplay : MonoBehaviour
         itemNameText.text = gameItemSO.itemName;
         itemDescriptionText.text = gameItemSO.itemDescription;
         sourceLink = gameItemSO.sourceLink;
-        learnMoreObject.GetComponent<TextMeshProUGUI>().text = "Learn More";
-        
+        if (sourceLink == null || sourceLink == "")
+        {
+            learnMoreObject.GetComponent<TextMeshProUGUI>().text = "";
+        }
+        else
+        {
+            learnMoreObject.GetComponent<TextMeshProUGUI>().text = "Learn More";
+        }
         itemImageObject.SetActive(true);
         textObjects.SetActive(true);
         trashButton.SetActive(true);

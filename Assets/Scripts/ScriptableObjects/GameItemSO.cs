@@ -9,7 +9,10 @@ public class GameItemSO : ScriptableObject
     public GameObject worldSpacePrefab;
     public Sprite inventorySprite;
     public string itemName;
+    public string itemID;
     public string itemDescription;
     public string sourceLink;
     public int cost;
+    public bool isVanityItem;
+    
 }

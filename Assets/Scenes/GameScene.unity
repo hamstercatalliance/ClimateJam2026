@@ -1177,30 +1177,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 382813500374292863, guid: 221645e9bd166d648b1ab79e4237004b,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 382813500374292863, guid: 221645e9bd166d648b1ab79e4237004b,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 382813500374292863, guid: 221645e9bd166d648b1ab79e4237004b,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4019541413300774350, guid: 221645e9bd166d648b1ab79e4237004b,
         type: 3}
       propertyPath: m_Name
       value: SceneBasics
       objectReference: {fileID: 0}
-    - target: {fileID: 7136196842416255542, guid: 221645e9bd166d648b1ab79e4237004b,
+    - target: {fileID: 6701147000967062893, guid: 221645e9bd166d648b1ab79e4237004b,
         type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7136196842416255542, guid: 221645e9bd166d648b1ab79e4237004b,
-        type: 3}
-      propertyPath: m_MatchWidthOrHeight
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7136196842416255542, guid: 221645e9bd166d648b1ab79e4237004b,
-        type: 3}
-      propertyPath: m_ReferenceResolution.x
-      value: 1920
-      objectReference: {fileID: 0}
-    - target: {fileID: 7136196842416255542, guid: 221645e9bd166d648b1ab79e4237004b,
-        type: 3}
-      propertyPath: m_ReferenceResolution.y
-      value: 1080
+      propertyPath: m_AnchoredPosition.y
+      value: -0.00009788522
       objectReference: {fileID: 0}
     - target: {fileID: 7789248478945971772, guid: 221645e9bd166d648b1ab79e4237004b,
         type: 3}
@@ -1251,6 +1251,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284262103885011899, guid: 221645e9bd166d648b1ab79e4237004b,
+        type: 3}
+      propertyPath: m_Value
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

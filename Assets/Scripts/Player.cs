@@ -235,16 +235,6 @@ public class Player : MonoBehaviour, IHasPersistentData
         }
     
     }
-
-    // private void SetSelectedCounter(BaseCounter selectedCounter)
-    // {
-    //     this.selectedCounter = selectedCounter;
-
-    //     OnSelectedCounterChanged?.Invoke(this, new OnSelectedCounterChangedEventArgs
-    //     {
-    //         selectedCounter = selectedCounter
-    //     });
-    // }
     public void WriteToGameData()
     {
         GameData.Instance.PlayerFacingDirection = transform.forward;

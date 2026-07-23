@@ -8,7 +8,8 @@ public class QuestManager : MonoBehaviour, IHasPersistentData
     [Serializable]
     public struct QuestData
     {
-        public QuestSO questSO;
+        //public QuestSO questSO;
+        public string questID; //store the questID instead of the QuestSO reference
         public bool isCompleted;
         public bool isInitiated;
     }
@@ -42,7 +43,7 @@ public class QuestManager : MonoBehaviour, IHasPersistentData
         Quest quest = sender as Quest;
         for (int i = 0; i < questDataList.Count; i++)
         {
-            if (questDataList[i].questSO == quest.questSO)
+            if (questDataList[i].questID == quest.questSO.questID)
             {
                 QuestData questData = questDataList[i];
                 questData.isInitiated = true;
@@ -60,7 +61,7 @@ public class QuestManager : MonoBehaviour, IHasPersistentData
         //send data to quest UI to update the quest slot for the completed quest
         for (int i = 0; i < questDataList.Count; i++)
         {
-            if (questDataList[i].questSO == quest.questSO)
+            if (questDataList[i].questID == quest.questSO.questID)
             {
                 QuestData questData = questDataList[i];
                 questData.isCompleted = true;
@@ -69,7 +70,6 @@ public class QuestManager : MonoBehaviour, IHasPersistentData
                 break;
             }
         }
-        
     }
     private void OnDestroy()
     {
@@ -88,7 +88,7 @@ public class QuestManager : MonoBehaviour, IHasPersistentData
             {
                 foreach (Quest quest in quests)
                 {
-                    if (quest.questSO == questData.questSO)
+                    if (quest.questSO.questID == questData.questID)
                     {
                         if (questData.isInitiated)
                         {
@@ -97,7 +97,6 @@ public class QuestManager : MonoBehaviour, IHasPersistentData
                             {
                                 quest.isCompleted = true;
                             }
-                            Debug.Log("Creating quest slot for quest: " + questData.questSO.questName);
                             QuestsUIManager.Instance.CreateQuestSlot(questData);
                         }
                         break;
@@ -113,7 +112,8 @@ public class QuestManager : MonoBehaviour, IHasPersistentData
             {
                 QuestData questData = new QuestData
                 {
-                    questSO = quests[i].questSO,
+                    //questSO = quests[i].questSO,
+                    questID = quests[i].questSO.questID,
                     isCompleted = quests[i].isCompleted,
                     isInitiated = quests[i].isInitiated
                 };

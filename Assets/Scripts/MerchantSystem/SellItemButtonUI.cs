@@ -8,6 +8,7 @@ public class SellItemButtonUI : MonoBehaviour, IPointerEnterHandler, IPointerExi
 {
     [SerializeField] private TextMeshProUGUI itemText;
     [SerializeField] private Button sellButton;
+    [SerializeField] private CanvasGroup canvasGroup;
     private GameItemSO gameItemSO;
     private MerchantUIManager uiManager;
     private MerchantStore store;
@@ -25,19 +26,18 @@ public class SellItemButtonUI : MonoBehaviour, IPointerEnterHandler, IPointerExi
         bool canSell = quantity > 0;
         sellButton.interactable = canSell;
 
-        // Color c = itemText.color;
-        // c.a = canSell ? 1f : 0.4f;
-        // itemText.color = c;
-
         sellButton.onClick.RemoveAllListeners();
         if (canSell)
         {
             sellButton.onClick.AddListener(OnSelectButtonPressed);
         }
-        else
-        {
-            GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.4f); // Set the button to a disabled color
-        }
+        SetGreyedOut(!canSell);
+    }
+    public void SetGreyedOut(bool greyedOut)
+    {
+        canvasGroup.alpha = greyedOut ? 0.4f : 1f;
+        canvasGroup.interactable = !greyedOut;
+        canvasGroup.blocksRaycasts = !greyedOut; //stops hover/click events from firing at all
     }
 
     private void OnSelectButtonPressed()

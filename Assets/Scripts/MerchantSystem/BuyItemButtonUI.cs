@@ -8,6 +8,7 @@ public class BuyItemButtonUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
 {
     [SerializeField] private TextMeshProUGUI itemText;
     [SerializeField] private Button buyButton;
+    [SerializeField] private CanvasGroup canvasGroup;
     private GameItemSO gameItemSO;
     private MerchantUIManager uiManager;
     private MerchantStore store;
@@ -21,6 +22,14 @@ public class BuyItemButtonUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
         
         buyButton.onClick.RemoveAllListeners();
         buyButton.onClick.AddListener(OnSelectButtonPressed);
+
+        SetGreyedOut(item.cost > CurrencyManager.Instance.GetCurrency());
+    }
+    public void SetGreyedOut(bool greyedOut)
+    {
+        canvasGroup.alpha = greyedOut ? 0.4f : 1f;
+        canvasGroup.interactable = !greyedOut;
+        canvasGroup.blocksRaycasts = !greyedOut; //stops hover/click events from firing at all
     }
     private void OnSelectButtonPressed()
     {

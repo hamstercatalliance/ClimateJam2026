@@ -33,6 +33,7 @@ public class MerchantUIManager : MonoBehaviour
             if (selectedButton != null)
             {
                 selectedButton.SetText(selectedItem, InventoryManager.Instance.GetItemCount(selectedItem));
+                selectedButton.SetGreyedOut(InventoryManager.Instance.GetItemCount(selectedItem) <= 0);
             }
         }
     }
