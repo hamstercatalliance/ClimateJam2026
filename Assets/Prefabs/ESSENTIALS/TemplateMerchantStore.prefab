@@ -715,7 +715,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000017881393, y: 0.00009347905}
+  m_AnchoredPosition: {x: 0.000017881393, y: -0.000029972987}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &89197079219654669
@@ -2502,13 +2502,14 @@ GameObject:
   - component: {fileID: 6686727823462108943}
   - component: {fileID: 3365694038060804365}
   - component: {fileID: 7523353857192326276}
+  - component: {fileID: 7004682700615392715}
   m_Layer: 5
   m_Name: BuyItemButtonTemplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2958454672873896169
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2524,9 +2525,9 @@ RectTransform:
   - {fileID: 96214244901960490}
   m_Father: {fileID: 6070401898465648609}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 166.5, y: 0}
   m_SizeDelta: {x: 350, y: 60}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &4196583139095487357
@@ -2637,6 +2638,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemText: {fileID: 1457788527758448191}
   buyButton: {fileID: 3365694038060804365}
+  canvasGroup: {fileID: 7004682700615392715}
+--- !u!225 &7004682700615392715
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6989657966068538878}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7165914070604658660
 GameObject:
   m_ObjectHideFlags: 0
@@ -3117,13 +3131,14 @@ GameObject:
   - component: {fileID: 5338990569679168804}
   - component: {fileID: 7204436003389193558}
   - component: {fileID: 5563292744659830089}
+  - component: {fileID: 5027239071672398390}
   m_Layer: 5
   m_Name: SellItemButtonTemplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3589442331744354091
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3139,9 +3154,9 @@ RectTransform:
   - {fileID: 9136901775141854356}
   m_Father: {fileID: 6070401898465648609}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 166.5, y: -60}
   m_SizeDelta: {x: 350, y: 60}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &3931244990847844892
@@ -3252,6 +3267,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemText: {fileID: 125555128995936878}
   sellButton: {fileID: 7204436003389193558}
+  canvasGroup: {fileID: 5027239071672398390}
+--- !u!225 &5027239071672398390
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7762134370291752269}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7787697267483964341
 GameObject:
   m_ObjectHideFlags: 0

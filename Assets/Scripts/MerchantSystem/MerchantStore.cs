@@ -38,6 +38,17 @@ public class MerchantStore : MonoBehaviour
 
     public void PurchaseItem()
     {
+        if (selectedItem.isVanityItem && selectedItem.cost <= CurrencyManager.Instance.GetCurrency())
+        {
+            if (VanityManager.Instance.HasVanityItem(selectedItem))
+            {
+                return; // already own this one
+            }
+            VanityManager.Instance.AddVanityItem(selectedItem);
+            CurrencyManager.Instance.RemoveCurrency(selectedItem.cost);
+            Debug.Log("Purchased vanity item: " + selectedItem.name);
+            return;
+        }
         // add the item to the player's inventory and deduct currency
         if (selectedItem.cost <= CurrencyManager.Instance.GetCurrency())
         {

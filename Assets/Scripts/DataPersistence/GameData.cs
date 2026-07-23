@@ -46,7 +46,9 @@ public class GameData : MonoBehaviour
     #region Currency Manager Data
     public int currencyAmount;
     #endregion
-    
+    #region Vanity Items Data
+    public List<string> OwnedVanityItemIDs = new List<string>();
+    #endregion
 
     [Serializable]
     public class SaveData
@@ -61,6 +63,7 @@ public class GameData : MonoBehaviour
         public int SympathyPoints;
         public List<QuestManager.QuestData> QuestDataList = new List<QuestManager.QuestData>();
         public int currencyAmount;
+        public List<string> OwnedVanityItemIDs = new List<string>();
     }
     public SaveData GetSaveData()
     {
@@ -73,7 +76,7 @@ public class GameData : MonoBehaviour
         saveData.SympathyPoints = SympathyPoints;
         saveData.QuestDataList = QuestDataList;
         saveData.currencyAmount = currencyAmount;
-
+        saveData.OwnedVanityItemIDs = OwnedVanityItemIDs;
         return saveData;
     }
     private void SetSaveData(SaveData data)
@@ -86,6 +89,7 @@ public class GameData : MonoBehaviour
         SympathyPoints = data.SympathyPoints;
         QuestDataList = data.QuestDataList;
         currencyAmount = data.currencyAmount;
+        OwnedVanityItemIDs = data.OwnedVanityItemIDs;
     }
     public void LoadFromSaveData(SaveData data)
     {
@@ -103,6 +107,7 @@ public class GameData : MonoBehaviour
         QuestDataList.Clear();
         currencyAmount = 0;
         HasLoadedRunData = false;
+        OwnedVanityItemIDs = new List<string>();
     }
 
 

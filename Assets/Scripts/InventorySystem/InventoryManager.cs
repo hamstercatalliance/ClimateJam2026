@@ -67,6 +67,7 @@ public class InventoryManager : MonoBehaviour, IHasPersistentData
         {
             inventorySlots = GameData.Instance.InventorySlots;
             InventoryUIManager.Instance.LoadSlotUIData();
+            Debug.Log(inventorySlots[0,0].gameItemSO);
         }
         else
         {
