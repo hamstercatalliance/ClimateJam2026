@@ -44,6 +44,7 @@ public class GameData : MonoBehaviour
     #endregion
     #region Vanity Items Data
     public List<string> OwnedVanityItemIDs = new List<string>();
+    public string EquippedVanityItemID;
     #endregion
 
     [Serializable]
@@ -60,6 +61,7 @@ public class GameData : MonoBehaviour
         public List<QuestManager.QuestData> QuestDataList = new List<QuestManager.QuestData>();
         public int currencyAmount;
         public List<string> OwnedVanityItemIDs = new List<string>();
+        public string EquippedVanityItemID;
     }
     public SaveData GetSaveData()
     {
@@ -73,6 +75,7 @@ public class GameData : MonoBehaviour
         saveData.QuestDataList = QuestDataList;
         saveData.currencyAmount = currencyAmount;
         saveData.OwnedVanityItemIDs = OwnedVanityItemIDs;
+        saveData.EquippedVanityItemID = EquippedVanityItemID;
         return saveData;
     }
     private void SetSaveData(SaveData data)
@@ -86,6 +89,7 @@ public class GameData : MonoBehaviour
         QuestDataList = data.QuestDataList;
         currencyAmount = data.currencyAmount;
         OwnedVanityItemIDs = data.OwnedVanityItemIDs;
+        EquippedVanityItemID = data.EquippedVanityItemID;
     }
     public void LoadFromSaveData(SaveData data)
     {
@@ -104,6 +108,7 @@ public class GameData : MonoBehaviour
         currencyAmount = 0;
         HasLoadedRunData = false;
         OwnedVanityItemIDs = new List<string>();
+        EquippedVanityItemID = null;
     }
 
 

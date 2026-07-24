@@ -25,6 +25,7 @@ public class CurrencyManager : MonoBehaviour, IHasPersistentData
     {
         public int newCurrencyAmount;
     }
+    [SerializeField] private int startingCurrencyAmount = 250; // Default starting currency amount
     // Start is called before the first frame update
     void Start()
     {
@@ -80,7 +81,7 @@ public class CurrencyManager : MonoBehaviour, IHasPersistentData
         }
         else
         {
-            currencyAmount = 250; // Default starting currency amount
+            currencyAmount = startingCurrencyAmount; // Default starting currency amount
             OnCurrencyChanged?.Invoke(this, new OnCurrencyChangedEventArgs 
             { 
                 newCurrencyAmount = currencyAmount 

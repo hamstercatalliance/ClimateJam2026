@@ -27,6 +27,7 @@ public class Player : MonoBehaviour, IHasPersistentData
     [SerializeField] float rotateSpeed = 10f;
     [SerializeField] float jumpHeight = 15f;
     [SerializeField] private GameInput gameInput;
+    [SerializeField] private LayerMask countersLayerMask;
     public bool DataSuccessfullyWritten { get; private set; }
     public static Player Instance { get; private set; } //PLAYER SINGLETON
     private void Awake()

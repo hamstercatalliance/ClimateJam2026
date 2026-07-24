@@ -39,7 +39,14 @@ public class InventoryManager : MonoBehaviour, IHasPersistentData
         public InventorySlot(GameItemSO gameItemSO, int amount, bool isOccupied, int row, int col)
         {
             //this.gameItemSO = gameItemSO;
-            this.itemID = gameItemSO.itemID; 
+            if (gameItemSO != null)
+            {
+                this.itemID = gameItemSO.itemID;
+            }
+            else
+            {
+                this.itemID = null;
+            }
             this.amount = amount;
             this.isOccupied = isOccupied;
             this.row = row;
@@ -69,7 +76,7 @@ public class InventoryManager : MonoBehaviour, IHasPersistentData
         {
             inventorySlots = GameData.Instance.InventorySlots;
             InventoryUIManager.Instance.LoadSlotUIData();
-            Debug.Log(ScriptableObjectDatabase.Instance.GetScriptableObjectByID(inventorySlots[0,0].itemID));
+            //Debug.Log(ScriptableObjectDatabase.Instance.GetScriptableObjectByID(inventorySlots[0,0].itemID));
         }
         else
         {

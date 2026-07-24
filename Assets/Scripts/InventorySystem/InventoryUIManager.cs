@@ -79,7 +79,6 @@ public class InventoryUIManager : MonoBehaviour
     {
         GameItemSO item = ScriptableObjectDatabase.Instance.GetScriptableObjectByID(slot.itemID) as GameItemSO;
         slotUI.SetIcon(item);
-        //slotUI.SetIcon(slot.gameItemSO);
         slotUI.SetAmount(slot.amount);
         slotUI.ShowChildren();
     }

@@ -35,27 +35,54 @@ public class MerchantStore : MonoBehaviour
     {
         return selectedItemButton;
     }
+    private void OnEnable()
+    {
+        CurrencyManager.Instance.OnCurrencyChanged += OnCurrencyChanged;
+        EnterBuyMode(); // Default to buy mode when the store is opened
+    }
 
+    private void OnDisable()
+    {
+        if (CurrencyManager.Instance != null)
+        {
+            CurrencyManager.Instance.OnCurrencyChanged -= OnCurrencyChanged;
+        }
+    }
+    private void OnCurrencyChanged(object sender, System.EventArgs e)
+    {
+        if (currentMode == MerchantStoreMode.Buy) // reuse whatever mode-tracking you already have
+        {
+            PopulateBuyList();
+        }
+    }
+    private enum MerchantStoreMode
+    {
+        Buy,
+        Sell
+    }
+    private MerchantStoreMode currentMode = MerchantStoreMode.Buy;
     public void PurchaseItem()
     {
-        if (selectedItem.isVanityItem && selectedItem.cost <= CurrencyManager.Instance.GetCurrency())
+        if (selectedItem.cost > CurrencyManager.Instance.GetCurrency())
+        {
+            return; 
+        }
+
+        if (selectedItem.isVanityItem)
         {
             if (VanityManager.Instance.HasVanityItem(selectedItem))
             {
-                return; // already own this one
+                return;
             }
             VanityManager.Instance.AddVanityItem(selectedItem);
-            CurrencyManager.Instance.RemoveCurrency(selectedItem.cost);
-            Debug.Log("Purchased vanity item: " + selectedItem.name);
-            return;
         }
-        // add the item to the player's inventory and deduct currency
-        if (selectedItem.cost <= CurrencyManager.Instance.GetCurrency())
+        else
         {
             InventoryManager.Instance.AddItemToInventory(selectedItem);
-            CurrencyManager.Instance.RemoveCurrency(selectedItem.cost);
-            Debug.Log("Purchased item: " + selectedItem.name);
         }
+
+        CurrencyManager.Instance.RemoveCurrency(selectedItem.cost);
+        Debug.Log("Purchased item: " + selectedItem.name);
     }
     public void SellItem()
     {
@@ -118,6 +145,7 @@ public class MerchantStore : MonoBehaviour
         selectedItem = null;
         uiManager.HideItemDisplay();
         uiManager.ShowBuyModeButtons();
+        currentMode = MerchantStoreMode.Buy;
     }
     public void EnterSellMode()
     {
@@ -126,6 +154,7 @@ public class MerchantStore : MonoBehaviour
         selectedItem = null;
         uiManager.HideItemDisplay();
         uiManager.ShowSellModeButtons();
+        currentMode = MerchantStoreMode.Sell;
     }
     public void LeaveStore()
     {

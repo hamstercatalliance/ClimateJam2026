@@ -62,20 +62,20 @@ public class TestQuest : Quest
         if (GameData.Instance != null && GameData.Instance.HasLoadedRunData)
         {
             carpCount = GameData.Instance.TestQuestProgress;
-            if (carpCount >= carpGoal)
-            {
-                isCompleted = true;
-            }
-            else if (carpCount > 0)
-            {
-                isInitiated = true;
-            }
+            // if (carpCount >= carpGoal)
+            // {
+            //     isCompleted = true;
+            // }
+            // else if (carpCount > 0)
+            // {
+            //     isInitiated = true;
+            // }
         }
         else
         {
             carpCount = 0;
-            isInitiated = false;
-            isCompleted = false;
+            // isInitiated = false;
+            // isCompleted = false;
         }
     }
 }

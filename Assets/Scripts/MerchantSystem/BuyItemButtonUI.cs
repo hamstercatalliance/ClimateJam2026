@@ -23,7 +23,10 @@ public class BuyItemButtonUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
         buyButton.onClick.RemoveAllListeners();
         buyButton.onClick.AddListener(OnSelectButtonPressed);
 
-        SetGreyedOut(item.cost > CurrencyManager.Instance.GetCurrency());
+        bool alreadyOwnedVanity = item.isVanityItem && VanityManager.Instance.HasVanityItem(item);
+        bool tooExpensive = item.cost > CurrencyManager.Instance.GetCurrency();
+
+        SetGreyedOut(alreadyOwnedVanity || tooExpensive);
     }
     public void SetGreyedOut(bool greyedOut)
     {
