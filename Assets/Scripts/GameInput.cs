@@ -30,7 +30,7 @@ public class GameInput : MonoBehaviour
     }
     private void Jump_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        if (!DialogueBox.dialogueActive || !MerchantStore.merchantStoreOpen)
+        if (!DialogueBox.dialogueActive && !MerchantStore.merchantStoreOpen)
         {
             OnJumpAction?.Invoke(this, EventArgs.Empty);
         }
