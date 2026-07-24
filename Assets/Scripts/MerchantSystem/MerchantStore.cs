@@ -35,22 +35,24 @@ public class MerchantStore : MonoBehaviour
     {
         return selectedItemButton;
     }
-    private void OnEnable()
+    private void Start()
     {
+        Debug.Log("MerchantStore enabled, subscribing to currency change event.");
         CurrencyManager.Instance.OnCurrencyChanged += OnCurrencyChanged;
         EnterBuyMode(); // Default to buy mode when the store is opened
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         if (CurrencyManager.Instance != null)
         {
             CurrencyManager.Instance.OnCurrencyChanged -= OnCurrencyChanged;
         }
     }
-    private void OnCurrencyChanged(object sender, System.EventArgs e)
+    private void OnCurrencyChanged(object sender, CurrencyManager.OnCurrencyChangedEventArgs e)
     {
-        if (currentMode == MerchantStoreMode.Buy) // reuse whatever mode-tracking you already have
+        Debug.Log("Currency changed, updating buy list.");
+        if (currentMode == MerchantStoreMode.Buy)
         {
             PopulateBuyList();
         }
