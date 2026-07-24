@@ -67,7 +67,17 @@ public class DialogueRenderer : MonoBehaviour
 
 
         contentText.GetComponent<TMP_Text>().text = dialogueObject.getContent();
-        characterText.GetComponent<TMP_Text>().text = dialogueObject.getCharacterID();
+
+        // find character name by looping through all npcs in scene and getting from NonPlayableCharacterScript
+        string characterName = "";
+        if (dialogueObject.getCharacterID() != "") {
+            foreach (NonPlayableCharacter npc in UnityEngine.Object.FindObjectsByType<NonPlayableCharacter>(FindObjectsSortMode.None)) {
+                if (npc.id == dialogueObject.getCharacterID()) { 
+                    characterName = npc.name;
+                }
+            }
+        }
+        characterText.GetComponent<TMP_Text>().text = characterName;
         bool hasOptions = dialogueObject.buttons.Count > 0;
         
         dialogueObject.active = true;
