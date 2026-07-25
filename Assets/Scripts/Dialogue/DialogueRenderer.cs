@@ -55,7 +55,7 @@ public class DialogueRenderer : MonoBehaviour
 
     public IEnumerator Render(DialogueBox dialogueObject, Conversation conversation) {
         //Instantiate(box);
-        Debug.Log("DialogueRenderer: Rendering dialogue box for character " + dialogueObject.getCharacterID() + " with content: " + dialogueObject.getContent());
+        //Debug.Log("DialogueRenderer: Rendering dialogue box for character " + dialogueObject.getCharacterID() + " with content: " + dialogueObject.getContent());
         //box = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Textbox.prefab");
         GameObject dialoguePanel = Instantiate(box, GameObject.Find("Canvas").transform);
 
@@ -93,7 +93,7 @@ public class DialogueRenderer : MonoBehaviour
                 optionButton.GetComponentInChildren<TMP_Text>().text = button.text;
                 optionButton.GetComponent<Button>().onClick.AddListener(() => {
                     StartCoroutine(endDialogue(dialogueObject, dialoguePanel));
-                    Debug.Log("DialogueRenderer: Button clicked with text: " + button.text + " and path: " + button.path);
+                    //Debug.Log("DialogueRenderer: Button clicked with text: " + button.text + " and path: " + button.path);
                     SendDialogueSignal(button.id, button.points);
                     if (button.path != null && button.path != "")
                     {
@@ -112,7 +112,7 @@ public class DialogueRenderer : MonoBehaviour
             {
                 if (dialogueObject.signal != null && dialogueObject.signal != "")
                 {
-                    Debug.Log("DialogueRenderer: Interact key pressed, sending signal for character " + dialogueObject.getCharacterID() + " with content: " + dialogueObject.getContent() + " and signal: " + dialogueObject.signal);
+                    //Debug.Log("DialogueRenderer: Interact key pressed, sending signal for character " + dialogueObject.getCharacterID() + " with content: " + dialogueObject.getContent() + " and signal: " + dialogueObject.signal);
                     SendDialogueSignal(dialogueObject.signal, dialogueObject.sympathyPointsChange);
                 }
                 if (!hasOptions)
@@ -130,11 +130,11 @@ public class DialogueRenderer : MonoBehaviour
         if (points == null || points == 0)
         {
             dialogueSignal?.Invoke(this, new DialogueSignal(signal));
-            Debug.Log("Sending dialogue signal: " + signal);
+            //Debug.Log("Sending dialogue signal: " + signal);
         }
         else if (signal == "addPoints") 
         { 
-            Debug.Log("Sending addPoints dialogue signal: " + signal + " with points: " + points.Value);
+            //Debug.Log("Sending addPoints dialogue signal: " + signal + " with points: " + points.Value);
             dialogueSignal?.Invoke(this, new AddPointsDialogueSignal(signal, points.Value));
         }
     }
@@ -142,7 +142,7 @@ public class DialogueRenderer : MonoBehaviour
     private IEnumerator endDialogue(DialogueBox dialogue, GameObject dialoguePanel) {
         yield return new WaitForSecondsRealtime(0.1f); // Wait for 0.1 seconds to ensure the dialogue box is rendered before proceeding
         dialogue.setInactive();
-        Debug.Log("DialogueRenderer: Ending dialogue box for character " + dialogue.getCharacterID() + " with content: " + dialogue.getContent());
+        //Debug.Log("DialogueRenderer: Ending dialogue box for character " + dialogue.getCharacterID() + " with content: " + dialogue.getContent());
         //if (dialogue.lastBox)
         //{
         //    DialogueBox.dialogueActive = false;
