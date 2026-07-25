@@ -14,7 +14,7 @@ public class SellItemButtonUI : MonoBehaviour, IPointerEnterHandler, IPointerExi
     private MerchantStore store;
     public void SetText(GameItemSO item, int quantity)
     {
-        itemText.text = item.name + "(x" + quantity + ") - $" + item.cost.ToString();
+        itemText.text = item.itemName + "(x" + quantity + ") - $" + item.cost.ToString();
     }
     public void SetUp(GameItemSO item, int quantity, MerchantUIManager uiManager, MerchantStore store)
     {

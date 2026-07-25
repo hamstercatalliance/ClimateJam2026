@@ -24,6 +24,7 @@ public class VanitySlotUI : SlotUI
     public static event EventHandler OnVanitySlotHoverExit;
     public override void OnPointerEnter(PointerEventData eventData)
     {
+        Debug.Log("VanitySlotUI OnPointerEnter fired");
         icon.transform.localScale = iconOriginalScale * hoverScale;
         OnVanitySlotHovered?.Invoke(this, new OnSlotHoveredEventArgs 
         { 

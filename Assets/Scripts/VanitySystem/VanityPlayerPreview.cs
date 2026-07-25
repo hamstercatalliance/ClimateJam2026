@@ -35,10 +35,15 @@ public class VanityPlayerPreview : MonoBehaviour
     }
     private void OnEnable()
     {
-        ShowEquippedOrNothing();
+        if (VanityManager.Instance != null)
+        {
+            ShowEquippedOrNothing();
+        }
     }
     public void ShowEquippedOrNothing()
     {
+        Debug.Log(VanityManager.Instance);
+        Debug.Log(VanityManager.Instance.equipedVanityItem);
         GameItemSO equipped = VanityManager.Instance.equipedVanityItem;
         if (equipped != null)
         {
@@ -77,6 +82,8 @@ public class VanityPlayerPreview : MonoBehaviour
     {
         VanitySlotUI.OnVanitySlotHovered += VanitySlotUI_OnVanitySlotHovered;
         VanitySlotUI.OnVanitySlotHoverExit += VanitySlotUI_OnVanitySlotHoverExit;
+
+        ShowEquippedOrNothing();
     }
     private void OnDestroy()
     {

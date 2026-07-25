@@ -8,7 +8,7 @@ public class MainMenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (GameData.Instance != null && GameData.Instance.HasLoadedRunData)
+        if (GameData.Instance != null && GameData.Instance.HasLoadedRunData && GameData.Instance.HasCompletedFirstDay)
         {
             continueButton.SetActive(true);
         }
