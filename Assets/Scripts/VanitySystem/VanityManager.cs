@@ -31,20 +31,6 @@ public class VanityManager : MonoBehaviour, IHasPersistentData
         LoadGameData();
         SceneLoader.OnSceneTransition += SceneLoader_OnSceneTransition;
     }
-    void Update()
-    {
-        if (EventSystem.current != null)
-        {
-            var pointerData = new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current);
-            pointerData.position = Input.mousePosition;
-            var results = new List<UnityEngine.EventSystems.RaycastResult>();
-            UnityEngine.EventSystems.EventSystem.current.RaycastAll(pointerData, results);
-            foreach (var r in results)
-            {
-                Debug.Log("Hit: " + r.gameObject.name);
-            }
-        }
-    }
     private void OnDestroy()
     {
         SceneLoader.OnSceneTransition -= SceneLoader_OnSceneTransition;
