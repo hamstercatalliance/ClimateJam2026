@@ -1,0 +1,67 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "characterID": "childHamster",
+                    "dialogue": "Did you know that the big building they're making will use up all the water from the river?"
+                },
+                {
+                    "characterID": "childHamster",
+                    "dialogue": "Dad says that there's nothing we can do about it and we'll have to leave!",
+                    "wait": 1.0
+                },
+                {
+                    "characterID": "childHamster",
+                    "dialogue": "..."
+                },
+                {
+                    "characterID": "childHamster",
+                    "dialogue": "I don't wanna leave...",
+                    "buttons": [
+                        {
+                            "id": "addPoints",
+                            "pointsAdded": 200,
+                            "text": "Don't listen to your dad",
+                            "path": "positive"
+                        },
+                        {
+                            "text": "Get used to it",
+                            "path": "negative"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "positive",
+            "dialogue": [
+                {
+                    "characterID": "childHamster",
+                    "dialogue": "What do you mean? Should I tell my dad he's wrong?"
+                },
+                {
+                    "characterID": "childHamster",
+                    "dialogue": "Wait... maybe I won't have to leave if I tell him that!"
+                }
+            ]
+        },
+        {
+            "name": "negative",
+            "dialogue": [
+                {
+                    "characterID": "childHamster",
+                    "dialogue": "Maybe you're right...",
+                    "signal": "childHamster_positive"
+                },
+                {
+                    "characterID": "childHamster",
+                    "dialogue": "I guess I should start packing, then...",
+                    "signal": "childHamster_Negative"
+                }
+            ]
+        }
+    ]
+}

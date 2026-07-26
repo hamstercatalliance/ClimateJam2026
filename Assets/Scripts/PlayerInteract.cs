@@ -4,15 +4,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
+public class InteractableActivateEventArgs : EventArgs
+{
+    public string npcID;
+
+}
+
 public class PlayerInteract : MonoBehaviour
 {
     public EventHandler InteractableActivate;
     [SerializeField] private GameInput gameInput;
-    public class InteractableActivateEventArgs : EventArgs
-    {
-        public string npcID;
 
-    }
 
     private void GameInput_OnInteractAction(object sender, System.EventArgs e)
     {

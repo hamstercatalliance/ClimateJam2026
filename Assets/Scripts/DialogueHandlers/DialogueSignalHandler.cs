@@ -17,7 +17,7 @@ public abstract class DialogueSignalHandler : MonoBehaviour
         {
             yield return null; // Wait for the next frame
         }
-        Debug.Log("EndDayEarlyManager: Subscribing to dialogueSignal");
+        //Debug.Log("EndDayEarlyManager: Subscribing to dialogueSignal");
         DialogueRenderer.Instance.dialogueSignal += HandleDialogueSignal;
     }
 

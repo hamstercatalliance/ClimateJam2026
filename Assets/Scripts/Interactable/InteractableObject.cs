@@ -34,8 +34,11 @@ public abstract class InteractableObject : MonoBehaviour
     }
     private void PlayerInteract_InteractableActivate(object sender, System.EventArgs e)
     {
-        
-        OnTalk();
+        InteractableActivateEventArgs interactableArgs = e as InteractableActivateEventArgs;
+        if (interactableArgs.npcID == scriptableInteractable.interactableId)
+        {
+            OnTalk();
+        }
     }
 
     protected virtual void OnDestroy()

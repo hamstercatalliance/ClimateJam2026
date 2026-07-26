@@ -5,8 +5,8 @@ using UnityEngine;
 public class OneInteractNPC : NonPlayableCharacter
 {
     // Start is called before the first frame update
-    [SerializeField] private string conversation1;
-    [SerializeField] private string conversation2;
+    [SerializeField] public string conversation1;
+    [SerializeField] public string conversation2;
     bool hasInteracted = false;
     protected override void OnTalk()
     {
