@@ -39,7 +39,7 @@ public class MenuManager : MonoBehaviour
             isMenuOpen = false;
             OnMenuClosed?.Invoke(this, EventArgs.Empty);
         }
-        else if (!DialogueBox.dialogueActive && !MerchantStore.merchantStoreOpen)
+        else if (!DialogueBox.dialogueActive && !MerchantStore.merchantStoreOpen && !BoardManager.jobBoardActive)
         {
             menuUI.SetActive(true);
             isMenuOpen = true;

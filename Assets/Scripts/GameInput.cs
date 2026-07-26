@@ -23,14 +23,14 @@ public class GameInput : MonoBehaviour
     }
     private void MenuToggle_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        if (!DialogueBox.dialogueActive && !MerchantStore.merchantStoreOpen && !JobBoardInteractable.jobBoardActive)
+        if (!DialogueBox.dialogueActive || !MerchantStore.merchantStoreOpen || !BoardManager.jobBoardActive)
         {
             OnMenuAction?.Invoke(this, EventArgs.Empty);
         }
     }
     private void Jump_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        if (!DialogueBox.dialogueActive && !MerchantStore.merchantStoreOpen && !JobBoardInteractable.jobBoardActive)
+        if (!DialogueBox.dialogueActive && !MerchantStore.merchantStoreOpen && !BoardManager.jobBoardActive)
         {
             OnJumpAction?.Invoke(this, EventArgs.Empty);
         }
@@ -55,7 +55,7 @@ public class GameInput : MonoBehaviour
         Vector2 inputVector = playerInputActions.Player.Move.ReadValue<Vector2>();
 
         inputVector = inputVector.normalized;
-        if (DialogueBox.dialogueActive || MerchantStore.merchantStoreOpen || JobBoardInteractable.jobBoardActive) {
+        if (DialogueBox.dialogueActive || MerchantStore.merchantStoreOpen || BoardManager.jobBoardActive) {
             return Vector2.zero;
         }
         return inputVector;
