@@ -3883,6 +3883,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7354116474864284672, guid: 695b4edda38f7bb438408a47b41cfa47,
         type: 3}
+      propertyPath: playerSpawnPosition.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354116474864284672, guid: 695b4edda38f7bb438408a47b41cfa47,
+        type: 3}
+      propertyPath: playerSpawnPosition.y
+      value: -16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354116474864284672, guid: 695b4edda38f7bb438408a47b41cfa47,
+        type: 3}
+      propertyPath: playerSpawnPosition.z
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354116474864284672, guid: 695b4edda38f7bb438408a47b41cfa47,
+        type: 3}
       propertyPath: IHasPersistentDataGameObjects.Array.size
       value: 7
       objectReference: {fileID: 0}

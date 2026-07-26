@@ -126,6 +126,7 @@ public class VanityManager : MonoBehaviour, IHasPersistentData
         { 
             equippedItem = selectedVanityItem
         });
+        WriteToGameData();
     }
     public void UnequipVanityItem()
     {
@@ -137,6 +138,7 @@ public class VanityManager : MonoBehaviour, IHasPersistentData
         VanityPlayerPreview.Instance.SetStayVisible(false);
         VanityPlayerPreview.Instance.ClearPreview();
         equipedVanityItem = null;
+        WriteToGameData();
     }
     public void SetSelectedVanityItem(GameItemSO item)
     {

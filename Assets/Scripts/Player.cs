@@ -47,10 +47,6 @@ public class Player : MonoBehaviour, IHasPersistentData
         gameInput.OnJumpAction += GameInput_OnJumpAction;
         SceneLoader.OnSceneTransition += OnSceneTransitionHandler;
         LoadGameData();
-        if (GameData.Instance.PlayerFacingDirection != Vector3.zero) //idk if this is the best way to do this but it works for now cuz vector3 doesnt have null
-        {
-            transform.forward = GameData.Instance.PlayerFacingDirection;
-        }
     //     gameInput.OnInteractAction += GameInput_OnInteractAction;
     //     gameInput.OnInteractAlternateAction += GameInput_OnInteractAlternateAction;
     }
@@ -250,6 +246,7 @@ public class Player : MonoBehaviour, IHasPersistentData
     {
         if (GameData.Instance != null && GameData.Instance.HasLoadedRunData)
         {
+            transform.localPosition = GameData.Instance.PlayerSpawnPosition; //LOCAL
             transform.forward = GameData.Instance.PlayerFacingDirection;
         }
     }

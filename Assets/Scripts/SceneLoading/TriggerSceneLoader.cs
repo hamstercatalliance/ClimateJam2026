@@ -6,6 +6,7 @@ using System;
 public class TriggerSceneLoader : SceneLoader, IHasPersistentData
 {
     public bool DataSuccessfullyWritten { get; private set; }
+    [Header("This is the player's position RELATIVE to the scene esentials prefab (local position)")]
     [SerializeField] private Vector3 playerSpawnPosition;
     private void Start()
     {
@@ -26,6 +27,7 @@ public class TriggerSceneLoader : SceneLoader, IHasPersistentData
         {
             return;
         }
+        WriteToGameData();
         LoadSceneRoutine();
     }
     public void WriteToGameData()
