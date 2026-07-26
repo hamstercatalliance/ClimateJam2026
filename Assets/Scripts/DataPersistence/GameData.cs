@@ -25,6 +25,7 @@ public class GameData : MonoBehaviour
     #region Day Manager Data
     public float DayManagerTimeElapsed;
     public int DayManagerDayCount;
+    public bool HasCompletedFirstDay;
     #endregion
     #region Player data
     public Vector3 PlayerFacingDirection;
@@ -55,6 +56,7 @@ public class GameData : MonoBehaviour
         public int InventoryCols;
         public float DayManagerTimeElapsed;
         public int DayManagerDayCount;
+        public bool HasCompletedFirstDay;
         //public float DayManagerUITransitionProgress;
         //public Vector3 PlayerFacingDirection;
         public int SympathyPoints;
@@ -69,6 +71,7 @@ public class GameData : MonoBehaviour
         FlattenInventorySlots(saveData);
         saveData.DayManagerTimeElapsed = DayManagerTimeElapsed;
         saveData.DayManagerDayCount = DayManagerDayCount;
+        saveData.HasCompletedFirstDay = HasCompletedFirstDay;
         //saveData.DayManagerUITransitionProgress = 0; //loading data should always be at the start of the day
         //saveData.PlayerFacingDirection = PlayerFacingDirection;
         saveData.SympathyPoints = SympathyPoints;
@@ -83,6 +86,7 @@ public class GameData : MonoBehaviour
         UnflattenInventorySlots(data);
         DayManagerTimeElapsed = data.DayManagerTimeElapsed;
         DayManagerDayCount = data.DayManagerDayCount;
+        HasCompletedFirstDay = data.HasCompletedFirstDay;
         //DayManagerUITransitionProgress = data.DayManagerUITransitionProgress;
         //PlayerFacingDirection = data.PlayerFacingDirection;
         SympathyPoints = data.SympathyPoints;
@@ -101,6 +105,7 @@ public class GameData : MonoBehaviour
         InventorySlots = null;
         DayManagerTimeElapsed = 0f;
         DayManagerDayCount = 1;
+        HasCompletedFirstDay = false;
         //DayManagerUITransitionProgress = 0;
         //PlayerFacingDirection = Vector3.zero;
         SympathyPoints = 0;

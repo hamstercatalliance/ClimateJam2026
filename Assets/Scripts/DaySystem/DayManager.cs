@@ -14,9 +14,12 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
     public event EventHandler OnDayManagerDataLoaded;
     public bool HasFiredDataLoaded { get; private set; }
     public event EventHandler OnDayEnd;
+    [Header("Change this to modify day length")]
     [SerializeField] private float secondsInADay = 300f;
-    private float minutesInADay;
+    //private float minutesInADay;
+    [Header("Only modify for playtesting purposes")]
     [SerializeField] private float timeElapsed = 0f;
+    [Header("Do not touch these")]
     [SerializeField] private Volume day;
     [SerializeField] private Volume night;
     [SerializeField] private Volume transition;
@@ -27,11 +30,29 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
     // day->sunset : 0.5 minute
     // sunset->night : 0.4 minute
     // night : 0.7 minute
-    [SerializeField] private float sunriseDayTransitionMinutes = 0.65f;
-    [SerializeField] private float dayMinutes = 2.75f;
-    [SerializeField] private float daySunsetTransitionMinutes = 0.5f;
-    [SerializeField] private float sunsetNightTransitionMinutes = 0.4f;
-    [SerializeField] private float nightMinutes = 0.7f;
+    // [SerializeField] private float sunriseDayTransitionMinutes = 0.65f;
+    // [SerializeField] private float dayMinutes = 2.75f;
+    // [SerializeField] private float daySunsetTransitionMinutes = 0.5f;
+    // [SerializeField] private float sunsetNightTransitionMinutes = 0.4f;
+    // [SerializeField] private float nightMinutes = 0.7f;
+    [Header("Day phase lengths in percent (must sum to 1)")]
+    [SerializeField, Range(0f, 1f)] private float sunriseDayTransitionPercent = 0.13f;
+    [SerializeField, Range(0f, 1f)] private float dayPercent = 0.55f;
+    [SerializeField, Range(0f, 1f)] private float daySunsetTransitionPercent = 0.10f;
+    [SerializeField, Range(0f, 1f)] private float sunsetNightTransitionPercent = 0.08f;
+    [SerializeField, Range(0f, 1f)] private float nightPercent = 0.14f;
+
+    #if UNITY_EDITOR
+    private void OnValidate()
+    {
+        float total = sunriseDayTransitionPercent + dayPercent + daySunsetTransitionPercent + sunsetNightTransitionPercent + nightPercent;
+        if (Mathf.Abs(total - 1f) > 0.001f)
+        {
+            Debug.LogWarning($"Day phase percentages sum to {total}, should sum to 1.0");
+        }
+    }
+    #endif
+
     public enum State
     {
         Sunrising,
@@ -59,13 +80,12 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
             return;
         }
         Instance = this;
-        // DontDestroyOnLoad(gameObject);
     }
     private void Start()
     {
         DynamicGI.UpdateEnvironment();//This thing fixes the weird lighting issue upon loadscene
 
-        minutesInADay = secondsInADay / 60f;
+        //minutesInADay = secondsInADay / 60f;
         LoadGameData();
         SceneLoader.OnSceneTransition += OnSceneTransitionHandler;
     }
@@ -112,31 +132,39 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
     }
     public float GetMoonriseProgressNormalized()
     {
-        float sunriseDayTransitionWeight = sunriseDayTransitionMinutes / minutesInADay;
-        float dayWeight = dayMinutes / minutesInADay;
-        float daySunsetTransitionWeight = daySunsetTransitionMinutes / minutesInADay;
-        float sunsetNightTransitionWeight = sunsetNightTransitionMinutes / minutesInADay;
+        // float sunriseDayTransitionWeight = sunriseDayTransitionMinutes / minutesInADay;
+        // float dayWeight = dayMinutes / minutesInADay;
+        // float daySunsetTransitionWeight = daySunsetTransitionMinutes / minutesInADay;
+        // float sunsetNightTransitionWeight = sunsetNightTransitionMinutes / minutesInADay;
 
-        float moonriseStart = sunriseDayTransitionWeight + dayWeight + daySunsetTransitionWeight;
+        // float moonriseStart = sunriseDayTransitionWeight + dayWeight + daySunsetTransitionWeight;
+        // float progress = GetProgressNormalized();
+
+        // return Mathf.Clamp01((progress - moonriseStart) / sunsetNightTransitionWeight);
+
+        float sunsetEnd = sunriseDayTransitionPercent + dayPercent + daySunsetTransitionPercent;
         float progress = GetProgressNormalized();
-
-        return Mathf.Clamp01((progress - moonriseStart) / sunsetNightTransitionWeight);
+        return Mathf.Clamp01((progress - sunsetEnd) / sunsetNightTransitionPercent);
     }
     private void PostProcessVolumeTransition(float progressNormalized)
     {
-        float sunriseDayTransitionWeight = sunriseDayTransitionMinutes / minutesInADay;
-        float dayWeight = dayMinutes / minutesInADay;
-        float daySunsetTransitionWeight = daySunsetTransitionMinutes / minutesInADay;
-        float sunsetNightTransitionWeight = sunsetNightTransitionMinutes / minutesInADay;
-        float nightWeight = nightMinutes / minutesInADay;
-        
+        // float sunriseDayTransitionWeight = sunriseDayTransitionMinutes / minutesInADay;
+        // float dayWeight = dayMinutes / minutesInADay;
+        // float daySunsetTransitionWeight = daySunsetTransitionMinutes / minutesInADay;
+        // float sunsetNightTransitionWeight = sunsetNightTransitionMinutes / minutesInADay;
+        // float nightWeight = nightMinutes / minutesInADay;
+        float sunriseEnd = sunriseDayTransitionPercent;
+        float dayEnd = sunriseEnd + dayPercent;
+        float sunsetEnd = dayEnd + daySunsetTransitionPercent;
+        float moonriseEnd = sunsetEnd + sunsetNightTransitionPercent;
+
         switch (state)
         {
             case State.Sunrising:
-                day.weight = Mathf.Clamp01(progressNormalized / sunriseDayTransitionWeight);
-                transition.weight = Mathf.Clamp01(1f - (progressNormalized / sunriseDayTransitionWeight));
+                day.weight = Mathf.Clamp01(progressNormalized / sunriseEnd);
+                transition.weight = Mathf.Clamp01(1f - (progressNormalized / sunriseEnd));
                 night.weight = 0f;
-                if (progressNormalized >= sunriseDayTransitionWeight)
+                if (progressNormalized >= sunriseEnd)
                 {
                     Debug.Log("Switching to daytime");
                     state = State.Daytime;
@@ -146,17 +174,17 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
                 day.weight = 1f;
                 transition.weight = 0f;
                 night.weight = 0f;
-                if (progressNormalized >= sunriseDayTransitionWeight + dayWeight)
+                if (progressNormalized >= dayEnd)
                 {
                     Debug.Log("Switching to sunset");
                     state = State.Sunsetting;
                 }
                 break;
             case State.Sunsetting:
-                day.weight = Mathf.Clamp01(1f - ((progressNormalized - (sunriseDayTransitionWeight + dayWeight)) / daySunsetTransitionWeight));
-                transition.weight = Mathf.Clamp01((progressNormalized - (sunriseDayTransitionWeight + dayWeight)) / daySunsetTransitionWeight);
+                day.weight = Mathf.Clamp01(1f - ((progressNormalized - dayEnd) / daySunsetTransitionPercent));
+                transition.weight = Mathf.Clamp01((progressNormalized - dayEnd) / daySunsetTransitionPercent);
                 night.weight = 0f;
-                if (progressNormalized >= sunriseDayTransitionWeight + dayWeight + daySunsetTransitionWeight)
+                if (progressNormalized >= sunsetEnd)
                 {
                     Debug.Log("Switching to moonrising");
                     state = State.Moonrising;
@@ -166,9 +194,9 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
                 break;
             case State.Moonrising:
                 day.weight = 0f;
-                transition.weight = Mathf.Clamp01(1f - ((progressNormalized - (sunriseDayTransitionWeight + dayWeight + daySunsetTransitionWeight)) / sunsetNightTransitionWeight));
-                night.weight = Mathf.Clamp01((progressNormalized - (sunriseDayTransitionWeight + dayWeight + daySunsetTransitionWeight)) / sunsetNightTransitionWeight);
-                if (progressNormalized >= sunriseDayTransitionWeight + dayWeight + daySunsetTransitionWeight + sunsetNightTransitionWeight)
+                transition.weight = Mathf.Clamp01(1f - ((progressNormalized - sunsetEnd) / sunsetNightTransitionPercent));
+                night.weight = Mathf.Clamp01((progressNormalized - sunsetEnd) / sunsetNightTransitionPercent);
+                if (progressNormalized >= moonriseEnd)
                 {
                     Debug.Log("Switching to nighttime");
                     state = State.Nighttime;
@@ -178,7 +206,7 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
                 day.weight = 0f;
                 transition.weight = 0f;
                 night.weight = 1f;
-                if (progressNormalized >= sunriseDayTransitionWeight + dayWeight + daySunsetTransitionWeight + sunsetNightTransitionWeight + nightWeight)
+                if (progressNormalized >= 1f)
                 {
                     EndDay();
                 }
@@ -195,8 +223,9 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
         state = State.DayEnded;
         dayCount++;
         timeElapsed = 0f;
+        GameData.Instance.HasCompletedFirstDay = true;
         DayManagerUI.Instance.ResetTransitionProgress();
-        Debug.Log("Day complete. Showing transition screen.");
+        //Debug.Log("Day complete. Showing transition screen.");
         OnDayChanged?.Invoke(this, new OnDayChangedEventArgs 
         { 
             day = dayCount 
@@ -205,28 +234,30 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
     }
     private State GetStateFromProgress(float timeElapsed)
     {
-        float progress = timeElapsed / 60f; // Convert to minutes
-        Debug.Log("Minutes: " + progress);
-        if (progress < sunriseDayTransitionMinutes)
+        float progress = timeElapsed / secondsInADay; // was: timeElapsed / 60f (minutes)
+        float sunriseEnd = sunriseDayTransitionPercent;
+        float dayEnd = sunriseEnd + dayPercent;
+        float sunsetEnd = dayEnd + daySunsetTransitionPercent;
+        float moonriseEnd = sunsetEnd + sunsetNightTransitionPercent;
+
+        if (progress < sunriseEnd)
         {
-            Debug.Log("Setting state to sunrising");
             return State.Sunrising;
         }
-        else if (progress < sunriseDayTransitionMinutes + dayMinutes)
+        else if (progress < dayEnd)
         {
             return State.Daytime;
         }
-        else if (progress < sunriseDayTransitionMinutes + dayMinutes + daySunsetTransitionMinutes)
+        else if (progress < sunsetEnd)
         {
             return State.Sunsetting;
         }
-        else if (progress < sunriseDayTransitionMinutes + dayMinutes + daySunsetTransitionMinutes + sunsetNightTransitionMinutes)
+        else if (progress < moonriseEnd)
         {
             return State.Moonrising;
         }
         else
         {
-            Debug.Log(timeElapsed);
             return State.Nighttime;
         }
     }

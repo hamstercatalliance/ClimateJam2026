@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class MerchantStore : MonoBehaviour
 {
+    [Header("Modify these lists to change what items are available for purchase or sale.")]
     [SerializeField] private List<GameItemSO> sellableItems;
     [SerializeField] private List<GameItemSO> purchasableItems;
+    [Header("Do not touch these unless you know what you're doing.")]
     [SerializeField] private MerchantUIManager uiManager;
     [SerializeField] private Transform buttonContainer;
     [SerializeField] private GameObject buyItemButtonPrefab;    
     [SerializeField] private GameObject sellItemButtonPrefab;
     [SerializeField] private GameObject storeContent;
-
     [SerializeField] private OnClickButtonDisplay modeSwitchButtonDisplay;
     [SerializeField] private OnClickButtonDisplay itemListButtonDisplay;
     [SerializeField] private GameObject buyModeSwitchButton;

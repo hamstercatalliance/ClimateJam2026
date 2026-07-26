@@ -34,20 +34,20 @@ public class OnClickButtonDisplay : MonoBehaviour
         selectedButton = button;
         button.GetComponent<Image>().color = onClickColor;
     }
-    // private void EnsureInitialized()
-    // {
-    //     if (buttonGroup == null)
-    //     {
-    //         buttonGroup = new List<GameObject>();
-    //         foreach (Transform child in transform)
-    //         {
-    //             buttonGroup.Add(child.gameObject);
-    //         }
-    //     }
-    // }
+    private void EnsureInitialized()
+    {
+        if (buttonGroup == null)
+        {
+            buttonGroup = new List<GameObject>();
+            foreach (Transform child in transform)
+            {
+                buttonGroup.Add(child.gameObject);
+            }
+        }
+    }
     private void DeselectAllButtons()
     {
-        //EnsureInitialized();
+        EnsureInitialized();
         foreach (GameObject button in buttonGroup)
         {
             Debug.Log("Deselecting button: " + button.name);
@@ -62,7 +62,7 @@ public class OnClickButtonDisplay : MonoBehaviour
     public void UpdateButtonGroup() 
     {
         //for dynamically generated buttons, call this function to update the button group list
-        //EnsureInitialized();
+        EnsureInitialized();
         buttonGroup.Clear();
         foreach (Transform child in transform)
         {

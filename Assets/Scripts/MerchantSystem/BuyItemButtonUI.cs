@@ -18,7 +18,7 @@ public class BuyItemButtonUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
         this.uiManager = uiManager;
         this.store = store;
         gameItemSO = item;
-        itemText.text = gameItemSO.name + " - $" + gameItemSO.cost.ToString();
+        itemText.text = gameItemSO.itemName + " - $" + gameItemSO.cost.ToString();
         
         buyButton.onClick.RemoveAllListeners();
         buyButton.onClick.AddListener(OnSelectButtonPressed);
