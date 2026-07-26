@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
-public class TriggerSceneLoader : SceneLoader
+public class TriggerSceneLoader : SceneLoader, IHasPersistentData
 {
+    public bool DataSuccessfullyWritten { get; private set; }
+    [SerializeField] private Vector3 playerSpawnPosition;
     private void Start()
     {
         Player.Instance.OnSceneLoaderCollided += SceneLoader_OnSceneLoaderCollided;
@@ -25,5 +27,14 @@ public class TriggerSceneLoader : SceneLoader
             return;
         }
         LoadSceneRoutine();
+    }
+    public void WriteToGameData()
+    {
+        GameData.Instance.PlayerSpawnPosition = playerSpawnPosition;
+        DataSuccessfullyWritten = true;
+    }
+    public void LoadGameData()
+    {
+        //not needed for this class, but required by IHasPersistentData interface
     }
 }
