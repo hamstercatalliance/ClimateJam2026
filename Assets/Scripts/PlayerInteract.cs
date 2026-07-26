@@ -16,6 +16,7 @@ public class PlayerInteract : MonoBehaviour
 
     private void GameInput_OnInteractAction(object sender, System.EventArgs e)
     {
+        Debug.Log("GameInput_OnInteractAction called");
         string closestNPC = this.closestInteractableID();
         //Debug.Log("PlayerInteract: Interact action triggered, NPC = " + closestNPC);
         if (!DialogueBox.dialogueActive && closestNPC != null)
