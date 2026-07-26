@@ -20,7 +20,7 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
     [SerializeField] private Volume day;
     [SerializeField] private Volume night;
     [SerializeField] private Volume transition;
-    private int dayCount = 0;
+    public int dayCount { get; private set; } = 0;
     public bool DataSuccessfullyWritten { get; private set; }
     // sunrise->day : 0.65 minute
     // day : 2.75 minutes
