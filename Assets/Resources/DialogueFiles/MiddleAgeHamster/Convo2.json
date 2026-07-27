@@ -10,11 +10,7 @@
                 },
                 {
                     "characterID": "middleAgeHamster",
-                    "dialogue": "It can't be all that bad, can it? I hear cats and hamsters alike lose their minds at the thought of giving up just a few drops of water for unlimited knowledge!"
-                },
-                {
-                    "characterID": "middleAgeHamster",
-                    "dialogue": "I don't wanna leave...",
+                    "dialogue": "It can't be all that bad, can it? I hear cats and hamsters alike lose their minds at the thought of giving up just a few drops of water for unlimited knowledge!",
                     "buttons": [
                         {
                             "id": "addPoints",
