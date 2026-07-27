@@ -1,0 +1,14 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "characterID": "childHamster",
+                    "dialogue": "I guess I should just start packing..."
+                }
+            ]
+        }
+    ]
+}
