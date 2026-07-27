@@ -33,6 +33,7 @@ public class TriggerSceneLoader : SceneLoader, IHasPersistentData
     public void WriteToGameData()
     {
         GameData.Instance.PlayerSpawnPosition = playerSpawnPosition;
+        GameData.Instance.HasPendingSpawnPosition = true;
         DataSuccessfullyWritten = true;
     }
     public void LoadGameData()

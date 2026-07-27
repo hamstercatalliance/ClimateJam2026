@@ -30,6 +30,7 @@ public class GameData : MonoBehaviour
     #region Player data
     public Vector3 PlayerFacingDirection;
     public Vector3 PlayerSpawnPosition;
+    public bool HasPendingSpawnPosition;
     #endregion
     #region Sympathy Points Data
     public int SympathyPoints; 

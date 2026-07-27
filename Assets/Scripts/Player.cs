@@ -244,10 +244,11 @@ public class Player : MonoBehaviour, IHasPersistentData
 
     public void LoadGameData()
     {
-        if (GameData.Instance != null && GameData.Instance.HasLoadedRunData)
+        if (GameData.Instance != null && GameData.Instance.HasLoadedRunData && GameData.Instance.HasPendingSpawnPosition)
         {
             transform.localPosition = GameData.Instance.PlayerSpawnPosition; //LOCAL
             transform.forward = GameData.Instance.PlayerFacingDirection;
+            GameData.Instance.HasPendingSpawnPosition = false;
         }
     }
 }

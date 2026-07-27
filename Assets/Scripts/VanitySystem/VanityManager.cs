@@ -97,16 +97,23 @@ public class VanityManager : MonoBehaviour, IHasPersistentData
                 }
             }
             string equippedID = GameData.Instance.EquippedVanityItemID;
-            GameItemSO equippedItem = ScriptableObjectDatabase.Instance.GetScriptableObjectByID(equippedID) as GameItemSO;
-            if (equippedItem != null)
+            if (!string.IsNullOrEmpty(equippedID))
             {
-                equipedVanityItem = equippedItem;
-                OnVanityItemEquipped?.Invoke(this, new OnVanityItemEquippedEventArgs 
-                { 
-                    equippedItem = equippedItem 
-                });
-                VanityPlayerPreview.Instance.SetStayVisible(true);
-                VanityPlayerPreview.Instance.ShowEquippedOrNothing();
+                GameItemSO equippedItem = ScriptableObjectDatabase.Instance.GetScriptableObjectByID(equippedID) as GameItemSO;
+                if (equippedItem != null)
+                {
+                    equipedVanityItem = equippedItem;
+                    OnVanityItemEquipped?.Invoke(this, new OnVanityItemEquippedEventArgs 
+                    { 
+                        equippedItem = equippedItem 
+                    });
+                    VanityPlayerPreview.Instance.SetStayVisible(true);
+                    VanityPlayerPreview.Instance.ShowEquippedOrNothing();
+                }
+                else
+                {
+                    Debug.Log("VanityManager: LoadGameData: Could not resolve equipped vanity item ID.");
+                }
             }
             else
             {
