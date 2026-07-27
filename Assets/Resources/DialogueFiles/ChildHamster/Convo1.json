@@ -44,7 +44,8 @@
                 },
                 {
                     "characterID": "childHamster",
-                    "dialogue": "Wait... maybe I won't have to leave if I tell him that!"
+                    "dialogue": "Wait... maybe I won't have to leave if I tell him that!",
+                    "signal": "childHamster_positive"
                 }
             ]
         },
@@ -53,13 +54,12 @@
             "dialogue": [
                 {
                     "characterID": "childHamster",
-                    "dialogue": "Maybe you're right...",
-                    "signal": "childHamster_positive"
+                    "dialogue": "Maybe you're right..."
                 },
                 {
                     "characterID": "childHamster",
                     "dialogue": "I guess I should start packing, then...",
-                    "signal": "childHamster_Negative"
+                    "signal": "childHamster_negative"
                 }
             ]
         }

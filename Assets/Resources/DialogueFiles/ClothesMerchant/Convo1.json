@@ -1,0 +1,19 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "characterID": "clothesMerchant",
+                    "dialogue": "Greetings, cat. Are you looking to get a makeover?"
+                },
+                {
+                    "characterID": "clothesMerchant",
+                    "dialogue": "Well, you're in luck! I have newly arrived cat accessories in just your size.",
+                    "signal": "openClothesStore"
+                }
+            ]
+        }
+    ]
+}

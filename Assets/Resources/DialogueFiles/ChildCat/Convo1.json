@@ -1,0 +1,58 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "characterID": "childCat",
+                    "dialogue": "Help! I was about to buy a 16 pack of CompanyCola, but my friend said that animals would eat the bottles and die if I kept throwing them away!"
+                },
+                {
+                    "characterID": "childCat",
+                    "dialogue": "CompanyCola bottles wouldn't kill animals... right?",
+                    "buttons": [
+                        {
+                            "text": "Your friend is right",
+                            "id": "addPoints",
+                            "pointsAdded": "200",
+                            "path": "positive"
+                        }, 
+                        {
+                            "text": "No they wouldn't",
+                            "path": "negative"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "positive",
+            "dialogue": [
+                {
+                    "characterID": "childCat",
+                    "dialogue": "Oh... but it tastes so good!"
+                },
+                {
+                    "characterID": "childCat",
+                    "dialogue": "Maybe I should stop throwing CompanyCola bottles in the river??",
+                    "signal": "childCat_positive"
+                }
+            ]
+        },
+        {
+            "name": "negative",
+            "dialogue": [
+                {
+                    "characterID": "childCat",
+                    "dialogue": "Really? CompanyCola is amazing!"
+                },
+                {
+                    "characterID": "childCat",
+                    "dialogue": "I'm going to drink it until I die!",
+                    "signal": "childCat_negative"
+                }
+            ]
+        }
+    ]
+}

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6227591756570811797
+--- !u!1001 &3474432239483708497
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 242365158533933015, guid: 29227e2f5d0b57243abbcb18f6174d2e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.18
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 242365158533933015, guid: 29227e2f5d0b57243abbcb18f6174d2e,
         type: 3}
@@ -61,13 +61,13 @@ PrefabInstance:
     - target: {fileID: 2562915203420003986, guid: 29227e2f5d0b57243abbcb18f6174d2e,
         type: 3}
       propertyPath: m_Name
-      value: ChildHamster
+      value: ChildCat Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6284319412425006996, guid: 29227e2f5d0b57243abbcb18f6174d2e,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: def42409210224c42a8d9674dd57977b,
+      objectReference: {fileID: 21300000, guid: f29d459ac709246429b50a24f4f1d0e3,
         type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -76,48 +76,48 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2562915203420003986, guid: 29227e2f5d0b57243abbcb18f6174d2e,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 116948388128609893}
+      addedObject: {fileID: 6661051949795471816}
     - targetCorrespondingSourceObject: {fileID: 2562915203420003986, guid: 29227e2f5d0b57243abbcb18f6174d2e,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3820793392134827520}
+      addedObject: {fileID: 5807824595610643176}
   m_SourcePrefab: {fileID: 100100000, guid: 29227e2f5d0b57243abbcb18f6174d2e, type: 3}
---- !u!1 &8502114920731624199 stripped
+--- !u!1 &1416070349113227971 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2562915203420003986, guid: 29227e2f5d0b57243abbcb18f6174d2e,
     type: 3}
-  m_PrefabInstance: {fileID: 6227591756570811797}
+  m_PrefabInstance: {fileID: 3474432239483708497}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &116948388128609893
+--- !u!114 &6661051949795471816
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8502114920731624199}
+  m_GameObject: {fileID: 1416070349113227971}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c6009215201a7743a304cfbb1cc1b95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scriptableInteractable: {fileID: 11400000, guid: f6063d5dc86fa044d9c9e9282e61d2f2,
+  scriptableInteractable: {fileID: 11400000, guid: 7ee2f3472acfc324e8f950ae878f4b06,
     type: 2}
   gameInput: {fileID: 0}
-  conversation1: ChildHamster/Convo1
-  conversation2: ChildHamster/Convo1
---- !u!114 &3820793392134827520
+  conversation1: ChildCat/Convo1
+  conversation2: ChildCat/Convo1
+--- !u!114 &5807824595610643176
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8502114920731624199}
+  m_GameObject: {fileID: 1416070349113227971}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a55e6a0211cf81b40b86bee03ca99bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  posSignal: childHamster_positive
-  negSignal: childHamster_negative
-  posDialogue: ChildHamster/ConvoPos
-  negDialogue: ChildHamster/ConvoNeg
+  posSignal: childCat_positive
+  negSignal: childCat_negative
+  posDialogue: ChildCat/ConvoPos
+  negDialogue: ChildCat/ConvoNeg

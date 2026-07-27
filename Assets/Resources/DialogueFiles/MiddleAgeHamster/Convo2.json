@@ -1,0 +1,58 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "characterID": "middleAgeHamster",
+                    "dialogue": "I've been hearing everyone talking about that data center by the river..."
+                },
+                {
+                    "characterID": "middleAgeHamster",
+                    "dialogue": "It can't be all that bad, can it? I hear cats and hamsters alike lose their minds at the thought of giving up just a few drops of water for unlimited knowledge!"
+                },
+                {
+                    "characterID": "middleAgeHamster",
+                    "dialogue": "I don't wanna leave...",
+                    "buttons": [
+                        {
+                            "id": "addPoints",
+                            "pointsAdded": 200,
+                            "text": "They kind of have a point",
+                            "path": "positive"
+                        },
+                        {
+                            "text": "I don't get it either",
+                            "path": "negative"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "positive",
+            "dialogue": [
+                {
+                    "characterID": "middleAgeHamster",
+                    "dialogue": "What?! Nonsense!"
+                },
+                {
+                    "characterID": "middleAgeHamster",
+                    "dialogue": "Just listen to yourself... you would give up access to revolutionary technology for water?",
+                    "signal": "middleAgeHamster_positive"
+                }
+            ]
+        },
+        {
+            "name": "negative",
+            "dialogue": [
+                {
+                    "characterID": "middleAgeHamster",
+                    "dialogue": "Exactly! Everyone is so easily offended by good ideas nowadays...",
+                    "signal": "middleAgeHamster_negative"
+                }
+            ]
+        }
+    ]
+}

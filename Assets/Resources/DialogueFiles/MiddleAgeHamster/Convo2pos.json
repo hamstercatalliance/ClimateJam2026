@@ -1,0 +1,14 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "characterID": "middleAgeHamster",
+                    "dialogue": "I can't believe you would give up access to revolutionary techonology for a little bit of water!"
+                }
+            ]
+        }
+    ]
+}

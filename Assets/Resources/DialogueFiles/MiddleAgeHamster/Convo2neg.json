@@ -1,0 +1,14 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "characterID": "middleAgeHamster",
+                    "dialogue": "Everyone is so easily offended by good ideas nowadays..."
+                }
+            ]
+        }
+    ]
+}
