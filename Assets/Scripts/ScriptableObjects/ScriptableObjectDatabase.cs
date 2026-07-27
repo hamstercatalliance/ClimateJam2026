@@ -38,14 +38,15 @@ public class ScriptableObjectDatabase : MonoBehaviour
     }
     public ScriptableObject GetScriptableObjectByID(string id)
     {
+        if (string.IsNullOrEmpty(id))
+        {
+            return null;
+        }
         if (scriptableObjectDictionary.TryGetValue(id, out ScriptableObject obj))
         {
             return obj;
         }
-        else
-        {
-            Debug.LogWarning($"ScriptableObject with ID '{id}' not found.");
-            return null;
-        }
+        Debug.LogWarning($"ScriptableObject with ID '{id}' not found in the database.");
+        return null;
     }
 }
