@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using System;
-
+using UnityEngine.SceneManagement;
 public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
 {
     [SerializeField] private DayCountdown dayCountdown;
+    private const string GOOD_END_SCENE = "GoodEnd";
+    private const string BAD_END_SCENE = "BadEnd";
+    private const float EPSILON = 1e-5f;
+
     public EventHandler<OnDayChangedEventArgs> OnDayChanged;
     public class OnDayChangedEventArgs : EventArgs
     {
@@ -15,6 +19,7 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
     public event EventHandler OnDayManagerDataLoaded;
     public bool HasFiredDataLoaded { get; private set; }
     public event EventHandler OnDayEnd;
+
     [Header("Change this to modify day length")]
     [SerializeField] private float secondsInADay = 300f;
     //private float minutesInADay;
@@ -107,6 +112,11 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
             dayCount = GameData.Instance.DayManagerDayCount;
             state = GetStateFromProgress(timeElapsed);
             Debug.Log("Time elapsed: " + timeElapsed + "/" + secondsInADay);
+
+            if (timeElapsed < EPSILON)
+            {
+                //Show days remaining at the start of each day
+            }
         }
         else
         {
@@ -223,20 +233,23 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
 
         state = State.DayEnded;
         dayCount++;
-        if (dayCount >= dayCountdown.GetCountdownDays())
+
+        if (dayCount > dayCountdown.GetCountdownDays())
         {
             //TRIGGER ENDINGS
-            if (SympathyPointsManager.Instance.HasReachedGoodEndingThreshold())
-            {
-                Debug.Log("Good ending triggered.");
-                
-            }
-            else
-            {
-                Debug.Log("Bad ending triggered.");
-
-            }
+            // if (SympathyPointsManager.Instance.HasReachedGoodEndingThreshold())
+            // {
+            //     Debug.Log("Good ending triggered.");
+            //     SceneManager.LoadScene(GOOD_END_SCENE);
+            // }
+            // else
+            // {
+            //     Debug.Log("Bad ending triggered.");
+            //     SceneManager.LoadScene(BAD_END_SCENE);
+            // }
+            // return;
         }
+        
         timeElapsed = 0f;
         GameData.Instance.HasCompletedFirstDay = true;
         DayManagerUI.Instance.ResetTransitionProgress();

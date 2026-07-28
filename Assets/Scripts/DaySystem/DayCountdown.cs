@@ -14,7 +14,10 @@ public class DayCountdown : MonoBehaviour
     }
     private void Start()
     {
-        countdownPanel.SetActive(false);
+        if (countdownPanel != null)
+        {
+            countdownPanel.SetActive(false);
+        }
     }
     public IEnumerator ShowCountdownCoroutine()
     {

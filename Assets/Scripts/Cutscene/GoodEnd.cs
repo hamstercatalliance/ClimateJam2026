@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class GoodEnd : Slideshow
 {
     private int slide2TextIndexTrigger = 3;
@@ -29,6 +29,6 @@ public class GoodEnd : Slideshow
     protected override void OnTextFinished()
     {
         // Load the Menu scene after the slideshow is finished
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("Menu");
     }
 }
