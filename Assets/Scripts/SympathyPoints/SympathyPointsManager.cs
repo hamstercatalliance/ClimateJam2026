@@ -8,8 +8,11 @@ public class SympathyPointsManager : DialogueSignalHandler, IHasPersistentData
 {
     public static SympathyPointsManager Instance { get; private set; }
     public int SympathyPoints { get; private set; }
-
-
+    [SerializeField] private int goodEndingThreshold = 1250;
+    public bool HasReachedGoodEndingThreshold()
+    {
+        return SympathyPoints >= goodEndingThreshold;
+    }
     private void Start()
     {
         LoadGameData();

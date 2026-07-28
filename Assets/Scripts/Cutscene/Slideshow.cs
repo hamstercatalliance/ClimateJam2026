@@ -4,8 +4,11 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System;
 public abstract class Slideshow : MonoBehaviour, IPointerClickHandler
 {
+    [SerializeField] private GameInput gameInput;
+    
     [SerializeField] protected GameObject slideshow;
     [SerializeField] protected GameObject textBox; //In case you want to move the text box around
     [SerializeField] protected TextMeshProUGUI text;
@@ -45,7 +48,7 @@ public abstract class Slideshow : MonoBehaviour, IPointerClickHandler
             ShowNextText();
         }
     }
-   public virtual void OnPointerClick(PointerEventData eventData)
+    public virtual void OnPointerClick(PointerEventData eventData)
     {
         if (isTyping)
         {
