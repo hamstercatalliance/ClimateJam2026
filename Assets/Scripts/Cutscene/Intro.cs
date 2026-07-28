@@ -7,10 +7,10 @@ using UnityEngine.EventSystems;
 public class Intro : Slideshow
 {
     [SerializeField] private DayCountdown dayCountdown;
-    private bool hasShownCountdown = false;
     private int slide2TextIndexTrigger = 1;
     private int slide3TextIndexTrigger = 4;
     private int slide4TextIndexTrigger = 7;
+    [SerializeField] private string HOME_SCENE = "Home";
     public override void OnPointerClick(PointerEventData eventData)
     {
         int previousIndex = currentTextIndex;
@@ -47,16 +47,13 @@ public class Intro : Slideshow
     {
         if (currentTextIndex >= slideTexts.Length)
         {
-            if (!hasShownCountdown)
-            {
-                dayCountdown.ShowCountdown();
-                hasShownCountdown = true;
-            }
-            else
-            {
-                SceneManager.LoadScene("Home");
-            }
+            StartCoroutine(IntroFinishedRoutine());
         }
+    }
+    private IEnumerator IntroFinishedRoutine()
+    {
+        yield return dayCountdown.ShowCountdownCoroutine();
+        SceneManager.LoadScene(HOME_SCENE);
     }
 
 }
