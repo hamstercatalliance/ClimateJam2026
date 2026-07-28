@@ -18,6 +18,6 @@ MonoBehaviour:
   prefab: {fileID: 0}
   idleSprite: {fileID: 0}
   talkingSprite: {fileID: 0}
-  location: {x: 5, y: 0, z: 0}
+  location: {x: -7.5, y: -5.5, z: -29.3}
   scene:
     m_Handle: 0
