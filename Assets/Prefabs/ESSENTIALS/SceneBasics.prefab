@@ -2508,7 +2508,6 @@ GameObject:
   - component: {fileID: 364982808940101449}
   - component: {fileID: 310096572807239939}
   - component: {fileID: 2648802364939147665}
-  - component: {fileID: 3615597456934420426}
   m_Layer: 5
   m_Name: PlayerPreview
   m_TagString: Untagged
@@ -2589,25 +2588,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 4, y: -4}
   m_UseGraphicAlpha: 1
---- !u!114 &3615597456934420426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1311312985471638446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8efc5efaeca4de04eb82cd5aabe1e940, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  accessoryPreviewObject: {fileID: 3741014083289043494}
-  blueBow: {fileID: 19053090, guid: a4f1c347c0c638945807dca254de20ab, type: 3}
-  pinkBow: {fileID: -1254383463, guid: a4f1c347c0c638945807dca254de20ab, type: 3}
-  purpleBow: {fileID: 1287805761, guid: a4f1c347c0c638945807dca254de20ab, type: 3}
-  blackTie: {fileID: 1699218441, guid: a4f1c347c0c638945807dca254de20ab, type: 3}
-  stripedTie: {fileID: 69700949, guid: a4f1c347c0c638945807dca254de20ab, type: 3}
-  dotsTie: {fileID: 804456542, guid: a4f1c347c0c638945807dca254de20ab, type: 3}
 --- !u!1 &1321042879760996824
 GameObject:
   m_ObjectHideFlags: 0
@@ -6538,6 +6518,7 @@ GameObject:
   - component: {fileID: 8255183202275552076}
   - component: {fileID: 4946738355203789345}
   - component: {fileID: 2762052088727267018}
+  - component: {fileID: 2718276813188406350}
   m_Layer: 0
   m_Name: VanityManagers
   m_TagString: Untagged
@@ -6593,6 +6574,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vanityItemButtonPrefab: {fileID: 8252364058937289965}
   contentParent: {fileID: 2742632775435890091}
+--- !u!114 &2718276813188406350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3078706105597347514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8efc5efaeca4de04eb82cd5aabe1e940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accessoryPreviewObject: {fileID: 3741014083289043494}
+  blueBow: {fileID: 19053090, guid: a4f1c347c0c638945807dca254de20ab, type: 3}
+  pinkBow: {fileID: -1254383463, guid: a4f1c347c0c638945807dca254de20ab, type: 3}
+  purpleBow: {fileID: 1287805761, guid: a4f1c347c0c638945807dca254de20ab, type: 3}
+  blackTie: {fileID: 1699218441, guid: a4f1c347c0c638945807dca254de20ab, type: 3}
+  stripedTie: {fileID: 69700949, guid: a4f1c347c0c638945807dca254de20ab, type: 3}
+  dotsTie: {fileID: 804456542, guid: a4f1c347c0c638945807dca254de20ab, type: 3}
 --- !u!1 &3129774002057427914
 GameObject:
   m_ObjectHideFlags: 0
