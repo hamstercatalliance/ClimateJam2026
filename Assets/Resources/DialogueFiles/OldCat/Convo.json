@@ -1,0 +1,22 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "characterID": "oldCat",
+                    "dialogue": "Ey kid... you see that rusty metal bucket down there?"
+                },
+                {
+                    "characterID": "oldCat",
+                    "dialogue": "When I was younger, we didn't have all these fancy garbage cans..."
+                },
+                                {
+                    "characterID": "oldCat",
+                    "dialogue": "We just threw our garbage in the river and watched it float downstream."
+                }
+            ]
+        }
+    ]
+}
