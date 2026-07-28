@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject continueButton;
+    private string HOME_SCENE_NAME = "Home";
+    private string INTRO_SCENE_NAME = "Intro";
     // Start is called before the first frame update
     void Start()
     {
@@ -20,12 +22,12 @@ public class MainMenuManager : MonoBehaviour
     public void StartNewGame()
     {
         DataPersistenceManager.Instance.ClearGame();
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Home");
+        SceneManager.LoadScene(INTRO_SCENE_NAME);
     }
     public void ContinueGame()
     {
         DataPersistenceManager.Instance.LoadPlayerData();
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Home");
+        SceneManager.LoadScene(HOME_SCENE_NAME);
     }
     public void ExitGame()
     {

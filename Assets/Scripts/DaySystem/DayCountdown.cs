@@ -1,0 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+public class DayCountdown : MonoBehaviour
+{
+    [SerializeField] private int countdownDays = 3;
+    [SerializeField] private TextMeshProUGUI countdownText;
+    [SerializeField] private GameObject countdownPanel;
+    [SerializeField] private float countdownDuration = 1.5f;
+    private void Start()
+    {
+        countdownPanel.SetActive(false);
+    }
+    public IEnumerator ShowCountdownCoroutine()
+    {
+        int daysLeft = countdownDays - GameData.Instance.DayManagerDayCount;
+        Debug.Log($"[DayCountdown] DayManagerDayCount={GameData.Instance.DayManagerDayCount}, daysLeft={daysLeft}");
+        countdownPanel.SetActive(true);
+        if (daysLeft == 1)
+        {
+            countdownText.text = $"{daysLeft} day remaining";
+        }
+        else
+        {
+            countdownText.text = $"{daysLeft} days remaining";
+        }
+        yield return new WaitForSeconds(countdownDuration);
+    }
+}

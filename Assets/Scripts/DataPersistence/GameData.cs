@@ -106,7 +106,7 @@ public class GameData : MonoBehaviour
     {
         InventorySlots = null;
         DayManagerTimeElapsed = 0f;
-        DayManagerDayCount = 1;
+        DayManagerDayCount = 0;
         HasCompletedFirstDay = false;
         //DayManagerUITransitionProgress = 0;
         //PlayerFacingDirection = Vector3.zero;

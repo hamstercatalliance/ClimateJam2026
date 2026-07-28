@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SaveScene.unity
     guid: d1ac1c4bf24f32d40b388142e508a7bd
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: e1908fcc900754e4198deed14c6dd8e6
   m_configObjects: {}
