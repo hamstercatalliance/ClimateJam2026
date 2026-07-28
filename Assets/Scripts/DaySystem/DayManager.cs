@@ -6,6 +6,7 @@ using System;
 
 public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
 {
+    [SerializeField] private DayCountdown dayCountdown;
     public EventHandler<OnDayChangedEventArgs> OnDayChanged;
     public class OnDayChangedEventArgs : EventArgs
     {
@@ -222,6 +223,20 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
 
         state = State.DayEnded;
         dayCount++;
+        if (dayCount >= dayCountdown.GetCountdownDays())
+        {
+            //TRIGGER ENDINGS
+            if (SympathyPointsManager.Instance.HasReachedGoodEndingThreshold())
+            {
+                Debug.Log("Good ending triggered.");
+                
+            }
+            else
+            {
+                Debug.Log("Bad ending triggered.");
+
+            }
+        }
         timeElapsed = 0f;
         GameData.Instance.HasCompletedFirstDay = true;
         DayManagerUI.Instance.ResetTransitionProgress();

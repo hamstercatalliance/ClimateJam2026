@@ -8,6 +8,10 @@ public class DayCountdown : MonoBehaviour
     [SerializeField] private TextMeshProUGUI countdownText;
     [SerializeField] private GameObject countdownPanel;
     [SerializeField] private float countdownDuration = 1.5f;
+    public float GetCountdownDays()
+    {
+        return countdownDays;
+    }
     private void Start()
     {
         countdownPanel.SetActive(false);

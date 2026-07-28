@@ -44,11 +44,8 @@ public class Intro : Slideshow
         }
     }
     protected override void OnTextFinished()
-    {
-        if (currentTextIndex >= slideTexts.Length)
-        {
-            StartCoroutine(IntroFinishedRoutine());
-        }
+    { 
+        StartCoroutine(IntroFinishedRoutine());
     }
     private IEnumerator IntroFinishedRoutine()
     {
