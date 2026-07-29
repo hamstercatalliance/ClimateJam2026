@@ -61,6 +61,11 @@ public class InventoryUIManager : MonoBehaviour
 
     public void LoadSlotUIData()
     {
+        if (GameData.Instance == null || GameData.Instance.InventorySlots == null)
+        {
+            Debug.LogWarning("GameData or InventorySlots is null. Cannot load inventory UI data.");
+            return;
+        }
         for (int row = 0; row < GameData.Instance.InventorySlots.GetLength(0); row++)
         {
             for (int col = 0; col < GameData.Instance.InventorySlots.GetLength(1); col++)

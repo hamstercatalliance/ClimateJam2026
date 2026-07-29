@@ -12,6 +12,7 @@ public class TestQuest : Quest
     {
         base.Start();
         Player.Instance.OnPickup += Player_OnPickup;
+        Debug.Log(isInitiated + " " + isCompleted);
     }
     protected override void OnDestroy()
     {

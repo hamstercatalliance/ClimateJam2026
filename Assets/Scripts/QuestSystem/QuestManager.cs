@@ -29,10 +29,14 @@ public class QuestManager : MonoBehaviour, IHasPersistentData
     }
     private void Start()
     {
+        quests = GetComponentsInChildren<Quest>();
+
         LoadGameData();
+        
         Quest.OnQuestInitiated += Quest_OnQuestInitiated;
         Quest.OnQuestCompleted += Quest_OnQuestCompleted;
         SceneLoader.OnSceneTransition += OnSceneTransitionHandler;
+        
     }
     private void OnSceneTransitionHandler(object sender, EventArgs e)
     {

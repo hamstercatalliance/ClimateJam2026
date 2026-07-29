@@ -1026,18 +1026,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 346641824}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &393267603 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5359540206337388385, guid: 221645e9bd166d648b1ab79e4237004b,
-    type: 3}
-  m_PrefabInstance: {fileID: 6465163116645222949}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 271b145df736ae148bea58d0e7c23efe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &395869795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4578,11 +4566,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneBasics
       objectReference: {fileID: 0}
-    - target: {fileID: 6792729927399374183, guid: 221645e9bd166d648b1ab79e4237004b,
-        type: 3}
-      propertyPath: dayCountdown
-      value: 
-      objectReference: {fileID: 393267603}
     - target: {fileID: 7789248478945971772, guid: 221645e9bd166d648b1ab79e4237004b,
         type: 3}
       propertyPath: m_LocalPosition.x

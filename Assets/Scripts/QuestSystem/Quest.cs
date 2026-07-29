@@ -5,7 +5,7 @@ using System;
 public abstract class Quest : MonoBehaviour, IHasPersistentData
 {
     public QuestSO questSO;
-    public bool isInitiated;
+    public bool isInitiated = false;
     public bool isCompleted;
     public static event EventHandler OnQuestInitiated;
     public static event EventHandler OnQuestCompleted;

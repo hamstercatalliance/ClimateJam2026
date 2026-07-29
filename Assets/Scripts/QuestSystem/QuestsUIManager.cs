@@ -27,6 +27,7 @@ public class QuestsUIManager : MonoBehaviour
         QuestSlotUI questSlotUI = questSlot.GetComponent<QuestSlotUI>();
         
         QuestSO questSO = ScriptableObjectDatabase.Instance.GetScriptableObjectByID(questData.questID) as QuestSO;
+        Debug.Log($"[QuestsUIManager] Creating quest slot for quest: {questSO.questName} (ID: {questSO.questID})");
         questSlotUI.SetQuestName(questSO.questName);
         if (questData.isCompleted)
         {

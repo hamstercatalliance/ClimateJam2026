@@ -66,7 +66,7 @@ public abstract class InteractableObject : MonoBehaviour
 
     protected virtual void ZoneEntered()
     {
-        Debug.Log("Player is in interaction zone of " + name);
+        //Debug.Log("Player is in interaction zone of " + name);
         if (interactNotice != null)
         {
             interactNotice.SetActive(true);

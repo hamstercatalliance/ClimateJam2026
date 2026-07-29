@@ -5,4 +5,9 @@ using UnityEngine;
 public class MusicManager : MonoBehaviour
 {
     //will be used to adjust music volume and play music tracks
+    private AudioSource audioSource;
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 }

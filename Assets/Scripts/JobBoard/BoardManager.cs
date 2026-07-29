@@ -7,34 +7,39 @@ using UnityEngine.UIElements;
 public class BoardManager : MonoBehaviour
 {
 
-    private BoardEntryManager[] quests;
+    private BoardEntryManager[] questEntries;
     [SerializeField] Transform board;
     public static BoardManager Instance;
-    [SerializeField] private GameInput gameInput;
-    public static bool jobBoardActive { get; private set; } = false;
-    private void Start()
-    {
-        //gameObject.SetActive(false);
-
-    }
-    private void OnEnable()
+    private void Awake()
     {
         if (Instance != null && Instance != this)
         {
             Destroy(Instance);
         }
-        Instance = this; // TODO: Fix signleton check
-        quests = GetComponentsInChildren<BoardEntryManager>();
-        //board = transform.Find("board");
+        Instance = this; 
+    }
+    [SerializeField] private GameInput gameInput;
+    public static bool jobBoardActive { get; private set; } = false;
+    private void Start()
+    {
+        //gameObject.SetActive(false);
         gameInput.OnMenuAction += GameInput_OnMenuAction;
     }
-
+    private void OnDestroy()
+    {
+        gameInput.OnMenuAction -= GameInput_OnMenuAction;
+    }
     // will loop through quests, check if initiated, adds an additional quest entry to the board
     public void RenderBoard() {
+        questEntries = GetComponentsInChildren<BoardEntryManager>();
         int day = DayManager.Instance.dayCount;
-        foreach (BoardEntryManager quest in quests) {
-            bool renderQuest = !quest.getQuest.isInitiated && quest.getDay <= day;
-            quest.gameObject.SetActive(renderQuest);
+        foreach (BoardEntryManager questEntry in questEntries) {
+            Quest quest = questEntry.GetQuest;
+            if (quest != null)
+            {
+                bool renderQuest = (!quest.isInitiated) && (questEntry.GetDay <= day);
+                questEntry.gameObject.SetActive(renderQuest);
+            }
         }
     }
 
@@ -43,10 +48,6 @@ public class BoardManager : MonoBehaviour
         {
             CloseBoard();
         }
-    }
-    private void OnDestroy()
-    {
-        gameInput.OnMenuAction -= GameInput_OnMenuAction;
     }
     public void OpenBoard()
     {
