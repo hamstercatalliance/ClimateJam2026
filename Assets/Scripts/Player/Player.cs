@@ -174,7 +174,7 @@ public class Player : MonoBehaviour, IHasPersistentData
         float playerRadius = .6f;
         float playerHeight = 2f;
         bool canMove = !Physics.CapsuleCast(
-            transform.position,
+            transform.position + Vector3.up * 0.1f,
             transform.position + Vector3.up * playerHeight,
             playerRadius,
             moveDir,
