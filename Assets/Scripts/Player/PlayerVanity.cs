@@ -19,13 +19,18 @@ public class PlayerVanity : MonoBehaviour
     private const string RED_TIE_ID = "item.vanity.tie_dots";
     private void Start()
     {
-        GetComponent<SpriteRenderer>().sprite = null;
         VanityManager.Instance.OnVanityItemEquipped += VanityManager_OnVanityItemEquipped;
+        GetComponent<SpriteRenderer>().sprite = null;
+    }
+    private void OnDestroy()
+    {
+        VanityManager.Instance.OnVanityItemEquipped -= VanityManager_OnVanityItemEquipped;
     }
     private void VanityManager_OnVanityItemEquipped(object sender, VanityManager.OnVanityItemEquippedEventArgs e)
     {
         if (e.equippedItem == null)
         {
+            Debug.Log("No accessory equipped");
             GetComponent<SpriteRenderer>().sprite = null;
             return;
         }

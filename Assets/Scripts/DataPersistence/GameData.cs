@@ -26,6 +26,7 @@ public class GameData : MonoBehaviour
     public float DayManagerTimeElapsed;
     public int DayManagerDayCount;
     public bool HasCompletedFirstDay;
+    public bool IsStartOfNewDay;
     #endregion
     #region Player data
     public Vector3 PlayerFacingDirection;

@@ -107,8 +107,9 @@ public class VanityManager : MonoBehaviour, IHasPersistentData
                     { 
                         equippedItem = equippedItem 
                     });
+                    Debug.Log(equipedVanityItem);
                     VanityPlayerPreview.Instance.SetStayVisible(true);
-                    VanityPlayerPreview.Instance.ShowEquippedOrNothing();
+                    // VanityPlayerPreview.Instance.ShowEquippedOrNothing();
                 }
                 else
                 {
