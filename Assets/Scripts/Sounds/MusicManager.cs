@@ -25,8 +25,17 @@ public class MusicManager : MonoBehaviour, IHasPersistentData
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        SceneLoader.OnSceneTransition += OnSceneTransitionHandler;
+        LoadGameData();
     }
-
+    private void OnSceneTransitionHandler(object sender, EventArgs e)
+    {
+        WriteToGameData();
+    }
+    private void OnDestroy()
+    {
+        SceneLoader.OnSceneTransition -= OnSceneTransitionHandler;
+    }
     public void IncreaseVolume(float amount = 0.2f)
     {
         audioSource.volume = Mathf.Clamp(audioSource.volume + amount, 0f, 1f);

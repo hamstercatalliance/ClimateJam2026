@@ -1885,12 +1885,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 698652565}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &717401889 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1399845782888786840, guid: 221645e9bd166d648b1ab79e4237004b,
-    type: 3}
-  m_PrefabInstance: {fileID: 6465163116645222949}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &764411082
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3865,7 +3859,7 @@ PrefabInstance:
         type: 3}
       propertyPath: IHasPersistentDataGameObjects.Array.data[4]
       value: 
-      objectReference: {fileID: 717401889}
+      objectReference: {fileID: 0}
     - target: {fileID: 7013358773035230646, guid: 695b4edda38f7bb438408a47b41cfa47,
         type: 3}
       propertyPath: IHasPersistentDataGameObjects.Array.data[5]
@@ -3884,28 +3878,28 @@ PrefabInstance:
     - target: {fileID: 7354116474864284672, guid: 695b4edda38f7bb438408a47b41cfa47,
         type: 3}
       propertyPath: playerSpawnPosition.x
-      value: 5
+      value: -82.5
       objectReference: {fileID: 0}
     - target: {fileID: 7354116474864284672, guid: 695b4edda38f7bb438408a47b41cfa47,
         type: 3}
       propertyPath: playerSpawnPosition.y
-      value: -16
+      value: -17.8
       objectReference: {fileID: 0}
     - target: {fileID: 7354116474864284672, guid: 695b4edda38f7bb438408a47b41cfa47,
         type: 3}
       propertyPath: playerSpawnPosition.z
-      value: 15
+      value: 32.5
       objectReference: {fileID: 0}
     - target: {fileID: 7354116474864284672, guid: 695b4edda38f7bb438408a47b41cfa47,
         type: 3}
       propertyPath: IHasPersistentDataGameObjects.Array.size
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7354116474864284672, guid: 695b4edda38f7bb438408a47b41cfa47,
         type: 3}
       propertyPath: IHasPersistentDataGameObjects.Array.data[0]
       value: 
-      objectReference: {fileID: 4419240982183312933}
+      objectReference: {fileID: 518541484211938677}
     - target: {fileID: 7354116474864284672, guid: 695b4edda38f7bb438408a47b41cfa47,
         type: 3}
       propertyPath: IHasPersistentDataGameObjects.Array.data[1]
@@ -3920,17 +3914,17 @@ PrefabInstance:
         type: 3}
       propertyPath: IHasPersistentDataGameObjects.Array.data[3]
       value: 
-      objectReference: {fileID: 717401889}
+      objectReference: {fileID: 44928870}
     - target: {fileID: 7354116474864284672, guid: 695b4edda38f7bb438408a47b41cfa47,
         type: 3}
       propertyPath: IHasPersistentDataGameObjects.Array.data[4]
       value: 
-      objectReference: {fileID: 44928870}
+      objectReference: {fileID: 506404223}
     - target: {fileID: 7354116474864284672, guid: 695b4edda38f7bb438408a47b41cfa47,
         type: 3}
       propertyPath: IHasPersistentDataGameObjects.Array.data[5]
       value: 
-      objectReference: {fileID: 506404223}
+      objectReference: {fileID: 518541484211938677}
     - target: {fileID: 7354116474864284672, guid: 695b4edda38f7bb438408a47b41cfa47,
         type: 3}
       propertyPath: IHasPersistentDataGameObjects.Array.data[6]

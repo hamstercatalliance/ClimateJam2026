@@ -10,7 +10,13 @@ public class MusicUIManager : MonoBehaviour
     {
         MusicManager.Instance.OnMusicVolumeChanged += MusicManager_OnMusicVolumeChanged;
     }
-    
+    private void OnEnable()
+    {
+        MusicManager_OnMusicVolumeChanged(this, new MusicManager.MusicVolumeChangedEventArgs
+        {
+            newVolume = MusicManager.Instance.GetComponent<AudioSource>().volume
+        });
+    }
     private void MusicManager_OnMusicVolumeChanged(object sender, MusicManager.MusicVolumeChangedEventArgs e)
     {
         container.SetActive(true);

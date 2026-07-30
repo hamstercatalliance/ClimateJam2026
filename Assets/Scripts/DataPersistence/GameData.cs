@@ -69,6 +69,8 @@ public class GameData : MonoBehaviour
         public int currencyAmount;
         public List<string> OwnedVanityItemIDs = new List<string>();
         public string EquippedVanityItemID;
+        public float SoundVolume;
+        public float MusicVolume;
     }
     public SaveData GetSaveData()
     {
@@ -84,6 +86,8 @@ public class GameData : MonoBehaviour
         saveData.currencyAmount = currencyAmount;
         saveData.OwnedVanityItemIDs = OwnedVanityItemIDs;
         saveData.EquippedVanityItemID = EquippedVanityItemID;
+        saveData.SoundVolume = SoundVolume;
+        saveData.MusicVolume = MusicVolume;
         return saveData;
     }
     private void SetSaveData(SaveData data)
@@ -99,6 +103,8 @@ public class GameData : MonoBehaviour
         currencyAmount = data.currencyAmount;
         OwnedVanityItemIDs = data.OwnedVanityItemIDs;
         EquippedVanityItemID = data.EquippedVanityItemID;
+        SoundVolume = data.SoundVolume;
+        MusicVolume = data.MusicVolume;
     }
     public void LoadFromSaveData(SaveData data)
     {
@@ -119,6 +125,8 @@ public class GameData : MonoBehaviour
         HasLoadedRunData = false;
         OwnedVanityItemIDs = new List<string>();
         EquippedVanityItemID = null;
+        SoundVolume = 1f;
+        MusicVolume = 1f;
     }
 
 

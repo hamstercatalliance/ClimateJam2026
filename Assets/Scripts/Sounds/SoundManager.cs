@@ -26,8 +26,17 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        SceneLoader.OnSceneTransition += OnSceneTransitionHandler;
+        LoadGameData();
     }
-
+    private void OnSceneTransitionHandler(object sender, EventArgs e)
+    {
+        WriteToGameData();
+    }
+    private void OnDestroy()
+    {
+        SceneLoader.OnSceneTransition -= OnSceneTransitionHandler;
+    }
     private void PlaySound(AudioClip audioClip, Vector3 position, float volume = 1f)
     {
         AudioSource.PlayClipAtPoint(audioClip, position, volume);
