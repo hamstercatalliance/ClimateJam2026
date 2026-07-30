@@ -36,11 +36,6 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
     // day->sunset : 0.5 minute
     // sunset->night : 0.4 minute
     // night : 0.7 minute
-    // [SerializeField] private float sunriseDayTransitionMinutes = 0.65f;
-    // [SerializeField] private float dayMinutes = 2.75f;
-    // [SerializeField] private float daySunsetTransitionMinutes = 0.5f;
-    // [SerializeField] private float sunsetNightTransitionMinutes = 0.4f;
-    // [SerializeField] private float nightMinutes = 0.7f;
     [Header("Day phase lengths in percent (must sum to 1)")]
     [SerializeField, Range(0f, 1f)] private float sunriseDayTransitionPercent = 0.13f;
     [SerializeField, Range(0f, 1f)] private float dayPercent = 0.55f;

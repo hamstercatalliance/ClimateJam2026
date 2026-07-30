@@ -17,6 +17,7 @@ public class MerchantStore : MonoBehaviour
     [SerializeField] private OnClickButtonDisplay itemListButtonDisplay;
     [SerializeField] private GameObject buyModeSwitchButton;
     // [SerializeField] private GameObject sellModeSwitchButton;
+    //private GameInput gameInput;
     public static bool merchantStoreOpen = false;
     private GameItemSO selectedItem;
     public GameItemSO GetSelectedItem()
@@ -41,15 +42,23 @@ public class MerchantStore : MonoBehaviour
         Debug.Log("MerchantStore enabled, subscribing to currency change event.");
         CurrencyManager.Instance.OnCurrencyChanged += OnCurrencyChanged;
         EnterBuyMode(); // Default to buy mode when the store is opened
+        //gameInput = FindObjectOfType<GameInput>();
+        //gameInput.OnMenuAction += GameInput_OnMenuAction;
+        
     }
 
     private void OnDestroy()
     {
-        if (CurrencyManager.Instance != null)
-        {
-            CurrencyManager.Instance.OnCurrencyChanged -= OnCurrencyChanged;
-        }
+        CurrencyManager.Instance.OnCurrencyChanged -= OnCurrencyChanged;
+        //gameInput.OnMenuAction -= GameInput_OnMenuAction;
     }
+    // private void GameInput_OnMenuAction(object sender, System.EventArgs e)
+    // {
+    //     if (merchantStoreOpen)
+    //     {
+    //         LeaveStore();
+    //     }
+    // }
     private void OnCurrencyChanged(object sender, CurrencyManager.OnCurrencyChangedEventArgs e)
     {
         Debug.Log("Currency changed, updating buy list.");
@@ -170,6 +179,7 @@ public class MerchantStore : MonoBehaviour
         storeContent.SetActive(true);
         modeSwitchButtonDisplay.OnClick(buyModeSwitchButton); //select the buy mode button by default
         merchantStoreOpen = true;
+        Debug.Log("MerchantStore enabled, entering store and subscribing to currency change event.");
         EnterBuyMode();
     }
 }

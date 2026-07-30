@@ -49,7 +49,10 @@ public class GameData : MonoBehaviour
     public List<string> OwnedVanityItemIDs = new List<string>();
     public string EquippedVanityItemID;
     #endregion
-
+    #region Sound and Music Data
+    public float SoundVolume;
+    public float MusicVolume;
+    #endregion
     [Serializable]
     public class SaveData
     {

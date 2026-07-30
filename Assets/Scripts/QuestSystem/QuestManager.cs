@@ -15,7 +15,7 @@ public class QuestManager : MonoBehaviour, IHasPersistentData
     }
     public List<QuestData> questDataList;//quest data for saving and loading, also contains all quests but excluding the instance
     
-    public Quest[] quests;//for writing to the classes, all possible quests in the game should be added to this array in the inspector
+    private Quest[] quests;//for writing to the classes
     public bool DataSuccessfullyWritten { get; private set; }
     private void Awake()
     {
