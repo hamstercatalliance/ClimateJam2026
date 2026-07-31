@@ -113,18 +113,28 @@ public class VanityManager : MonoBehaviour, IHasPersistentData
                 }
                 else
                 {
-                    Debug.Log("VanityManager: LoadGameData: Could not resolve equipped vanity item ID.");
+                    OnVanityItemEquipped?.Invoke(this, new OnVanityItemEquippedEventArgs
+                    {
+                        equippedItem = null
+                    });
                 }
             }
             else
             {
-                Debug.Log("VanityManager: LoadGameData: No equipped vanity item found in saved data.");
+                OnVanityItemEquipped?.Invoke(this, new OnVanityItemEquippedEventArgs
+                {
+                    equippedItem = null
+                });
             }
         }
         else
         {
             //new game
             ownedVanityItems = new List<GameItemSO>();
+            OnVanityItemEquipped?.Invoke(this, new OnVanityItemEquippedEventArgs
+            {
+                equippedItem = null
+            });
         }
     }
     public void EquipVanityItem()

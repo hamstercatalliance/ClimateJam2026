@@ -20,21 +20,22 @@ public class PlayerVanity : MonoBehaviour
     private void Start()
     {
         VanityManager.Instance.OnVanityItemEquipped += VanityManager_OnVanityItemEquipped;
-        GetComponent<SpriteRenderer>().sprite = null;
+        ApplyEquippedSprite(VanityManager.Instance.equipedVanityItem);
+        //GetComponent<SpriteRenderer>().sprite = null;
     }
     private void OnDestroy()
     {
         VanityManager.Instance.OnVanityItemEquipped -= VanityManager_OnVanityItemEquipped;
     }
-    private void VanityManager_OnVanityItemEquipped(object sender, VanityManager.OnVanityItemEquippedEventArgs e)
+    private void ApplyEquippedSprite(GameItemSO equippedItem)
     {
-        if (e.equippedItem == null)
+        if (equippedItem == null)
         {
             Debug.Log("No accessory equipped");
             GetComponent<SpriteRenderer>().sprite = null;
             return;
         }
-        switch (e.equippedItem.itemID)
+        switch (equippedItem.itemID)
         {
             case BLUE_BOW_ID:
                 GetComponent<SpriteRenderer>().sprite = blueBow;
@@ -55,8 +56,12 @@ public class PlayerVanity : MonoBehaviour
                 GetComponent<SpriteRenderer>().sprite = dotsTie;
                 break;
             default:
-                Debug.LogWarning("Unknown vanity item equipped: " + e.equippedItem.itemID);
+                Debug.LogWarning("Unknown vanity item equipped: " + equippedItem.itemID);
                 break;
         }
+    }
+    private void VanityManager_OnVanityItemEquipped(object sender, VanityManager.OnVanityItemEquippedEventArgs e)
+    {
+        ApplyEquippedSprite(e.equippedItem);
     }
 }
