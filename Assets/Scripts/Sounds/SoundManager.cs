@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class SoundManager : MonoBehaviour
+using System;
+public class SoundManager : MonoBehaviour, IHasPersistentData
 {
     //this will eventully be used to play SFX and adjust SFX volume
     private AudioSource audioSource;
-
+    public event EventHandler<VolumeChangedEventArgs> OnVolumeChanged;
+    public class VolumeChangedEventArgs : EventArgs
+    {
+        public float newVolume;
+    }
     public static SoundManager Instance { get; private set; }
     private void Awake()
     {
@@ -17,12 +21,22 @@ public class SoundManager : MonoBehaviour
         }
         Instance = this;
     }
+    public bool DataSuccessfullyWritten { get; private set; } = false;
     
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        SceneLoader.OnSceneTransition += OnSceneTransitionHandler;
+        LoadGameData();
     }
-
+    private void OnSceneTransitionHandler(object sender, EventArgs e)
+    {
+        WriteToGameData();
+    }
+    private void OnDestroy()
+    {
+        SceneLoader.OnSceneTransition -= OnSceneTransitionHandler;
+    }
     private void PlaySound(AudioClip audioClip, Vector3 position, float volume = 1f)
     {
         AudioSource.PlayClipAtPoint(audioClip, position, volume);
@@ -34,9 +48,42 @@ public class SoundManager : MonoBehaviour
     public void IncreaseVolume(float amount = 0.2f)
     {
         audioSource.volume = Mathf.Clamp(audioSource.volume + amount, 0f, 1f);
+        OnVolumeChanged?.Invoke(this, new VolumeChangedEventArgs 
+        { 
+            newVolume = audioSource.volume
+        });
     }
     public void DecreaseVolume(float amount = 0.2f)
     {
         audioSource.volume = Mathf.Clamp(audioSource.volume - amount, 0f, 1f);
+        OnVolumeChanged?.Invoke(this, new VolumeChangedEventArgs 
+        { 
+            newVolume = audioSource.volume
+        });
+    }
+
+    public void LoadGameData()
+    {
+        if (GameData.Instance != null && GameData.Instance.HasLoadedRunData)
+        {
+            audioSource.volume = GameData.Instance.SoundVolume;
+            OnVolumeChanged?.Invoke(this, new VolumeChangedEventArgs 
+            { 
+                newVolume = audioSource.volume
+            });
+        }
+        else
+        {
+            audioSource.volume = 1f; // Default volume if no game data is available
+            OnVolumeChanged?.Invoke(this, new VolumeChangedEventArgs 
+            { 
+                newVolume = audioSource.volume
+            });
+        }
+    }
+    public void WriteToGameData()
+    {
+        GameData.Instance.SoundVolume = audioSource.volume;
+        DataSuccessfullyWritten = true;
     }
 }

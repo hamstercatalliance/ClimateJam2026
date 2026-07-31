@@ -50,7 +50,7 @@ public class OnClickButtonDisplay : MonoBehaviour
         EnsureInitialized();
         foreach (GameObject button in buttonGroup)
         {
-            Debug.Log("Deselecting button: " + button.name);
+            //Debug.Log("Deselecting button: " + button.name);
             Deselect(button);
         }
     }

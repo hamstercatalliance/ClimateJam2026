@@ -26,6 +26,7 @@ public class GameData : MonoBehaviour
     public float DayManagerTimeElapsed;
     public int DayManagerDayCount;
     public bool HasCompletedFirstDay;
+    public bool IsStartOfNewDay = true;
     #endregion
     #region Player data
     public Vector3 PlayerFacingDirection;
@@ -49,7 +50,10 @@ public class GameData : MonoBehaviour
     public List<string> OwnedVanityItemIDs = new List<string>();
     public string EquippedVanityItemID;
     #endregion
-
+    #region Sound and Music Data
+    public float SoundVolume;
+    public float MusicVolume;
+    #endregion
     [Serializable]
     public class SaveData
     {
@@ -59,6 +63,7 @@ public class GameData : MonoBehaviour
         public float DayManagerTimeElapsed;
         public int DayManagerDayCount;
         public bool HasCompletedFirstDay;
+        public bool IsStartOfNewDay;
         //public float DayManagerUITransitionProgress;
         //public Vector3 PlayerFacingDirection;
         public int SympathyPoints;
@@ -66,6 +71,8 @@ public class GameData : MonoBehaviour
         public int currencyAmount;
         public List<string> OwnedVanityItemIDs = new List<string>();
         public string EquippedVanityItemID;
+        public float SoundVolume;
+        public float MusicVolume;
     }
     public SaveData GetSaveData()
     {
@@ -74,6 +81,7 @@ public class GameData : MonoBehaviour
         saveData.DayManagerTimeElapsed = DayManagerTimeElapsed;
         saveData.DayManagerDayCount = DayManagerDayCount;
         saveData.HasCompletedFirstDay = HasCompletedFirstDay;
+        saveData.IsStartOfNewDay = IsStartOfNewDay;
         //saveData.DayManagerUITransitionProgress = 0; //loading data should always be at the start of the day
         //saveData.PlayerFacingDirection = PlayerFacingDirection;
         saveData.SympathyPoints = SympathyPoints;
@@ -81,6 +89,8 @@ public class GameData : MonoBehaviour
         saveData.currencyAmount = currencyAmount;
         saveData.OwnedVanityItemIDs = OwnedVanityItemIDs;
         saveData.EquippedVanityItemID = EquippedVanityItemID;
+        saveData.SoundVolume = SoundVolume;
+        saveData.MusicVolume = MusicVolume;
         return saveData;
     }
     private void SetSaveData(SaveData data)
@@ -89,6 +99,7 @@ public class GameData : MonoBehaviour
         DayManagerTimeElapsed = data.DayManagerTimeElapsed;
         DayManagerDayCount = data.DayManagerDayCount;
         HasCompletedFirstDay = data.HasCompletedFirstDay;
+        IsStartOfNewDay = data.IsStartOfNewDay;
         //DayManagerUITransitionProgress = data.DayManagerUITransitionProgress;
         //PlayerFacingDirection = data.PlayerFacingDirection;
         SympathyPoints = data.SympathyPoints;
@@ -96,6 +107,8 @@ public class GameData : MonoBehaviour
         currencyAmount = data.currencyAmount;
         OwnedVanityItemIDs = data.OwnedVanityItemIDs;
         EquippedVanityItemID = data.EquippedVanityItemID;
+        SoundVolume = data.SoundVolume;
+        MusicVolume = data.MusicVolume;
     }
     public void LoadFromSaveData(SaveData data)
     {
@@ -108,6 +121,7 @@ public class GameData : MonoBehaviour
         DayManagerTimeElapsed = 0f;
         DayManagerDayCount = 0;
         HasCompletedFirstDay = false;
+        IsStartOfNewDay = true;
         //DayManagerUITransitionProgress = 0;
         //PlayerFacingDirection = Vector3.zero;
         SympathyPoints = 0;
@@ -116,6 +130,8 @@ public class GameData : MonoBehaviour
         HasLoadedRunData = false;
         OwnedVanityItemIDs = new List<string>();
         EquippedVanityItemID = null;
+        SoundVolume = 1f;
+        MusicVolume = 1f;
     }
 
 

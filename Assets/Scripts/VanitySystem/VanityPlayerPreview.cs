@@ -33,20 +33,27 @@ public class VanityPlayerPreview : MonoBehaviour
     {
         stayVisible = value;
     }
-    private void OnEnable()
+    // private void Start()
+    // {
+    //     if (VanityManager.Instance != null)
+    //     {
+    //         Debug.Log("Vanity manager instacne is not null");
+    //         ShowEquippedOrNothing();    
+    //     }
+    // }
+    private void VanityManager_OnVanityItemEquipped(object sender, VanityManager.OnVanityItemEquippedEventArgs e)
     {
-        if (VanityManager.Instance != null)
-        {
-            ShowEquippedOrNothing();
-        }
+        ShowEquippedOrNothing(e);
     }
-    public void ShowEquippedOrNothing()
+    private void ShowEquippedOrNothing(VanityManager.OnVanityItemEquippedEventArgs e)
     {
-        Debug.Log(VanityManager.Instance);
-        Debug.Log(VanityManager.Instance.equipedVanityItem);
-        GameItemSO equipped = VanityManager.Instance.equipedVanityItem;
+        //Debug.Log(VanityManager.Instance);
+        Debug.Log(VanityManager.Instance.equipedVanityItem); //null even though item is equipped?
+        // GameItemSO equipped = VanityManager.Instance.equipedVanityItem;
+        GameItemSO equipped = e.equippedItem;
         if (equipped != null)
         {
+
             accessoryPreviewObject.SetActive(true);
             switch (equipped.itemID)
             {
@@ -82,13 +89,14 @@ public class VanityPlayerPreview : MonoBehaviour
     {
         VanitySlotUI.OnVanitySlotHovered += VanitySlotUI_OnVanitySlotHovered;
         VanitySlotUI.OnVanitySlotHoverExit += VanitySlotUI_OnVanitySlotHoverExit;
-
+        VanityManager.Instance.OnVanityItemEquipped += VanityManager_OnVanityItemEquipped;
         ShowEquippedOrNothing();
     }
     private void OnDestroy()
     {
         VanitySlotUI.OnVanitySlotHovered -= VanitySlotUI_OnVanitySlotHovered;
         VanitySlotUI.OnVanitySlotHoverExit -= VanitySlotUI_OnVanitySlotHoverExit;
+        VanityManager.Instance.OnVanityItemEquipped -= VanityManager_OnVanityItemEquipped;
     }
     private void VanitySlotUI_OnVanitySlotHovered(object sender, VanitySlotUI.OnSlotHoveredEventArgs e)
     {
@@ -132,5 +140,46 @@ public class VanityPlayerPreview : MonoBehaviour
     public void ClearPreview()
     {
         accessoryPreviewObject.SetActive(false);
+    }
+    public void ShowEquippedOrNothing()
+    {
+        //Debug.Log(VanityManager.Instance);
+        Debug.Log(VanityManager.Instance.equipedVanityItem); //null even though item is equipped?
+        GameItemSO equipped = VanityManager.Instance.equipedVanityItem;
+        if (equipped != null)
+        {
+
+            accessoryPreviewObject.SetActive(true);
+            switch (equipped.itemID)
+            {
+                case BLUE_BOW_ID:
+                    accessoryPreviewObject.GetComponent<Image>().sprite = blueBow;
+                    break;
+                case PINK_BOW_ID:
+                    accessoryPreviewObject.GetComponent<Image>().sprite = pinkBow;
+                    break;
+                case PURPLE_BOW_ID:
+                    accessoryPreviewObject.GetComponent<Image>().sprite = purpleBow;
+                    break;
+                case BLACK_TIE_ID:
+                    accessoryPreviewObject.GetComponent<Image>().sprite = blackTie;
+                    break;
+                case STRIPED_TIE_ID:
+                    accessoryPreviewObject.GetComponent<Image>().sprite = stripedTie;
+                    break;
+                case RED_TIE_ID:
+                    accessoryPreviewObject.GetComponent<Image>().sprite = dotsTie;
+                    break;
+                default:
+                    Debug.LogWarning("Unknown vanity item equipped: " + equipped.itemID);
+                    break;
+            }
+        }
+        else
+        {
+            accessoryPreviewObject.SetActive(false);
+            Debug.Log("nothing equipped, preview displaying nothing");
+
+        }
     }
 }
