@@ -11,6 +11,7 @@ public class Intro : Slideshow
     private int slide3TextIndexTrigger = 4;
     private int slide4TextIndexTrigger = 7;
     [SerializeField] private string HOME_SCENE = "Home";
+    private bool finalClicked = false;
     public override void OnPointerClick(PointerEventData eventData)
     {
         int previousIndex = currentTextIndex;
@@ -24,7 +25,12 @@ public class Intro : Slideshow
 
         if (currentTextIndex >= slideTexts.Length)
         {
-            OnTextFinished();
+            if (finalClicked)
+            {
+                return; //prevent multiple clicks from triggering multiple scene loads
+            }
+            finalClicked = true;
+            SceneManager.LoadScene(HOME_SCENE);
         }
         else if (currentTextIndex == slide2TextIndexTrigger)
         {
@@ -43,14 +49,15 @@ public class Intro : Slideshow
             ShowNextSlide();
         }
     }
-    protected override void OnTextFinished()
-    { 
-        StartCoroutine(IntroFinishedRoutine());
-    }
-    private IEnumerator IntroFinishedRoutine()
-    {
-        yield return dayCountdown.ShowCountdownCoroutine();
-        SceneManager.LoadScene(HOME_SCENE);
-    }
+
+    // protected override void OnTextFinished()
+    // { 
+    //     StartCoroutine(IntroFinishedRoutine());
+    // }
+    // private IEnumerator IntroFinishedRoutine()
+    // {
+    //     yield return dayCountdown.ShowCountdownCoroutine();
+    //     SceneManager.LoadScene(HOME_SCENE);
+    // }
 
 }

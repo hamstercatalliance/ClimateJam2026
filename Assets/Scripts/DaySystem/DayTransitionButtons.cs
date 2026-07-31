@@ -26,7 +26,8 @@ public class DayTransitionButtons : MonoBehaviour
     public void Continue()
     {
         Debug.Log("Continuing...");
-        StartCoroutine(ContinueRoutine());
+        SceneManager.LoadScene(HOME_SCENE);
+        // StartCoroutine(ContinueRoutine());
     }
     private void Save()
     {
@@ -34,10 +35,10 @@ public class DayTransitionButtons : MonoBehaviour
         DataPersistenceManager.Instance.SavePlayerData();//SAVE TO JSON
     }
 
-    private IEnumerator ContinueRoutine()
-    {
-        yield return dayCountdown.ShowCountdownCoroutine();
-        SceneManager.LoadScene(HOME_SCENE);
-    }
+    // private IEnumerator ContinueRoutine()
+    // {
+    //     yield return dayCountdown.ShowCountdownCoroutine();
+    //     SceneManager.LoadScene(HOME_SCENE);
+    // }
 
 }

@@ -9,7 +9,9 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
     [SerializeField] private DayCountdown dayCountdown;
     private const string GOOD_END_SCENE = "GoodEnd";
     private const string BAD_END_SCENE = "BadEnd";
-    private const float EPSILON = 1e-5f;
+    // private const float EPSILON = 1e-5f; scrap this for beginning of day check
+    private bool isStartOfNewDay;
+
 
     public EventHandler<OnDayChangedEventArgs> OnDayChanged;
     public class OnDayChangedEventArgs : EventArgs
@@ -98,27 +100,35 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
     {
         WriteToGameData();
     }
+    private IEnumerator DayRemainingRoutine()
+    {
+        Debug.Log("Showing countdown for day " + (dayCount));
+        yield return dayCountdown.ShowCountdownCoroutine();
+        state = State.Sunrising;
+        isStartOfNewDay = false;
+    }
     public void LoadGameData()
     {
         if (GameData.Instance != null && GameData.Instance.HasLoadedRunData)
         {
-            // Debug.Log("Game data found.");
             timeElapsed = GameData.Instance.DayManagerTimeElapsed;
             dayCount = GameData.Instance.DayManagerDayCount;
-            state = GetStateFromProgress(timeElapsed);
-            Debug.Log("Time elapsed: " + timeElapsed + "/" + secondsInADay);
+            isStartOfNewDay = GameData.Instance.IsStartOfNewDay;
 
-            if (timeElapsed < EPSILON)
+            if (isStartOfNewDay)
             {
-                //Show days remaining at the start of each day
+                StartCoroutine(DayRemainingRoutine());
+            }
+            else
+            {
+                state = GetStateFromProgress(timeElapsed);
             }
         }
         else
         {
-            // Debug.Log("No game data found. Initializing default values.");
             timeElapsed = 0f;
             dayCount = 0;
-            state = State.Sunrising;
+            StartCoroutine(DayRemainingRoutine());
         }
         OnDayManagerDataLoaded?.Invoke(this, EventArgs.Empty);
         HasFiredDataLoaded = true;
@@ -138,27 +148,12 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
     }
     public float GetMoonriseProgressNormalized()
     {
-        // float sunriseDayTransitionWeight = sunriseDayTransitionMinutes / minutesInADay;
-        // float dayWeight = dayMinutes / minutesInADay;
-        // float daySunsetTransitionWeight = daySunsetTransitionMinutes / minutesInADay;
-        // float sunsetNightTransitionWeight = sunsetNightTransitionMinutes / minutesInADay;
-
-        // float moonriseStart = sunriseDayTransitionWeight + dayWeight + daySunsetTransitionWeight;
-        // float progress = GetProgressNormalized();
-
-        // return Mathf.Clamp01((progress - moonriseStart) / sunsetNightTransitionWeight);
-
         float sunsetEnd = sunriseDayTransitionPercent + dayPercent + daySunsetTransitionPercent;
         float progress = GetProgressNormalized();
         return Mathf.Clamp01((progress - sunsetEnd) / sunsetNightTransitionPercent);
     }
     private void PostProcessVolumeTransition(float progressNormalized)
     {
-        // float sunriseDayTransitionWeight = sunriseDayTransitionMinutes / minutesInADay;
-        // float dayWeight = dayMinutes / minutesInADay;
-        // float daySunsetTransitionWeight = daySunsetTransitionMinutes / minutesInADay;
-        // float sunsetNightTransitionWeight = sunsetNightTransitionMinutes / minutesInADay;
-        // float nightWeight = nightMinutes / minutesInADay;
         float sunriseEnd = sunriseDayTransitionPercent;
         float dayEnd = sunriseEnd + dayPercent;
         float sunsetEnd = dayEnd + daySunsetTransitionPercent;
@@ -194,8 +189,6 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
                 {
                     Debug.Log("Switching to moonrising");
                     state = State.Moonrising;
-
-                    //OnMoonrise?.Invoke(this, EventArgs.Empty);
                 }
                 break;
             case State.Moonrising:
@@ -228,7 +221,8 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
 
         state = State.DayEnded;
         dayCount++;
-
+        isStartOfNewDay = true;
+        
         if (dayCount > dayCountdown.GetCountdownDays())
         {
             //TRIGGER ENDINGS
@@ -289,10 +283,11 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
         GameData.Instance.DayManagerTimeElapsed = time;
         GameData.Instance.DayManagerDayCount = day;
         DataSuccessfullyWritten = true;
-        Debug.Log("Wrote day data. Time: " + time + " Day: " + day);
     }
     public void WriteToGameData() //this is called when the scene is transitioning
     {
         WriteTimeAndDayToGameData(timeElapsed, dayCount);
+        Debug.Log(isStartOfNewDay);
+        GameData.Instance.IsStartOfNewDay = isStartOfNewDay;
     }
 }
