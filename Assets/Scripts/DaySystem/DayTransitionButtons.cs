@@ -34,11 +34,4 @@ public class DayTransitionButtons : MonoBehaviour
         Debug.Log("Saving...");
         DataPersistenceManager.Instance.SavePlayerData();//SAVE TO JSON
     }
-
-    // private IEnumerator ContinueRoutine()
-    // {
-    //     yield return dayCountdown.ShowCountdownCoroutine();
-    //     SceneManager.LoadScene(HOME_SCENE);
-    // }
-
 }

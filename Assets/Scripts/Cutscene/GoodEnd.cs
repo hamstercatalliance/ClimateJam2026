@@ -6,11 +6,11 @@ public class GoodEnd : Slideshow
 {
     private int slide2TextIndexTrigger = 3;
 
-    public override void OnPointerClick(UnityEngine.EventSystems.PointerEventData eventData)
+    protected override void OnPlayerInput()
     {
         int previousIndex = currentTextIndex;
 
-        base.OnPointerClick(eventData);
+        base.OnPlayerInput();
 
         if (previousIndex == currentTextIndex)
         {   

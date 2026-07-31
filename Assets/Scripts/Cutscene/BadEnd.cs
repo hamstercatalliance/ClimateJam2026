@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 public class BadEnd : Slideshow
 {
     private const string MENU_SCENE = "Menu";
-    public override void OnPointerClick(UnityEngine.EventSystems.PointerEventData eventData)
+    protected override void OnPlayerInput()
     {
         int previousIndex = currentTextIndex;
 
-        base.OnPointerClick(eventData);
+        base.OnPlayerInput();
 
         if (previousIndex == currentTextIndex)
         {   

@@ -267,18 +267,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2661809876957628980}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &130755751 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6120492663131383128, guid: 97c47c84f7ae10349b8bc24a189e75bb,
-    type: 3}
-  m_PrefabInstance: {fileID: 2661809876957628980}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 271b145df736ae148bea58d0e7c23efe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &203844586
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,6 +474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ee7329e723d474429f6c1fee01229b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameInput: {fileID: 0}
   slideshow: {fileID: 729105329}
   textBox: {fileID: 101521273}
   text: {fileID: 1408322263}
@@ -510,7 +499,52 @@ MonoBehaviour:
   - "What will happen to the hamsters and the cats of Towntopia? Will they be able
     to stop the building of the data center\u2026 before it\u2019s too late?"
   textSpeed: 0.02
-  dayCountdown: {fileID: 130755751}
+  dayCountdown: {fileID: 0}
+  HOME_SCENE: Home
+--- !u!1 &871235189
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 871235191}
+  - component: {fileID: 871235190}
+  m_Layer: 0
+  m_Name: CutsceneInput
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &871235190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871235189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b9a6d1ab10b7ed4680f68971d9c72fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &871235191
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871235189}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 665.036, y: 769.8717, z: -1.7201232}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &961739749
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,3 +1011,4 @@ SceneRoots:
   - {fileID: 203844589}
   - {fileID: 44088508}
   - {fileID: 1733906843}
+  - {fileID: 871235191}

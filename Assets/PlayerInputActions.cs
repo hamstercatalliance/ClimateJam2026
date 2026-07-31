@@ -136,6 +136,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CutsceneProceed"",
+                    ""type"": ""Button"",
+                    ""id"": ""69e9cd74-efe4-4338-a8fa-4c3687084e68"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -314,6 +323,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""MenuToggle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e76f0147-1e34-47f6-aa22-0c8a59010307"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CutsceneProceed"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -327,6 +347,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_InteractAlternate = m_Player.FindAction("InteractAlternate", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_MenuToggle = m_Player.FindAction("MenuToggle", throwIfNotFound: true);
+        m_Player_CutsceneProceed = m_Player.FindAction("CutsceneProceed", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
@@ -412,6 +433,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_InteractAlternate;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_MenuToggle;
+    private readonly InputAction m_Player_CutsceneProceed;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -443,6 +465,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/MenuToggle".
         /// </summary>
         public InputAction @MenuToggle => m_Wrapper.m_Player_MenuToggle;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/CutsceneProceed".
+        /// </summary>
+        public InputAction @CutsceneProceed => m_Wrapper.m_Player_CutsceneProceed;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -484,6 +510,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @MenuToggle.started += instance.OnMenuToggle;
             @MenuToggle.performed += instance.OnMenuToggle;
             @MenuToggle.canceled += instance.OnMenuToggle;
+            @CutsceneProceed.started += instance.OnCutsceneProceed;
+            @CutsceneProceed.performed += instance.OnCutsceneProceed;
+            @CutsceneProceed.canceled += instance.OnCutsceneProceed;
         }
 
         /// <summary>
@@ -510,6 +539,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @MenuToggle.started -= instance.OnMenuToggle;
             @MenuToggle.performed -= instance.OnMenuToggle;
             @MenuToggle.canceled -= instance.OnMenuToggle;
+            @CutsceneProceed.started -= instance.OnCutsceneProceed;
+            @CutsceneProceed.performed -= instance.OnCutsceneProceed;
+            @CutsceneProceed.canceled -= instance.OnCutsceneProceed;
         }
 
         /// <summary>
@@ -585,5 +617,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMenuToggle(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "CutsceneProceed" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCutsceneProceed(InputAction.CallbackContext context);
     }
 }

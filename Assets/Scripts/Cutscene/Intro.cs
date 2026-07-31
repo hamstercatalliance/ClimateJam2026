@@ -12,11 +12,11 @@ public class Intro : Slideshow
     private int slide4TextIndexTrigger = 7;
     [SerializeField] private string HOME_SCENE = "Home";
     private bool finalClicked = false;
-    public override void OnPointerClick(PointerEventData eventData)
+    protected override void OnPlayerInput()
     {
         int previousIndex = currentTextIndex;
 
-        base.OnPointerClick(eventData);
+        base.OnPlayerInput();
 
         if (previousIndex == currentTextIndex)
         {   
@@ -49,15 +49,4 @@ public class Intro : Slideshow
             ShowNextSlide();
         }
     }
-
-    // protected override void OnTextFinished()
-    // { 
-    //     StartCoroutine(IntroFinishedRoutine());
-    // }
-    // private IEnumerator IntroFinishedRoutine()
-    // {
-    //     yield return dayCountdown.ShowCountdownCoroutine();
-    //     SceneManager.LoadScene(HOME_SCENE);
-    // }
-
 }

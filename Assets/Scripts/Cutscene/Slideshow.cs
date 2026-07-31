@@ -19,6 +19,16 @@ public abstract class Slideshow : MonoBehaviour, IPointerClickHandler
     protected int currentTextIndex = 0;
     protected bool isTyping = false;
     protected Coroutine typingCoroutine;
+    private CutsceneInput cutsceneInput;
+    private void Awake()
+    {
+        cutsceneInput = FindObjectOfType<CutsceneInput>();
+        cutsceneInput.OnCutsceneProceed += CutsceneInput_OnCutsceneProceed;
+    }
+    private void OnDestroy()
+    {
+        cutsceneInput.OnCutsceneProceed -= CutsceneInput_OnCutsceneProceed;
+    }
     public void ShowNextSlide()
     {
         if (currentSlideIndex >= slides.Length)
@@ -48,7 +58,26 @@ public abstract class Slideshow : MonoBehaviour, IPointerClickHandler
             ShowNextText();
         }
     }
-    public virtual void OnPointerClick(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        OnPlayerInput();
+    }
+    private void CutsceneInput_OnCutsceneProceed(object sender, EventArgs e)
+    {
+        OnPlayerInput();
+    }
+    private IEnumerator TypeWriterEffect(string fullText, float delay)
+    {
+        isTyping = true;
+        text.text = "";
+        foreach (char c in fullText)
+        {
+            text.text += c;
+            yield return new WaitForSeconds(delay);
+        }
+        isTyping = false;
+    }
+    protected virtual void OnPlayerInput()
     {
         if (isTyping)
         {
@@ -66,17 +95,6 @@ public abstract class Slideshow : MonoBehaviour, IPointerClickHandler
         {
             ShowNextText();
         }
-    }
-    private IEnumerator TypeWriterEffect(string fullText, float delay)
-    {
-        isTyping = true;
-        text.text = "";
-        foreach (char c in fullText)
-        {
-            text.text += c;
-            yield return new WaitForSeconds(delay);
-        }
-        isTyping = false;
     }
     protected virtual void OnTextFinished() {}
 
