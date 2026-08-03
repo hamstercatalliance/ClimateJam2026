@@ -640,6 +640,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7efa30b478cb6d2479d0aff5fb05528e, type: 2}
   - {fileID: 11400000, guid: ae039e361c045074d9508820243d9d6a, type: 2}
   - {fileID: 11400000, guid: aab8f8a200ad5104b98d6ae23199846c, type: 2}
+  - {fileID: 11400000, guid: 920c1c2c14e4b7f439cfec322b9a4b4b, type: 2}
 --- !u!4 &281419490
 Transform:
   m_ObjectHideFlags: 0
@@ -1289,6 +1290,7 @@ MonoBehaviour:
   SympathyPoints: 0
   QuestDataList: []
   TestQuestProgress: 0
+  OpenedQuestBoard: 0
   currencyAmount: 0
   OwnedVanityItemIDs: []
   EquippedVanityItemID: 

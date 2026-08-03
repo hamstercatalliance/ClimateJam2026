@@ -10,8 +10,7 @@ public class OpenJobBoard : Quest
     protected override void Start()
     {
         base.Start();
-        InitiateQuest();
-        Debug.Log(isInitiated.ToString());
+        //Debug.Log(isInitiated.ToString());
         if (Instance == null)
         {
             Instance = this;
