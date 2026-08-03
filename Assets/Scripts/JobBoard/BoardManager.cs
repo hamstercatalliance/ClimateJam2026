@@ -52,6 +52,10 @@ public class BoardManager : MonoBehaviour
     public void OpenBoard()
     {
         board.gameObject.SetActive(true);
+        if (OpenJobBoard.Instance.isCompleted == false)
+        {
+            OpenJobBoard.Instance.setCondition();
+        }
         RenderBoard();
         jobBoardActive = true;
     }

@@ -11,6 +11,6 @@ public abstract class NonPlayableCharacter : InteractableObject
 
     protected override void Init() {
         NonPlayableCharacterSO nonPlayableCharacterSO = scriptableInteractable as NonPlayableCharacterSO;
-        transform.position = nonPlayableCharacterSO.location;
+        transform.localPosition = nonPlayableCharacterSO.location;
     }
 }

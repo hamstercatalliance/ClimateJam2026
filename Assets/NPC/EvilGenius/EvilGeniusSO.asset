@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2045962db872bf944a8aaf6c07a068e7, type: 3}
-  m_Name: MiddleAgeHamsterSO
+  m_Name: EvilGeniusSO
   m_EditorClassIdentifier: 
   interactionRadius: 2
-  interactableName: Hamster
-  interactableId: middleAgeHamster
+  interactableName: EvilGenius
+  interactableId: evilGenius
   prefab: {fileID: 0}
   idleSprite: {fileID: 0}
   talkingSprite: {fileID: 0}
-  location: {x: 28.05, y: -9.13, z: -29.06}
+  location: {x: -81, y: -9, z: -60}
   scene:
     m_Handle: 0

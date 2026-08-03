@@ -42,6 +42,7 @@ public class GameData : MonoBehaviour
     #endregion
     #region Custom Quest Data (SAVE SPECIFIC PROGRESS FOR CUSTOM QUESTS.)
     public int TestQuestProgress;
+    public bool OpenedQuestBoard;
     #endregion
     #region Currency Manager Data
     public int currencyAmount;
@@ -54,6 +55,7 @@ public class GameData : MonoBehaviour
     public float SoundVolume;
     public float MusicVolume;
     #endregion
+
     [Serializable]
     public class SaveData
     {
