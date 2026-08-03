@@ -39,6 +39,7 @@ public class GameData : MonoBehaviour
 
     #region Quest Manager Data (DOES NOT SAVE QUEST SPECIFIC PROGRESS. ONLY SAVES: questSO, isCompleted, isInitiated)
     public List<QuestManager.QuestData> QuestDataList = new List<QuestManager.QuestData>();
+    public bool HasQuestNotificationActive;
     #endregion
     #region Custom Quest Data (SAVE SPECIFIC PROGRESS FOR CUSTOM QUESTS.)
     public int TestQuestProgress;
@@ -75,6 +76,7 @@ public class GameData : MonoBehaviour
         public string EquippedVanityItemID;
         public float SoundVolume;
         public float MusicVolume;
+        public bool HasQuestNotificationActive;
     }
     public SaveData GetSaveData()
     {
@@ -93,6 +95,7 @@ public class GameData : MonoBehaviour
         saveData.EquippedVanityItemID = EquippedVanityItemID;
         saveData.SoundVolume = SoundVolume;
         saveData.MusicVolume = MusicVolume;
+        saveData.HasQuestNotificationActive = HasQuestNotificationActive;
         return saveData;
     }
     private void SetSaveData(SaveData data)
@@ -111,6 +114,7 @@ public class GameData : MonoBehaviour
         EquippedVanityItemID = data.EquippedVanityItemID;
         SoundVolume = data.SoundVolume;
         MusicVolume = data.MusicVolume;
+        HasQuestNotificationActive = data.HasQuestNotificationActive;
     }
     public void LoadFromSaveData(SaveData data)
     {
@@ -134,6 +138,7 @@ public class GameData : MonoBehaviour
         EquippedVanityItemID = null;
         SoundVolume = 1f;
         MusicVolume = 1f;
+        HasQuestNotificationActive = false;
     }
 
 

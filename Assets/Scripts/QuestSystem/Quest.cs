@@ -35,7 +35,6 @@ public abstract class Quest : MonoBehaviour, IHasPersistentData
     public virtual void CompleteQuest()
     {
         isCompleted = true;
-        isCompleted = true;
         OnQuestCompleted?.Invoke(this, EventArgs.Empty);
     }
     public virtual void WriteToGameData()
