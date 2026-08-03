@@ -37,7 +37,10 @@ public class OpenJobBoard : Quest
 
     public void setCondition(bool condition=true) {
         hasOpenedJobBoard = condition;
-        isCompleted = condition;
+        if (hasOpenedJobBoard)
+        {
+            CompleteQuest();
+        }
         WriteToGameData();
     }
 }   
