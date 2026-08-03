@@ -54,6 +54,7 @@ public class BoardManager : MonoBehaviour
         board.gameObject.SetActive(true);
         if (OpenJobBoard.Instance.isCompleted == false)
         {
+            //Debug.Log()
             OpenJobBoard.Instance.setCondition();
         }
         RenderBoard();
