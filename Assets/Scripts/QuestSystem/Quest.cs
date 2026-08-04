@@ -34,6 +34,10 @@ public abstract class Quest : MonoBehaviour, IHasPersistentData
     }
     public virtual void CompleteQuest()
     {
+        if (isCompleted)
+        {
+            return;
+        }
         isCompleted = true;
         OnQuestCompleted?.Invoke(this, EventArgs.Empty);
     }

@@ -34,6 +34,7 @@ public class QuestNotifyManager : MonoBehaviour, IHasPersistentData
     private void OnDestroy()
     {
         SceneLoader.OnSceneTransition -= OnSceneTransitionHandler;
+        Quest.OnQuestInitiated -= QuestManager_OnQuestInitiated;
     }
     public void ShowQuestNotification()
     {

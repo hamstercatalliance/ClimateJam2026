@@ -60,6 +60,7 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
     private void Quest_OnQuestCompleted(object sender, EventArgs e)
     {
         PlaySound(questCompletedSound, Camera.main.transform.position, audioSource.volume);
+        Debug.Log(sender.ToString() + " completed quest sound played");
     }
     private void MenuManager_OnMenuOpened(object sender, EventArgs e)
     {

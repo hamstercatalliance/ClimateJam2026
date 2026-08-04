@@ -1289,6 +1289,7 @@ MonoBehaviour:
   HasPendingSpawnPosition: 0
   SympathyPoints: 0
   QuestDataList: []
+  HasQuestNotificationActive: 0
   TestQuestProgress: 0
   OpenedQuestBoard: 0
   currencyAmount: 0

@@ -30,7 +30,11 @@ public class OpenJobBoard : Quest
     {
         if (GameData.Instance != null)
         {
-            setCondition(GameData.Instance.OpenedQuestBoard);
+            // setCondition(GameData.Instance.OpenedQuestBoard);
+            //HI RANJIt
+            //becasreful to ot call complete quest on laod 
+            //because it will trigger the quest complete event and play the completed sound on scene laod
+            hasOpenedJobBoard = GameData.Instance.OpenedQuestBoard;
         }
         base.LoadGameData();
     }
