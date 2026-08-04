@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using System;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
 {
     [SerializeField] private DayCountdown dayCountdown;
@@ -31,7 +32,12 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
     [SerializeField] private Volume day;
     [SerializeField] private Volume night;
     [SerializeField] private Volume transition;
-    public int dayCount { get; private set; } = 0;
+
+    [Header("End Early Cutscene")]
+    [SerializeField] private VideoPlayer EndEarlyCutscene;
+    [SerializeField] private GameObject ScreenFade;
+
+public int dayCount { get; private set; } = 0;
     public bool DataSuccessfullyWritten { get; private set; }
     // sunrise->day : 0.65 minute
     // day : 2.75 minutes
@@ -207,11 +213,20 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
                 night.weight = 1f;
                 if (progressNormalized >= 1f)
                 {
+                    ScreenFade.SetActive(true);
+                    StartCoroutine(PlayEndCutscene());
                     EndDay();
                 }
                 break;
         }
     }
+
+    IEnumerator PlayEndCutscene()
+    {
+        yield return new WaitForSeconds(1.7f);
+        EndEarlyCutscene.Play();
+    }
+
     public void EndDay()
     {
         if (state == State.DayEnded)
