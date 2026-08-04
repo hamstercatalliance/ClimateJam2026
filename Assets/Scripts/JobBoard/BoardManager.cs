@@ -52,7 +52,7 @@ public class BoardManager : MonoBehaviour
     public void OpenBoard()
     {
         board.gameObject.SetActive(true);
-        if (OpenJobBoard.Instance.isCompleted == false)
+        if (OpenJobBoard.Instance.isInitiated && OpenJobBoard.Instance.isCompleted == false)
         {
             //Debug.Log()
             OpenJobBoard.Instance.setCondition();
