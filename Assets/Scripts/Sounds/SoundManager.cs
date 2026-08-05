@@ -26,10 +26,21 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
     [Header("Sound Effects")]
     [SerializeField] private AudioClip[] grassWalkingSounds;
     [SerializeField] private AudioClip[] stoneWalkingSounds;
+    [SerializeField] private AudioClip[] woodWalkingSounds;
+    [SerializeField] private AudioClip[] sandWalkingSounds;
+
     [SerializeField] private AudioClip questInitiatedSound;
     [SerializeField] private AudioClip questCompletedSound;
+
     [SerializeField] private AudioClip menuOpenSound;
     [SerializeField] private AudioClip menuCloseSound;
+
+    [SerializeField] private AudioClip pickupSound;
+    [SerializeField] private AudioClip clickSound;
+
+    [SerializeField] private AudioClip transactionSound;
+    [SerializeField] private AudioClip enterStoreSound;
+    [SerializeField] private AudioClip exitStoreSound;
     
     void Start()
     {
@@ -42,6 +53,11 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
         Quest.OnQuestCompleted += Quest_OnQuestCompleted;
         MenuManager.Instance.OnMenuOpened += MenuManager_OnMenuOpened;
         MenuManager.Instance.OnMenuClosed += MenuManager_OnMenuClosed;
+        Player.Instance.OnPickup += Player_OnPickup;
+        Click.OnClick += Click_OnClick;
+        MerchantStore.OnTransaction += MerchantStore_OnTransaction;
+        MerchantStore.OnStoreEntered += MerchantStore_OnStoreEntered;
+        MerchantStore.OnStoreExited += MerchantStore_OnStoreExited;
     }
     private void OnDestroy()
     {
@@ -51,8 +67,33 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
         Quest.OnQuestCompleted -= Quest_OnQuestCompleted;
         MenuManager.Instance.OnMenuOpened -= MenuManager_OnMenuOpened;
         MenuManager.Instance.OnMenuClosed -= MenuManager_OnMenuClosed;
+        Player.Instance.OnPickup -= Player_OnPickup;
+        Click.OnClick -= Click_OnClick;
+        MerchantStore.OnTransaction -= MerchantStore_OnTransaction;
+        MerchantStore.OnStoreEntered -= MerchantStore_OnStoreEntered;
+        MerchantStore.OnStoreExited -= MerchantStore_OnStoreExited;
     }
     #region Event Handlers
+    private void MerchantStore_OnStoreExited(object sender, EventArgs e)
+    {
+        PlaySound(exitStoreSound, Camera.main.transform.position, audioSource.volume);
+    }
+    private void MerchantStore_OnStoreEntered(object sender, EventArgs e)
+    {
+        PlaySound(enterStoreSound, Camera.main.transform.position, audioSource.volume);
+    }
+    private void MerchantStore_OnTransaction(object sender, EventArgs e)
+    {
+        PlaySound(transactionSound, Camera.main.transform.position, audioSource.volume);
+    }
+    private void Click_OnClick(object sender, EventArgs e)
+    {
+        PlaySound(clickSound, Camera.main.transform.position, audioSource.volume);
+    }
+    private void Player_OnPickup(object sender, Player.OnPickupEventArgs e)
+    {
+        PlaySound(pickupSound, Camera.main.transform.position, audioSource.volume);
+    }
     private void Quest_OnQuestInitiated(object sender, EventArgs e)
     {
         PlaySound(questInitiatedSound, Camera.main.transform.position, audioSource.volume);

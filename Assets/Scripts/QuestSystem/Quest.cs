@@ -40,6 +40,9 @@ public abstract class Quest : MonoBehaviour, IHasPersistentData
         }
         isCompleted = true;
         OnQuestCompleted?.Invoke(this, EventArgs.Empty);
+        
+        CurrencyManager.Instance.AddCurrency(questSO.currencyAward);
+        SympathyPointsManager.Instance.addSympathyPoints(questSO.sympathyAward);
     }
     public virtual void WriteToGameData()
     {
