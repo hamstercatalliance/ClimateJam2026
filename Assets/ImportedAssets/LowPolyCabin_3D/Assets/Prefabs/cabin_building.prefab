@@ -58,18 +58,13 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3055743367964865043, guid: e36b4b78887a9ac40994fa6b4aa7f385, type: 3}
-  - {fileID: -3846018093981099296, guid: e36b4b78887a9ac40994fa6b4aa7f385, type: 3}
-  - {fileID: 4874126678125670354, guid: e36b4b78887a9ac40994fa6b4aa7f385, type: 3}
-  - {fileID: -6922793697723135513, guid: e36b4b78887a9ac40994fa6b4aa7f385, type: 3}
+  - {fileID: 2100000, guid: 5b9951383aa7c164fad93fa533d4f476, type: 2}
+  - {fileID: 2100000, guid: 57053e1d2c3a21340993ca9087627dc7, type: 2}
+  - {fileID: 2100000, guid: c234e92db8628864ab2bfa379e1884bc, type: 2}
+  - {fileID: 2100000, guid: 10e86bf526a35884fa9dcbef773424b2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87,9 +82,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
