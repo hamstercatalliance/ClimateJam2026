@@ -3,7 +3,32 @@ guid: e30c4412f04b7874d8d763784bb3e277
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Grass
+    second: {fileID: 2100000, guid: f8bc468dea8c93d439c9dda97004c44c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Path
+    second: {fileID: 2100000, guid: f960de83ecece9d45a700fbe1921b3a0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Statue
+    second: {fileID: 2100000, guid: 025d682ece55ce0428e48f7b1032503b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Statue Stone
+    second: {fileID: 2100000, guid: e771e1d84bb5554419f677cd6e4e7623, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Water
+    second: {fileID: 2100000, guid: e483f9c28172a31458ceda9233c1aabb, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
