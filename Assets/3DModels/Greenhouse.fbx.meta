@@ -3,7 +3,17 @@ guid: ff45adfb97864a74395bbe7ab1bb3e16
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Greenhouse Glass
+    second: {fileID: 2100000, guid: 9643ef1e39ecd9748a92e6452375bb5b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Greenhouse WHite
+    second: {fileID: 2100000, guid: eb292b002405bb944bc65de18397e118, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
