@@ -16,7 +16,7 @@ MonoBehaviour:
   inventorySprite: {fileID: 1292741849, guid: 5075cf523a2b44d4cbb9972ba6087c86, type: 3}
   itemName: Pink Bow
   itemID: item.vanity.bow_pink
-  itemDescription: 
+  itemDescription: "Tr\xE8s mignon!"
   sourceLink: 
   cost: 200
   isVanityItem: 1

@@ -16,7 +16,7 @@ MonoBehaviour:
   inventorySprite: {fileID: -1424426196, guid: 5075cf523a2b44d4cbb9972ba6087c86, type: 3}
   itemName: Striped Tie
   itemID: item.vanity.tie_stripe
-  itemDescription: 
+  itemDescription: Clock in, clock out...
   sourceLink: 
   cost: 200
   isVanityItem: 1

@@ -16,7 +16,7 @@ MonoBehaviour:
   inventorySprite: {fileID: -436564453, guid: 5075cf523a2b44d4cbb9972ba6087c86, type: 3}
   itemName: Black Tie
   itemID: item.vanity.tie_black
-  itemDescription: 
+  itemDescription: On some serious business.
   sourceLink: 
   cost: 200
   isVanityItem: 1
