@@ -641,6 +641,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ae039e361c045074d9508820243d9d6a, type: 2}
   - {fileID: 11400000, guid: aab8f8a200ad5104b98d6ae23199846c, type: 2}
   - {fileID: 11400000, guid: 920c1c2c14e4b7f439cfec322b9a4b4b, type: 2}
+  - {fileID: 11400000, guid: b2215fcc1a8a42548ab5727927342c3b, type: 2}
+  - {fileID: 11400000, guid: d4fc3cd2b6eb42b4980afacf91e58917, type: 2}
+  - {fileID: 11400000, guid: a7a8310cfeae9674f940e0b4928119eb, type: 2}
+  - {fileID: 11400000, guid: 7d70e7e980abf2a49a3f9c410a463177, type: 2}
+  - {fileID: 11400000, guid: 09f5be06fa78c934097a17132d440311, type: 2}
+  - {fileID: 11400000, guid: 4758b6826a7c8fb4fa3ae6f4acb68a05, type: 2}
 --- !u!4 &281419490
 Transform:
   m_ObjectHideFlags: 0
@@ -1292,11 +1298,13 @@ MonoBehaviour:
   HasQuestNotificationActive: 0
   TestQuestProgress: 0
   OpenedQuestBoard: 0
+  BeachCleanupProgress: 0
   currencyAmount: 0
   OwnedVanityItemIDs: []
   EquippedVanityItemID: 
   SoundVolume: 0
   MusicVolume: 0
+  CollectedPickupIDs: []
 --- !u!4 &1257792996
 Transform:
   m_ObjectHideFlags: 0

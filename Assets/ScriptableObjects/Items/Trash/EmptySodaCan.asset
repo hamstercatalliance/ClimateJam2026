@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 503d9c67db0c6f04c937f28131dde267, type: 3}
+  m_Name: EmptySodaCan
+  m_EditorClassIdentifier: 
+  worldSpacePrefab: {fileID: 4746884865848259543, guid: 2cb282a2d3151514faa7df075496ba5c,
+    type: 3}
+  inventorySprite: {fileID: 257517073, guid: 9ca2989e9f8e8934682cd4a9ac8e1300, type: 3}
+  itemName: Empty Soda Can
+  itemID: item.empty_can
+  itemDescription: An empty can of CompanyCola.
+  sourceLink: 
+  cost: 0
+  isVanityItem: 0

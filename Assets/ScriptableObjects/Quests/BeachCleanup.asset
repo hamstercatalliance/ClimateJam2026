@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19ea64b1fe1b3d94caad5b9715f54b1b, type: 3}
+  m_Name: BeachCleanup
+  m_EditorClassIdentifier: 
+  questName: Beach Cleanup
+  questDescription: The beach is littered with trash! Help out by cleaning it up.
+  questID: quest.beach
+  currencyAward: 0
+  sympathyAward: 100

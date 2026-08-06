@@ -44,6 +44,7 @@ public class GameData : MonoBehaviour
     #region Custom Quest Data (SAVE SPECIFIC PROGRESS FOR CUSTOM QUESTS.)
     public int TestQuestProgress;
     public bool OpenedQuestBoard;
+    public int BeachCleanupProgress;
     #endregion
     #region Currency Manager Data
     public int currencyAmount;
@@ -56,7 +57,9 @@ public class GameData : MonoBehaviour
     public float SoundVolume;
     public float MusicVolume;
     #endregion
-
+    #region Pickup Tracking Data
+    public List<string> CollectedPickupIDs = new List<string>();
+    #endregion
     [Serializable]
     public class SaveData
     {
@@ -77,6 +80,7 @@ public class GameData : MonoBehaviour
         public float SoundVolume;
         public float MusicVolume;
         public bool HasQuestNotificationActive;
+        public List<string> CollectedPickupIDs = new List<string>();
     }
     public SaveData GetSaveData()
     {
@@ -96,6 +100,7 @@ public class GameData : MonoBehaviour
         saveData.SoundVolume = SoundVolume;
         saveData.MusicVolume = MusicVolume;
         saveData.HasQuestNotificationActive = HasQuestNotificationActive;
+        saveData.CollectedPickupIDs = CollectedPickupIDs;
         return saveData;
     }
     private void SetSaveData(SaveData data)
@@ -115,6 +120,7 @@ public class GameData : MonoBehaviour
         SoundVolume = data.SoundVolume;
         MusicVolume = data.MusicVolume;
         HasQuestNotificationActive = data.HasQuestNotificationActive;
+        CollectedPickupIDs = data.CollectedPickupIDs;
     }
     public void LoadFromSaveData(SaveData data)
     {
@@ -139,6 +145,7 @@ public class GameData : MonoBehaviour
         SoundVolume = 1f;
         MusicVolume = 1f;
         HasQuestNotificationActive = false;
+        CollectedPickupIDs = new List<string>();
     }
 
 

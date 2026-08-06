@@ -127,39 +127,6 @@ public class Player : MonoBehaviour, IHasPersistentData
             });
         }
     }
-    // private void HandleInteractions()
-    // {
-    //     Vector2 inputVector = gameInput.GetMovementVectorNormalized();
-    //     Vector3 moveDir = new Vector3(inputVector.x, 0, inputVector.y);
-
-    //     if (moveDir != Vector3.zero)
-    //     {
-    //         lastInteractDir = moveDir;
-    //     }
-
-    //     float interactDistance = 2f;
-    //     if (Physics.Raycast(transform.position, lastInteractDir, out RaycastHit raycastHit, interactDistance, countersLayerMask))
-    //     {
-    //         if (raycastHit.transform.TryGetComponent(out BaseCounter baseCounter))
-    //         {
-    //             //clearCounter.Interact();
-    //             if (baseCounter != selectedCounter)
-    //             {
-    //                 SetSelectedCounter(baseCounter);
-    //             }
-
-    //         }
-    //         else
-    //         {
-    //             SetSelectedCounter(null);
-    //         }
-    //     }
-    //     else
-    //     {
-    //         SetSelectedCounter(null);
-    //     }
-    //     //Debug.Log(selectedCounter);
-    // }
     private void HandleMovement()
     {
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();

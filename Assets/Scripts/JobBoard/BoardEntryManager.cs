@@ -20,7 +20,7 @@ public class BoardEntryManager : MonoBehaviour
             return;
         }
         TMP_Text nameText = transform.Find("Title").GetComponent<TMP_Text>();
-        nameText.text = questInstance.name;
+        nameText.text = questInstance.questSO.questName;
         Button takeButton = transform.Find("Accept").GetComponent<Button>();
 
         takeButton.onClick.AddListener(() => {

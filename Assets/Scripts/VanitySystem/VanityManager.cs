@@ -17,6 +17,7 @@ public class VanityManager : MonoBehaviour, IHasPersistentData
     {
         public GameItemSO equippedItem;
     }
+    public event EventHandler OnVanityItemChanged;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -144,18 +145,31 @@ public class VanityManager : MonoBehaviour, IHasPersistentData
         { 
             equippedItem = selectedVanityItem
         });
+
+        if (equipedVanityItem != null)
+        {
+            OnVanityItemChanged?.Invoke(this, EventArgs.Empty);
+        }
+        
         WriteToGameData();
     }
     public void UnequipVanityItem()
     {
+        if (equipedVanityItem != null)
+        {
+            OnVanityItemChanged?.Invoke(this, EventArgs.Empty);
+        }
+
         OnVanityItemEquipped?.Invoke(this, new OnVanityItemEquippedEventArgs 
         { 
             equippedItem = null 
         });
+
         ClearSelectedVanityItem();
         VanityPlayerPreview.Instance.SetStayVisible(false);
         VanityPlayerPreview.Instance.ClearPreview();
         equipedVanityItem = null;
+
         WriteToGameData();
     }
     public void SetSelectedVanityItem(GameItemSO item)

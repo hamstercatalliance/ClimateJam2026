@@ -41,6 +41,8 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
     [SerializeField] private AudioClip transactionSound;
     [SerializeField] private AudioClip enterStoreSound;
     [SerializeField] private AudioClip exitStoreSound;
+    [SerializeField] private AudioClip itemDiscardedSound;
+    [SerializeField] private AudioClip vanityEquippedSound;
     
     void Start()
     {
@@ -58,6 +60,8 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
         MerchantStore.OnTransaction += MerchantStore_OnTransaction;
         MerchantStore.OnStoreEntered += MerchantStore_OnStoreEntered;
         MerchantStore.OnStoreExited += MerchantStore_OnStoreExited;
+        InventoryManager.Instance.OnItemDiscarded += InventoryManager_OnItemDiscarded;
+        VanityManager.Instance.OnVanityItemChanged += VanityManager_OnVanityItemChanged;
     }
     private void OnDestroy()
     {
@@ -72,8 +76,18 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
         MerchantStore.OnTransaction -= MerchantStore_OnTransaction;
         MerchantStore.OnStoreEntered -= MerchantStore_OnStoreEntered;
         MerchantStore.OnStoreExited -= MerchantStore_OnStoreExited;
+        InventoryManager.Instance.OnItemDiscarded -= InventoryManager_OnItemDiscarded;
+        VanityManager.Instance.OnVanityItemChanged -= VanityManager_OnVanityItemChanged;
     }
     #region Event Handlers
+    private void VanityManager_OnVanityItemChanged(object sender, EventArgs e)
+    {
+        PlaySound(vanityEquippedSound, Camera.main.transform.position, audioSource.volume);
+    }
+    private void InventoryManager_OnItemDiscarded(object sender, EventArgs e)
+    {
+        PlaySound(itemDiscardedSound, Camera.main.transform.position, audioSource.volume);
+    }
     private void MerchantStore_OnStoreExited(object sender, EventArgs e)
     {
         PlaySound(exitStoreSound, Camera.main.transform.position, audioSource.volume);

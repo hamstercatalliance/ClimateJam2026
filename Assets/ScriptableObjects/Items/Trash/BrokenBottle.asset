@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 503d9c67db0c6f04c937f28131dde267, type: 3}
+  m_Name: BrokenBottle
+  m_EditorClassIdentifier: 
+  worldSpacePrefab: {fileID: 7963328192557884289, guid: 36c3c05635ba1904f802b5c06fe1a002,
+    type: 3}
+  inventorySprite: {fileID: 997693513, guid: 9ca2989e9f8e8934682cd4a9ac8e1300, type: 3}
+  itemName: Broken Bottle
+  itemID: item.broken_bottle
+  itemDescription: A broken bottle. Sharp and hazardous.
+  sourceLink: 
+  cost: 0
+  isVanityItem: 0
