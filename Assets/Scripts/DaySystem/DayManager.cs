@@ -33,12 +33,6 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
     [SerializeField] private Volume night;
     [SerializeField] private Volume transition;
 
-    [Header("End Early Cutscene")]
-    [SerializeField] private VideoPlayer endEarlyCutscene;
-    [SerializeField] private GameObject videoPanel;
-    [SerializeField] private GameObject screenFade;
-    [SerializeField] private AnimationClip fadeClip;
-
 public int dayCount { get; private set; } = 0;
     public bool DataSuccessfullyWritten { get; private set; }
     // sunrise->day : 0.65 minute
@@ -99,7 +93,6 @@ public int dayCount { get; private set; } = 0;
         //minutesInADay = secondsInADay / 60f;
         LoadGameData();
         SceneLoader.OnSceneTransition += OnSceneTransitionHandler;
-        videoPanel.SetActive(false);
     }
     private void OnDestroy()
     {
@@ -150,13 +143,6 @@ public int dayCount { get; private set; } = 0;
         }
         timeElapsed += Time.deltaTime;
         PostProcessVolumeTransition(GetProgressNormalized());
-
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            screenFade.SetActive(true);
-            videoPanel.SetActive(true);
-            endEarlyCutscene.Play();
-        }
     }
     public float GetProgressNormalized()
     {
@@ -223,8 +209,6 @@ public int dayCount { get; private set; } = 0;
                 night.weight = 1f;
                 if (progressNormalized >= 1f)
                 {
-                    //ScreenFade.SetActive(true);
-                    //StartCoroutine(PlayEndCutscene());
                     EndDay();
                 }
                 break;
@@ -246,15 +230,7 @@ public int dayCount { get; private set; } = 0;
     }
     private IEnumerator EndDaySequence()
     {
-        //end day cutscene
-        screenFade.SetActive(true);
-        yield return new WaitForSeconds(1.7f);
-
-        videoPanel.SetActive(true);
-        endEarlyCutscene.Play();
-
-        yield return new WaitForSeconds(fadeClip.length - 1.7f);
-
+        yield return DayEndCutscenePlayer.Instance.PlayEndOfDayCutscene();
 
         if (dayCount > dayCountdown.GetCountdownDays())
         {

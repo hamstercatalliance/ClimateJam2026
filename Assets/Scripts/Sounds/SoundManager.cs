@@ -82,48 +82,47 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
     #region Event Handlers
     private void VanityManager_OnVanityItemChanged(object sender, EventArgs e)
     {
-        PlaySound(vanityEquippedSound, Camera.main.transform.position, audioSource.volume);
+        audioSource.PlayOneShot(vanityEquippedSound, audioSource.volume);
     }
     private void InventoryManager_OnItemDiscarded(object sender, EventArgs e)
     {
-        PlaySound(itemDiscardedSound, Camera.main.transform.position, audioSource.volume);
+        audioSource.PlayOneShot(itemDiscardedSound, audioSource.volume);
     }
     private void MerchantStore_OnStoreExited(object sender, EventArgs e)
     {
-        PlaySound(exitStoreSound, Camera.main.transform.position, audioSource.volume);
+        audioSource.PlayOneShot(exitStoreSound, audioSource.volume);
     }
     private void MerchantStore_OnStoreEntered(object sender, EventArgs e)
     {
-        PlaySound(enterStoreSound, Camera.main.transform.position, audioSource.volume);
+        audioSource.PlayOneShot(enterStoreSound, audioSource.volume);
     }
     private void MerchantStore_OnTransaction(object sender, EventArgs e)
     {
-        PlaySound(transactionSound, Camera.main.transform.position, audioSource.volume);
+        audioSource.PlayOneShot(transactionSound, audioSource.volume);
     }
     private void Click_OnClick(object sender, EventArgs e)
     {
-        PlaySound(clickSound, Camera.main.transform.position, audioSource.volume);
+        audioSource.PlayOneShot(clickSound, audioSource.volume);
     }
     private void Player_OnPickup(object sender, Player.OnPickupEventArgs e)
     {
-        PlaySound(pickupSound, Camera.main.transform.position, audioSource.volume);
+        audioSource.PlayOneShot(pickupSound, audioSource.volume);
     }
     private void Quest_OnQuestInitiated(object sender, EventArgs e)
     {
-        PlaySound(questInitiatedSound, Camera.main.transform.position, audioSource.volume);
+        audioSource.PlayOneShot(questInitiatedSound, audioSource.volume);
     }
     private void Quest_OnQuestCompleted(object sender, EventArgs e)
     {
-        PlaySound(questCompletedSound, Camera.main.transform.position, audioSource.volume);
-        Debug.Log(sender.ToString() + " completed quest sound played");
+        audioSource.PlayOneShot(questCompletedSound, audioSource.volume);
     }
     private void MenuManager_OnMenuOpened(object sender, EventArgs e)
     {
-        PlaySound(menuOpenSound, Camera.main.transform.position, audioSource.volume);
+        audioSource.PlayOneShot(menuOpenSound, audioSource.volume);
     }
     private void MenuManager_OnMenuClosed(object sender, EventArgs e)
     {
-        PlaySound(menuCloseSound, Camera.main.transform.position, audioSource.volume);
+        audioSource.PlayOneShot(menuCloseSound, audioSource.volume);
     }
     #endregion
 
