@@ -82,9 +82,13 @@ public class InventoryUIManager : MonoBehaviour
     }
     private void ShowSlot(InventorySlotUI slotUI, InventoryManager.InventorySlot slot)
     {
+
         GameItemSO item = ScriptableObjectDatabase.Instance.GetScriptableObjectByID(slot.itemID) as GameItemSO;
-        slotUI.SetIcon(item);
-        slotUI.SetAmount(slot.amount);
-        slotUI.ShowChildren();
+        if (item.inventorySprite is not null)
+        {
+            slotUI.SetIcon(item);
+            slotUI.SetAmount(slot.amount);
+            slotUI.ShowChildren();
+        }
     }
 }
