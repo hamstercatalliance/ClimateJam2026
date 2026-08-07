@@ -34,8 +34,10 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
     [SerializeField] private Volume transition;
 
     [Header("End Early Cutscene")]
-    [SerializeField] private VideoPlayer EndEarlyCutscene;
-    [SerializeField] private GameObject ScreenFade;
+    [SerializeField] private VideoPlayer endEarlyCutscene;
+    [SerializeField] private GameObject videoPanel;
+    [SerializeField] private GameObject screenFade;
+    [SerializeField] private AnimationClip fadeClip;
 
 public int dayCount { get; private set; } = 0;
     public bool DataSuccessfullyWritten { get; private set; }
@@ -97,6 +99,7 @@ public int dayCount { get; private set; } = 0;
         //minutesInADay = secondsInADay / 60f;
         LoadGameData();
         SceneLoader.OnSceneTransition += OnSceneTransitionHandler;
+        videoPanel.SetActive(false);
     }
     private void OnDestroy()
     {
@@ -147,6 +150,13 @@ public int dayCount { get; private set; } = 0;
         }
         timeElapsed += Time.deltaTime;
         PostProcessVolumeTransition(GetProgressNormalized());
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            screenFade.SetActive(true);
+            videoPanel.SetActive(true);
+            endEarlyCutscene.Play();
+        }
     }
     public float GetProgressNormalized()
     {
@@ -213,18 +223,12 @@ public int dayCount { get; private set; } = 0;
                 night.weight = 1f;
                 if (progressNormalized >= 1f)
                 {
-                    ScreenFade.SetActive(true);
-                    StartCoroutine(PlayEndCutscene());
+                    //ScreenFade.SetActive(true);
+                    //StartCoroutine(PlayEndCutscene());
                     EndDay();
                 }
                 break;
         }
-    }
-
-    IEnumerator PlayEndCutscene()
-    {
-        yield return new WaitForSeconds(1.7f);
-        EndEarlyCutscene.Play();
     }
 
     public void EndDay()
@@ -237,27 +241,29 @@ public int dayCount { get; private set; } = 0;
         state = State.DayEnded;
         dayCount++;
         isStartOfNewDay = true;
-        
+
+        StartCoroutine(EndDaySequence());
+    }
+    private IEnumerator EndDaySequence()
+    {
+        //end day cutscene
+        screenFade.SetActive(true);
+        yield return new WaitForSeconds(1.7f);
+
+        videoPanel.SetActive(true);
+        endEarlyCutscene.Play();
+
+        yield return new WaitForSeconds(fadeClip.length - 1.7f);
+
+
         if (dayCount > dayCountdown.GetCountdownDays())
         {
             //TRIGGER ENDINGS
-            // if (SympathyPointsManager.Instance.HasReachedGoodEndingThreshold())
-            // {
-            //     Debug.Log("Good ending triggered.");
-            //     SceneManager.LoadScene(GOOD_END_SCENE);
-            // }
-            // else
-            // {
-            //     Debug.Log("Bad ending triggered.");
-            //     SceneManager.LoadScene(BAD_END_SCENE);
-            // }
-            // return;
         }
-        
+
         timeElapsed = 0f;
         GameData.Instance.HasCompletedFirstDay = true;
         DayManagerUI.Instance.ResetTransitionProgress();
-        //Debug.Log("Day complete. Showing transition screen.");
         OnDayChanged?.Invoke(this, new OnDayChangedEventArgs 
         { 
             day = dayCount 
