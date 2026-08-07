@@ -7,7 +7,7 @@ public class BeachCleanup : Quest
     [SerializeField] private GameObject trash;
     [SerializeField] private GameItemSO[] trashItems;
     private int trashCount = 0;
-    private int trashGoal = 12;
+    private int trashGoal = 11;
     private HashSet<GameItemSO> trashItemSet;
     protected override void Start()
     {
