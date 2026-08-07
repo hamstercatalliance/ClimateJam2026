@@ -10,10 +10,9 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
     [SerializeField] private DayCountdown dayCountdown;
     private const string GOOD_END_SCENE = "GoodEnd";
     private const string BAD_END_SCENE = "BadEnd";
-    // private const float EPSILON = 1e-5f; scrap this for beginning of day check
     private bool isStartOfNewDay;
-
-
+    public event EventHandler OnFourSecondsLeftInDay;
+    private bool isCountingDown = false;
     public EventHandler<OnDayChangedEventArgs> OnDayChanged;
     public class OnDayChangedEventArgs : EventArgs
     {
@@ -116,6 +115,7 @@ public int dayCount { get; private set; } = 0;
             timeElapsed = GameData.Instance.DayManagerTimeElapsed;
             dayCount = GameData.Instance.DayManagerDayCount;
             isStartOfNewDay = GameData.Instance.IsStartOfNewDay;
+            isCountingDown = GameData.Instance.IsCountingDown;
 
             if (isStartOfNewDay)
             {
@@ -130,6 +130,7 @@ public int dayCount { get; private set; } = 0;
         {
             timeElapsed = 0f;
             dayCount = 0;
+            isCountingDown = false;
             StartCoroutine(DayRemainingRoutine());
         }
         OnDayManagerDataLoaded?.Invoke(this, EventArgs.Empty);
@@ -142,6 +143,11 @@ public int dayCount { get; private set; } = 0;
             return; // frozen-- no more time ticking & no more volume changes until scene reload
         }
         timeElapsed += Time.deltaTime;
+        if (timeElapsed >= secondsInADay - 4f && !isCountingDown)
+        {
+            OnFourSecondsLeftInDay?.Invoke(this, EventArgs.Empty);
+            isCountingDown = true;
+        }
         PostProcessVolumeTransition(GetProgressNormalized());
     }
     public float GetProgressNormalized()

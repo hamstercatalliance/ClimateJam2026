@@ -87,5 +87,10 @@ public class QuestDisplay : MonoBehaviour
             statusText.text = "Status:\nIN\nPROGRESS";
         }
         questDesc.text = questSO.questDescription;
+        if (questSO.currencyAward > 0)
+        {
+            questDesc.text += "\n\nReward:\n" + questSO.currencyAward + " Coins";
+        }
+        
     }
 }

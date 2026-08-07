@@ -27,6 +27,8 @@ public class GameData : MonoBehaviour
     public int DayManagerDayCount;
     public bool HasCompletedFirstDay;
     public bool IsStartOfNewDay = true;
+    public float EndOfDayCountdownTimeElapsed;
+    public bool IsCountingDown = false;
     #endregion
     #region Player data
     public Vector3 PlayerFacingDirection;
