@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 503d9c67db0c6f04c937f28131dde267, type: 3}
-  m_Name: CompanyCola
+  m_Name: Coconut
   m_EditorClassIdentifier: 
   worldSpacePrefab: {fileID: 0}
-  inventorySprite: {fileID: 21300000, guid: 249bd0fc87ee2a24da86ae790cf5edd1, type: 3}
-  itemName: CompanyCola
-  itemID: quest.cola
-  itemDescription: The most popular in TownTopia.
+  inventorySprite: {fileID: -537004917, guid: a611aa6cbda0e0a40bdbce8efedb370c, type: 3}
+  itemName: Coconut
+  itemID: item.coconut
+  itemDescription: 
   sourceLink: 
-  cost: 75
+  cost: 0
   isVanityItem: 0

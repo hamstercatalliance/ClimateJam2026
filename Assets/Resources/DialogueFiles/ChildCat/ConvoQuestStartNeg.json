@@ -1,0 +1,47 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "characterID": "childCat",
+                    "dialogue": "I'm out of CompanyCola, but I don't want to go all the way to the store to buy it..."
+                },
+                {
+                    "characterID": "childCat",
+                    "dialogue": "Wait! I know! You can go get some for me from the store! Pretty please???",
+                    "buttons": [
+                        {
+                            "text": "Ok fine",
+                            "id": "colaQuest_start",
+                            "path": "positive"
+                        }, 
+                        {
+                            "text": "No",
+                            "path": "negative"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "positive",
+            "dialogue": [
+                {
+                    "characterID": "childCat",
+                    "dialogue": "Yay! I need all the CompanyCola I can get, OK?"
+                }
+            ]
+        },
+        {
+            "name": "negative",
+            "dialogue": [
+                {
+                    "characterID": "childCat",
+                    "dialogue": "WHAT?! I'm going to die of dehydration!"
+                }
+            ]
+        }
+    ]
+}
