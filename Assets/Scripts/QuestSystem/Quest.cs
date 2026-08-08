@@ -34,9 +34,17 @@ public abstract class Quest : MonoBehaviour, IHasPersistentData
     }
     public virtual void CompleteQuest()
     {
-        isCompleted = true;
+        if (isCompleted)
+        {
+            return;
+        }
         isCompleted = true;
         OnQuestCompleted?.Invoke(this, EventArgs.Empty);
+        
+        CurrencyManager.Instance.AddCurrency(questSO.currencyAward);
+
+        // Debug.Log(SympathyPointsManager.Instance);
+        // SympathyPointsManager.Instance.addSympathyPoints(questSO.sympathyAward);
     }
     public virtual void WriteToGameData()
     {

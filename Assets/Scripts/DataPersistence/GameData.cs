@@ -27,6 +27,8 @@ public class GameData : MonoBehaviour
     public int DayManagerDayCount;
     public bool HasCompletedFirstDay;
     public bool IsStartOfNewDay = true;
+    public float EndOfDayCountdownTimeElapsed;
+    public bool IsCountingDown = false;
     #endregion
     #region Player data
     public Vector3 PlayerFacingDirection;
@@ -39,9 +41,12 @@ public class GameData : MonoBehaviour
 
     #region Quest Manager Data (DOES NOT SAVE QUEST SPECIFIC PROGRESS. ONLY SAVES: questSO, isCompleted, isInitiated)
     public List<QuestManager.QuestData> QuestDataList = new List<QuestManager.QuestData>();
+    public bool HasQuestNotificationActive;
     #endregion
     #region Custom Quest Data (SAVE SPECIFIC PROGRESS FOR CUSTOM QUESTS.)
     public int TestQuestProgress;
+    public bool OpenedQuestBoard;
+    public int BeachCleanupProgress;
     #endregion
     #region Currency Manager Data
     public int currencyAmount;
@@ -53,6 +58,9 @@ public class GameData : MonoBehaviour
     #region Sound and Music Data
     public float SoundVolume;
     public float MusicVolume;
+    #endregion
+    #region Pickup Tracking Data
+    public List<string> CollectedPickupIDs = new List<string>();
     #endregion
     [Serializable]
     public class SaveData
@@ -73,6 +81,8 @@ public class GameData : MonoBehaviour
         public string EquippedVanityItemID;
         public float SoundVolume;
         public float MusicVolume;
+        public bool HasQuestNotificationActive;
+        public List<string> CollectedPickupIDs = new List<string>();
     }
     public SaveData GetSaveData()
     {
@@ -91,6 +101,8 @@ public class GameData : MonoBehaviour
         saveData.EquippedVanityItemID = EquippedVanityItemID;
         saveData.SoundVolume = SoundVolume;
         saveData.MusicVolume = MusicVolume;
+        saveData.HasQuestNotificationActive = HasQuestNotificationActive;
+        saveData.CollectedPickupIDs = CollectedPickupIDs;
         return saveData;
     }
     private void SetSaveData(SaveData data)
@@ -109,6 +121,8 @@ public class GameData : MonoBehaviour
         EquippedVanityItemID = data.EquippedVanityItemID;
         SoundVolume = data.SoundVolume;
         MusicVolume = data.MusicVolume;
+        HasQuestNotificationActive = data.HasQuestNotificationActive;
+        CollectedPickupIDs = data.CollectedPickupIDs;
     }
     public void LoadFromSaveData(SaveData data)
     {
@@ -132,6 +146,8 @@ public class GameData : MonoBehaviour
         EquippedVanityItemID = null;
         SoundVolume = 1f;
         MusicVolume = 1f;
+        HasQuestNotificationActive = false;
+        CollectedPickupIDs = new List<string>();
     }
 
 

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 503d9c67db0c6f04c937f28131dde267, type: 3}
+  m_Name: Trash
+  m_EditorClassIdentifier: 
+  worldSpacePrefab: {fileID: 6856159707862015288, guid: 6be6503a3c516c845a4e84cd0b292d12,
+    type: 3}
+  inventorySprite: {fileID: -695274005, guid: 9ca2989e9f8e8934682cd4a9ac8e1300, type: 3}
+  itemName: Trash
+  itemID: item.trash
+  itemDescription: A mysterious pile of who knows what.
+  sourceLink: 
+  cost: 0
+  isVanityItem: 0

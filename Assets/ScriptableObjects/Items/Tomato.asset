@@ -16,7 +16,7 @@ MonoBehaviour:
   inventorySprite: {fileID: 65318267, guid: edd697a80e6006b4d88ddaaf776bdddd, type: 3}
   itemName: Tomato
   itemID: item.tomato
-  itemDescription: this is a tomato
+  itemDescription: This is a tomato.
   sourceLink: 
-  cost: 2
+  cost: 20
   isVanityItem: 0

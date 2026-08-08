@@ -4,15 +4,15 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using System;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
 {
     [SerializeField] private DayCountdown dayCountdown;
     private const string GOOD_END_SCENE = "GoodEnd";
     private const string BAD_END_SCENE = "BadEnd";
-    // private const float EPSILON = 1e-5f; scrap this for beginning of day check
     private bool isStartOfNewDay;
-
-
+    public event EventHandler OnFourSecondsLeftInDay;
+    private bool isCountingDown = false;
     public EventHandler<OnDayChangedEventArgs> OnDayChanged;
     public class OnDayChangedEventArgs : EventArgs
     {
@@ -31,7 +31,8 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
     [SerializeField] private Volume day;
     [SerializeField] private Volume night;
     [SerializeField] private Volume transition;
-    public int dayCount { get; private set; } = 0;
+
+public int dayCount { get; private set; } = 0;
     public bool DataSuccessfullyWritten { get; private set; }
     // sunrise->day : 0.65 minute
     // day : 2.75 minutes
@@ -114,6 +115,7 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
             timeElapsed = GameData.Instance.DayManagerTimeElapsed;
             dayCount = GameData.Instance.DayManagerDayCount;
             isStartOfNewDay = GameData.Instance.IsStartOfNewDay;
+            isCountingDown = GameData.Instance.IsCountingDown;
 
             if (isStartOfNewDay)
             {
@@ -128,6 +130,7 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
         {
             timeElapsed = 0f;
             dayCount = 0;
+            isCountingDown = false;
             StartCoroutine(DayRemainingRoutine());
         }
         OnDayManagerDataLoaded?.Invoke(this, EventArgs.Empty);
@@ -140,6 +143,11 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
             return; // frozen-- no more time ticking & no more volume changes until scene reload
         }
         timeElapsed += Time.deltaTime;
+        if (timeElapsed >= secondsInADay - 4f && !isCountingDown)
+        {
+            OnFourSecondsLeftInDay?.Invoke(this, EventArgs.Empty);
+            isCountingDown = true;
+        }
         PostProcessVolumeTransition(GetProgressNormalized());
     }
     public float GetProgressNormalized()
@@ -212,6 +220,7 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
                 break;
         }
     }
+
     public void EndDay()
     {
         if (state == State.DayEnded)
@@ -222,27 +231,21 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
         state = State.DayEnded;
         dayCount++;
         isStartOfNewDay = true;
-        
+
+        StartCoroutine(EndDaySequence());
+    }
+    private IEnumerator EndDaySequence()
+    {
+        yield return DayEndCutscenePlayer.Instance.PlayEndOfDayCutscene();
+
         if (dayCount > dayCountdown.GetCountdownDays())
         {
             //TRIGGER ENDINGS
-            // if (SympathyPointsManager.Instance.HasReachedGoodEndingThreshold())
-            // {
-            //     Debug.Log("Good ending triggered.");
-            //     SceneManager.LoadScene(GOOD_END_SCENE);
-            // }
-            // else
-            // {
-            //     Debug.Log("Bad ending triggered.");
-            //     SceneManager.LoadScene(BAD_END_SCENE);
-            // }
-            // return;
         }
-        
+
         timeElapsed = 0f;
         GameData.Instance.HasCompletedFirstDay = true;
         DayManagerUI.Instance.ResetTransitionProgress();
-        //Debug.Log("Day complete. Showing transition screen.");
         OnDayChanged?.Invoke(this, new OnDayChangedEventArgs 
         { 
             day = dayCount 

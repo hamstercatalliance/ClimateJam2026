@@ -83,7 +83,6 @@ public class QuestManager : MonoBehaviour, IHasPersistentData
     }
     public void LoadGameData()
     {
-        Debug.Log("Loading quest data");
         if (GameData.Instance != null && GameData.Instance.HasLoadedRunData)
         {
             Debug.Log("Loading quest data from GameData");
@@ -110,7 +109,7 @@ public class QuestManager : MonoBehaviour, IHasPersistentData
         }
         else
         {
-            Debug.Log("No saved quest data found, initializing new quest data");
+            //Debug.Log("No saved quest data found, initializing new quest data");
             questDataList = new List<QuestData>();
             for (int i = 0; i < quests.Length; i++)
             {

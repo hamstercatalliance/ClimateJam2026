@@ -12,7 +12,6 @@ public class TestQuest : Quest
     {
         base.Start();
         Player.Instance.OnPickup += Player_OnPickup;
-        Debug.Log(isInitiated + " " + isCompleted);
     }
     protected override void OnDestroy()
     {
@@ -34,14 +33,14 @@ public class TestQuest : Quest
             }
         }
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("Player has entered the quest area");
-            InitiateQuest();
-        }
-    }
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     if (other.CompareTag("Player"))
+    //     {
+    //         Debug.Log("Player has entered the quest area");
+    //         InitiateQuest();
+    //     }
+    // }
 
     public override void InitiateQuest()
     {

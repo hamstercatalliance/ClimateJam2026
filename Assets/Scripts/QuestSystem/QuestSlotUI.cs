@@ -49,6 +49,11 @@ public class QuestSlotUI : SlotUI
     }
     public override void OnPointerClick(UnityEngine.EventSystems.PointerEventData eventData)
     {
+        OnQuestSlotHovered?.Invoke(this, new OnSlotHoveredEventArgs
+        {
+            questSO = questSO,
+            isCompleted = isCompleted
+        });
         OnQuestSlotClicked?.Invoke(this, EventArgs.Empty);
         questNameObject.transform.localScale = textOriginalScale;
         questStatusIcon.transform.localScale = iconOriginalScale;
@@ -59,11 +64,16 @@ public class QuestSlotUI : SlotUI
         {
             questNameObject.transform.localScale = textOriginalScale * hoverScale;
             questStatusIcon.transform.localScale = iconOriginalScale * hoverScale;
-            OnQuestSlotHovered?.Invoke(this, new OnSlotHoveredEventArgs
+            QuestSlotUI currentPinnedSlot = QuestDisplay.Instance.GetCurrentlyPinnedSlot();
+            if (currentPinnedSlot == null)
             {
-                questSO = questSO,
-                isCompleted = isCompleted
-            });
+                OnQuestSlotHovered?.Invoke(this, new OnSlotHoveredEventArgs
+                {
+                    questSO = questSO,
+                    isCompleted = isCompleted
+                });
+            }
+            
         }
     }
     public override void OnPointerExit(UnityEngine.EventSystems.PointerEventData eventData)

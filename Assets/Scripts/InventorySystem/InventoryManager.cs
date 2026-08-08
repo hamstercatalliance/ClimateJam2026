@@ -5,7 +5,7 @@ using System;
 public class InventoryManager : MonoBehaviour, IHasPersistentData
 {
     public static InventoryManager Instance { get; private set; } //singleton
-    //[SerializeField] private List<GameItemSO> gameItemSOList; 
+    public event EventHandler OnItemDiscarded;
     public event EventHandler<InventoryAdditionEventArgs> OnInventoryAddition;
     public class InventoryAdditionEventArgs : EventArgs
     {
@@ -68,6 +68,11 @@ public class InventoryManager : MonoBehaviour, IHasPersistentData
     private void Player_OnPickup(object sender, Player.OnPickupEventArgs e)
     {
         AddItemToInventory(e.gameItemSO);
+        GameItem gameItem = e.gameItemGameObject.GetComponent<GameItem>();
+        if (gameItem != null && !string.IsNullOrEmpty(gameItem.PickupID))
+        {
+            GameData.Instance.CollectedPickupIDs.Add(gameItem.PickupID);
+        }
         Destroy(e.gameItemGameObject);
     }
     public void LoadGameData()
@@ -213,6 +218,8 @@ public class InventoryManager : MonoBehaviour, IHasPersistentData
             item.itemID = null;
             item.amount = 0;
             inventorySlots[item.row, item.col] = item;
+
+            OnItemDiscarded?.Invoke(this, EventArgs.Empty);
         }
     }
 }

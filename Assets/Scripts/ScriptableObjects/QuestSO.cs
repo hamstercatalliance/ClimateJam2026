@@ -8,4 +8,6 @@ public class QuestSO : ScriptableObject
     public string questName;
     public string questDescription;
     public string questID;
+    public int currencyAward;
+    public int sympathyAward;
 }

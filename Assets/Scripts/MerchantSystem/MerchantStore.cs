@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class MerchantStore : MonoBehaviour
 {
     [Header("Modify these lists to change what items are available for purchase or sale.")]
@@ -16,8 +16,9 @@ public class MerchantStore : MonoBehaviour
     [SerializeField] private OnClickButtonDisplay modeSwitchButtonDisplay;
     [SerializeField] private OnClickButtonDisplay itemListButtonDisplay;
     [SerializeField] private GameObject buyModeSwitchButton;
-    // [SerializeField] private GameObject sellModeSwitchButton;
-    //private GameInput gameInput;
+    public static event EventHandler OnTransaction;
+    public static event EventHandler OnStoreEntered;
+    public static event EventHandler OnStoreExited;
     public static bool merchantStoreOpen = false;
     private GameItemSO selectedItem;
     public GameItemSO GetSelectedItem()
@@ -42,23 +43,12 @@ public class MerchantStore : MonoBehaviour
         Debug.Log("MerchantStore enabled, subscribing to currency change event.");
         CurrencyManager.Instance.OnCurrencyChanged += OnCurrencyChanged;
         EnterBuyMode(); // Default to buy mode when the store is opened
-        //gameInput = FindObjectOfType<GameInput>();
-        //gameInput.OnMenuAction += GameInput_OnMenuAction;
-        
     }
 
     private void OnDestroy()
     {
         CurrencyManager.Instance.OnCurrencyChanged -= OnCurrencyChanged;
-        //gameInput.OnMenuAction -= GameInput_OnMenuAction;
     }
-    // private void GameInput_OnMenuAction(object sender, System.EventArgs e)
-    // {
-    //     if (merchantStoreOpen)
-    //     {
-    //         LeaveStore();
-    //     }
-    // }
     private void OnCurrencyChanged(object sender, CurrencyManager.OnCurrencyChangedEventArgs e)
     {
         Debug.Log("Currency changed, updating buy list.");
@@ -94,7 +84,8 @@ public class MerchantStore : MonoBehaviour
         }
 
         CurrencyManager.Instance.RemoveCurrency(selectedItem.cost);
-        Debug.Log("Purchased item: " + selectedItem.name);
+        //Debug.Log("Purchased item: " + selectedItem.name);
+        OnTransaction?.Invoke(this, EventArgs.Empty);
     }
     public void SellItem()
     {
@@ -102,14 +93,16 @@ public class MerchantStore : MonoBehaviour
         InventoryManager.Instance.RemoveItemFromInventory(selectedItem);
         CurrencyManager.Instance.AddCurrency(selectedItem.cost);
         uiManager.UpdateRemovedItemButton();
-        Debug.Log("Sold item: " + selectedItem.name);
+        //Debug.Log("Sold item: " + selectedItem.name);
+        OnTransaction?.Invoke(this, EventArgs.Empty);
     }
     public void DonateItem()
     {
         //remove item from inventory and add SYMPATHY POINTS to player
         InventoryManager.Instance.RemoveItemFromInventory(selectedItem);
         uiManager.UpdateRemovedItemButton();
-        Debug.Log("Donated item: " + selectedItem.name);
+        //Debug.Log("Donated item: " + selectedItem.name);
+        OnTransaction?.Invoke(this, EventArgs.Empty);
     }
 
     public void PopulateBuyList()
@@ -173,6 +166,8 @@ public class MerchantStore : MonoBehaviour
         storeContent.SetActive(false);
         merchantStoreOpen = false;
         selectedItemButton = null;
+
+        OnStoreExited?.Invoke(this, EventArgs.Empty);
     }
     public void EnterStore()
     {
@@ -181,5 +176,7 @@ public class MerchantStore : MonoBehaviour
         merchantStoreOpen = true;
         Debug.Log("MerchantStore enabled, entering store and subscribing to currency change event.");
         EnterBuyMode();
+
+        OnStoreEntered?.Invoke(this, EventArgs.Empty);
     }
 }

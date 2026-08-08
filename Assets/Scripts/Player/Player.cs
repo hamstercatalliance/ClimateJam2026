@@ -19,7 +19,7 @@ public class Player : MonoBehaviour, IHasPersistentData
         public GameItemSO gameItemSO;
         public GameObject gameItemGameObject;
     }
-
+    public event EventHandler OnPlayerJump;
     public bool IsGrounded {get; private set; }
     private Rigidbody rb;
     private Vector3 lastMoveDir;
@@ -69,6 +69,7 @@ public class Player : MonoBehaviour, IHasPersistentData
         {
             IsGrounded = false;
             rb.AddForce(Vector3.up * jumpHeight, ForceMode.VelocityChange);
+            OnPlayerJump?.Invoke(this, EventArgs.Empty);
         }
     }
 
@@ -127,39 +128,6 @@ public class Player : MonoBehaviour, IHasPersistentData
             });
         }
     }
-    // private void HandleInteractions()
-    // {
-    //     Vector2 inputVector = gameInput.GetMovementVectorNormalized();
-    //     Vector3 moveDir = new Vector3(inputVector.x, 0, inputVector.y);
-
-    //     if (moveDir != Vector3.zero)
-    //     {
-    //         lastInteractDir = moveDir;
-    //     }
-
-    //     float interactDistance = 2f;
-    //     if (Physics.Raycast(transform.position, lastInteractDir, out RaycastHit raycastHit, interactDistance, countersLayerMask))
-    //     {
-    //         if (raycastHit.transform.TryGetComponent(out BaseCounter baseCounter))
-    //         {
-    //             //clearCounter.Interact();
-    //             if (baseCounter != selectedCounter)
-    //             {
-    //                 SetSelectedCounter(baseCounter);
-    //             }
-
-    //         }
-    //         else
-    //         {
-    //             SetSelectedCounter(null);
-    //         }
-    //     }
-    //     else
-    //     {
-    //         SetSelectedCounter(null);
-    //     }
-    //     //Debug.Log(selectedCounter);
-    // }
     private void HandleMovement()
     {
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
@@ -174,7 +142,7 @@ public class Player : MonoBehaviour, IHasPersistentData
         float playerRadius = .6f;
         float playerHeight = 2f;
         bool canMove = !Physics.CapsuleCast(
-            transform.position + Vector3.up * 0.1f,
+            transform.position + Vector3.up * 0.5f,
             transform.position + Vector3.up * playerHeight,
             playerRadius,
             moveDir,

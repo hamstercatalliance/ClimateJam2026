@@ -6,8 +6,22 @@ public class QuestDisplay : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI statusText;
     [SerializeField] private TextMeshProUGUI questDesc;
+    private QuestSlotUI currentlyPinnedSlot;
+    public QuestSlotUI GetCurrentlyPinnedSlot()
+    {
+        return currentlyPinnedSlot;
+    }
     private bool stayVisible = false;
-    // Start is called before the first frame update
+    public static QuestDisplay Instance { get; private set; }
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
     void Start()
     {
         QuestSlotUI.OnQuestSlotHovered += OnQuestSlotHovered;
@@ -26,6 +40,7 @@ public class QuestDisplay : MonoBehaviour
     private void OnMenuClosedHandler(object sender, System.EventArgs e)
     {
         stayVisible = false;
+        currentlyPinnedSlot = null;
         HideDisplay();
     }
     private void OnQuestSlotHovered(object sender, QuestSlotUI.OnSlotHoveredEventArgs e)
@@ -41,13 +56,19 @@ public class QuestDisplay : MonoBehaviour
     }
     private void OnQuestSlotClicked(object sender, System.EventArgs e)
     {
-        if (stayVisible == false)
+        QuestSlotUI clickedSlot = sender as QuestSlotUI;
+
+        if (currentlyPinnedSlot == clickedSlot)
         {
-            stayVisible = true;
-        }
-        else 
-        {
+            //unpin pinned slot
+            currentlyPinnedSlot = null;
             stayVisible = false;
+        }
+        else
+        {
+            //pin new slot
+            currentlyPinnedSlot = clickedSlot;
+            stayVisible = true;
         }
     }
     private void HideDisplay()
@@ -66,5 +87,10 @@ public class QuestDisplay : MonoBehaviour
             statusText.text = "Status:\nIN\nPROGRESS";
         }
         questDesc.text = questSO.questDescription;
+        if (questSO.currencyAward > 0)
+        {
+            questDesc.text += "\n\nReward:\n" + questSO.currencyAward + " Coins";
+        }
+        
     }
 }

@@ -61,7 +61,22 @@ PrefabInstance:
     - target: {fileID: 2562915203420003986, guid: 29227e2f5d0b57243abbcb18f6174d2e,
         type: 3}
       propertyPath: m_Name
-      value: ClothesMerchant Variant
+      value: ClothesMerchant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493822974740682925, guid: 29227e2f5d0b57243abbcb18f6174d2e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493822974740682925, guid: 29227e2f5d0b57243abbcb18f6174d2e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493822974740682925, guid: 29227e2f5d0b57243abbcb18f6174d2e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 4493822974740682925, guid: 29227e2f5d0b57243abbcb18f6174d2e,
         type: 3}
@@ -108,6 +123,11 @@ MonoBehaviour:
   scriptableInteractable: {fileID: 11400000, guid: 2071cda88dff58246bc92e777b335202,
     type: 2}
   gameInput: {fileID: 0}
+  spawnPoints:
+  - {x: 38.51, y: -8.44, z: -41.02}
+  - {x: 38.51, y: -8.44, z: -41.02}
+  - {x: 38.51, y: -8.44, z: -41.02}
+  isFacingRight: 010101
   store: {fileID: 0}
 --- !u!114 &6450476718711033520
 MonoBehaviour:

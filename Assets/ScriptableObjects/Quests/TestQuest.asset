@@ -15,3 +15,5 @@ MonoBehaviour:
   questName: Test Quest
   questDescription: Pick up 3 carp
   questID: quest.test
+  currencyAward: 100
+  sympathyAward: 0

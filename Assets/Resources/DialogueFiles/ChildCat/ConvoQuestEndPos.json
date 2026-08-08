@@ -1,0 +1,20 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "characterID": "childCat",
+                    "dialogue": "Wait... is that... coconut water you have? Let me try!",
+                    "wait": 1.0
+                },
+                {
+                    "characterID": "childCat",
+                    "dialogue": "This is so much better than CompanyCola! I'm going to tell all my friends how good coconut water is!",
+                    "signal": "colaQuest_end"
+                }
+            ]
+        }
+    ]
+}
