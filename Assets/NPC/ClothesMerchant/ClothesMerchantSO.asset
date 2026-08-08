@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2045962db872bf944a8aaf6c07a068e7, type: 3}
   m_Name: ClothesMerchantSO
   m_EditorClassIdentifier: 
-  interactionRadius: 2
+  interactionRadius: 4
   interactableName: Fashion Cat
   interactableId: clothesMerchant
   prefab: {fileID: 0}

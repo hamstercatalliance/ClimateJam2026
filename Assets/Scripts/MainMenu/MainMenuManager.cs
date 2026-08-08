@@ -22,15 +22,26 @@ public class MainMenuManager : MonoBehaviour
     public void StartNewGame()
     {
         DataPersistenceManager.Instance.ClearGame();
-        SceneManager.LoadScene(INTRO_SCENE_NAME);
+        StartCoroutine(PauseAndLoadScene(INTRO_SCENE_NAME));
     }
     public void ContinueGame()
     {
         DataPersistenceManager.Instance.LoadPlayerData();
-        SceneManager.LoadScene(HOME_SCENE_NAME);
+        StartCoroutine(PauseAndLoadScene(HOME_SCENE_NAME));
     }
     public void ExitGame()
     {
+        StartCoroutine(PauseAndQuit());
+    }
+
+    private IEnumerator PauseAndLoadScene(string sceneName)
+    {
+        yield return new WaitForSeconds(0.4f);
+        SceneManager.LoadScene(sceneName);
+    }
+    private IEnumerator PauseAndQuit()
+    {
+        yield return new WaitForSeconds(0.4f);
         Application.Quit();
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaterFountainSFX : MonoBehaviour
+public class SpatialSFX : MonoBehaviour
 {
     private AudioSource audioSource;
     //I made a separate class for the water fountain because it uses spatial sound and has its own audio source

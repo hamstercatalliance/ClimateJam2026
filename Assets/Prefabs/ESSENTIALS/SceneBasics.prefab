@@ -2398,8 +2398,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 884686766583213932}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.10452846, y: -0, z: -0, w: 0.9945219}
-  m_LocalPosition: {x: -0.98, y: -6.91, z: -11.02}
+  m_LocalRotation: {x: 0.10452846, y: 0, z: 0, w: 0.9945219}
+  m_LocalPosition: {x: -0.98, y: -6.91, z: -11.020004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3763,6 +3763,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4743410435947389253}
   - component: {fileID: 6916859905250984483}
+  - component: {fileID: 3304048867825217129}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -3779,7 +3780,7 @@ Transform:
   m_GameObject: {fileID: 1253290800272673130}
   serializedVersion: 2
   m_LocalRotation: {x: 0.10452846, y: 0, z: 0, w: 0.9945219}
-  m_LocalPosition: {x: -0.98, y: -6.91, z: -11.02}
+  m_LocalPosition: {x: -0.98, y: -6.91, z: -11.020004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3825,6 +3826,27 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 8725750851804605617}
+--- !u!95 &3304048867825217129
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253290800272673130}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 962e1a09592204e4892ec73a7799537d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1300134104273144627
 GameObject:
   m_ObjectHideFlags: 0
@@ -8879,6 +8901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f10c90d027f4cb4087ac5c4d7ddc666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSound: {fileID: 8300000, guid: 1ca8d0bfe675be24fbd83cd90950d6a8, type: 3}
   grassWalkingSounds:
   - {fileID: 8300000, guid: f1eed754e2ce8ae45b8d4c40b100ff7e, type: 3}
   - {fileID: 8300000, guid: a306b5a75e7c07644af8aa6e3adde238, type: 3}
@@ -8906,6 +8929,9 @@ MonoBehaviour:
   exitStoreSound: {fileID: 8300000, guid: acba5875b8eb76d419f43432caf55070, type: 3}
   itemDiscardedSound: {fileID: 8300000, guid: 6e46f00e37be6a24d8abc58eed858843, type: 3}
   vanityEquippedSound: {fileID: 8300000, guid: 1567f26221c26ed459372a02a29e294f, type: 3}
+  boardOpenSound: {fileID: 8300000, guid: bb6bfd448a0251849943087497b4447f, type: 3}
+  boardCloseSound: {fileID: 8300000, guid: 1055236537c753e469606ee33b68d6fa, type: 3}
+  endOfDayBellSound: {fileID: 8300000, guid: 6738d7a98db3b654caba7f9cf297548d, type: 3}
 --- !u!1 &2910088026999442539
 GameObject:
   m_ObjectHideFlags: 0

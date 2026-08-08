@@ -21,17 +21,25 @@ public class DayTransitionButtons : MonoBehaviour
     public void Exit()
     {
         Debug.Log("Exiting...");
-        SceneManager.LoadScene(MENU_SCENE);
+        StartCoroutine(PauseAndLoadScene(MENU_SCENE));
+        // SceneManager.LoadScene(MENU_SCENE);
     }
     public void Continue()
     {
         Debug.Log("Continuing...");
-        SceneManager.LoadScene(HOME_SCENE);
+        StartCoroutine(PauseAndLoadScene(HOME_SCENE));
+        // SceneManager.LoadScene(HOME_SCENE);
         // StartCoroutine(ContinueRoutine());
     }
     private void Save()
     {
         Debug.Log("Saving...");
         DataPersistenceManager.Instance.SavePlayerData();//SAVE TO JSON
+    }
+
+    private IEnumerator PauseAndLoadScene(string sceneName)
+    {
+        yield return new WaitForSeconds(0.4f);
+        SceneManager.LoadScene(sceneName);
     }
 }
