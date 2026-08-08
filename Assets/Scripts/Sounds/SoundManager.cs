@@ -97,12 +97,28 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
         Player.Instance.OnPlayerJump -= Player_OnPlayerJump;
         DialogueRenderer.OnDialogueProceed -= DialogueRenderer_OnDialogueProceed;
     }
-    public void PlayFootstepsSound(Vector3 position)
+    public void PlayFootstepsSound(Vector3 position, PlayerSounds.SurfaceType surfaceType = PlayerSounds.SurfaceType.Stone)
     {
         AudioClip[] footstepSounds = null;
-        // Determine the surface type 
-
-        PlaySound(stoneWalkingSounds, position); //for now, just play grass walking sounds
+        switch (surfaceType)
+        {
+            case PlayerSounds.SurfaceType.Grass:
+                footstepSounds = grassWalkingSounds;
+                break;
+            case PlayerSounds.SurfaceType.Stone:
+                footstepSounds = stoneWalkingSounds;
+                break;
+            case PlayerSounds.SurfaceType.Wood:
+                footstepSounds = woodWalkingSounds;
+                break;
+            case PlayerSounds.SurfaceType.Sand:
+                footstepSounds = sandWalkingSounds;
+                break;
+            default:
+                footstepSounds = stoneWalkingSounds; // Default
+                break;
+        }
+        PlaySound(footstepSounds, position); 
     }
     #region Event Handlers
     private void DialogueRenderer_OnDialogueProceed(object sender, EventArgs e)
