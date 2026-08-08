@@ -61,7 +61,7 @@ PrefabInstance:
     - target: {fileID: 2562915203420003986, guid: 29227e2f5d0b57243abbcb18f6174d2e,
         type: 3}
       propertyPath: m_Name
-      value: Fishercat Variant
+      value: Fishercat
       objectReference: {fileID: 0}
     - target: {fileID: 6284319412425006996, guid: 29227e2f5d0b57243abbcb18f6174d2e,
         type: 3}
@@ -77,6 +77,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5936493107106476064}
+    - targetCorrespondingSourceObject: {fileID: 2562915203420003986, guid: 29227e2f5d0b57243abbcb18f6174d2e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8240997754689260904}
   m_SourcePrefab: {fileID: 100100000, guid: 29227e2f5d0b57243abbcb18f6174d2e, type: 3}
 --- !u!1 &6091758781323818793 stripped
 GameObject:
@@ -100,3 +104,15 @@ MonoBehaviour:
     type: 2}
   gameInput: {fileID: 0}
   fishingStore: {fileID: 0}
+--- !u!114 &8240997754689260904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6091758781323818793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6215e994aacc744880265435d3d41d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

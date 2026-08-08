@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 503d9c67db0c6f04c937f28131dde267, type: 3}
   m_Name: Coconut
   m_EditorClassIdentifier: 
-  worldSpacePrefab: {fileID: 0}
+  worldSpacePrefab: {fileID: 288428407646397766, guid: b531c32803c66af4299885575cf7b023,
+    type: 3}
   inventorySprite: {fileID: -537004917, guid: a611aa6cbda0e0a40bdbce8efedb370c, type: 3}
   itemName: Coconut
   itemID: item.coconut

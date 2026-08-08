@@ -1,0 +1,27 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "characterID": "fisherCat",
+                    "dialogue": "They call me Fishercat."
+                },
+                {
+                    "characterID": "fisherCat",
+                    "dialogue": "I sell fishing gear."
+                },
+                {
+                    "characterID": "fisherCat",
+                    "dialogue": "I buy fish."
+                },
+                {
+                    "characterID": "fisherCat",
+                    "dialogue": "Fish at your own risk.",
+                    "signal": "fisherCat_openStore"
+                }
+            ]
+        }
+    ]
+}

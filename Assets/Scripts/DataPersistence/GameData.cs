@@ -62,6 +62,15 @@ public class GameData : MonoBehaviour
     #region Pickup Tracking Data
     public List<string> CollectedPickupIDs = new List<string>();
     #endregion
+    #region NPC Data
+    #region Child Cat
+    public bool ChildCatQuestCompleted;
+    public bool ChildCatQuestStarted;
+    public bool ChildCatHasInteracted;
+    public bool ChildCatPositiveInteraction;
+    public int ChildCatDayInteracted;
+    #endregion
+    #endregion
     [Serializable]
     public class SaveData
     {
@@ -83,6 +92,11 @@ public class GameData : MonoBehaviour
         public float MusicVolume;
         public bool HasQuestNotificationActive;
         public List<string> CollectedPickupIDs = new List<string>();
+        public bool ChildCatQuestCompleted;
+        public bool ChildCatQuestStarted;
+        public bool ChildCatHasInteracted;
+        public bool ChildCatPositiveInteraction;
+        public int ChildCatDayInteracted;
     }
     public SaveData GetSaveData()
     {
@@ -103,6 +117,11 @@ public class GameData : MonoBehaviour
         saveData.MusicVolume = MusicVolume;
         saveData.HasQuestNotificationActive = HasQuestNotificationActive;
         saveData.CollectedPickupIDs = CollectedPickupIDs;
+        saveData.ChildCatQuestCompleted = ChildCatQuestCompleted;
+        saveData.ChildCatQuestStarted = ChildCatQuestStarted;
+        saveData.ChildCatHasInteracted = ChildCatHasInteracted;
+        saveData.ChildCatPositiveInteraction = ChildCatPositiveInteraction;
+        saveData.ChildCatDayInteracted = ChildCatDayInteracted;
         return saveData;
     }
     private void SetSaveData(SaveData data)
@@ -123,6 +142,11 @@ public class GameData : MonoBehaviour
         MusicVolume = data.MusicVolume;
         HasQuestNotificationActive = data.HasQuestNotificationActive;
         CollectedPickupIDs = data.CollectedPickupIDs;
+        ChildCatQuestCompleted = data.ChildCatQuestCompleted;
+        ChildCatQuestStarted = data.ChildCatQuestStarted;
+        ChildCatHasInteracted = data.ChildCatHasInteracted;
+        ChildCatPositiveInteraction = data.ChildCatPositiveInteraction;
+        ChildCatDayInteracted = data.ChildCatDayInteracted;
     }
     public void LoadFromSaveData(SaveData data)
     {
@@ -148,6 +172,11 @@ public class GameData : MonoBehaviour
         MusicVolume = 1f;
         HasQuestNotificationActive = false;
         CollectedPickupIDs = new List<string>();
+        ChildCatQuestCompleted = false;
+        ChildCatQuestStarted = false;
+        ChildCatHasInteracted = false;
+        ChildCatPositiveInteraction = false;
+        ChildCatDayInteracted = 0;
     }
 
 

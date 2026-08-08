@@ -6,8 +6,17 @@ using UnityEngine;
 public class Fishercat : NonPlayableCharacter
 {
     public MerchantStore fishingStore;
+    bool hasInteracted = false;
     protected override void OnTalk()
     {
-        fishingStore.EnterStore();
+        if (!hasInteracted)
+        {
+            hasInteracted = true;
+            conversation.Execute("Fishercat/Convo1");
+        }
+        else
+        {
+            fishingStore.EnterStore();
+        }
     }
 }

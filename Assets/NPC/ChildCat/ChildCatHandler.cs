@@ -22,19 +22,19 @@ public class ChildCatHandler : DialogueSignalHandler
             case "childCat_negative":
                 childCat.setInteraction(false);
                 break;
-            case "colaQuest_start":
+            case "coconutWaterQuest_start":
                 childCat.questStarted = true;
                 coconutWaterQuest.InitiateQuest();
                 break;
-            case "colaQuest_end":
+            case "coconutWaterQuest_end":
                 childCat.questCompleted = true;
                 coconutWaterQuest.CompleteQuest();
                 break;
-            case "coconutWaterQuest_start":
+            case "colaQuest_start":
                 childCat.questStarted = true;
                 colaQuest.InitiateQuest();
                 break;
-            case "coconutWaterQuest_end":
+            case "colaQuest_end":
                 childCat.questCompleted = true;
                 colaQuest.CompleteQuest();
                 break;
