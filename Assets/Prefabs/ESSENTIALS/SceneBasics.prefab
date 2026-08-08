@@ -8858,6 +8858,8 @@ MonoBehaviour:
   exitStoreSound: {fileID: 8300000, guid: acba5875b8eb76d419f43432caf55070, type: 3}
   itemDiscardedSound: {fileID: 8300000, guid: 6e46f00e37be6a24d8abc58eed858843, type: 3}
   vanityEquippedSound: {fileID: 8300000, guid: 1567f26221c26ed459372a02a29e294f, type: 3}
+  boardOpenSound: {fileID: 8300000, guid: bb6bfd448a0251849943087497b4447f, type: 3}
+  boardCloseSound: {fileID: 8300000, guid: 1055236537c753e469606ee33b68d6fa, type: 3}
 --- !u!1 &2910088026999442539
 GameObject:
   m_ObjectHideFlags: 0

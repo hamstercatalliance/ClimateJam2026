@@ -41,8 +41,12 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
     [SerializeField] private AudioClip transactionSound;
     [SerializeField] private AudioClip enterStoreSound;
     [SerializeField] private AudioClip exitStoreSound;
+    
     [SerializeField] private AudioClip itemDiscardedSound;
     [SerializeField] private AudioClip vanityEquippedSound;
+
+    [SerializeField] private AudioClip boardOpenSound;
+    [SerializeField] private AudioClip boardCloseSound;
     
     void Start()
     {
@@ -62,6 +66,8 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
         MerchantStore.OnStoreExited += MerchantStore_OnStoreExited;
         InventoryManager.Instance.OnItemDiscarded += InventoryManager_OnItemDiscarded;
         VanityManager.Instance.OnVanityItemChanged += VanityManager_OnVanityItemChanged;
+        BoardManager.Instance.OnBoardOpened += BoardManager_OnBoardOpened;
+        BoardManager.Instance.OnBoardClosed += BoardManager_OnBoardClosed;
     }
     private void OnDestroy()
     {
@@ -78,8 +84,18 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
         MerchantStore.OnStoreExited -= MerchantStore_OnStoreExited;
         InventoryManager.Instance.OnItemDiscarded -= InventoryManager_OnItemDiscarded;
         VanityManager.Instance.OnVanityItemChanged -= VanityManager_OnVanityItemChanged;
+        BoardManager.Instance.OnBoardOpened -= BoardManager_OnBoardOpened;
+        BoardManager.Instance.OnBoardClosed -= BoardManager_OnBoardClosed;
     }
     #region Event Handlers
+    private void BoardManager_OnBoardOpened(object sender, EventArgs e)
+    {
+        audioSource.PlayOneShot(boardOpenSound, audioSource.volume);
+    }
+    private void BoardManager_OnBoardClosed(object sender, EventArgs e)
+    {
+        audioSource.PlayOneShot(boardCloseSound, audioSource.volume);
+    }
     private void VanityManager_OnVanityItemChanged(object sender, EventArgs e)
     {
         audioSource.PlayOneShot(vanityEquippedSound, audioSource.volume);
