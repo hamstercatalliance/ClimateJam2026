@@ -1,0 +1,47 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "characterID": "childCat",
+                    "dialogue": "I don't know what to drink instead of CompanyCola... my world is so empty without it..."
+                },
+                {
+                    "characterID": "childCat",
+                    "dialogue": "I wish that there was some sort of naturally produced beverage that wouldn't kill all the fish!",
+                    "buttons": [
+                        {
+                            "text": "If only",
+                            "path": "negative"
+                        }, 
+                        {
+                            "text": "I can get coconut water",
+                            "path": "positive",
+                            "id": "coconutWaterQuest_start"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "positive",
+            "dialogue": [
+                {
+                    "characterID": "childCat",
+                    "dialogue": "I hope it's as good as CompanyCola, though..."
+                }
+            ]
+        },
+        {
+            "name": "negative",
+            "dialogue": [
+                {
+                    "characterID": "childCat",
+                    "dialogue": "WHAT?! I'm going to die of dehydration!"
+                }
+            ]
+        }
+    ]
+}

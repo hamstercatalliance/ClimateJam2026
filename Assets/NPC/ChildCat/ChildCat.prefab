@@ -61,7 +61,7 @@ PrefabInstance:
     - target: {fileID: 2562915203420003986, guid: 29227e2f5d0b57243abbcb18f6174d2e,
         type: 3}
       propertyPath: m_Name
-      value: ChildCat Variant
+      value: ChildCat
       objectReference: {fileID: 0}
     - target: {fileID: 6284319412425006996, guid: 29227e2f5d0b57243abbcb18f6174d2e,
         type: 3}
@@ -76,11 +76,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2562915203420003986, guid: 29227e2f5d0b57243abbcb18f6174d2e,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6661051949795471816}
+      addedObject: {fileID: -8920075340256496683}
     - targetCorrespondingSourceObject: {fileID: 2562915203420003986, guid: 29227e2f5d0b57243abbcb18f6174d2e,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5807824595610643176}
+      addedObject: {fileID: 9197538907218526409}
   m_SourcePrefab: {fileID: 100100000, guid: 29227e2f5d0b57243abbcb18f6174d2e, type: 3}
 --- !u!1 &1416070349113227971 stripped
 GameObject:
@@ -88,7 +88,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3474432239483708497}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6661051949795471816
+--- !u!114 &-8920075340256496683
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,15 +97,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1416070349113227971}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c6009215201a7743a304cfbb1cc1b95, type: 3}
+  m_Script: {fileID: 11500000, guid: 31882450766915c4bb20489b10538322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scriptableInteractable: {fileID: 11400000, guid: 7ee2f3472acfc324e8f950ae878f4b06,
     type: 2}
   gameInput: {fileID: 0}
-  conversation1: ChildCat/Convo1
-  conversation2: ChildCat/Convo1
---- !u!114 &5807824595610643176
+  questCompleted: 0
+  questStarted: 0
+  hasInteracted: 0
+  positiveInteraction: 0
+--- !u!114 &9197538907218526409
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,10 +116,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1416070349113227971}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a55e6a0211cf81b40b86bee03ca99bb2, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c334e2f4c9114044ab383c409a5329c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  posSignal: childCat_positive
-  negSignal: childCat_negative
-  posDialogue: ChildCat/ConvoPos
-  negDialogue: ChildCat/ConvoNeg

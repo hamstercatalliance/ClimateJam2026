@@ -1,0 +1,14 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "characterID": "childCat",
+                    "dialogue": "Please get me some coconut water, I'm really thirsty..."
+                }
+            ]
+        }
+    ]
+}

@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19ea64b1fe1b3d94caad5b9715f54b1b, type: 3}
-  m_Name: TrashPickup
+  m_Name: CoconutWaterQuest
   m_EditorClassIdentifier: 
-  questName: 
-  questDescription: 
-  questID: 
+  questName: Another drink
+  questDescription: Shake the tree by the lake to get coconut water.
+  questID: quest.coconutwater
+  currencyAward: 0
+  sympathyAward: 600

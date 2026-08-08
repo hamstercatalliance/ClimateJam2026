@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class ChildCat : NonPlayableCharacter
 {
-    bool questCompleted;
-    bool questStarted;
-    bool hasInteracted;
+    public bool questCompleted;
+    public bool questStarted;
+    public bool hasInteracted;
     public bool positiveInteraction;
-    int dayInteracted;
+    private int dayInteracted;
 
     protected override void OnTalk()
     {
@@ -18,21 +18,20 @@ public class ChildCat : NonPlayableCharacter
         {
             hasInteracted = true;
             dayInteracted = DayManager.Instance.dayCount;
+            conversation.Execute("ChildCat/Convo1");
             return;
         }
 
-        // If the quest hasn't started, decide between giving the quest (later day)
-        // or giving a response (same day), using a small helper to keep branches clear.
         if (!questStarted)
         {
             bool isLaterDay = DayManager.Instance.dayCount > dayInteracted;
             if (isLaterDay)
             {
-                GiveQuest(positiveInteraction);
+                ExecuteDialogue("QuestStart");
             }
             else
             {
-                GiveSameDayResponse(positiveInteraction);
+                ExecuteDialogue("1");
             }
             return;
         }
@@ -40,7 +39,7 @@ public class ChildCat : NonPlayableCharacter
         // If quest started, handle completed vs in-progress responses
         if (questCompleted)
         {
-            GiveCompletedQuestResponse();
+            ExecuteDialogue("QuestPost");
         }
         else
         {
@@ -48,40 +47,37 @@ public class ChildCat : NonPlayableCharacter
         }
     }
 
-    // Helper methods to encapsulate response/quest logic for readability.
-    // Replace comment blocks with actual implementation (dialogue/quest assignment).
-
-    void GiveQuest(bool positive)
+    private void ExecuteDialogue(string name)
     {
-        if (positive)
-        {
-            // Give positive quest
-        }
-        else
-        {
-            // Give negative quest
-        }
+        string qual = positiveInteraction ? "Pos" : "Neg";
+        conversation.Execute(string.Format("ChildCat/Convo{0}{1}", name, qual));
     }
 
-    void GiveSameDayResponse(bool positive)
+    public void setInteraction (bool interaction)
     {
-        if (positive)
-        {
-            // Give positive response
-        }
-        else
-        {
-            // Give negative response
-        }
+        hasInteracted = true;
+        positiveInteraction = interaction;
     }
 
-    void GiveCompletedQuestResponse()
-    {
-        // Give completed quest response
-    }
 
     void GiveInitialQuestResponse()
     {
-        // Give initial quest response
+        CoconutWaterQuest coconutWaterQuest = FindFirstObjectByType<CoconutWaterQuest>();
+        ColaQuest colaQuest = FindFirstObjectByType<ColaQuest>();
+
+        if (coconutWaterQuest.isInitiated && coconutWaterQuest.CheckCocounutWater())
+        {
+            questCompleted = true;
+            ExecuteDialogue("QuestEnd");
+        }
+        else if (colaQuest.isInitiated && colaQuest.CheckColas())
+        {
+            questCompleted = true;
+            ExecuteDialogue("QuestEnd");
+        } else
+        {
+            ExecuteDialogue("Quest");
+        }
     }
+
 }
