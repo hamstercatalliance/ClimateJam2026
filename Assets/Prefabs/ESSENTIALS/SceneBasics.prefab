@@ -8853,6 +8853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f10c90d027f4cb4087ac5c4d7ddc666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSound: {fileID: 8300000, guid: 1ca8d0bfe675be24fbd83cd90950d6a8, type: 3}
   grassWalkingSounds:
   - {fileID: 8300000, guid: f1eed754e2ce8ae45b8d4c40b100ff7e, type: 3}
   - {fileID: 8300000, guid: a306b5a75e7c07644af8aa6e3adde238, type: 3}
@@ -8882,6 +8883,7 @@ MonoBehaviour:
   vanityEquippedSound: {fileID: 8300000, guid: 1567f26221c26ed459372a02a29e294f, type: 3}
   boardOpenSound: {fileID: 8300000, guid: bb6bfd448a0251849943087497b4447f, type: 3}
   boardCloseSound: {fileID: 8300000, guid: 1055236537c753e469606ee33b68d6fa, type: 3}
+  endOfDayBellSound: {fileID: 8300000, guid: 6738d7a98db3b654caba7f9cf297548d, type: 3}
 --- !u!1 &2910088026999442539
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,6 +24,8 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
     public bool DataSuccessfullyWritten { get; private set; } = false;
 
     [Header("Sound Effects")]
+    [SerializeField] private AudioClip jumpSound;
+
     [SerializeField] private AudioClip[] grassWalkingSounds;
     [SerializeField] private AudioClip[] stoneWalkingSounds;
     [SerializeField] private AudioClip[] woodWalkingSounds;
@@ -41,12 +43,14 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
     [SerializeField] private AudioClip transactionSound;
     [SerializeField] private AudioClip enterStoreSound;
     [SerializeField] private AudioClip exitStoreSound;
-    
+
     [SerializeField] private AudioClip itemDiscardedSound;
     [SerializeField] private AudioClip vanityEquippedSound;
 
     [SerializeField] private AudioClip boardOpenSound;
     [SerializeField] private AudioClip boardCloseSound;
+
+    [SerializeField] private AudioClip endOfDayBellSound;
     
     void Start()
     {
@@ -68,6 +72,8 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
         VanityManager.Instance.OnVanityItemChanged += VanityManager_OnVanityItemChanged;
         BoardManager.Instance.OnBoardOpened += BoardManager_OnBoardOpened;
         BoardManager.Instance.OnBoardClosed += BoardManager_OnBoardClosed;
+        DayEndCountdown.OnCountdownStarted += DayEndCountdown_OnCountdownStarted;
+        Player.Instance.OnPlayerJump += Player_OnPlayerJump;
     }
     private void OnDestroy()
     {
@@ -86,8 +92,18 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
         VanityManager.Instance.OnVanityItemChanged -= VanityManager_OnVanityItemChanged;
         BoardManager.Instance.OnBoardOpened -= BoardManager_OnBoardOpened;
         BoardManager.Instance.OnBoardClosed -= BoardManager_OnBoardClosed;
+        DayEndCountdown.OnCountdownStarted -= DayEndCountdown_OnCountdownStarted;
+        Player.Instance.OnPlayerJump -= Player_OnPlayerJump;
     }
     #region Event Handlers
+    private void Player_OnPlayerJump(object sender, EventArgs e)
+    {
+        PlaySound(jumpSound, Player.Instance.transform.position);
+    }
+    private void DayEndCountdown_OnCountdownStarted(object sender, EventArgs e)
+    {
+        audioSource.PlayOneShot(endOfDayBellSound, audioSource.volume);
+    }
     private void BoardManager_OnBoardOpened(object sender, EventArgs e)
     {
         audioSource.PlayOneShot(boardOpenSound, audioSource.volume);

@@ -19,7 +19,7 @@ public class Player : MonoBehaviour, IHasPersistentData
         public GameItemSO gameItemSO;
         public GameObject gameItemGameObject;
     }
-
+    public event EventHandler OnPlayerJump;
     public bool IsGrounded {get; private set; }
     private Rigidbody rb;
     private Vector3 lastMoveDir;
@@ -69,6 +69,7 @@ public class Player : MonoBehaviour, IHasPersistentData
         {
             IsGrounded = false;
             rb.AddForce(Vector3.up * jumpHeight, ForceMode.VelocityChange);
+            OnPlayerJump?.Invoke(this, EventArgs.Empty);
         }
     }
 

@@ -9,6 +9,9 @@ public class DayEndCountdown : MonoBehaviour, IHasPersistentData
     public bool DataSuccessfullyWritten { get; private set; }
     private float timeElapsed = 0f;
     private bool isCountingDown = false;
+
+    public static event EventHandler OnCountdownStarted;
+
     private void Start()
     {
         LoadGameData();
@@ -22,6 +25,7 @@ public class DayEndCountdown : MonoBehaviour, IHasPersistentData
     private void OnFourSecondsLeftInDayHandler(object sender, EventArgs e)
     {
         countdownText.text = "It's almost bedtime!";
+        OnCountdownStarted?.Invoke(this, EventArgs.Empty);
         StartCoroutine(Timer());
     }
     private void OnDestroy()

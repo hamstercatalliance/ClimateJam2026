@@ -6920,13 +6920,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7354116474864284672, guid: 695b4edda38f7bb438408a47b41cfa47,
         type: 3}
+      propertyPath: playerSpawnPosition.x
+      value: 17.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354116474864284672, guid: 695b4edda38f7bb438408a47b41cfa47,
+        type: 3}
       propertyPath: playerSpawnPosition.y
       value: -16
       objectReference: {fileID: 0}
     - target: {fileID: 7354116474864284672, guid: 695b4edda38f7bb438408a47b41cfa47,
         type: 3}
       propertyPath: playerSpawnPosition.z
-      value: 30
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7795,7 +7800,12 @@ PrefabInstance:
     - target: {fileID: 4433088578510415125, guid: 586794b438a4c704b8fbe60afdad3db4,
         type: 3}
       propertyPath: m_Name
-      value: GrocerMerchant
+      value: GrocerMerchantStore
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433088578510415125, guid: 586794b438a4c704b8fbe60afdad3db4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4583523325549204244, guid: 586794b438a4c704b8fbe60afdad3db4,
         type: 3}
@@ -38433,7 +38443,7 @@ GameObject:
   - component: {fileID: 707071511}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71297,6 +71307,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5898653232141146909, guid: bf0d3f38d9d905441812d5959ed5a83e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 462331440430981708, guid: bf0d3f38d9d905441812d5959ed5a83e,
         type: 3}
