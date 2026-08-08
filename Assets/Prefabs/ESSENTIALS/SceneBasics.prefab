@@ -7224,6 +7224,54 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &2552057458279758190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5607110944960100842}
+  - component: {fileID: 3225940028588549730}
+  m_Layer: 0
+  m_Name: CoconutWaterQuest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5607110944960100842
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2552057458279758190}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 111915189996715378}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3225940028588549730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2552057458279758190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18af2c515df13a84da0f9896de5818c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questSO: {fileID: 11400000, guid: e66c1025eb3c3a549aee8d3d6af6949a, type: 2}
+  isInitiated: 0
+  isCompleted: 0
+  CoconutWater: {fileID: 11400000, guid: a14dd9d248f4a744fa06cc56837f1306, type: 2}
 --- !u!1 &2575538370811011762
 GameObject:
   m_ObjectHideFlags: 0
@@ -12086,6 +12134,7 @@ Transform:
   - {fileID: 7363126441280026021}
   - {fileID: 6362930992034558131}
   - {fileID: 1095622796579672173}
+  - {fileID: 5299915897214100168}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4097736995504517009
@@ -20571,6 +20620,99 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bef0f3cad7a25b24bbcb290e88893109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &8046900813163271410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2022224078222876640}
+  - component: {fileID: 3691584987472422893}
+  m_Layer: 0
+  m_Name: ColaQuest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2022224078222876640
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8046900813163271410}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 111915189996715378}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3691584987472422893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8046900813163271410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7010ae23565aab409841086fa0580a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questSO: {fileID: 11400000, guid: cd0a579ef3c78d0408760b39a062f677, type: 2}
+  isInitiated: 0
+  isCompleted: 0
+  ColaSO: {fileID: 11400000, guid: 83f96fefcd161be4487710ff9f036fff, type: 2}
+--- !u!1 &8072836346910690400
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5299915897214100168}
+  - component: {fileID: 1986326438026120193}
+  m_Layer: 0
+  m_Name: SympathyPointsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5299915897214100168
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8072836346910690400}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7789248478945971772}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1986326438026120193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8072836346910690400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7efbbd1147674d34186195a7876aa89a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goodEndingThreshold: 1250
 --- !u!1 &8102902212628806925
 GameObject:
   m_ObjectHideFlags: 0
@@ -24438,7 +24580,15 @@ PrefabInstance:
         type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3603415796143957246, guid: 30357b98b3663bc4aa05c528d9bf0b4d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2022224078222876640}
+    - targetCorrespondingSourceObject: {fileID: 3603415796143957246, guid: 30357b98b3663bc4aa05c528d9bf0b4d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5607110944960100842}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30357b98b3663bc4aa05c528d9bf0b4d, type: 3}
 --- !u!4 &111915189996715378 stripped

@@ -16,7 +16,7 @@ MonoBehaviour:
   inventorySprite: {fileID: 0}
   itemName: FIsh Bait
   itemID: item.bait
-  itemDescription: 'Attracts fish when on fishing hook. '
+  itemDescription: It's fish bait
   sourceLink: 
   cost: 75
   isVanityItem: 0
