@@ -5,14 +5,13 @@
             "name": "start",
             "dialogue": [
                 {
-                    "dialogue": "Go to sleep and end the day early?",
+                    "dialogue": "Shake tree?",
                     "buttons": [
                         {
-                            "id": "EndDayEarly",
+                            "id": "shakeTree_confirm",
                             "text": "Yes"
                         },
                         {
-                            "id": "EndDayEarlyNegative",
                             "text": "No" 
                         }
                     ]

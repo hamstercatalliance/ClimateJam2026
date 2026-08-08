@@ -15,8 +15,8 @@ MonoBehaviour:
   worldSpacePrefab: {fileID: 0}
   inventorySprite: {fileID: 21300000, guid: 249bd0fc87ee2a24da86ae790cf5edd1, type: 3}
   itemName: CompanyCola
-  itemID: quest.cola
-  itemDescription: The most popular in TownTopia.
+  itemID: item.cola
+  itemDescription: They say that one sip gives you twenty cavities.
   sourceLink: 
   cost: 75
   isVanityItem: 0

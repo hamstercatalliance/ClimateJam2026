@@ -1,15 +1,36 @@
 //csharp Assets\NPC\ChildCat\ChildCat.cs
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChildCat : NonPlayableCharacter
+public class ChildCat : NonPlayableCharacter, IHasPersistentData
 {
     public bool questCompleted;
     public bool questStarted;
     public bool hasInteracted;
     public bool positiveInteraction;
     private int dayInteracted;
+
+    [SerializeField] private CoconutWaterQuest coconutWaterQuest;
+    [SerializeField] private ColaQuest colaQuest;
+
+    protected override void Init()
+    {
+        LoadGameData();
+        SceneLoader.OnSceneTransition += OnSceneTransitionHandler;
+    }
+    private void OnDestroy()
+    {
+        SceneLoader.OnSceneTransition -= OnSceneTransitionHandler;
+    }
+    private void OnSceneTransitionHandler(object sender, EventArgs e)
+    {
+        WriteToGameData();
+    }
+
+
+    public bool DataSuccessfullyWritten { get; private set; }
 
     protected override void OnTalk()
     {
@@ -62,9 +83,7 @@ public class ChildCat : NonPlayableCharacter
 
     void GiveInitialQuestResponse()
     {
-        CoconutWaterQuest coconutWaterQuest = FindFirstObjectByType<CoconutWaterQuest>();
-        ColaQuest colaQuest = FindFirstObjectByType<ColaQuest>();
-
+        Debug.Log("Coconute water quest initiated: " + coconutWaterQuest.isInitiated);
         if (coconutWaterQuest.isInitiated && coconutWaterQuest.CheckCocounutWater())
         {
             questCompleted = true;
@@ -80,4 +99,22 @@ public class ChildCat : NonPlayableCharacter
         }
     }
 
+    public void WriteToGameData()
+    {
+        GameData.Instance.ChildCatQuestCompleted = questCompleted;
+        GameData.Instance.ChildCatQuestStarted = questStarted;
+        GameData.Instance.ChildCatHasInteracted = hasInteracted;
+        GameData.Instance.ChildCatPositiveInteraction = positiveInteraction;
+        GameData.Instance.ChildCatDayInteracted = dayInteracted;
+        DataSuccessfullyWritten = true;
+    }
+
+    public void LoadGameData()
+    {
+        questCompleted = GameData.Instance.ChildCatQuestCompleted;
+        questStarted = GameData.Instance.ChildCatQuestStarted;
+        hasInteracted = GameData.Instance.ChildCatHasInteracted;
+        positiveInteraction = GameData.Instance.ChildCatPositiveInteraction;
+        dayInteracted = GameData.Instance.ChildCatDayInteracted;
+    }
 }

@@ -11,8 +11,10 @@ public class CoconutWaterQuest : Quest
         int items = InventoryManager.Instance.GetItemCount(CoconutWater);
         if (1 <= items)
         {
+            Debug.Log("CoconutWaterQuest: Coconut count sufficient");
             return true;
         }
+        Debug.Log("CoconutWaterQuest: Coconut count insufficient");
         return false;
     }
 }

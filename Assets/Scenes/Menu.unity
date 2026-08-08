@@ -647,6 +647,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7d70e7e980abf2a49a3f9c410a463177, type: 2}
   - {fileID: 11400000, guid: 09f5be06fa78c934097a17132d440311, type: 2}
   - {fileID: 11400000, guid: 4758b6826a7c8fb4fa3ae6f4acb68a05, type: 2}
+  - {fileID: 11400000, guid: a14dd9d248f4a744fa06cc56837f1306, type: 2}
+  - {fileID: 11400000, guid: 83f96fefcd161be4487710ff9f036fff, type: 2}
+  - {fileID: 11400000, guid: 4676052725207c54082e60d86f7e53ba, type: 2}
+  - {fileID: 11400000, guid: 9bfedba9e66819f4283106d68ad5ffab, type: 2}
+  - {fileID: 11400000, guid: cd0a579ef3c78d0408760b39a062f677, type: 2}
+  - {fileID: 11400000, guid: e66c1025eb3c3a549aee8d3d6af6949a, type: 2}
 --- !u!4 &281419490
 Transform:
   m_ObjectHideFlags: 0
@@ -1449,6 +1455,11 @@ MonoBehaviour:
   SoundVolume: 0
   MusicVolume: 0
   CollectedPickupIDs: []
+  ChildCatQuestCompleted: 0
+  ChildCatQuestStarted: 0
+  ChildCatHasInteracted: 0
+  ChildCatPositiveInteraction: 0
+  ChildCatDayInteracted: 0
 --- !u!4 &1257792996
 Transform:
   m_ObjectHideFlags: 0
