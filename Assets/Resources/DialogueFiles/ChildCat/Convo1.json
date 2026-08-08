@@ -15,7 +15,7 @@
                         {
                             "text": "Your friend is right",
                             "id": "addPoints",
-                            "pointsAdded": "200",
+                            "pointsAdded": 200,
                             "path": "positive"
                         }, 
                         {

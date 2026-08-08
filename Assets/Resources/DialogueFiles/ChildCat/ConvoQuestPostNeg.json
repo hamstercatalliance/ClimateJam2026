@@ -1,0 +1,14 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "characterID": "childCat",
+                    "dialogue": "Coconut water is so much much better than CompanyCola!"
+                }
+            ]
+        }
+    ]
+}
