@@ -7,7 +7,7 @@ using UnityEngine;
 public class InteractableSO : ScriptableObject
 {
 
-    public float interactionRadius = 2.0f;
+    public float interactionRadius = 3.0f;
     public string interactableName;
     public string interactableId;
 
