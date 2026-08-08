@@ -7084,7 +7084,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2505652064120635707}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 7cb5d32236d23254286b095a3b83ef41, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: d269b7b88b6ffbc4894934f1e82e857c, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 3509008417926630629}
@@ -10443,7 +10443,7 @@ Transform:
   m_GameObject: {fileID: 3533825320599333548}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3, y: 0.51432735, z: 0}
+  m_LocalPosition: {x: 0, y: 0.51432735, z: 0}
   m_LocalScale: {x: 1.5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14464,6 +14464,7 @@ GameObject:
   - component: {fileID: 1192735997557879414}
   - component: {fileID: 896028971408742589}
   - component: {fileID: 4633604537755474315}
+  - component: {fileID: 979036969021287475}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -14593,6 +14594,18 @@ PlayableDirector:
     value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &979036969021287475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5330884795642023806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c47e88f5c87ac340ba38d15178b4819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5339504274182731337
 GameObject:
   m_ObjectHideFlags: 0

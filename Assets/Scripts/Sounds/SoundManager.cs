@@ -74,6 +74,7 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
         BoardManager.Instance.OnBoardClosed += BoardManager_OnBoardClosed;
         DayEndCountdown.OnCountdownStarted += DayEndCountdown_OnCountdownStarted;
         Player.Instance.OnPlayerJump += Player_OnPlayerJump;
+        DialogueRenderer.OnDialogueProceed += DialogueRenderer_OnDialogueProceed;
     }
     private void OnDestroy()
     {
@@ -94,8 +95,20 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
         BoardManager.Instance.OnBoardClosed -= BoardManager_OnBoardClosed;
         DayEndCountdown.OnCountdownStarted -= DayEndCountdown_OnCountdownStarted;
         Player.Instance.OnPlayerJump -= Player_OnPlayerJump;
+        DialogueRenderer.OnDialogueProceed -= DialogueRenderer_OnDialogueProceed;
+    }
+    public void PlayFootstepsSound(Vector3 position)
+    {
+        AudioClip[] footstepSounds = null;
+        // Determine the surface type 
+
+        PlaySound(stoneWalkingSounds, position); //for now, just play grass walking sounds
     }
     #region Event Handlers
+    private void DialogueRenderer_OnDialogueProceed(object sender, EventArgs e)
+    {
+        audioSource.PlayOneShot(clickSound, audioSource.volume);
+    }
     private void Player_OnPlayerJump(object sender, EventArgs e)
     {
         PlaySound(jumpSound, Player.Instance.transform.position);
@@ -197,6 +210,10 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
     private void PlaySound(AudioClip[] audioClipArray, Vector3 position, float volume = 1f)
     {
         PlaySound(audioClipArray[UnityEngine.Random.Range(0, audioClipArray.Length)], position, volume);
+    }
+    private void PlaySound(AudioClip[] audioClipArray, float volume = 1f)
+    {
+        audioSource.PlayOneShot(audioClipArray[UnityEngine.Random.Range(0, audioClipArray.Length)], volume);
     }
     #endregion
 

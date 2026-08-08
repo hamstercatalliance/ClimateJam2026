@@ -30,6 +30,7 @@ public class AddPointsDialogueSignal : DialogueSignal
 
 public class DialogueRenderer : MonoBehaviour
 {
+    public static event EventHandler OnDialogueProceed;
     //GameObject box;
     GameInput gameInput;
     //public EventHandler buttonPress { get; private set; }
@@ -102,11 +103,12 @@ public class DialogueRenderer : MonoBehaviour
                 });
             }
         }
-        else { 
+        else 
+        { 
             optionsContainer.gameObject.SetActive(false);
         }
 
-            yield return new WaitForSecondsRealtime(0.1f); // Wait for 0.1 seconds to ensure the dialogue box is rendered before proceeding
+        yield return new WaitForSecondsRealtime(0.1f); // Wait for 0.1 seconds to ensure the dialogue box is rendered before proceeding
         gameInput.OnInteractAction += (sender, e) => {
             if (dialogueObject.active )
             {
@@ -141,6 +143,7 @@ public class DialogueRenderer : MonoBehaviour
 
     private IEnumerator endDialogue(DialogueBox dialogue, GameObject dialoguePanel) {
         yield return new WaitForSecondsRealtime(0.1f); // Wait for 0.1 seconds to ensure the dialogue box is rendered before proceeding
+        OnDialogueProceed?.Invoke(this, EventArgs.Empty);
         dialogue.setInactive();
         //Debug.Log("DialogueRenderer: Ending dialogue box for character " + dialogue.getCharacterID() + " with content: " + dialogue.getContent());
         //if (dialogue.lastBox)

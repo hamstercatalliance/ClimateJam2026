@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &1436299614352920622
+--- !u!1001 &5873756977921639331
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 242365158533933015, guid: 29227e2f5d0b57243abbcb18f6174d2e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 242365158533933015, guid: 29227e2f5d0b57243abbcb18f6174d2e,
         type: 3}
@@ -21,7 +21,7 @@ PrefabInstance:
     - target: {fileID: 242365158533933015, guid: 29227e2f5d0b57243abbcb18f6174d2e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.58
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 242365158533933015, guid: 29227e2f5d0b57243abbcb18f6174d2e,
         type: 3}
@@ -61,60 +61,16 @@ PrefabInstance:
     - target: {fileID: 2562915203420003986, guid: 29227e2f5d0b57243abbcb18f6174d2e,
         type: 3}
       propertyPath: m_Name
-      value: MiddleAgeHamster
+      value: Grocer
       objectReference: {fileID: 0}
     - target: {fileID: 6284319412425006996, guid: 29227e2f5d0b57243abbcb18f6174d2e,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1026387148, guid: 3148715067f2fba498defb1834d23e72,
+      objectReference: {fileID: -2070477239, guid: 3148715067f2fba498defb1834d23e72,
         type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2562915203420003986, guid: 29227e2f5d0b57243abbcb18f6174d2e,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4099487968401703968}
-    - targetCorrespondingSourceObject: {fileID: 2562915203420003986, guid: 29227e2f5d0b57243abbcb18f6174d2e,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1491397320272810404}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29227e2f5d0b57243abbcb18f6174d2e, type: 3}
---- !u!1 &3494669271139962556 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2562915203420003986, guid: 29227e2f5d0b57243abbcb18f6174d2e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1436299614352920622}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4099487968401703968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3494669271139962556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aaf2d338f86f1894fa5b859f0e1d0608, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scriptableInteractable: {fileID: 11400000, guid: 5870e97a4056891469652e936a75b7a6,
-    type: 2}
-  gameInput: {fileID: 0}
-  spawnPoints:
-  - {x: 28.1, y: -8.93, z: -28.96}
-  isFacingRight: 01
---- !u!114 &1491397320272810404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3494669271139962556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 349d06c4f13cb224a84e52da4307e949, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
