@@ -119,4 +119,9 @@ public class DayManagerUI : MonoBehaviour//, IHasPersistentData
             img.color = c;
         }
     }
+    public void HideAll()
+    {
+        //disable this gameobject
+        gameObject.SetActive(false);
+    }
 }

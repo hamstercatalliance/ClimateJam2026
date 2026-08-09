@@ -6,6 +6,10 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
 {
     //this will eventully be used to play SFX and adjust SFX volume
     private AudioSource audioSource;
+    public AudioSource GetAudioSource()
+    {
+        return audioSource;
+    }
     public event EventHandler<VolumeChangedEventArgs> OnVolumeChanged;
     public class VolumeChangedEventArgs : EventArgs
     {
