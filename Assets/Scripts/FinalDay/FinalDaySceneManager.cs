@@ -12,8 +12,8 @@ public class FinalDaySceneManager : SpatialSFX //MADE FOR DOWNTOWN
     [SerializeField] private GameObject constructionSite;
     [SerializeField] private GameObject exitPortal;
 
-    [SerializeField] private GameObject blackScreen;
-    private float fadeDuration = 2f;
+    // [SerializeField] private GameObject blackScreen;
+    // private float fadeDuration = 2f;
 
     public static FinalDaySceneManager Instance { get; private set; }
     protected override void Awake()

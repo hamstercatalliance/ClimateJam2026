@@ -28,8 +28,7 @@ public abstract class InteractableObject : MonoBehaviour
         conversation = FindFirstObjectByType<Conversation>();
         name = scriptableInteractable.interactableName;
         id = scriptableInteractable.interactableId;
-        gameInput = FindFirstObjectByType<GameInput>();
-        
+        gameInput = FindObjectOfType<GameInput>();
         //player = FindFirstObjectByType<Player>();
         Init();
     }

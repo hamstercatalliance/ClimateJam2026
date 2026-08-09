@@ -6,6 +6,6 @@ public class Grocer : NonPlayableCharacter
 {
     protected override void OnTalk()
     {
-        throw new System.NotImplementedException();
+        
     }
 }

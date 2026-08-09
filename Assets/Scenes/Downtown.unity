@@ -7654,6 +7654,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EvilGenius
       objectReference: {fileID: 0}
+    - target: {fileID: 4844863390403233683, guid: e7342a2cc61a76a4fb2a699b5bfb64e7,
+        type: 3}
+      propertyPath: gameInput
+      value: 
+      objectReference: {fileID: 287716882}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9534,6 +9539,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee743d366a1d15f4280fcc33f72891e5, type: 3}
+--- !u!114 &287716882 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2428035754577097061, guid: 221645e9bd166d648b1ab79e4237004b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1271122521}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4939b81e2f4023d409534aabcb44e397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &289407735 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cd88173da04aaf3408ca75ecc525a0a5,
@@ -22571,6 +22588,11 @@ PrefabInstance:
       propertyPath: store
       value: 
       objectReference: {fileID: 1853349442}
+    - target: {fileID: 4897557237652489192, guid: a7ca191eb209f714c9be16bf95550716,
+        type: 3}
+      propertyPath: gameInput
+      value: 
+      objectReference: {fileID: 287716882}
     - target: {fileID: 4897557237652489192, guid: a7ca191eb209f714c9be16bf95550716,
         type: 3}
       propertyPath: isFacingRight.Array.data[3]
@@ -41397,6 +41419,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 457572381}
     m_Modifications:
+    - target: {fileID: 542844881656655514, guid: ecc445911fbf9af4f9f034ac0a9d23e4,
+        type: 3}
+      propertyPath: gameInput
+      value: 
+      objectReference: {fileID: 287716882}
     - target: {fileID: 1513493795603299490, guid: ecc445911fbf9af4f9f034ac0a9d23e4,
         type: 3}
       propertyPath: m_Name
@@ -53297,6 +53324,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 457572381}
     m_Modifications:
+    - target: {fileID: 116948388128609893, guid: ef36c4f34cc3d3246b394d1aa892a1de,
+        type: 3}
+      propertyPath: gameInput
+      value: 
+      objectReference: {fileID: 287716882}
     - target: {fileID: 6138921304936774210, guid: ef36c4f34cc3d3246b394d1aa892a1de,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -54183,6 +54215,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hamsphere
       objectReference: {fileID: 0}
+    - target: {fileID: 5224459088107845847, guid: 621c6a07d547e8743889c7cff65a12d6,
+        type: 3}
+      propertyPath: gameInput
+      value: 
+      objectReference: {fileID: 287716882}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -69127,7 +69164,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptableInteractable: {fileID: 11400000, guid: 74d39f7257ccac746ae3cc422de361e6,
     type: 2}
-  gameInput: {fileID: 0}
   jobBoard: {fileID: 0}
 --- !u!1 &1687153205
 GameObject:
@@ -78157,6 +78193,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 457572381}
     m_Modifications:
+    - target: {fileID: 365698176101825485, guid: 3f72453688749384cb377987156a965c,
+        type: 3}
+      propertyPath: gameInput
+      value: 
+      objectReference: {fileID: 287716882}
     - target: {fileID: 5971433399911801972, guid: 3f72453688749384cb377987156a965c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -81544,6 +81585,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleAgeHamster
       objectReference: {fileID: 0}
+    - target: {fileID: 4099487968401703968, guid: 686fb60a3552d674f978fc3793465aac,
+        type: 3}
+      propertyPath: gameInput
+      value: 
+      objectReference: {fileID: 287716882}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -6,6 +6,6 @@ public class Hamsphere : NonPlayableCharacter
 {
     protected override void OnTalk()
     {
-        throw new System.NotImplementedException();
+        
     }
 }

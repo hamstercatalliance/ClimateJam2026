@@ -6,7 +6,7 @@ public class GrocerSignalHandler : DialogueSignalHandler
 {
     protected override void HandleDialogueSignal(object sender, EventArgs e)
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
     
 }
