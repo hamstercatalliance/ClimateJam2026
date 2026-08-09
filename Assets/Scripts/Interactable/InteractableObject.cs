@@ -11,7 +11,7 @@ public abstract class InteractableObject : MonoBehaviour
     [SerializeField] public InteractableSO scriptableInteractable;
     //public virtual InteractableSO ScriptableInteractableProperty { get { return scriptableInteractable; } set { scriptableInteractable = value; } }
 
-    [SerializeField] private GameInput gameInput;
+    private GameInput gameInput;
 
     protected Conversation conversation;
 
@@ -28,6 +28,7 @@ public abstract class InteractableObject : MonoBehaviour
         conversation = FindFirstObjectByType<Conversation>();
         name = scriptableInteractable.interactableName;
         id = scriptableInteractable.interactableId;
+        gameInput = FindFirstObjectByType<GameInput>();
         
         //player = FindFirstObjectByType<Player>();
         Init();

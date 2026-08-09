@@ -34,6 +34,11 @@ public abstract class NonPlayableCharacter : InteractableObject
             else
             {
                 Debug.Log("Using spawn point for day " + curDay + ": " + spawnPoints[curDay]);
+                if (FinalDayEndingManager.Instance.IsFinalDay() && !SympathyPointsManager.Instance.HasReachedGoodEndingThreshold())
+                {
+                    //dont move the NPC if its the bad end day
+                    return;
+                }
                 transform.localPosition = spawnPoints[curDay];
             }
         }
