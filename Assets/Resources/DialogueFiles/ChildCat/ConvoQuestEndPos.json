@@ -12,7 +12,7 @@
                 {
                     "characterID": "childCat",
                     "dialogue": "This is so much better than CompanyCola! I'm going to tell all my friends how good coconut water is!",
-                    "signal": "colaQuest_end"
+                    "signal": "coconutWaterQuest_end"
                 }
             ]
         }

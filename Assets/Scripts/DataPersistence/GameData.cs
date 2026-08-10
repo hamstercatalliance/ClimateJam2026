@@ -70,6 +70,12 @@ public class GameData : MonoBehaviour
     public bool ChildCatPositiveInteraction;
     public int ChildCatDayInteracted;
     #endregion
+    #region MiddleAgeHamster
+    public bool MiddleAgeHamsterPositiveInteraction;
+    public bool MiddleAgeHamsterHasInteracted;
+    #endregion
+    #region Child Hamster
+
     #endregion
     [Serializable]
     public class SaveData
@@ -97,6 +103,8 @@ public class GameData : MonoBehaviour
         public bool ChildCatHasInteracted;
         public bool ChildCatPositiveInteraction;
         public int ChildCatDayInteracted;
+        public bool MiddleAgeHamsterPositiveInteraction;
+        public bool MiddleAgeHamsterHasInteracted;
     }
     public SaveData GetSaveData()
     {
@@ -122,6 +130,8 @@ public class GameData : MonoBehaviour
         saveData.ChildCatHasInteracted = ChildCatHasInteracted;
         saveData.ChildCatPositiveInteraction = ChildCatPositiveInteraction;
         saveData.ChildCatDayInteracted = ChildCatDayInteracted;
+        saveData.MiddleAgeHamsterPositiveInteraction = MiddleAgeHamsterPositiveInteraction;
+        saveData.MiddleAgeHamsterHasInteracted = MiddleAgeHamsterHasInteracted;
         return saveData;
     }
     private void SetSaveData(SaveData data)
@@ -147,6 +157,8 @@ public class GameData : MonoBehaviour
         ChildCatHasInteracted = data.ChildCatHasInteracted;
         ChildCatPositiveInteraction = data.ChildCatPositiveInteraction;
         ChildCatDayInteracted = data.ChildCatDayInteracted;
+        MiddleAgeHamsterPositiveInteraction = data.MiddleAgeHamsterPositiveInteraction;
+        MiddleAgeHamsterHasInteracted = data.MiddleAgeHamsterHasInteracted;
     }
     public void LoadFromSaveData(SaveData data)
     {
@@ -177,6 +189,8 @@ public class GameData : MonoBehaviour
         ChildCatHasInteracted = false;
         ChildCatPositiveInteraction = false;
         ChildCatDayInteracted = 0;
+        MiddleAgeHamsterPositiveInteraction = false;
+        MiddleAgeHamsterHasInteracted = false;
     }
 
 

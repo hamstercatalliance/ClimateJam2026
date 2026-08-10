@@ -10,6 +10,9 @@ public class PalmTreeHandler : DialogueSignalHandler
     protected override void HandleDialogueSignal(object sender, EventArgs e)
     {
         DialogueSignal dialogueSignal = e as DialogueSignal;
-        Instantiate(coconut, coconutSpawn.position, Quaternion.identity);
+        if (dialogueSignal.signal == "shakeTree_confirm")
+        {
+            Instantiate(coconut, coconutSpawn.position, Quaternion.identity);
+        }
     }
 }
