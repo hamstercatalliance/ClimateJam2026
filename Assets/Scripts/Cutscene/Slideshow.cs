@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using System;
 public abstract class Slideshow : MonoBehaviour, IPointerClickHandler
 {
+    public static event EventHandler OnProceed;
     [SerializeField] private GameInput gameInput;
     
     [SerializeField] protected GameObject slideshow;
@@ -94,6 +95,7 @@ public abstract class Slideshow : MonoBehaviour, IPointerClickHandler
         if (currentTextIndex < slideTexts.Length)
         {
             ShowNextText();
+            OnProceed?.Invoke(this, EventArgs.Empty);
         }
     }
     protected virtual void OnTextFinished() {}

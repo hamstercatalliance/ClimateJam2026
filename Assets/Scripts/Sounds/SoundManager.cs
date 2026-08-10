@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+[RequireComponent(typeof(AudioSource))]
 public class SoundManager : MonoBehaviour, IHasPersistentData
 {
     //this will eventully be used to play SFX and adjust SFX volume
@@ -24,6 +25,7 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
             return;
         }
         Instance = this;
+        audioSource = GetComponent<AudioSource>();
     }
     public bool DataSuccessfullyWritten { get; private set; } = false;
 
@@ -55,10 +57,12 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
     [SerializeField] private AudioClip boardCloseSound;
 
     [SerializeField] private AudioClip endOfDayBellSound;
+
+    private float footstepsVolumeMultiplier = 0.1f;
+    private float jumpVolumeMultiplier = 0.4f;
     
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         SceneLoader.OnSceneTransition += OnSceneTransitionHandler;
         LoadGameData();
 
@@ -101,7 +105,7 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
         Player.Instance.OnPlayerJump -= Player_OnPlayerJump;
         DialogueRenderer.OnDialogueProceed -= DialogueRenderer_OnDialogueProceed;
     }
-    public void PlayFootstepsSound(Vector3 position, PlayerSounds.SurfaceType surfaceType = PlayerSounds.SurfaceType.Stone)
+    public void PlayFootstepsSound(PlayerSounds.SurfaceType surfaceType = PlayerSounds.SurfaceType.Stone)
     {
         AudioClip[] footstepSounds = null;
         switch (surfaceType)
@@ -122,7 +126,7 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
                 footstepSounds = stoneWalkingSounds; // Default
                 break;
         }
-        PlaySound(footstepSounds, position); 
+            PlaySound(footstepSounds, audioSource.volume * footstepsVolumeMultiplier); 
     }
     #region Event Handlers
     private void DialogueRenderer_OnDialogueProceed(object sender, EventArgs e)
@@ -131,7 +135,7 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
     }
     private void Player_OnPlayerJump(object sender, EventArgs e)
     {
-        PlaySound(jumpSound, Player.Instance.transform.position);
+        audioSource.PlayOneShot(jumpSound, audioSource.volume * jumpVolumeMultiplier);
     }
     private void DayEndCountdown_OnCountdownStarted(object sender, EventArgs e)
     {
@@ -227,9 +231,9 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
     {
         AudioSource.PlayClipAtPoint(audioClip, position, volume);
     }
-    private void PlaySound(AudioClip[] audioClipArray, Vector3 position, float volume = 1f)
+    private void PlaySound(AudioClip[] audioClipArray)
     {
-        PlaySound(audioClipArray[UnityEngine.Random.Range(0, audioClipArray.Length)], position, volume);
+        audioSource.PlayOneShot(audioClipArray[UnityEngine.Random.Range(0, audioClipArray.Length)]);
     }
     private void PlaySound(AudioClip[] audioClipArray, float volume = 1f)
     {

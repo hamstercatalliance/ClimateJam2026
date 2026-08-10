@@ -63,6 +63,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hamsphere
       objectReference: {fileID: 0}
+    - target: {fileID: 4493822974740682925, guid: 29227e2f5d0b57243abbcb18f6174d2e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493822974740682925, guid: 29227e2f5d0b57243abbcb18f6174d2e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493822974740682925, guid: 29227e2f5d0b57243abbcb18f6174d2e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493822974740682925, guid: 29227e2f5d0b57243abbcb18f6174d2e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.75716364
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -100,7 +120,7 @@ MonoBehaviour:
   - {x: 14.5, y: -8.6, z: 4.5}
   - {x: 14.5, y: -8.6, z: 4.5}
   - {x: 14.5, y: -8.6, z: 4.5}
-  - {x: 14.5, y: -8.6, z: 4.5}
+  - {x: -51.95, y: -8.89, z: -44.4}
   isFacingRight: 01010100
 --- !u!114 &9139009146860747195
 MonoBehaviour:

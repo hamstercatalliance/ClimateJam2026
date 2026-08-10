@@ -61,7 +61,7 @@ PrefabInstance:
     - target: {fileID: 2562915203420003986, guid: 29227e2f5d0b57243abbcb18f6174d2e,
         type: 3}
       propertyPath: m_Name
-      value: OldCat Variant
+      value: OldCat
       objectReference: {fileID: 0}
     - target: {fileID: 4493822974740682925, guid: 29227e2f5d0b57243abbcb18f6174d2e,
         type: 3}
@@ -103,6 +103,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptableInteractable: {fileID: 11400000, guid: 3a9d819365069fc40ba3b5cc9bc05efe,
     type: 2}
-  gameInput: {fileID: 0}
+  spawnPoints:
+  - {x: 2.11, y: 1.25, z: 0}
+  - {x: 2.11, y: 1.25, z: 0}
+  - {x: 2.11, y: 1.25, z: 0}
+  - {x: -62.05, y: -8.95, z: -46.45}
+  isFacingRight: 00000001
   conversation1: OldCat/Convo
   conversation2: OldCat/Convo

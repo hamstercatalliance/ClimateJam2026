@@ -153,7 +153,6 @@ public int dayCount { get; private set; } = 0;
     }
     private void Update()
     {
-        Debug.Log(state);
         if (state == State.DayEnded || FinalDayEndingManager.Instance.IsFinalDay())
         {
             return; // frozen-- no more time ticking & no more volume changes until scene reload

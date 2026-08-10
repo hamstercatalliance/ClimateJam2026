@@ -63,6 +63,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChildCat
       objectReference: {fileID: 0}
+    - target: {fileID: 4493822974740682925, guid: 29227e2f5d0b57243abbcb18f6174d2e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493822974740682925, guid: 29227e2f5d0b57243abbcb18f6174d2e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493822974740682925, guid: 29227e2f5d0b57243abbcb18f6174d2e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493822974740682925, guid: 29227e2f5d0b57243abbcb18f6174d2e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.72
+      objectReference: {fileID: 0}
     - target: {fileID: 6284319412425006996, guid: 29227e2f5d0b57243abbcb18f6174d2e,
         type: 3}
       propertyPath: m_Sprite
@@ -102,11 +122,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptableInteractable: {fileID: 11400000, guid: 7ee2f3472acfc324e8f950ae878f4b06,
     type: 2}
-  gameInput: {fileID: 0}
+  spawnPoints:
+  - {x: 4.12, y: 1.17, z: 17.43}
+  - {x: 4.12, y: 1.17, z: 17.43}
+  - {x: 4.12, y: 1.17, z: 17.43}
+  - {x: 4.12, y: 1.17, z: 17.43}
+  isFacingRight: 01000100
   questCompleted: 0
   questStarted: 0
   hasInteracted: 0
   positiveInteraction: 0
+  coconutWaterQuest: {fileID: 0}
+  colaQuest: {fileID: 0}
 --- !u!114 &9197538907218526409
 MonoBehaviour:
   m_ObjectHideFlags: 0

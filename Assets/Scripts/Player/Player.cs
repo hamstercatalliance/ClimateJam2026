@@ -109,8 +109,6 @@ public class Player : MonoBehaviour, IHasPersistentData
 
     public void OnTriggerEnter(Collider other)
     {
-        //IN THE UFTURE ITEMS WONT BE PICKED UP UPON TOUCH
-        //THE PLAYER WILL COLLIDE AND HIT A BUTTON TO PICK UP THE ITEM
         if (other.gameObject.CompareTag("Item"))
         {
             GameItem gameItem = other.GetComponent<GameItem>();
@@ -126,6 +124,10 @@ public class Player : MonoBehaviour, IHasPersistentData
             {
                 sceneLoaderGameObject = other.gameObject
             });
+        }
+        if (other.gameObject.CompareTag("EndGameTrigger"))
+        {
+            FinalDaySceneManager.Instance.ShowBlackScreen();
         }
     }
     private void HandleMovement()

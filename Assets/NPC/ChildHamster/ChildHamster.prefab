@@ -102,7 +102,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptableInteractable: {fileID: 11400000, guid: f6063d5dc86fa044d9c9e9282e61d2f2,
     type: 2}
-  gameInput: {fileID: 0}
+  spawnPoints:
+  - {x: -7.49, y: -4.41, z: -24.48}
+  - {x: -7.49, y: -4.41, z: -24.48}
+  - {x: -7.49, y: -4.41, z: -24.48}
+  - {x: -50.18, y: -8.83, z: -46.99}
+  isFacingRight: 00000000
   conversation1: ChildHamster/Convo1
   conversation2: ChildHamster/Convo1
 --- !u!114 &3820793392134827520

@@ -23,7 +23,7 @@ public class GameInput : MonoBehaviour
     }
     private void MenuToggle_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        if (!DialogueBox.dialogueActive || !MerchantStore.merchantStoreOpen || !BoardManager.jobBoardActive)
+        if (!DialogueBox.dialogueActive || !MerchantStore.merchantStoreOpen || !BoardManager.jobBoardActive || !(FinalDaySceneManager.Instance != null && FinalDaySceneManager.Instance.IsFading))
         {
             OnMenuAction?.Invoke(this, EventArgs.Empty);
         }
@@ -55,7 +55,7 @@ public class GameInput : MonoBehaviour
         Vector2 inputVector = playerInputActions.Player.Move.ReadValue<Vector2>();
 
         inputVector = inputVector.normalized;
-        if (DialogueBox.dialogueActive || MerchantStore.merchantStoreOpen || BoardManager.jobBoardActive) {
+        if (DialogueBox.dialogueActive || MerchantStore.merchantStoreOpen || BoardManager.jobBoardActive || (FinalDaySceneManager.Instance != null && FinalDaySceneManager.Instance.IsFading)) {
             return Vector2.zero;
         }
         return inputVector;
