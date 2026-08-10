@@ -63,6 +63,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hamsphere
       objectReference: {fileID: 0}
+    - target: {fileID: 4493822974740682925, guid: 29227e2f5d0b57243abbcb18f6174d2e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493822974740682925, guid: 29227e2f5d0b57243abbcb18f6174d2e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493822974740682925, guid: 29227e2f5d0b57243abbcb18f6174d2e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493822974740682925, guid: 29227e2f5d0b57243abbcb18f6174d2e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.75716364
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -32,7 +32,7 @@ public class PlayerSounds : MonoBehaviour
             footstepTimer = footstepTimerMax;
             if (player.IsWalking && player.IsGrounded)
             {
-                SoundManager.Instance.PlayFootstepsSound(player.transform.position, currentSurfaceType);
+                SoundManager.Instance.PlayFootstepsSound(currentSurfaceType);
             }
         }
     }

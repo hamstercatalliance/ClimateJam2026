@@ -40133,17 +40133,17 @@ PrefabInstance:
     - target: {fileID: 7354116474864284672, guid: 695b4edda38f7bb438408a47b41cfa47,
         type: 3}
       propertyPath: playerSpawnPosition.x
-      value: -9
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 7354116474864284672, guid: 695b4edda38f7bb438408a47b41cfa47,
         type: 3}
       propertyPath: playerSpawnPosition.y
-      value: 1.23
+      value: 1.22
       objectReference: {fileID: 0}
     - target: {fileID: 7354116474864284672, guid: 695b4edda38f7bb438408a47b41cfa47,
         type: 3}
       propertyPath: playerSpawnPosition.z
-      value: -8
+      value: -16.8
       objectReference: {fileID: 0}
     - target: {fileID: 7515880946963687406, guid: 695b4edda38f7bb438408a47b41cfa47,
         type: 3}
@@ -54416,7 +54416,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1151695544
 Transform:
   m_ObjectHideFlags: 0
@@ -57705,6 +57705,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneBasics
       objectReference: {fileID: 0}
+    - target: {fileID: 4117337144765157732, guid: 221645e9bd166d648b1ab79e4237004b,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117337144765157732, guid: 221645e9bd166d648b1ab79e4237004b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117337144765157732, guid: 221645e9bd166d648b1ab79e4237004b,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 209f5126cf16b2a41886d231f468fe05, type: 3}
     - target: {fileID: 4743410435947389253, guid: 221645e9bd166d648b1ab79e4237004b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -71560,7 +71575,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1663112787}
   m_Layer: 0
-  m_Name: FlowerPlantingQuest
+  m_Name: FlowerPlantingPatch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
