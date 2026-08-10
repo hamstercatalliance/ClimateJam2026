@@ -12,6 +12,7 @@ TagManager:
   - Grass
   - Sand
   - Wood
+  - EndGameTrigger
   layers:
   - Default
   - TransparentFX

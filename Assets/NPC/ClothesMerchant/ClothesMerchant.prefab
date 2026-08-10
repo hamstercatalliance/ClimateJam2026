@@ -122,12 +122,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptableInteractable: {fileID: 11400000, guid: 2071cda88dff58246bc92e777b335202,
     type: 2}
-  gameInput: {fileID: 0}
   spawnPoints:
   - {x: 38.51, y: -8.44, z: -41.02}
   - {x: 38.51, y: -8.44, z: -41.02}
   - {x: 38.51, y: -8.44, z: -41.02}
-  isFacingRight: 010101
+  - {x: -55.65, y: -8.83, z: -43.68}
+  isFacingRight: 01010101
   store: {fileID: 0}
 --- !u!114 &6450476718711033520
 MonoBehaviour:

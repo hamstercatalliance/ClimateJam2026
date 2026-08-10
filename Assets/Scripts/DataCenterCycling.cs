@@ -15,7 +15,7 @@ public class DataCenterCycling : MonoBehaviour
         {
             model.SetActive(false);
         }
-        dayCount = DayManager.Instance.dayCount;
+        dayCount = GameData.Instance.DayManagerDayCount;
         DataCenterModels[dayCount].SetActive(true);
     }
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+[RequireComponent(typeof(AudioSource))]
 public class SoundManager : MonoBehaviour, IHasPersistentData
 {
     //this will eventully be used to play SFX and adjust SFX volume
@@ -24,6 +25,7 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
             return;
         }
         Instance = this;
+        audioSource = GetComponent<AudioSource>();
     }
     public bool DataSuccessfullyWritten { get; private set; } = false;
 
@@ -58,7 +60,6 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
     
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         SceneLoader.OnSceneTransition += OnSceneTransitionHandler;
         LoadGameData();
 

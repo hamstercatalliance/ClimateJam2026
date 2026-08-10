@@ -10,10 +10,33 @@ public class AlternativeSoundManager : MonoBehaviour
 
     private string MENU_SCENE = "Menu";
     private string SAVE_SCENE = "SaveScene";
+    private string INTRO_SCENE = "Intro";
+    private string GOOD_END_SCENE = "GoodEnd";
+    private string BAD_END_SCENE = "BadEnd";
+
+    public static AlternativeSoundManager Instance { get; private set; }
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        Slideshow.OnProceed += Slideshow_OnProceed;
+    }
+    private void Slideshow_OnProceed(object sender, EventArgs e)
+    {
+        PlayClickSound();
+    }
+    private void OnDestroy()
+    {
+        Slideshow.OnProceed -= Slideshow_OnProceed;
     }
 
     public void PlayClickSound()
@@ -24,14 +47,14 @@ public class AlternativeSoundManager : MonoBehaviour
             Debug.Log("Playing click sound in menu scene");
             audioSource.PlayOneShot(click, 1f);
         }
-        else if (scene.name == SAVE_SCENE)
+        else if (scene.name == SAVE_SCENE || scene.name == INTRO_SCENE || scene.name == GOOD_END_SCENE || scene.name == BAD_END_SCENE)
         {
             float volume = GameData.Instance.SoundVolume;
             audioSource.PlayOneShot(click, volume);
         }
         else
         {
-            Debug.Log("??");
+            Debug.Log("not supposed to fall through");
         }
     }
 }

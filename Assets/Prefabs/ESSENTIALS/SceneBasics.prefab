@@ -25667,7 +25667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7efbbd1147674d34186195a7876aa89a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goodEndingThreshold: 1250
+  goodEndingThreshold: 50
 --- !u!1 &8102902212628806925
 GameObject:
   m_ObjectHideFlags: 0

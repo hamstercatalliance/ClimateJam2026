@@ -56,7 +56,7 @@ public class InventorySlotUI : SlotUI
     }
     public override void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Mouse over slot");
+        //Debug.Log("Mouse over slot");
         if (item != null)
         {
             icon.transform.localScale = originalScale * hoverScale;
@@ -68,7 +68,7 @@ public class InventorySlotUI : SlotUI
     }
     public override void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("Mouse exited slot");
+        //Debug.Log("Mouse exited slot");
         icon.transform.localScale = originalScale;
         OnSlotHoverExit?.Invoke(this, EventArgs.Empty);
     }
