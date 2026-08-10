@@ -8,16 +8,19 @@ public class DayCountdown : MonoBehaviour
     [SerializeField] private TextMeshProUGUI countdownText;
     [SerializeField] private GameObject countdownPanel;
     private float countdownDuration = 2f;
+    public static DayCountdown Instance { get; private set; }
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
     public float GetCountdownDays()
     {
         return countdownDays;
-    }
-    private void Start()
-    {
-        // if (countdownPanel != null)
-        // {
-        //     countdownPanel.SetActive(false);
-        // }
     }
     public IEnumerator ShowCountdownCoroutine()
     {

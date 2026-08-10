@@ -61,10 +61,56 @@ PrefabInstance:
     - target: {fileID: 2562915203420003986, guid: 29227e2f5d0b57243abbcb18f6174d2e,
         type: 3}
       propertyPath: m_Name
-      value: NPC
+      value: Hamsphere
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2562915203420003986, guid: 29227e2f5d0b57243abbcb18f6174d2e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5224459088107845847}
+    - targetCorrespondingSourceObject: {fileID: 2562915203420003986, guid: 29227e2f5d0b57243abbcb18f6174d2e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9139009146860747195}
   m_SourcePrefab: {fileID: 100100000, guid: 29227e2f5d0b57243abbcb18f6174d2e, type: 3}
+--- !u!1 &4234653531792581468 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2562915203420003986, guid: 29227e2f5d0b57243abbcb18f6174d2e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1825593093527027150}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5224459088107845847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4234653531792581468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b401f189198d1440af04621ddccfeef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptableInteractable: {fileID: 11400000, guid: c65fc2979114bbd48ad0d1c015e2c7c1,
+    type: 2}
+  spawnPoints:
+  - {x: 14.5, y: -8.6, z: 4.5}
+  - {x: 14.5, y: -8.6, z: 4.5}
+  - {x: 14.5, y: -8.6, z: 4.5}
+  - {x: 14.5, y: -8.6, z: 4.5}
+  isFacingRight: 01010100
+--- !u!114 &9139009146860747195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4234653531792581468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26f2793b48e2d1448b5caf491e8d242a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

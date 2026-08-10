@@ -8,6 +8,10 @@ TagManager:
   - Item
   - SceneLoader
   - NPC
+  - Stone
+  - Grass
+  - Sand
+  - Wood
   layers:
   - Default
   - TransparentFX

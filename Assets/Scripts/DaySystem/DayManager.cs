@@ -7,9 +7,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
 {
-    [SerializeField] private DayCountdown dayCountdown;
-    private const string GOOD_END_SCENE = "GoodEnd";
-    private const string BAD_END_SCENE = "BadEnd";
     private bool isStartOfNewDay;
     public event EventHandler OnFourSecondsLeftInDay;
     private bool isCountingDown = false;
@@ -104,7 +101,7 @@ public int dayCount { get; private set; } = 0;
     private IEnumerator DayRemainingRoutine()
     {
         Debug.Log("Showing countdown for day " + (dayCount));
-        yield return dayCountdown.ShowCountdownCoroutine();
+        yield return DayCountdown.Instance.ShowCountdownCoroutine();
         state = State.Sunrising;
         isStartOfNewDay = false;
     }
@@ -120,10 +117,28 @@ public int dayCount { get; private set; } = 0;
             if (isStartOfNewDay)
             {
                 StartCoroutine(DayRemainingRoutine());
+                
             }
             else
             {
                 state = GetStateFromProgress(timeElapsed);
+            }
+            
+            if (FinalDayEndingManager.Instance.IsFinalDay())
+            {
+                if (SympathyPointsManager.Instance.HasReachedGoodEndingThreshold())
+                {
+                    Debug.Log("YIPEE GOOD END");
+                    day.weight = 1f; //daytime
+                }
+                else
+                {
+                    Debug.Log("BAAD END");
+                    day.weight = 0f;
+                }
+                transition.weight = 0f;
+                night.weight = 0f;
+                return;
             }
         }
         else
@@ -138,17 +153,26 @@ public int dayCount { get; private set; } = 0;
     }
     private void Update()
     {
-        if (state == State.DayEnded)
+        Debug.Log(state);
+        if (state == State.DayEnded || FinalDayEndingManager.Instance.IsFinalDay())
         {
             return; // frozen-- no more time ticking & no more volume changes until scene reload
         }
-        timeElapsed += Time.deltaTime;
+        else
+        {
+            timeElapsed += Time.deltaTime;
+        }
+
         if (timeElapsed >= secondsInADay - 4f && !isCountingDown)
         {
             OnFourSecondsLeftInDay?.Invoke(this, EventArgs.Empty);
             isCountingDown = true;
         }
-        PostProcessVolumeTransition(GetProgressNormalized());
+        
+        if (!FinalDayEndingManager.Instance.IsFinalDay())
+        {
+            PostProcessVolumeTransition(GetProgressNormalized());
+        }
     }
     public float GetProgressNormalized()
     {
@@ -237,11 +261,6 @@ public int dayCount { get; private set; } = 0;
     private IEnumerator EndDaySequence()
     {
         yield return DayEndCutscenePlayer.Instance.PlayEndOfDayCutscene();
-
-        if (dayCount > dayCountdown.GetCountdownDays())
-        {
-            //TRIGGER ENDINGS
-        }
 
         timeElapsed = 0f;
         GameData.Instance.HasCompletedFirstDay = true;
