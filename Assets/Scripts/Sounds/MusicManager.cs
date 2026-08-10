@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 public class MusicManager : MonoBehaviour, IHasPersistentData
 {
-    //will be used to adjust music volume and play music tracks
+    private string TOWN_SCENE = "Downtown";
     private AudioSource audioSource;
     public event EventHandler<MusicVolumeChangedEventArgs> OnMusicVolumeChanged;
     public class MusicVolumeChangedEventArgs : EventArgs
@@ -14,6 +15,7 @@ public class MusicManager : MonoBehaviour, IHasPersistentData
     public static MusicManager Instance { get; private set; }
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -24,9 +26,13 @@ public class MusicManager : MonoBehaviour, IHasPersistentData
     public bool DataSuccessfullyWritten { get; private set; } = false;
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         SceneLoader.OnSceneTransition += OnSceneTransitionHandler;
         LoadGameData();
+
+        if (FinalDayEndingManager.Instance.IsFinalDay() && gameObject.scene.name == TOWN_SCENE)
+        {
+            audioSource.clip = null; //null or assign a specific AudioClip for the final town scene
+        }
     }
     private void OnSceneTransitionHandler(object sender, EventArgs e)
     {
