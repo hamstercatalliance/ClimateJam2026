@@ -15,4 +15,5 @@ public class LinkOpener : MonoBehaviour, IPointerClickHandler
     {
         Application.OpenURL(url);
     }
+
 }
