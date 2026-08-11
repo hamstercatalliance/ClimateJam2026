@@ -12,7 +12,7 @@ public class Hamsphere : NonPlayableCharacter
                 conversation.Execute("Hamsphere/Convo1");
                 break;
             case 1:
-                conversation.Execute("Hamsphere/Convo1");
+                conversation.Execute("Hamsphere/Convo2");
                 break;
             case 2:
                 conversation.Execute("Hamsphere/Convo3");

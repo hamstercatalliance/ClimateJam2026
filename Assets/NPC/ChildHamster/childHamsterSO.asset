@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: childHamsterSO
   m_EditorClassIdentifier: 
   interactionRadius: 2
-  interactableName: Hamster
+  interactableName: Young Hamster
   interactableId: childHamster
   prefab: {fileID: 0}
   idleSprite: {fileID: 0}

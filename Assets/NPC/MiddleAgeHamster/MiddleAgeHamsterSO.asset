@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MiddleAgeHamsterSO
   m_EditorClassIdentifier: 
   interactionRadius: 2
-  interactableName: Hamster
+  interactableName: John
   interactableId: middleAgeHamster
   prefab: {fileID: 0}
   idleSprite: {fileID: 0}

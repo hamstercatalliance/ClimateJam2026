@@ -6,7 +6,7 @@
             "dialogue": [
                 {
                     "characterID": "hamsphere",
-                    "dialogue": "Did you ever hear about what Evil Genius used to do for a living?"
+                    "dialogue": "Do you know what Evil Genius does for a living?"
                 }, 
                 {
                     "characterID": "hamsphere",
@@ -14,7 +14,7 @@
                 }, 
                 {
                     "characterID": "hamsphere",
-                    "dialogue": "For a time, he really seemed to like his job– or at least, I think he did??"
+                    "dialogue": "For a time, he really seemed to like his job– or at least, I think he did?? He made more coins than everyone in my family combined!"
                 },
                 {
                     "characterID": "hamsphere",
@@ -22,23 +22,15 @@
                 }, 
                 {
                     "characterID": "hamsphere",
-                    "dialogue": "He said that one of the nightmares was about a computer he designed coming alive and doing… something about dead squirrels?"
+                    "dialogue": "He said that one of the nightmares was about a computer he designed coming to life?"
                 },
                 {
                     "characterID": "hamsphere",
-                    "dialogue": "Uh, by that time, he was shaking and crying, so…"
+                    "dialogue": "Ever since then, he seemed really bothered about something, but he never could find the guts to quit."
                 },
                 {
                     "characterID": "hamsphere",
-                    "dialogue": "I don't really know what that was about."
-                },
-                {
-                    "characterID": "hamsphere",
-                    "dialogue": "But whatever it was, he ended up quitting like three days later."
-                },
-                {
-                    "characterID": "hamsphere",
-                    "dialogue": "I never really figured out why he did it, but I guess that’s his business…"
+                    "dialogue": "Perhaps there is something too important for him to lose…"
                 }
             ]
         }

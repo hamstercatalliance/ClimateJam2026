@@ -76,11 +76,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2562915203420003986, guid: 29227e2f5d0b57243abbcb18f6174d2e,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 116948388128609893}
-    - targetCorrespondingSourceObject: {fileID: 2562915203420003986, guid: 29227e2f5d0b57243abbcb18f6174d2e,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3820793392134827520}
+      addedObject: {fileID: -6767666448103224850}
   m_SourcePrefab: {fileID: 100100000, guid: 29227e2f5d0b57243abbcb18f6174d2e, type: 3}
 --- !u!1 &8502114920731624199 stripped
 GameObject:
@@ -88,7 +84,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6227591756570811797}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &116948388128609893
+--- !u!114 &-6767666448103224850
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,32 +93,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 8502114920731624199}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c6009215201a7743a304cfbb1cc1b95, type: 3}
+  m_Script: {fileID: 11500000, guid: b8717152cb3b80a4b9d060eec0987a3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scriptableInteractable: {fileID: 11400000, guid: f6063d5dc86fa044d9c9e9282e61d2f2,
     type: 2}
+  conversation: {fileID: 0}
   spawnPoints:
   - {x: -7.49, y: -4.41, z: -24.48}
   - {x: -7.49, y: -4.41, z: -24.48}
   - {x: -7.49, y: -4.41, z: -24.48}
   - {x: -50.18, y: -8.83, z: -46.99}
-  isFacingRight: 00000000
-  conversation1: ChildHamster/Convo1
-  conversation2: ChildHamster/Convo1
---- !u!114 &3820793392134827520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8502114920731624199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a55e6a0211cf81b40b86bee03ca99bb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  posSignal: childHamster_positive
-  negSignal: childHamster_negative
-  posDialogue: ChildHamster/ConvoPos
-  negDialogue: ChildHamster/ConvoNeg
+  isFacingRight: 01010100
+  positiveConvo: 0
+  hasInteracted: 0
+  dayInteracted: 3

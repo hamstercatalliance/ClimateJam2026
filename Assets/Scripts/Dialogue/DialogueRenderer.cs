@@ -66,7 +66,7 @@ public class DialogueRenderer : MonoBehaviour
 
         Transform optionsContainer = dialoguePanel.transform.Find("Container");
 
-
+        transform.SetAsFirstSibling();
         if (dialogueObject.link != null && dialogueObject.link != "")
         {
             //Transform linkText = dialoguePanel.transform.Find("LinkText");

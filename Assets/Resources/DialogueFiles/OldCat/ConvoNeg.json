@@ -1,0 +1,26 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "characterID": "oldCat",
+                    "dialogue": "Blagh, this beach is disgusting."
+                },
+                {
+                    "characterID": "oldCat",
+                    "dialogue": "This town has just gotten downhill ever since I moved here in my 10s."
+                },
+                {
+                    "characterID": "oldCat",
+                    "dialogue": "Sigh… I guess I’ll just watch this place slowly rot away…"
+                },
+                {
+                    "characterID": "oldCat",
+                    "dialogue": "Can’t do anything anyways…"
+                }
+            ]
+        }
+    ]
+}
