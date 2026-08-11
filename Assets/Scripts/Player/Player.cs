@@ -143,56 +143,60 @@ public class Player : MonoBehaviour, IHasPersistentData
         float moveDistance = moveSpeed * Time.deltaTime;
         float playerRadius = .6f;
         float playerHeight = 2f;
-        bool canMove = !Physics.CapsuleCast(
-            transform.position + Vector3.up * 0.5f,
-            transform.position + Vector3.up * playerHeight,
-            playerRadius,
-            moveDir,
-            moveDistance,
-            Physics.AllLayers,
-            QueryTriggerInteraction.Ignore
-        );
 
+        Vector3 castStart = transform.position + Vector3.up * 0.55f;
+        Vector3 castEnd = transform.position + Vector3.up * playerHeight;
 
+        // bool canMove = !Physics.CapsuleCast(
+        //     transform.position + Vector3.up * 0.6f,
+        //     transform.position + Vector3.up * playerHeight,
+        //     playerRadius,
+        //     moveDir,
+        //     moveDistance,
+        //     Physics.AllLayers,
+        //     QueryTriggerInteraction.Ignore
+        // );
 
-        if (!canMove)
+        if (moveDir != Vector3.zero)
         {
-            Vector3 moveDirX = new Vector3(moveDir.x, 0, 0).normalized;
-            canMove = moveDir.x != 0 && !Physics.CapsuleCast(
-                transform.position,
-                transform.position + Vector3.up * playerHeight,
-                playerRadius,
-                moveDirX,
-                moveDistance,
-                Physics.AllLayers,
-                QueryTriggerInteraction.Ignore
-            );
-            if (canMove)
+            if (Physics.CapsuleCast(
+                castStart, 
+                castEnd, 
+                playerRadius, 
+                moveDir, 
+                out RaycastHit hit, 
+                moveDistance, 
+                Physics.AllLayers, 
+                QueryTriggerInteraction.Ignore))
             {
-                moveDir = moveDirX;
+                Vector3 slideDir = Vector3.ProjectOnPlane(moveDir, hit.normal);
+
+                if(!Physics.CapsuleCast(
+                    castStart, 
+                    castEnd, 
+                    playerRadius, 
+                    slideDir.normalized,
+                    moveDistance,
+                    Physics.AllLayers,
+                    QueryTriggerInteraction.Ignore))
+                {
+                    transform.position += slideDir.normalized * moveDistance;
+                    IsWalking = slideDir != Vector3.zero;
+                }
+                else
+                {
+                    IsWalking = false;
+                }
             }
             else
             {
-                Vector3 moveDirZ = new Vector3(0, 0, moveDir.z).normalized;
-                canMove = moveDir.z != 0 && !Physics.CapsuleCast(
-                    transform.position,
-                    transform.position + Vector3.up * playerHeight,
-                    playerRadius,
-                    moveDirZ,
-                    moveDistance,
-                    Physics.AllLayers,
-                    QueryTriggerInteraction.Ignore
-                );
-                if (canMove)
-                {
-                    moveDir = moveDirZ;
-                }
+                transform.position += moveDir * moveDistance;
+                IsWalking = true;
             }
         }
-        if (canMove)
+        else
         {
-            transform.position += moveDir * moveDistance;
-            IsWalking = moveDir != Vector3.zero;
+            IsWalking = false;
         }
 
 

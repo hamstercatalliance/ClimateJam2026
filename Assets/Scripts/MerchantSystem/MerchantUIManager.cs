@@ -5,7 +5,12 @@ using UnityEngine.UI;
 using TMPro;
 public class MerchantUIManager : MonoBehaviour
 {
-    [SerializeField] private MerchantStore store;
+    private MerchantStore store;
+
+    public void BindStore(MerchantStore merchantStore)
+    {
+        store = merchantStore;
+    }
 
     [SerializeField] private TextMeshProUGUI selectedItemNameText;
     [SerializeField] private TextMeshProUGUI selectedItemDescriptionText;
@@ -24,6 +29,10 @@ public class MerchantUIManager : MonoBehaviour
     }
     public void UpdateRemovedItemButton()
     {
+        if (store == null)
+        {
+            return;
+        }
         //in sell mode, we want to update the text on the button to display the remaining quantity avaible to be sold.
         //also, if it is sold out it should be greyed
         GameItemSO selectedItem = store.GetSelectedItem();
@@ -39,6 +48,10 @@ public class MerchantUIManager : MonoBehaviour
     }
     public void SelectAndShowItemDisplay(GameItemSO itemSO)
     {
+        if (store == null)
+        {
+            return;
+        }
         ShowItemDisplay(itemSO);
         displayStayVisible = true;
         store.SetSelectedItem(itemSO);

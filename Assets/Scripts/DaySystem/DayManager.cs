@@ -250,7 +250,7 @@ public int dayCount { get; private set; } = 0;
         {
             return;
         }
-
+        MusicManager.Instance.StopMusic();
         state = State.DayEnded;
         dayCount++;
         isStartOfNewDay = true;

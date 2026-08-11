@@ -58,6 +58,10 @@ public class MusicManager : MonoBehaviour, IHasPersistentData
             newVolume = audioSource.volume
         });
     }
+    public void StopMusic()
+    {
+        audioSource.Stop();
+    }
 
     public void LoadGameData()
     {

@@ -65,6 +65,11 @@ public class MerchantStore : MonoBehaviour
     private MerchantStoreMode currentMode = MerchantStoreMode.Buy;
     public void PurchaseItem()
     {
+        if (selectedItem == null)
+        {
+            return;
+        }
+
         if (selectedItem.cost > CurrencyManager.Instance.GetCurrency())
         {
             return; 
@@ -89,6 +94,11 @@ public class MerchantStore : MonoBehaviour
     }
     public void SellItem()
     {
+        if (selectedItem == null)
+        {
+            return;
+        }
+
         //remove item from inventory and add currency to player
         InventoryManager.Instance.RemoveItemFromInventory(selectedItem);
         CurrencyManager.Instance.AddCurrency(selectedItem.cost);
@@ -98,6 +108,11 @@ public class MerchantStore : MonoBehaviour
     }
     public void DonateItem()
     {
+        if (selectedItem == null)
+        {
+            return;
+        }
+
         //remove item from inventory and add SYMPATHY POINTS to player
         InventoryManager.Instance.RemoveItemFromInventory(selectedItem);
         uiManager.UpdateRemovedItemButton();
@@ -171,6 +186,7 @@ public class MerchantStore : MonoBehaviour
     }
     public void EnterStore()
     {
+        uiManager.BindStore(this);
         storeContent.SetActive(true);
         modeSwitchButtonDisplay.OnClick(buyModeSwitchButton); //select the buy mode button by default
         merchantStoreOpen = true;

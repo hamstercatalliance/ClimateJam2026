@@ -5177,6 +5177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptableInteractable: {fileID: 11400000, guid: 691778afcda23654dba5b5de63663c50,
     type: 2}
+  conversation: {fileID: 0}
   dialogueName: OneInteract/HouseConfirm
 --- !u!1 &506404223 stripped
 GameObject:
@@ -12510,7 +12511,7 @@ PrefabInstance:
     - target: {fileID: 5613576867204093066, guid: cfd9e31c880414441aa66f70b40e16db,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.49
+      value: -8.95
       objectReference: {fileID: 0}
     - target: {fileID: 5613576867204093066, guid: cfd9e31c880414441aa66f70b40e16db,
         type: 3}
@@ -18478,7 +18479,7 @@ PrefabInstance:
     - target: {fileID: 5613576867204093066, guid: cfd9e31c880414441aa66f70b40e16db,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.99
+      value: -9.45
       objectReference: {fileID: 0}
     - target: {fileID: 5613576867204093066, guid: cfd9e31c880414441aa66f70b40e16db,
         type: 3}
