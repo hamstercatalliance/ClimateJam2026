@@ -10,7 +10,7 @@ public class CameraDetach : MonoBehaviour
     private CinemachineVirtualCamera mainCamera;
     [SerializeField] private Transform playerToFollow;
     private Animator camAnimator;
-    [SerializeField] private bool detach = true;
+    [SerializeField] private bool detach = false;
     // Start is called before the first frame update
     void Start()
     {

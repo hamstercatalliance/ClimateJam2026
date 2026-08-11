@@ -1443,6 +1443,8 @@ MonoBehaviour:
   PlayerFacingDirection: {x: 0, y: 0, z: 0}
   PlayerSpawnPosition: {x: 0, y: 0, z: 0}
   HasPendingSpawnPosition: 0
+  CameraPosition: {x: 0, y: 0, z: 0}
+  cameraHasSpawn: 0
   SympathyPoints: 0
   QuestDataList: []
   HasQuestNotificationActive: 0
