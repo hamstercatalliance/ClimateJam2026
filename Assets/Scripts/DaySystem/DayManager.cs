@@ -19,9 +19,8 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
     public bool HasFiredDataLoaded { get; private set; }
     public event EventHandler OnDayEnd;
 
-    [Header("Change this to modify day length")]
-    [SerializeField] private float secondsInADay = 300f;
-    //private float minutesInADay;
+    private float secondsInADay = 330f;
+
     [Header("Only modify for playtesting purposes")]
     [SerializeField] private float timeElapsed = 0f;
     [Header("Do not touch these")]
