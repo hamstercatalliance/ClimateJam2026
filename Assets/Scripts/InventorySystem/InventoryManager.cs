@@ -150,27 +150,31 @@ public class InventoryManager : MonoBehaviour, IHasPersistentData
         //inventory is full
         return false;
     }
-    public bool RemoveItemFromInventory(GameItemSO gameItemSO)
+    public bool RemoveItemFromInventory(GameItemSO gameItemSO, int count = 1)
     {
         InventorySlot? existingItem = InventoryContainsItem(gameItemSO);
         if (existingItem != null)
         {
+
             InventorySlot item = existingItem.Value;
-            item.amount -= 1;
-            if (item.amount <= 0)
+            for (int i = 0; i < count; i++)
             {
-                OnInventoryRemoval?.Invoke(this, new InventoryRemovalEventArgs
+                item.amount -= 1;
+                if (item.amount <= 0)
                 {
-                    row = item.row,
-                    col = item.col
-                });
-                //empty the slot
-                item.isOccupied = false;
-                //item.gameItemSO = null;
-                item.itemID = null;
-                item.amount = 0;
+                    OnInventoryRemoval?.Invoke(this, new InventoryRemovalEventArgs
+                    {
+                        row = item.row,
+                        col = item.col
+                    });
+                    //empty the slot
+                    item.isOccupied = false;
+                    //item.gameItemSO = null;
+                    item.itemID = null;
+                    item.amount = 0;
+                }
+                inventorySlots[item.row, item.col] = item;
             }
-            inventorySlots[item.row, item.col] = item;
             return true;
         }
         return false;

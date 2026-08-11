@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: CoconutWaterQuest
   m_EditorClassIdentifier: 
   questName: Another drink
-  questDescription: Shake the tree by the lake to get coconut water.
+  questDescription: Shake the tree by the lake to get coconut water, then give it
+    to the young cat on the beach.
   questID: quest.coconutwater
   currencyAward: 0
   sympathyAward: 600
