@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19ea64b1fe1b3d94caad5b9715f54b1b, type: 3}
-  m_Name: BeachCleanup
+  m_Script: {fileID: 11500000, guid: 8344f22d6e3e61c4cbc34d94753534c6, type: 3}
+  m_Name: fishingZone
   m_EditorClassIdentifier: 
-  questName: Beach Cleanup
-  questDescription: The beach is littered with trash! Help out by cleaning it up.
-  questID: quest.beach
-  currencyAward: 0
-  sympathyAward: 200
+  interactionRadius: 3
+  interactableName: 
+  interactableId: 

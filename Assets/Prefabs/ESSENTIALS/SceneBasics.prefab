@@ -7247,54 +7247,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &2552057458279758190
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5607110944960100842}
-  - component: {fileID: 3225940028588549730}
-  m_Layer: 0
-  m_Name: CoconutWaterQuest
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5607110944960100842
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2552057458279758190}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 111915189996715378}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3225940028588549730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2552057458279758190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18af2c515df13a84da0f9896de5818c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  questSO: {fileID: 11400000, guid: e66c1025eb3c3a549aee8d3d6af6949a, type: 2}
-  isInitiated: 0
-  isCompleted: 0
-  CoconutWater: {fileID: 11400000, guid: a14dd9d248f4a744fa06cc56837f1306, type: 2}
 --- !u!1 &2575538370811011762
 GameObject:
   m_ObjectHideFlags: 0
@@ -9542,6 +9494,54 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &3199857162853315205
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3421534897346155493}
+  - component: {fileID: 254350193229541512}
+  m_Layer: 0
+  m_Name: FishingQuest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3421534897346155493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3199857162853315205}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 111915189996715378}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &254350193229541512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3199857162853315205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8542c544a889b14591f6572403ba989, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questSO: {fileID: 11400000, guid: 624dd186bef603646b158e19771627fb, type: 2}
+  isInitiated: 0
+  isCompleted: 0
+  carp: {fileID: 11400000, guid: 7efa30b478cb6d2479d0aff5fb05528e, type: 2}
 --- !u!1 &3246309499034263619
 GameObject:
   m_ObjectHideFlags: 0
@@ -12105,7 +12105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408954a2b41e5db4f89aad2b584acfa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsInADay: 300
   timeElapsed: 0
   day: {fileID: 5194986480667184047}
   night: {fileID: 4144230620257399412}
@@ -13267,6 +13266,54 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &4701973389077292486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2962296564946749755}
+  - component: {fileID: 3322064614240599226}
+  m_Layer: 0
+  m_Name: FlowerPlantingQuest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2962296564946749755
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4701973389077292486}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 111915189996715378}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3322064614240599226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4701973389077292486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93827b787b6ce914c8354e0112022b44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questSO: {fileID: 11400000, guid: e630ac21ca3dd6c48a8b29d33330954a, type: 2}
+  isInitiated: 0
+  isCompleted: 0
+  flowerSeeds: {fileID: 11400000, guid: d90eae42e71fa23489c611ac2f855efc, type: 2}
 --- !u!1 &4747292690913811343
 GameObject:
   m_ObjectHideFlags: 0
@@ -21001,8 +21048,8 @@ RectTransform:
   - {fileID: 1594474875097155777}
   - {fileID: 3313838883981563251}
   - {fileID: 1798561710317657682}
-  - {fileID: 7689999680411212665}
   - {fileID: 6428990990289736553}
+  - {fileID: 7689999680411212665}
   - {fileID: 109183816029592681}
   - {fileID: 4331480229322561132}
   m_Father: {fileID: 7789248478945971772}
@@ -25148,6 +25195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffc4028b3352bdb4588776628be3c649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endOfDayJingle: {fileID: 8300000, guid: cd2f1fa05de01614ab81e8c14d7f8f98, type: 3}
 --- !u!1 &7668076940185037817
 GameObject:
   m_ObjectHideFlags: 0
@@ -26130,54 +26178,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bef0f3cad7a25b24bbcb290e88893109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &8046900813163271410
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2022224078222876640}
-  - component: {fileID: 3691584987472422893}
-  m_Layer: 0
-  m_Name: ColaQuest
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2022224078222876640
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8046900813163271410}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 111915189996715378}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3691584987472422893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8046900813163271410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7010ae23565aab409841086fa0580a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  questSO: {fileID: 11400000, guid: cd0a579ef3c78d0408760b39a062f677, type: 2}
-  isInitiated: 0
-  isCompleted: 0
-  ColaSO: {fileID: 11400000, guid: 83f96fefcd161be4487710ff9f036fff, type: 2}
 --- !u!1 &8072836346910690400
 GameObject:
   m_ObjectHideFlags: 0
@@ -30057,47 +30057,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6091059088636774220, guid: 30357b98b3663bc4aa05c528d9bf0b4d,
-        type: 3}
-      propertyPath: trashItems.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: d4fc3cd2b6eb42b4980afacf91e58917,
-        type: 2}
-    - target: {fileID: 6091059088636774220, guid: 30357b98b3663bc4aa05c528d9bf0b4d,
-        type: 3}
-      propertyPath: trashItems.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 7d70e7e980abf2a49a3f9c410a463177,
-        type: 2}
-    - target: {fileID: 6091059088636774220, guid: 30357b98b3663bc4aa05c528d9bf0b4d,
-        type: 3}
-      propertyPath: trashItems.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: a7a8310cfeae9674f940e0b4928119eb,
-        type: 2}
-    - target: {fileID: 6091059088636774220, guid: 30357b98b3663bc4aa05c528d9bf0b4d,
-        type: 3}
-      propertyPath: trashItems.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: 09f5be06fa78c934097a17132d440311,
-        type: 2}
-    - target: {fileID: 6091059088636774220, guid: 30357b98b3663bc4aa05c528d9bf0b4d,
-        type: 3}
-      propertyPath: trashItems.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: 4758b6826a7c8fb4fa3ae6f4acb68a05,
-        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3603415796143957246, guid: 30357b98b3663bc4aa05c528d9bf0b4d,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2022224078222876640}
+      addedObject: {fileID: 2962296564946749755}
     - targetCorrespondingSourceObject: {fileID: 3603415796143957246, guid: 30357b98b3663bc4aa05c528d9bf0b4d,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5607110944960100842}
+      addedObject: {fileID: 3421534897346155493}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30357b98b3663bc4aa05c528d9bf0b4d, type: 3}
 --- !u!4 &111915189996715378 stripped
@@ -30391,11 +30361,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7088875757099047828}
     m_Modifications:
+    - target: {fileID: 1119776667003901449, guid: 62367da4904dbb74f99ca271a28b9151,
+        type: 3}
+      propertyPath: questInstance
+      value: 
+      objectReference: {fileID: 254350193229541512}
     - target: {fileID: 2758257118580660800, guid: 62367da4904dbb74f99ca271a28b9151,
         type: 3}
       propertyPath: questInstance
       value: 
       objectReference: {fileID: 8828297729344687072}
+    - target: {fileID: 3872078753988679735, guid: 62367da4904dbb74f99ca271a28b9151,
+        type: 3}
+      propertyPath: questInstance
+      value: 
+      objectReference: {fileID: 3322064614240599226}
     - target: {fileID: 6004091398966761866, guid: 62367da4904dbb74f99ca271a28b9151,
         type: 3}
       propertyPath: gameInput

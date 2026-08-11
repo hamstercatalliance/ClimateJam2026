@@ -24,6 +24,9 @@ public class MusicManager : MonoBehaviour, IHasPersistentData
         Instance = this;
     }
     public bool DataSuccessfullyWritten { get; private set; } = false;
+
+    [SerializeField] private AudioClip endOfDayJingle;
+
     void Start()
     {
         SceneLoader.OnSceneTransition += OnSceneTransitionHandler;
@@ -33,6 +36,8 @@ public class MusicManager : MonoBehaviour, IHasPersistentData
         {
             audioSource.clip = null; //null or assign a specific AudioClip for the final town scene
         }
+
+        DayEndCutscenePlayer.OnCutsceneStart += OnCutsceneStart;
     }
     private void OnSceneTransitionHandler(object sender, EventArgs e)
     {
@@ -41,6 +46,11 @@ public class MusicManager : MonoBehaviour, IHasPersistentData
     private void OnDestroy()
     {
         SceneLoader.OnSceneTransition -= OnSceneTransitionHandler;
+        DayEndCutscenePlayer.OnCutsceneStart -= OnCutsceneStart;
+    }
+    private void OnCutsceneStart(object sender, EventArgs e)
+    {
+        audioSource.PlayOneShot(endOfDayJingle);
     }
     public void IncreaseVolume(float amount = 0.2f)
     {

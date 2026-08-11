@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19ea64b1fe1b3d94caad5b9715f54b1b, type: 3}
-  m_Name: PlantingFlowers
+  m_Name: CarpFishing
   m_EditorClassIdentifier: 
-  questName: Planting Flowers
-  questDescription: '"The patch of grass to the right of my clothes shop is looking
-    a little bare... Anyone up to decorate it?"'
-  questID: quest.flowers
-  currencyAward: 100
+  questName: Carp Fishing
+  questDescription: Help! The ocean has been invaded by carp! Fish 5 carp to help
+    our local ecosystem out!
+  questID: quest.fishing
+  currencyAward: 10
   sympathyAward: 100

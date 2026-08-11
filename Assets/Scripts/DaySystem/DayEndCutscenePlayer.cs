@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
+using System;
 public class DayEndCutscenePlayer : MonoBehaviour
 {
+    public static event EventHandler OnCutsceneStart;
+
     //EVENTUALLY REFACTOR TO SUPPORT 2 TYPES OF CUTSCENES: 
     // starting at door (early end) & walking up to door (end of day)
     [SerializeField] private VideoPlayer endNormalCutscene; 
@@ -35,7 +38,8 @@ public class DayEndCutscenePlayer : MonoBehaviour
     {
         screenFade.SetActive(true);
         yield return new WaitForSeconds(INITIAL_FADE_DURATION);
-
+        
+        OnCutsceneStart?.Invoke(this, EventArgs.Empty);
         videoPanel.SetActive(true);
         endNormalCutscene.Play();
 
