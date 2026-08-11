@@ -9010,12 +9010,12 @@ PrefabInstance:
     - target: {fileID: 4583523325549204244, guid: 586794b438a4c704b8fbe60afdad3db4,
         type: 3}
       propertyPath: sellableItems.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4583523325549204244, guid: 586794b438a4c704b8fbe60afdad3db4,
         type: 3}
       propertyPath: purchasableItems.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4583523325549204244, guid: 586794b438a4c704b8fbe60afdad3db4,
         type: 3}
@@ -9027,13 +9027,13 @@ PrefabInstance:
         type: 3}
       propertyPath: sellableItems.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: e701ea780ca01dc4c8efb88a42a26fd3,
+      objectReference: {fileID: 11400000, guid: 83f96fefcd161be4487710ff9f036fff,
         type: 2}
     - target: {fileID: 4583523325549204244, guid: 586794b438a4c704b8fbe60afdad3db4,
         type: 3}
       propertyPath: purchasableItems.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: e701ea780ca01dc4c8efb88a42a26fd3,
+      objectReference: {fileID: 11400000, guid: a14dd9d248f4a744fa06cc56837f1306,
         type: 2}
     - target: {fileID: 5687453606941620726, guid: 586794b438a4c704b8fbe60afdad3db4,
         type: 3}
@@ -57893,8 +57893,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8502114920731624199, guid: ef36c4f34cc3d3246b394d1aa892a1de,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1211403863}
   m_SourcePrefab: {fileID: 100100000, guid: ef36c4f34cc3d3246b394d1aa892a1de, type: 3}
+--- !u!1 &1211403862 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8502114920731624199, guid: ef36c4f34cc3d3246b394d1aa892a1de,
+    type: 3}
+  m_PrefabInstance: {fileID: 1211403861}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1211403863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211403862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6381c00608847de43bd2f0734a8fb9f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1211890664 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4819b5cd41fada94f9a297a32f0a6598,
@@ -59788,6 +59810,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1217301670309655428, guid: 221645e9bd166d648b1ab79e4237004b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 695.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1217301670309655428, guid: 221645e9bd166d648b1ab79e4237004b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -325.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1568758387904695937, guid: 221645e9bd166d648b1ab79e4237004b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -59832,6 +59864,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_DefaultBlend.m_Style
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553615741634471023, guid: 221645e9bd166d648b1ab79e4237004b,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553615741634471023, guid: 221645e9bd166d648b1ab79e4237004b,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.645283
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553615741634471023, guid: 221645e9bd166d648b1ab79e4237004b,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.032872856
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553615741634471023, guid: 221645e9bd166d648b1ab79e4237004b,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.05621605
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553615741634471023, guid: 221645e9bd166d648b1ab79e4237004b,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553615741634471023, guid: 221645e9bd166d648b1ab79e4237004b,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4289005582
       objectReference: {fileID: 0}
     - target: {fileID: 3043063301552955436, guid: 221645e9bd166d648b1ab79e4237004b,
         type: 3}

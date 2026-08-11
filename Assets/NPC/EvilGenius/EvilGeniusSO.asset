@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EvilGeniusSO
   m_EditorClassIdentifier: 
   interactionRadius: 2
-  interactableName: EvilGenius
+  interactableName: Evil Genius
   interactableId: evilGenius
   prefab: {fileID: 0}
   idleSprite: {fileID: 0}

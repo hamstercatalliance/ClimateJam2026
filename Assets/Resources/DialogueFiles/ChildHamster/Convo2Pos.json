@@ -1,0 +1,26 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "characterID": "childHamster",
+                    "dialogue": "Hey! How’s it going!"
+                }, 
+                {
+                    "characterID": "childHamster",
+                    "dialogue": "Oh right, I forgot about the big building."
+                }, 
+                {
+                    "characterID": "childHamster",
+                    "dialogue": "You told me not to worry though, right?"
+                },
+                {
+                    "characterID": "childHamster",
+                    "dialogue": "It’s ok Kitty, I’m sure we’ll all be fine!"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "characterID": "childHamster",
+                    "dialogue": "Oh, it’s you again."
+                }, 
+                {
+                    "characterID": "childHamster",
+                    "dialogue": "That bad big building is almost done building."
+                }, 
+                {
+                    "characterID": "childHamster",
+                    "dialogue": "I saw my dad looking at tickets to Ham Francisco earlier today…"
+                },
+                {
+                    "characterID": "childHamster",
+                    "dialogue": "He says we’ll be happier there."
+                }
+            ]
+        }
+    ]
+}

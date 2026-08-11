@@ -1,0 +1,30 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "characterID": "oldCat",
+                    "dialogue": "I heard someone cleaned up the beach."
+                },
+                {
+                    "characterID": "oldCat",
+                    "dialogue": "Back in my day, no one would ever pick up garbage they didn't create. They just left it alone to accumulate."
+                },
+                {
+                    "characterID": "oldCat",
+                    "dialogue": "So I thought the beach would stay like that forever."
+                },
+                {
+                    "characterID": "oldCat",
+                    "dialogue": "I guess we always could've done something about it."
+                },
+                {
+                    "characterID": "oldCat",
+                    "dialogue": "Huh…"
+                }
+            ]
+        }
+    ]
+}

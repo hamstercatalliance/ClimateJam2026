@@ -1,0 +1,51 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "characterID": "hamsphere",
+                    "dialogue": "Hey, you  know, I can’t stop thinking,"
+                },
+                {
+                    "characterID": "hamsphere",
+                    "dialogue": "Is there even a way to keep having cool technology without continuously using up all our resources?"
+                },
+                {
+                    "characterID": "hamsphere",
+                    "dialogue": "Like, instead of using our river water, why can’t they opt for something better like I don’t know..."
+                },
+                {
+                    "characterID": "hamsphere",
+                    "dialogue": "Liquid immersion cooling?",
+                    "buttons": [
+                        {
+                            "text": "What's that?",
+                            "path": "continue"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "continue",
+            "dialogue": [
+                {
+                    "characterID": "hamsphere",
+                    "dialogue": "You don’t know?"
+                },
+                {
+                    "characterID": "hamsphere",
+                    "dialogue": "Liquid immersion cooling is when data centers submerge servers in dielectric fluid that absorbs and transfers heat more efficiently than traditional methods like air or water.",
+                    "link": "https://product.sustainability-directory.com/term/liquid-immersion-cooling/"
+                },
+                {
+                    "characterID": "hamsphere",
+                    "dialogue": "Maybe they don’t use it because it's more costly? Ugh, Company Inc LLC is always cutting costs for their own profit…",
+                    "link": "https://www.trgdatacenters.com/resource/liquid-cooling-vs-immersion-cooling/"
+                }
+            ]
+        }
+    ]
+}

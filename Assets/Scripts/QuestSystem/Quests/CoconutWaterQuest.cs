@@ -17,4 +17,10 @@ public class CoconutWaterQuest : Quest
         Debug.Log("CoconutWaterQuest: Coconut count insufficient");
         return false;
     }
+
+    public override void CompleteQuest()
+    {
+        base.CompleteQuest();
+        InventoryManager.Instance.RemoveItemFromInventory(CoconutWater);
+    }
 }

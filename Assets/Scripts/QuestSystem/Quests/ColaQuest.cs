@@ -14,4 +14,10 @@ public class ColaQuest : Quest
         }
         return false;
     }
+
+    public override void CompleteQuest()
+    {
+        base.CompleteQuest();
+        InventoryManager.Instance.RemoveItemFromInventory(ColaSO, requiredColas);
+    }
 }

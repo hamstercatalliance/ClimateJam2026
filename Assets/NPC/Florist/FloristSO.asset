@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2045962db872bf944a8aaf6c07a068e7, type: 3}
-  m_Name: FlorestSO
+  m_Name: FloristSO
   m_EditorClassIdentifier: 
   interactionRadius: 3
-  interactableName: Florest
-  interactableId: florest
+  interactableName: Florist
+  interactableId: florist
   prefab: {fileID: 0}
   idleSprite: {fileID: 0}
   talkingSprite: {fileID: 0}

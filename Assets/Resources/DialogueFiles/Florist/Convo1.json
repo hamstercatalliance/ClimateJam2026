@@ -1,0 +1,58 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "characterID": "florist",
+                    "dialogue": "Hello there, how are you doing?",
+                    "buttons" :[
+                        {
+                            "text": "Good",
+                            "path": "positive"
+                        },
+                        {
+                            "text": "Not so well",
+                            "path": "negative"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "positive",
+            "dialogue": [
+                {
+                    "characterID": "florist",
+                    "dialogue": "That's great to hear! I’m having an alright day myself."
+                },
+                                {
+                    "characterID": "florist",
+                    "dialogue": "One of my plants wasn’t doing so well, so I went to Hamsphere to borrow some fertilizer."
+                },
+                {
+                    "characterID": "florist",
+                    "dialogue": "She actually let me, which I didn’t actually expect!"
+                },
+                {
+                    "characterID": "florist",
+                    "dialogue": "You know, people around here really pay attention to your words."
+                }
+            ]
+        }, 
+        {
+            "name": "negative",
+            "dialogue": [
+                {
+                    "characterID": "florist",
+                    "dialogue": "I'm sorry to hear that. If anything's bothering you don’t be afraid to tell me or anyone else, we’ll listen. "
+                },
+                {
+                    "characterID": "florist",
+                    "dialogue": "You know, the people around here really pay attention to your words."
+                }
+            ]
+        }
+    ]
+}

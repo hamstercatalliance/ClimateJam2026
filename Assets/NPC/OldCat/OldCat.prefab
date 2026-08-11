@@ -81,7 +81,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2562915203420003986, guid: 29227e2f5d0b57243abbcb18f6174d2e,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2340777945899243278}
+      addedObject: {fileID: 1057236389719236941}
   m_SourcePrefab: {fileID: 100100000, guid: 29227e2f5d0b57243abbcb18f6174d2e, type: 3}
 --- !u!1 &6097158822606699595 stripped
 GameObject:
@@ -89,7 +89,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8578293415229285081}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2340777945899243278
+--- !u!114 &1057236389719236941
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,16 +98,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6097158822606699595}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c6009215201a7743a304cfbb1cc1b95, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a3ccf18fdabbe9408afb02077e707a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scriptableInteractable: {fileID: 11400000, guid: 3a9d819365069fc40ba3b5cc9bc05efe,
     type: 2}
+  conversation: {fileID: 0}
   spawnPoints:
   - {x: 2.11, y: 1.25, z: 0}
   - {x: 2.11, y: 1.25, z: 0}
   - {x: 2.11, y: 1.25, z: 0}
   - {x: -62.05, y: -8.95, z: -46.45}
   isFacingRight: 00000001
-  conversation1: OldCat/Convo
-  conversation2: OldCat/Convo
