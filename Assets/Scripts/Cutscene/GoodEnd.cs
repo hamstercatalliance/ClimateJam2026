@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GoodEnd : Slideshow
 {
-    private int slide2TextIndexTrigger = 3;
+    private int slide2TextIndexTrigger = 7;
 
     protected override void OnPlayerInput()
     {

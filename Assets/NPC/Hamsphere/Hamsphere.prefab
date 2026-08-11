@@ -116,12 +116,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptableInteractable: {fileID: 11400000, guid: c65fc2979114bbd48ad0d1c015e2c7c1,
     type: 2}
+  conversation: {fileID: 0}
   spawnPoints:
   - {x: 14.5, y: -8.6, z: 4.5}
-  - {x: 14.5, y: -8.6, z: 4.5}
-  - {x: 14.5, y: -8.6, z: 4.5}
+  - {x: 9.11, y: -8.64, z: -50.08}
+  - {x: -5.05, y: -8.47, z: -47.85}
   - {x: -51.95, y: -8.89, z: -44.4}
-  isFacingRight: 01010100
+  isFacingRight: 01010000
 --- !u!114 &9139009146860747195
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -465,9 +465,15 @@ MonoBehaviour:
   slideTexts:
   - And so it turns out, you can do something about things that are seemingly out
     of your control.
-  - It may not be obvious, but people do listen to what you say.
-  - And when the cries of several echo throughout the air, something incredible happens.
-  - Their voices reach those who seem so far away.
+  - Showing up, doing your part, having day to day conversations you don't think
+    twice about.
+  - None of it seemed that significant by itself.
+  - But people pay attention to what you do.
+  - 'Every gesture plants a seed, '
+  - an invisible seed.
+  - And when those seeds sprout, something incredible happens.
+  - The cries of several echo throughout the air.
+  - And their voices reach those who seem so far away.
   textSpeed: 0.02
 --- !u!1 &961739749
 GameObject:

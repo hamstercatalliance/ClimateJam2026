@@ -47,18 +47,6 @@ public class MainMenuManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void ToggleInstructions()
-    {
-        if (instructionsPrefab.activeSelf)
-        {
-            CloseInstructions();
-        }
-        else
-        {
-            OpenInstructions();
-        }
-    }
-
     public void OpenInstructions()
     {
         instructionsPrefab.SetActive(true);

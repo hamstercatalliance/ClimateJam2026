@@ -28,6 +28,9 @@ public class FinalDayEndingManager : MonoBehaviour
         if (IsFinalDay())
         {
             dayUI.SetActive(false);
+            HowToPlay.Instance.HideHelpButton();
+            QuestNotifyManager.Instance.HideQuestNotification();
+            
             if (!SympathyPointsManager.Instance.HasReachedGoodEndingThreshold())
             {
                 Debug.Log("Final day, but not enough sympathy points for a good end.");
