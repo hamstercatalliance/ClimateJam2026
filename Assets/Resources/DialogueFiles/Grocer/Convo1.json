@@ -1,0 +1,35 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "characterID": "grocer",
+                    "dialogue": "That data center is really coming along, huh?"
+                },
+                {
+                    "characterID": "grocer",
+                    "dialogue": "Pretty soon the fertile farmland will be gone."
+                },
+                {
+                    "characterID": "grocer",
+                    "dialogue": "Now I have to import my lettuce and carrots…"
+                },
+                {
+                    "characterID": "grocer",
+                    "dialogue": "Oh well. Hello! Welcome to the Grocery Store!"
+                },
+                {
+                    "characterID":"grocer",
+                    "dialogue": "You can buy and sell your produce here!"
+                },
+                {
+                    "characterID": "grocer",
+                    "dialogue": "Just let me know what ya want.",
+                    "signal": "grocer_openStore"
+                }
+            ]
+        }
+    ]
+}

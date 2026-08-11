@@ -45,6 +45,8 @@ public class DialogueBox {
     [JsonProperty("buttons", Required = Required.Default)]
     public List<DialogueButton> buttons = new List<DialogueButton>();
 
+    [JsonProperty("link", Required = Required.Default)]
+    public string link = "";
 
     public void setInactive()
     {

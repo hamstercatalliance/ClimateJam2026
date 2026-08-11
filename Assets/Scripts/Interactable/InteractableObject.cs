@@ -13,7 +13,7 @@ public abstract class InteractableObject : MonoBehaviour
 
     private GameInput gameInput;
 
-    protected Conversation conversation;
+    public Conversation conversation;
 
     protected GameObject interactNotice;
 
@@ -57,19 +57,23 @@ public abstract class InteractableObject : MonoBehaviour
         }
         else
         {
-            if (interactNotice != null)
-            {
-                interactNotice.SetActive(false);
-            }
+            ZoneExited();
         }
     }
 
     protected virtual void ZoneEntered()
     {
-        //Debug.Log("Player is in interaction zone of " + name);
         if (interactNotice != null)
         {
             interactNotice.SetActive(true);
+        }
+    }
+
+    protected virtual void ZoneExited()
+    {
+        if (interactNotice != null)
+        {
+            interactNotice.SetActive(false);
         }
     }
 

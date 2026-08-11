@@ -1,0 +1,46 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "characterID": "hamsphere",
+                    "dialogue": "Did you ever hear about what Evil Genius used to do for a living?"
+                }, 
+                {
+                    "characterID": "hamsphere",
+                    "dialogue": "Just a few years back, he used to work for Company Inc LLC, designing all the technology they’ve invaded us with."
+                }, 
+                {
+                    "characterID": "hamsphere",
+                    "dialogue": "For a time, he really seemed to like his job– or at least, I think he did??"
+                },
+                {
+                    "characterID": "hamsphere",
+                    "dialogue": "Anyways, one day, he told me he was having stomach pains and nightmares which made it hard for him to work."
+                }, 
+                {
+                    "characterID": "hamsphere",
+                    "dialogue": "He said that one of the nightmares was about a computer he designed coming alive and doing… something about dead squirrels?"
+                },
+                {
+                    "characterID": "hamsphere",
+                    "dialogue": "Uh, by that time, he was shaking and crying, so…"
+                },
+                {
+                    "characterID": "hamsphere",
+                    "dialogue": "I don't really know what that was about."
+                },
+                {
+                    "characterID": "hamsphere",
+                    "dialogue": "But whatever it was, he ended up quitting like three days later."
+                },
+                {
+                    "characterID": "hamsphere",
+                    "dialogue": "I never really figured out why he did it, but I guess that’s his business…"
+                }
+            ]
+        }
+    ]
+}

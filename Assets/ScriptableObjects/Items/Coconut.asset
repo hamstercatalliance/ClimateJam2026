@@ -19,5 +19,5 @@ MonoBehaviour:
   itemID: item.coconut
   itemDescription: 
   sourceLink: 
-  cost: 0
+  cost: 5
   isVanityItem: 0

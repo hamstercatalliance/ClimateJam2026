@@ -21,7 +21,7 @@ public class PlayerInteract : MonoBehaviour
         Debug.Log("GameInput_OnInteractAction called");
         string closestNPC = this.closestInteractableID();
         //Debug.Log("PlayerInteract: Interact action triggered, NPC = " + closestNPC);
-        if (!DialogueBox.dialogueActive && closestNPC != null)
+        if (!DialogueBox.dialogueActive && closestNPC != null && !MerchantStore.merchantStoreOpen && !BoardManager.jobBoardActive)
         {
           //Debug.Log("PlayerInteract: Interact action triggered, closest NPC ID: " + closestNPC);
             InteractableActivate?.Invoke(this, new InteractableActivateEventArgs { npcID = closestNPC });

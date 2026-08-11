@@ -12,4 +12,14 @@ public class JobBoardInteractable : InteractableObject
             BoardManager.Instance.OpenBoard();
         } 
     }
+
+    // Close board when far enough away
+    protected override void ZoneExited()
+    {
+        base.ZoneExited();
+        if (BoardManager.jobBoardActive)
+        {
+            BoardManager.Instance.CloseBoard();
+        }
+    }
 }

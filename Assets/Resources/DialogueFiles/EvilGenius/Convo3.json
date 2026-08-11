@@ -1,0 +1,87 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "characterID": "evilGenius",
+                    "dialogue": "Wow, time sure flies."
+                },
+                {
+                    "characterID": "evilGenius",
+                    "dialogue": "You know what?"
+                },
+                {
+                    "characterID": "evilGenius",
+                    "dialogue": "I think I'm gonna be ok. Everything is going to be ok."
+                },
+                {
+                    "characterID": "evilGenius",
+                    "dialogue": "Maybe we do need a data center in this town.",
+                    "buttons": [
+                        {
+                            "text": "...",
+                            "path": "positive1"
+                        }, 
+                        {
+                            "text": "I guess...",
+                            "path": "negative"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "positive1",
+            "dialogue": [
+                {
+                    "characterID": "evilGenius",
+                    "dialogue": "Well it's not like we can do anything to stop them from building it...",
+                    "buttons": [
+                        {
+                            "text": "I'm sure we can figure something out",
+                            "path": "positive2"
+                        },
+                        {
+                            "text": "I guess...",
+                            "path": "negative"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "positive2",
+            "dialogue": [
+                {
+                    "characterID": "evilGenius",
+                    "dialogue": "Yeah, I suppose. Good luck.",
+                    "signal": "addPoints",
+                    "pointsAdded": 200
+                }
+            ]
+        },
+        {
+            "name": "negative",
+            "dialogue": [
+                {
+                    "characterID": "evilGenius",
+                    "dialogue": "See? You understand."
+                },
+                {
+                    "characterID": "evilGenius",
+                    "dialogue": "After all, we're only hum-- I mean, cats and hamsters."
+                },
+                {
+                    "characterID": "evilGenius",
+                    "dialogue": "I'm sure we'll eventually get used to the new life."
+                },
+                {
+                    "characterID": "evilGenius",
+                    "dialogue": "Right?"
+                }
+            ]
+        }
+    ]
+}

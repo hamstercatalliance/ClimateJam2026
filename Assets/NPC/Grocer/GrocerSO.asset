@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GrocerSO
   m_EditorClassIdentifier: 
   interactionRadius: 3
-  interactableName: Grocer
+  interactableName: Groster
   interactableId: grocer
   prefab: {fileID: 0}
   idleSprite: {fileID: 0}

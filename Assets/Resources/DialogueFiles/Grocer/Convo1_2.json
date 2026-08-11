@@ -1,0 +1,16 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "characterID": "grocer",
+                    "dialogue": "Welcome to the Grocery Store!",
+                    "signal": "grocer_openStore"
+                }
+
+            ]
+        }
+    ]
+}

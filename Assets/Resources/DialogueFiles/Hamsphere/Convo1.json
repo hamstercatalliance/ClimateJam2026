@@ -1,0 +1,86 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "characterID": "hamsphere",
+                    "dialogue": "Hamster is so cool"
+                },
+                {
+                    "characterID": "hamsphere",
+                    "dialogue": "But do you know what's not cool?"
+                },
+                {
+                    "characterID": "hamsphere",
+                    "dialogue": "That new data center they're building."
+                },
+                {
+                    "characterID": "hamsphere",
+                    "dialogue": "What do you think about it?",
+                    "buttons": [
+                        {
+                            "text": "I think it's fine",
+                            "path": "negative"
+                        },
+                        {
+                            "text": "I don't like it either",
+                            "path": "positive"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "positive",
+            "dialogue": [
+                {
+                    "characterID": "hamsphere",
+                    "dialogue": "Yeah, I thought so."
+                },
+                {
+                    "characterID": "hamsphere",
+                    "dialogue": "Like don't get me wrong, Company's technology can be pretty cool and useful at times."
+                },
+                {
+                    "characterID": "hamsphere",
+                    "dialogue": "It's just that..."
+                },
+                {
+                    "characterID": "hamsphere",
+                    "dialogue": "I think there can be a better way to go about doing this. "
+                },
+                {
+                    "characterID": "hamsphere",
+                    "dialogue": "I mean, to they have to use up the TOWN river???"
+                }
+            ]
+        },
+        {
+            "name": "negative",
+            "dialogue": [
+                {
+                    "characterID": "hamsphere",
+                    "dialogue": "Really?"
+                },
+                {
+                    "characterID": "hamsphere",
+                    "dialogue": "Like don't get me wrong, Company's technology can be pretty cool and useful at times."
+                },
+                {
+                    "characterID": "hamsphere",
+                    "dialogue": "It's just that..."
+                },
+                {
+                    "characterID": "hamsphere",
+                    "dialogue": "I think there can be a better way to go about doing this. "
+                },
+                {
+                    "characterID": "hamsphere",
+                    "dialogue": "I mean, to they have to use up the TOWN river???"
+                }
+            ]
+        }
+    ]
+}

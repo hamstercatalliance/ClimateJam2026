@@ -1,0 +1,30 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "characterID": "evilGenius",
+                    "dialogue": "I talked to Fishercat last night. Apparently she doesn't know about the data center yet!"
+                },
+                {
+                    "characterID": "evilGenius",
+                    "dialogue": "I didn’t have the heart to tell her… all she thinks are her fish."
+                },
+                {
+                    "characterID": "evilGenius",
+                    "dialogue": "But let me just tell you, cat-to-cat… when the river stops flowing…"
+                },
+                {
+                    "characterID": "evilGenius",
+                    "dialogue": "..."
+                },
+                {
+                    "characterID": "evilGenius",
+                    "dialogue": "I don't want to even think about it."
+                }
+            ]
+        }
+    ]
+}

@@ -67,6 +67,12 @@ public class DialogueRenderer : MonoBehaviour
         Transform optionsContainer = dialoguePanel.transform.Find("Container");
 
 
+        if (dialogueObject.link != null && dialogueObject.link != "")
+        {
+            //Transform linkText = dialoguePanel.transform.Find("LinkText");
+            //linkText.GetComponent<TMP_Text>().text = dialogueObject.link;
+        }
+
         contentText.GetComponent<TMP_Text>().text = dialogueObject.getContent();
 
         // find character name by looping through all npcs in scene and getting from NonPlayableCharacterScript

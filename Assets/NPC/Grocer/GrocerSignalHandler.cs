@@ -4,9 +4,14 @@ using UnityEngine;
 using System;
 public class GrocerSignalHandler : DialogueSignalHandler
 {
+    [SerializeField] private MerchantStore store;
     protected override void HandleDialogueSignal(object sender, EventArgs e)
     {
-        //throw new System.NotImplementedException();
+        DialogueSignal dialogueSignal = e as DialogueSignal;
+        if (dialogueSignal.signal == "grocer_openStore")
+        {
+            store.EnterStore();
+        }
     }
     
 }

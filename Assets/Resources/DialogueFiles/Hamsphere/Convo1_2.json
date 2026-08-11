@@ -1,0 +1,26 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "characterID": "hamsphere",
+                    "text": "Like don't get me wrong, Company's technology can be pretty cool and useful at times."
+                },
+                {
+                    "characterID": "hamsphere",
+                    "text": "It's just that..."
+                },
+                {
+                    "characterID": "hamsphere",
+                    "text": "I think there can be a better way to go about doing this. "
+                },
+                {
+                    "characterID": "hamsphere",
+                    "text": "I mean, to they have to use up the TOWN river???"
+                }
+            ]
+        }
+    ]
+}

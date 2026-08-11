@@ -6,6 +6,11 @@ public class HamsphereSignalHandler : DialogueSignalHandler
 {
     protected override void HandleDialogueSignal(object sender, EventArgs e)
     {
-        //throw new System.NotImplementedException();
+       //DialogueSignal dialogueSignal = e as DialogueSignal;
+       // Conversation conversation = GetComponent<Hamsphere>().conversation;
+       // if (dialogueSignal.signal == "hamsphere_1_2_proceed")
+       // {
+       //     conversation.Execute("Hamsphere/Convo1_2");
+       // }
     }
 }
