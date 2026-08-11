@@ -6,7 +6,8 @@
             "dialogue": [
                 {
                     "characterID": "childHamster",
-                    "dialogue": "Did you know that the big building they're making will use up all the water from the river?"
+                    "dialogue": "Did you know that the big building they're making will use up all the water from the river?",
+                    "link": "https://www.networkworld.com/article/2071209/data-center-provider-razes-55-homes-to-make-room-for-illinois-campus.html"
                 },
                 {
                     "characterID": "childHamster",

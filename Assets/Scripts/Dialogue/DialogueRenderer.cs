@@ -71,6 +71,7 @@ public class DialogueRenderer : MonoBehaviour
         {
             //Transform linkText = dialoguePanel.transform.Find("LinkText");
             //linkText.GetComponent<TMP_Text>().text = dialogueObject.link;
+            LearnMoreButton.Instance.SetLearnMoreURL(dialogueObject.link);
         }
 
         contentText.GetComponent<TMP_Text>().text = dialogueObject.getContent();
@@ -150,6 +151,10 @@ public class DialogueRenderer : MonoBehaviour
     private IEnumerator endDialogue(DialogueBox dialogue, GameObject dialoguePanel) {
         yield return new WaitForSecondsRealtime(0.1f); // Wait for 0.1 seconds to ensure the dialogue box is rendered before proceeding
         OnDialogueProceed?.Invoke(this, EventArgs.Empty);
+        if (LearnMoreButton.Instance.gameObject.activeSelf == true)
+        {
+            LearnMoreButton.Instance.ClearLearnMoreURL();
+        }
         dialogue.setInactive();
         //Debug.Log("DialogueRenderer: Ending dialogue box for character " + dialogue.getCharacterID() + " with content: " + dialogue.getContent());
         //if (dialogue.lastBox)
