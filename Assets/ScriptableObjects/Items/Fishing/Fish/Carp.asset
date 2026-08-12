@@ -20,5 +20,5 @@ MonoBehaviour:
   itemDescription: The carp is considered to be one of the world's most invasive
     species.
   sourceLink: https://news.umich.edu/climate-warming-increases-asian-carp-threat-to-lake-michigan-by-offsetting-quagga-mussel-ecological-barrier/
-  cost: 0
+  cost: 10
   isVanityItem: 0

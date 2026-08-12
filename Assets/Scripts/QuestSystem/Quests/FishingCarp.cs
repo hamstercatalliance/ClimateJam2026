@@ -61,24 +61,25 @@ public class FishingCarp : Quest
         }
         else if (randomNumber == 1)
         {
-            InventoryManager.Instance.AddItemToInventory(sturgeon);
-            int sturgeonSP = -50;
-            SympathyPointsManager.Instance.addSympathyPoints(sturgeonSP);
             return sturgeon;
         }
         else
         {
-            InventoryManager.Instance.AddItemToInventory(catfish);
             return catfish;
         }
     }
 
     public void ReelFish(GameItemSO gameItemSO)
     {
+        Debug.Log($"FishingCarp: ReelFish called with itemID: {gameItemSO.itemID}");
+
         if (gameItemSO.itemID == "item.carp")
         {
             InventoryManager.Instance.AddItemToInventory(carp);
             SympathyPointsManager.Instance.addSympathyPoints(25);
+
+            Debug.Log(InventoryManager.Instance.GetItemCount(carp));
+
             CheckCarp();
         }
         else if (gameItemSO.itemID == "item.sturgeon")

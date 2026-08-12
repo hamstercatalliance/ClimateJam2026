@@ -33,7 +33,7 @@
                     "dialogue": "You feel a tug! There are whiskers peeking out of the water. Reel it in?",
                     "buttons": 
                     [
-                        { "id": "reel_catfish", "text": "Yes", "path": "got_catfish", "signal": "catfish_caught" },
+                        { "id": "reel_catfish", "text": "Yes", "path": "got_catfish" },
                         { "text": "No" }
                     ]
                 }

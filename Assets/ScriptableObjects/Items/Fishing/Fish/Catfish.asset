@@ -19,5 +19,5 @@ MonoBehaviour:
   itemID: item.catfish
   itemDescription: Meow
   sourceLink: 
-  cost: 0
+  cost: 15
   isVanityItem: 0
