@@ -4,25 +4,32 @@ using UnityEngine;
 
 public class FlowerPlantingInteractable : InteractableObject
 {
+    bool disableInteraction;
     public void DisableInteraction()
     {
         InteractableObject interactableObject = GetComponent<InteractableObject>();
         if (interactableObject != null)
         {
+            ZoneExited();
             interactableObject.enabled = false;
+            disableInteraction = true;
+
         }
     }
 
     protected override void OnTalk()
     {
-        FlowerPlanting flowerPlanting = FindObjectOfType<FlowerPlanting>();
-        if (flowerPlanting.CheckFlowerSeeds())
+        if (!disableInteraction)
         {
-            conversation.Execute("OneInteract/FlowerPlantingSpot");
-        }
-        else
-        {
-            conversation.Execute("OneInteract/FlowerPlantingSpotDeny");
+            FlowerPlanting flowerPlanting = FindObjectOfType<FlowerPlanting>();
+            if (flowerPlanting.CheckFlowerSeeds())
+            {
+                conversation.Execute("OneInteract/FlowerPlantingSpot");
+            }
+            else
+            {
+                conversation.Execute("OneInteract/FlowerPlantingSpotDeny");
+            }
         }
     }
 }

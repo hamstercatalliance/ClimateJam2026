@@ -47,6 +47,7 @@ public class GameData : MonoBehaviour
     public int TestQuestProgress;
     public bool OpenedQuestBoard;
     public int BeachCleanupProgress;
+    public bool FlowerSeedsPickedUp;
     #endregion
     #region Currency Manager Data
     public int currencyAmount;
@@ -102,6 +103,7 @@ public class GameData : MonoBehaviour
         public bool ChildCatQuestStarted;
         public bool ChildCatHasInteracted;
         public bool ChildCatPositiveInteraction;
+        public bool FlowerSeedsPickedUp;
         public int ChildCatDayInteracted;
         public bool MiddleAgeHamsterPositiveInteraction;
         public bool MiddleAgeHamsterHasInteracted;
@@ -132,6 +134,7 @@ public class GameData : MonoBehaviour
         saveData.ChildCatDayInteracted = ChildCatDayInteracted;
         saveData.MiddleAgeHamsterPositiveInteraction = MiddleAgeHamsterPositiveInteraction;
         saveData.MiddleAgeHamsterHasInteracted = MiddleAgeHamsterHasInteracted;
+        saveData.FlowerSeedsPickedUp = FlowerSeedsPickedUp;
         return saveData;
     }
     private void SetSaveData(SaveData data)
@@ -159,6 +162,7 @@ public class GameData : MonoBehaviour
         ChildCatDayInteracted = data.ChildCatDayInteracted;
         MiddleAgeHamsterPositiveInteraction = data.MiddleAgeHamsterPositiveInteraction;
         MiddleAgeHamsterHasInteracted = data.MiddleAgeHamsterHasInteracted;
+        FlowerSeedsPickedUp = data.FlowerSeedsPickedUp;
     }
     public void LoadFromSaveData(SaveData data)
     {
@@ -191,6 +195,7 @@ public class GameData : MonoBehaviour
         ChildCatDayInteracted = 0;
         MiddleAgeHamsterPositiveInteraction = false;
         MiddleAgeHamsterHasInteracted = false;
+        FlowerSeedsPickedUp = false;
     }
 
 

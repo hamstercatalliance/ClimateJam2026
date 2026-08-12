@@ -74,6 +74,12 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6549702711710824694, guid: c77d034d8e3f91340942057e441f146c,
+        type: 3}
+      propertyPath: gameItemSO
+      value: 
+      objectReference: {fileID: 11400000, guid: d90eae42e71fa23489c611ac2f855efc,
+        type: 2}
     - target: {fileID: 6588925974966872787, guid: c77d034d8e3f91340942057e441f146c,
         type: 3}
       propertyPath: m_LocalScale.x

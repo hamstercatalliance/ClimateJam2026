@@ -23,7 +23,6 @@ public abstract class DialogueSignalHandler : MonoBehaviour
 
     protected void OnDisable()
     {
-        // Always unsubscribe to prevent memory leaks and ghost crashes
         if (DialogueRenderer.Instance != null)
         {
             DialogueRenderer.Instance.dialogueSignal -= HandleDialogueSignal;
