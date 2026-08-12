@@ -122,10 +122,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptableInteractable: {fileID: 11400000, guid: 7ee2f3472acfc324e8f950ae878f4b06,
     type: 2}
+  conversation: {fileID: 0}
   spawnPoints:
   - {x: 4.12, y: 1.17, z: 17.43}
-  - {x: 4.12, y: 1.17, z: 17.43}
-  - {x: 4.12, y: 1.17, z: 17.43}
+  - {x: 3.24, y: 0.25, z: -15.97}
+  - {x: 14.47, y: -0.75, z: -21.99}
   - {x: 4.12, y: 1.17, z: 17.43}
   isFacingRight: 01000100
   questCompleted: 0
