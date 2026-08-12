@@ -18,5 +18,5 @@ MonoBehaviour:
   itemID: item.fishingrod
   itemDescription: It's a fishing rod
   sourceLink: 
-  cost: 100
+  cost: 50
   isVanityItem: 0
