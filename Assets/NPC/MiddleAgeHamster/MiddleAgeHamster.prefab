@@ -105,10 +105,10 @@ MonoBehaviour:
   conversation: {fileID: 0}
   spawnPoints:
   - {x: 29.17, y: -8.93, z: -24.75}
-  - {x: 29.17, y: -8.93, z: -24.75}
-  - {x: 29.17, y: -8.93, z: -24.75}
+  - {x: 15, y: -8.41, z: -21.9}
+  - {x: 31.2, y: -8.89, z: -18.9}
   - {x: -60.83, y: -8.93, z: -44.92}
-  isFacingRight: 01010101
+  isFacingRight: 01010001
 --- !u!114 &1491397320272810404
 MonoBehaviour:
   m_ObjectHideFlags: 0

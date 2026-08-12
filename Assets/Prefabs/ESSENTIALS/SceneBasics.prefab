@@ -30398,6 +30398,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 1351aa3ad15136648a0a6c75eac8609d,
         type: 2}
+    - target: {fileID: 4583523325549204244, guid: 586794b438a4c704b8fbe60afdad3db4,
+        type: 3}
+      propertyPath: purchasableItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9bfedba9e66819f4283106d68ad5ffab,
+        type: 2}
+    - target: {fileID: 4583523325549204244, guid: 586794b438a4c704b8fbe60afdad3db4,
+        type: 3}
+      propertyPath: purchasableItems.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4676052725207c54082e60d86f7e53ba,
+        type: 2}
     - target: {fileID: 5687453606941620726, guid: 586794b438a4c704b8fbe60afdad3db4,
         type: 3}
       propertyPath: m_Pivot.x

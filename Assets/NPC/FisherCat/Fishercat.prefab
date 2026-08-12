@@ -63,6 +63,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fishercat
       objectReference: {fileID: 0}
+    - target: {fileID: 4493822974740682925, guid: 29227e2f5d0b57243abbcb18f6174d2e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493822974740682925, guid: 29227e2f5d0b57243abbcb18f6174d2e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493822974740682925, guid: 29227e2f5d0b57243abbcb18f6174d2e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.12
+      objectReference: {fileID: 0}
     - target: {fileID: 6284319412425006996, guid: 29227e2f5d0b57243abbcb18f6174d2e,
         type: 3}
       propertyPath: m_Sprite
@@ -102,6 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptableInteractable: {fileID: 11400000, guid: fb16b0f9143be2b4daadecaee260131a,
     type: 2}
+  conversation: {fileID: 0}
   spawnPoints:
   - {x: 17.84482, y: 0.4158134, z: 20}
   - {x: 17.84482, y: 0.4158134, z: 20}

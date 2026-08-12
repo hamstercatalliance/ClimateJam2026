@@ -2442,6 +2442,7 @@ GameObject:
   - component: {fileID: 722346752}
   - component: {fileID: 722346751}
   - component: {fileID: 722346750}
+  - component: {fileID: 722346755}
   m_Layer: 0
   m_Name: FishingSpot
   m_TagString: Untagged
@@ -2464,7 +2465,12 @@ MonoBehaviour:
   scriptableInteractable: {fileID: 11400000, guid: 0003991d817c0b949b09b8e014c0334e,
     type: 2}
   conversation: {fileID: 0}
-  dialogueName: OneInteract/FishingSpot
+  dialogueName: 
+  FishingNoRodDialoguePath: OneInteract/FishingQuest/FishingNoRod
+  FishingNoBaitDialoguePath: OneInteract/FishingQuest/FishingNoBait
+  FishingCarpDialoguePath: OneInteract/FishingQuest/FishingCarp
+  FishingSturgeonDialoguePath: OneInteract/FishingQuest/FishingSturgeon
+  FishingCatfishDialoguePath: OneInteract/FishingQuest/FishingCatfish
 --- !u!65 &722346751
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2551,6 +2557,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &722346755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722346749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01d90bac304629c4dbe5a8246360b716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &740487455
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6794,8 +6812,14 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2114785220}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1837717831
-BoxCollider:
+--- !u!4 &1837717832 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: aee7ebb629c57ed45b7d4f14d19457f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 2114785220}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1837717833
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6812,15 +6836,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6.736204, y: 0.27827138, z: 7.5079536}
-  m_Center: {x: 0.51318836, y: 0.2075066, z: -12.9388275}
---- !u!4 &1837717832 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: aee7ebb629c57ed45b7d4f14d19457f9,
-    type: 3}
-  m_PrefabInstance: {fileID: 2114785220}
-  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &1900158934 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: af3b4c055b6f56c41a0c8070995001c3,
@@ -7556,7 +7575,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aee7ebb629c57ed45b7d4f14d19457f9,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1837717831}
+      addedObject: {fileID: 1837717833}
   m_SourcePrefab: {fileID: 100100000, guid: aee7ebb629c57ed45b7d4f14d19457f9, type: 3}
 --- !u!4 &2118770453 stripped
 Transform:

@@ -230,6 +230,10 @@ MonoBehaviour:
   isInitiated: 0
   isCompleted: 0
   carp: {fileID: 11400000, guid: 7efa30b478cb6d2479d0aff5fb05528e, type: 2}
+  sturgeon: {fileID: 11400000, guid: 1351aa3ad15136648a0a6c75eac8609d, type: 2}
+  catfish: {fileID: 11400000, guid: 4d4144eca9a790c47ab279ba89c6b14e, type: 2}
+  fishingRod: {fileID: 11400000, guid: 9bfedba9e66819f4283106d68ad5ffab, type: 2}
+  bait: {fileID: 11400000, guid: 4676052725207c54082e60d86f7e53ba, type: 2}
 --- !u!1 &5973587162204034616
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,6 +384,8 @@ MonoBehaviour:
   isInitiated: 0
   isCompleted: 0
   flowerSeeds: {fileID: 11400000, guid: d90eae42e71fa23489c611ac2f855efc, type: 2}
+  flowerPlantingArea: {fileID: 0}
+  flowers: {fileID: 0}
 --- !u!1 &8751374989396096357
 GameObject:
   m_ObjectHideFlags: 0
