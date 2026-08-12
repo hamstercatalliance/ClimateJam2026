@@ -1,12 +1,30 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChildHamster : NonPlayableCharacter
+public class ChildHamster : NonPlayableCharacter, IHasPersistentData
 {
     public bool positiveConvo;
     public bool hasInteracted;
-    public int dayInteracted = 3;
+    public int dayInteracted;
+
+    public bool DataSuccessfullyWritten {  get; private set; }
+
+    protected override void Init()
+    {
+        base.Init();
+        LoadGameData();
+        SceneLoader.OnSceneTransition += OnSceneTransitionHandler;
+    }
+    private void OnDestroy()
+    {
+        SceneLoader.OnSceneTransition -= OnSceneTransitionHandler;
+    }
+    private void OnSceneTransitionHandler(object sender, EventArgs e)
+    {
+        WriteToGameData();
+    }
     protected override void OnTalk() {
         if (dayInteracted >= DayManager.Instance.dayCount || hasInteracted == false) {
             firstDayInteraction();
@@ -55,4 +73,18 @@ public class ChildHamster : NonPlayableCharacter
         }
     }
 
+    public void WriteToGameData()
+    {
+        GameData.Instance.ChildHamsterPositiveConvo = positiveConvo;
+        GameData.Instance.ChildHamsterHasInteracted = hasInteracted;
+        GameData.Instance.ChildHamsterDayInteracted = dayInteracted;
+        DataSuccessfullyWritten = true;
+    }
+
+    public void LoadGameData()
+    {
+        positiveConvo = GameData.Instance.ChildHamsterPositiveConvo;
+        hasInteracted = GameData.Instance.ChildHamsterHasInteracted;
+        dayInteracted = GameData.Instance.ChildHamsterDayInteracted;
+    }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static GameData;
 
 public class GameData : MonoBehaviour
 {
@@ -76,6 +77,9 @@ public class GameData : MonoBehaviour
     public bool MiddleAgeHamsterHasInteracted;
     #endregion
     #region Child Hamster
+    public bool ChildHamsterPositiveConvo;
+    public bool ChildHamsterHasInteracted;
+    public int ChildHamsterDayInteracted;
     #endregion
     #endregion
     [Serializable]
@@ -107,6 +111,9 @@ public class GameData : MonoBehaviour
         public int ChildCatDayInteracted;
         public bool MiddleAgeHamsterPositiveInteraction;
         public bool MiddleAgeHamsterHasInteracted;
+        public bool ChildHamsterPositiveConvo;
+        public bool ChildHamsterHasInteracted;
+        public int ChildHamsterDayInteracted;
     }
     public SaveData GetSaveData()
     {
@@ -135,6 +142,9 @@ public class GameData : MonoBehaviour
         saveData.MiddleAgeHamsterPositiveInteraction = MiddleAgeHamsterPositiveInteraction;
         saveData.MiddleAgeHamsterHasInteracted = MiddleAgeHamsterHasInteracted;
         saveData.FlowerSeedsPickedUp = FlowerSeedsPickedUp;
+        saveData.ChildHamsterPositiveConvo = ChildHamsterPositiveConvo;
+        saveData.ChildHamsterHasInteracted = ChildHamsterHasInteracted;
+        saveData.ChildHamsterDayInteracted = ChildHamsterDayInteracted;
         return saveData;
     }
     private void SetSaveData(SaveData data)
@@ -163,6 +173,9 @@ public class GameData : MonoBehaviour
         MiddleAgeHamsterPositiveInteraction = data.MiddleAgeHamsterPositiveInteraction;
         MiddleAgeHamsterHasInteracted = data.MiddleAgeHamsterHasInteracted;
         FlowerSeedsPickedUp = data.FlowerSeedsPickedUp;
+        ChildHamsterPositiveConvo = data.ChildHamsterPositiveConvo;
+        ChildHamsterHasInteracted = data.ChildHamsterHasInteracted;
+        ChildHamsterDayInteracted = data.ChildHamsterDayInteracted;
     }
     public void LoadFromSaveData(SaveData data)
     {
@@ -196,6 +209,9 @@ public class GameData : MonoBehaviour
         MiddleAgeHamsterPositiveInteraction = false;
         MiddleAgeHamsterHasInteracted = false;
         FlowerSeedsPickedUp = false;
+        ChildHamsterPositiveConvo = false;
+        ChildHamsterHasInteracted = false;
+        ChildHamsterDayInteracted = 0;
     }
 
 
