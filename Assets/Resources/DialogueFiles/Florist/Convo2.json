@@ -1,0 +1,46 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "characterID": "florist",
+                    "dialogue": "Hello!"
+                },
+                {
+                    "characterID": "florist",
+                    "dialogue": "I’ve been thinking lately… are we wrong for using Company’s technologies?"
+                },
+                {
+                    "characterID": "florist",
+                    "dialogue": "Last night, I couldn’t figure out what to cook with the veggies I had in my fridge, so I asked AskCat™ what I should make."
+                },
+                {
+                    "characterID":"florist",
+                    "dialogue": "It said I should make a lettuce carrot burger and gave me the recipe, and…"
+                },
+                {
+                    "characterID": "florist",
+                    "dialogue": "It turned out delicious!"
+                },
+                {
+                    "characterID": "florist",
+                    "dialogue": "But..."
+                },
+                {
+                    "characterID": "florist",
+                    "dialogue": "DId I really need to ask AskCat™ for that recipe?"
+                },
+                {
+                    "characterID": "florist",
+                    "dialogue": "I mean, it did save me a lot of time."
+                },
+                {
+                    "characterID":"florist",
+                    "dialogue": "But I guess I could've searched something up."
+                }
+            ]
+        }
+    ]
+}

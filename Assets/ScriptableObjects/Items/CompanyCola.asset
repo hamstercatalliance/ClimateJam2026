@@ -18,5 +18,5 @@ MonoBehaviour:
   itemID: item.cola
   itemDescription: They say that one sip gives you twenty cavities.
   sourceLink: 
-  cost: 75
+  cost: 25
   isVanityItem: 0

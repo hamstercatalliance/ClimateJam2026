@@ -11,6 +11,12 @@ public class Florest : NonPlayableCharacter
             case 0:
                 conversation.Execute("Florist/Convo1");
                 break;
+            case 1:
+                conversation.Execute("Florist/Convo2");
+                break;
+            case 2:
+                conversation.Execute("Florist/Convo3");
+                break;
         }
     }
 }

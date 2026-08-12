@@ -1,0 +1,16 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "dialogue": "Hello, fellow cat. You look very unemployed. Do you need something to do?"
+                },
+                {
+                    "dialogue": "Head on down to the job board at the center of town. There's a lot of work that needs to be done, and you can help!",
+                }
+            ]
+        }
+    ]
+}

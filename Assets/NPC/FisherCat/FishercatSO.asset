@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionRadius: 2
   interactableName: Fishercat
-  interactableId: fishercat
+  interactableId: fisherCat
   prefab: {fileID: 0}
   idleSprite: {fileID: 0}
   talkingSprite: {fileID: 0}
