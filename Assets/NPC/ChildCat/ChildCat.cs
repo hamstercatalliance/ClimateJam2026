@@ -83,7 +83,7 @@ public class ChildCat : NonPlayableCharacter, IHasPersistentData
 
     void GiveInitialQuestResponse()
     {
-        Debug.Log("Coconute water quest initiated: " + coconutWaterQuest.isInitiated);
+        //Debug.Log("Coconute water quest initiated: " + coconutWaterQuest.isInitiated);
         if (coconutWaterQuest.isInitiated && coconutWaterQuest.CheckCocounutWater())
         {
             questCompleted = true;

@@ -1,0 +1,18 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "characterID": "evilGenius",
+                    "dialogue": "Good luck stopping the data center, I guess..."
+                },
+                {
+                    "characterID": "evilGenius",
+                    "dialogue": "..."
+                }
+            ]
+        }
+    ]
+}

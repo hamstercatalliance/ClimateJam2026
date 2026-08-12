@@ -25,10 +25,6 @@ public class FlowerPlanting : Quest
         base.LoadGameData();
         if (GameData.Instance != null)
         {
-            // setCondition(GameData.Instance.OpenedQuestBoard);
-            //HI RANJIt
-            //becasreful to ot call complete quest on laod 
-            //because it will trigger the quest complete event and play the completed sound on scene laod
             pickedUpSeeds = GameData.Instance.FlowerSeedsPickedUp;
         }
         Debug.Log("isCompleted " + isCompleted + "for flower planting");
@@ -67,7 +63,7 @@ public class FlowerPlanting : Quest
             {
                 flowerPlantingArea.SetActive(true);
                 flowers.SetActive(false);
-                if (!pickedUpSeeds)
+                if (!CheckFlowerSeeds())
                 {
                     flowerSeedsObject.gameObject.SetActive(true);
                     InventoryManager.Instance.OnInventoryAddition += InventoryManager_OnInventoryAddition;

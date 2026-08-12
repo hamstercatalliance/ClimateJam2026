@@ -41,11 +41,13 @@
                     "buttons": [
                         {
                             "text": "I'm sure we can figure something out",
-                            "path": "positive2"
+                            "path": "positive2",
+                            "id": "evilGenius_positive"
                         },
                         {
                             "text": "I guess...",
-                            "path": "negative"
+                            "path": "negative",
+                            "id": "evilGenius_negative"
                         }
                     ]
                 }

@@ -7,6 +7,11 @@
                 {
                     "characterID": "childCat",
                     "dialogue": "Wow... so much CompanyCola!"
+                },
+                {
+                    "characterID": "childCat",
+                    "dialogue": "Thank you, cat! I am going to drink all of these bottles and throw them in the river!",
+                    "signal": "colaQuest_end"
                 }
             ]
         }

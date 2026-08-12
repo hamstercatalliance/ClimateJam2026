@@ -3144,12 +3144,12 @@ PrefabInstance:
         type: 3}
       propertyPath: colaQuest
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1077394848}
     - target: {fileID: -8920075340256496683, guid: b04cb2909fe5e254997c8c7646b33107,
         type: 3}
       propertyPath: coconutWaterQuest
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1077394847}
     - target: {fileID: 1416070349113227971, guid: b04cb2909fe5e254997c8c7646b33107,
         type: 3}
       propertyPath: m_Name
@@ -4029,6 +4029,30 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 1077394845}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1077394847 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 39578376177223878, guid: 221645e9bd166d648b1ab79e4237004b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1077394845}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18af2c515df13a84da0f9896de5818c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1077394848 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6246448055578080486, guid: 221645e9bd166d648b1ab79e4237004b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1077394845}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7010ae23565aab409841086fa0580a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1093593560
 PrefabInstance:
   m_ObjectHideFlags: 0
