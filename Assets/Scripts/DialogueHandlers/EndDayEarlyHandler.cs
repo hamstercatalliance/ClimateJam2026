@@ -14,6 +14,6 @@ public class EndDayEarlyHandler : DialogueSignalHandler
                 DialogueBox.dialogueActive = false;
                 DayManager.Instance.EndDay();
             }
-            //};
+            //
     }
 }

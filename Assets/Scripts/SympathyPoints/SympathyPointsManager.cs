@@ -8,18 +8,19 @@ public class SympathyPointsManager : DialogueSignalHandler, IHasPersistentData
 {
     public static SympathyPointsManager Instance { get; private set; }
     public int SympathyPoints { get; private set; }
+
     private int goodEndingThreshold = 50; //CHANGE TO REFLECT ACTUAL GAME LATER
     public bool HasReachedGoodEndingThreshold()
     {
         Debug.Log("Checking if good ending threshold is reached. Current points: " + SympathyPoints + ", Threshold: " + goodEndingThreshold);
         return SympathyPoints >= goodEndingThreshold;
     }
+
     private void Start()
     {
         LoadGameData();
         SceneLoader.OnSceneTransition += OnSceneTransitionHandler;
     }
-
 
     protected override void HandleDialogueSignal(object sender, EventArgs e)
     {

@@ -25103,6 +25103,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1359849057}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &596123363 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1530827059678128686, guid: 4af2b1c2da6185b408b793dd073a8393,
+    type: 3}
+  m_PrefabInstance: {fileID: 2074919454}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &601709750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59995,6 +60001,11 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 209f5126cf16b2a41886d231f468fe05, type: 3}
+    - target: {fileID: 4119930645110649202, guid: 221645e9bd166d648b1ab79e4237004b,
+        type: 3}
+      propertyPath: flowers
+      value: 
+      objectReference: {fileID: 596123363}
     - target: {fileID: 4257489436982162999, guid: 221645e9bd166d648b1ab79e4237004b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -87865,7 +87876,7 @@ PrefabInstance:
     - target: {fileID: 1530827059678128686, guid: 4af2b1c2da6185b408b793dd073a8393,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1643998892626044815, guid: 4af2b1c2da6185b408b793dd073a8393,
         type: 3}
@@ -87925,8 +87936,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1643998892626044815, guid: 4af2b1c2da6185b408b793dd073a8393,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2074919456}
   m_SourcePrefab: {fileID: 100100000, guid: 4af2b1c2da6185b408b793dd073a8393, type: 3}
+--- !u!1 &2074919455 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1643998892626044815, guid: 4af2b1c2da6185b408b793dd073a8393,
+    type: 3}
+  m_PrefabInstance: {fileID: 2074919454}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2074919456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074919455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6007077e080bf7c439b68a6abba13270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptableInteractable: {fileID: 11400000, guid: f441e6f9ef975a345a697e14cd054ca7,
+    type: 2}
+  conversation: {fileID: 0}
+  dialogueName: OneInteract/FlowerPlantingSpot
 --- !u!4 &2077281344 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7224998883720337332, guid: a7ca191eb209f714c9be16bf95550716,

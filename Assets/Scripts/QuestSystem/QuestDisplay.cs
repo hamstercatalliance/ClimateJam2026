@@ -89,7 +89,7 @@ public class QuestDisplay : MonoBehaviour
         questDesc.text = questSO.questDescription;
         if (questSO.currencyAward > 0)
         {
-            questDesc.text += "\n\nReward:\n" + questSO.currencyAward + " Coins";
+            questDesc.text += "\n\nReward: " + questSO.currencyAward + " Coins";
         }
         
     }

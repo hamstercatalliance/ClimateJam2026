@@ -1,5 +1,53 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &75244272528964378
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2496945308066465365}
+  - component: {fileID: 7287856362671926634}
+  m_Layer: 0
+  m_Name: ColaQuest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2496945308066465365
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75244272528964378}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3603415796143957246}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7287856362671926634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75244272528964378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7010ae23565aab409841086fa0580a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questSO: {fileID: 11400000, guid: cd0a579ef3c78d0408760b39a062f677, type: 2}
+  isInitiated: 0
+  isCompleted: 0
+  ColaSO: {fileID: 11400000, guid: 83f96fefcd161be4487710ff9f036fff, type: 2}
 --- !u!1 &659508041460541160
 GameObject:
   m_ObjectHideFlags: 0
@@ -32,8 +80,61 @@ Transform:
   - {fileID: 68665645313838742}
   - {fileID: 1874470452004615368}
   - {fileID: 7365642767741079295}
+  - {fileID: 2496945308066465365}
+  - {fileID: 2166070983646579331}
+  - {fileID: 895987431324102577}
+  - {fileID: 7806833434698363648}
+  - {fileID: 3815635678516282396}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1943464323039078197
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3815635678516282396}
+  - component: {fileID: 2663858630216957163}
+  m_Layer: 0
+  m_Name: CoconutWaterQuest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3815635678516282396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943464323039078197}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3603415796143957246}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2663858630216957163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943464323039078197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18af2c515df13a84da0f9896de5818c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questSO: {fileID: 11400000, guid: e66c1025eb3c3a549aee8d3d6af6949a, type: 2}
+  isInitiated: 0
+  isCompleted: 0
+  CoconutWater: {fileID: 11400000, guid: a14dd9d248f4a744fa06cc56837f1306, type: 2}
 --- !u!1 &3440415080444404344
 GameObject:
   m_ObjectHideFlags: 0
@@ -81,6 +182,102 @@ MonoBehaviour:
   questSO: {fileID: 11400000, guid: 920c1c2c14e4b7f439cfec322b9a4b4b, type: 2}
   isInitiated: 0
   isCompleted: 0
+--- !u!1 &3638470956028295133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7806833434698363648}
+  - component: {fileID: 8219447292079573367}
+  m_Layer: 0
+  m_Name: CarpFishing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7806833434698363648
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3638470956028295133}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3603415796143957246}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8219447292079573367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3638470956028295133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8542c544a889b14591f6572403ba989, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questSO: {fileID: 11400000, guid: 624dd186bef603646b158e19771627fb, type: 2}
+  isInitiated: 0
+  isCompleted: 0
+  carp: {fileID: 11400000, guid: 7efa30b478cb6d2479d0aff5fb05528e, type: 2}
+--- !u!1 &5973587162204034616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2166070983646579331}
+  - component: {fileID: 3675185254586175818}
+  m_Layer: 0
+  m_Name: CoconutWaterQuest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2166070983646579331
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5973587162204034616}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3603415796143957246}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3675185254586175818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5973587162204034616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18af2c515df13a84da0f9896de5818c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questSO: {fileID: 11400000, guid: e66c1025eb3c3a549aee8d3d6af6949a, type: 2}
+  isInitiated: 0
+  isCompleted: 0
+  CoconutWater: {fileID: 11400000, guid: a14dd9d248f4a744fa06cc56837f1306, type: 2}
 --- !u!1 &6817011535415057954
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,11 +327,59 @@ MonoBehaviour:
   isCompleted: 0
   trash: {fileID: 0}
   trashItems:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: d4fc3cd2b6eb42b4980afacf91e58917, type: 2}
+  - {fileID: 11400000, guid: 7d70e7e980abf2a49a3f9c410a463177, type: 2}
+  - {fileID: 11400000, guid: a7a8310cfeae9674f940e0b4928119eb, type: 2}
+  - {fileID: 11400000, guid: 09f5be06fa78c934097a17132d440311, type: 2}
+  - {fileID: 11400000, guid: 4758b6826a7c8fb4fa3ae6f4acb68a05, type: 2}
+--- !u!1 &7127999044458190092
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 895987431324102577}
+  - component: {fileID: 765773296336152830}
+  m_Layer: 0
+  m_Name: FlowerPlanting
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &895987431324102577
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7127999044458190092}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3603415796143957246}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &765773296336152830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7127999044458190092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93827b787b6ce914c8354e0112022b44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questSO: {fileID: 11400000, guid: e630ac21ca3dd6c48a8b29d33330954a, type: 2}
+  isInitiated: 0
+  isCompleted: 0
+  flowerSeeds: {fileID: 11400000, guid: d90eae42e71fa23489c611ac2f855efc, type: 2}
 --- !u!1 &8751374989396096357
 GameObject:
   m_ObjectHideFlags: 0

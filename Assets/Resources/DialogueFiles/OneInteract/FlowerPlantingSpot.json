@@ -1,0 +1,22 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "dialogue": "Use Flower Seeds (x1) and plant?",
+                    "buttons": [
+                        {
+                            "id": "flower_planting_confirm",
+                            "text": "Yes"
+                        },
+                        {
+                            "text": "No" 
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
