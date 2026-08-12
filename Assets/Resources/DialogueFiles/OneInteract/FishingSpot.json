@@ -1,0 +1,22 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "dialogue": "Use Bait (x1) and fish?",
+                    "buttons": [
+                        {
+                            "id": "fish_confirm",
+                            "text": "Yes"
+                        },
+                        {
+                            "text": "No" 
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

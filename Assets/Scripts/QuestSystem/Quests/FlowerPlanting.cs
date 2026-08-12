@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class FlowerPlanting : Quest
 {
     [SerializeField] private GameItemSO flowerSeeds;
+    [SerializeField] private GameObject flowers;
+
+    private const string DOWNTOWN_SCENE = "Downtown";
 
     public bool CheckFlowerSeeds()
     {
@@ -17,5 +20,21 @@ public class FlowerPlanting : Quest
 
         Debug.Log("PlantingFlowers: Flower seeds count insufficient");
         return false;
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+        if (gameObject.scene.name == DOWNTOWN_SCENE)
+        {
+            if (isCompleted)
+            {
+                flowers.SetActive(true);
+            }
+            else
+            {
+                flowers.SetActive(false);
+            }
+        }
     }
 }
