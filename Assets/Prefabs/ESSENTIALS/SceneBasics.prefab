@@ -20477,6 +20477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: SaveScene
   IHasPersistentDataGameObjects: []
+  fadeToBlack: {fileID: 2383937747519123382}
 --- !u!1 &5787927671182126840
 GameObject:
   m_ObjectHideFlags: 0
@@ -21092,7 +21093,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1102234938051165557
 RectTransform:
   m_ObjectHideFlags: 0
