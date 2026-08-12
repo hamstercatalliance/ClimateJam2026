@@ -1,0 +1,37 @@
+{
+    "startingPath": "start",
+    "data": 
+    [
+        {
+            "name": "start",
+            "dialogue": 
+            [
+                {
+                    "dialogue": "Use Bait (x1) and fish?",
+                    "buttons": 
+                    [
+                        {
+                            "id": "baitless_start",
+                            "text": "Yes",
+                            "path": "reject"
+                        },
+                        {
+                            "text": "No" 
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "reject",
+            "dialogue": 
+            [
+                {
+                    "id": "no_bait",
+                    "dialogue": "You don't have any bait!"
+                }
+            ]
+        }
+        
+    ]
+}

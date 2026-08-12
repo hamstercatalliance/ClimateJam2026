@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Rod
   m_EditorClassIdentifier: 
   worldSpacePrefab: {fileID: 0}
-  inventorySprite: {fileID: 0}
+  inventorySprite: {fileID: 747133951, guid: 0f2703ffc23bee342b2d50d7ed095733, type: 3}
   itemName: Fishing Rod
   itemID: item.fishingrod
   itemDescription: It's a fishing rod
   sourceLink: 
-  cost: 100
+  cost: 50
   isVanityItem: 0

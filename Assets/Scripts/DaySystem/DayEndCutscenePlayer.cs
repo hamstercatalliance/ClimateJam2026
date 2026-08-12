@@ -29,6 +29,7 @@ public class DayEndCutscenePlayer : MonoBehaviour
     {
         videoPanel.SetActive(false);
         screenFadeAnimator = screenFade.GetComponent<Animator>();
+        screenFadeAnimator.Play("BasicUnfade");
     }
     public IEnumerator PlayEarlyEndCutscene()
     {
@@ -39,6 +40,7 @@ public class DayEndCutscenePlayer : MonoBehaviour
     {
         screenFade.SetActive(true);
         screenFadeAnimator.Play("BasicFade");
+        yield return null;
         yield return new WaitUntil(() => screenFadeAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f);
         screenFadeAnimator.Play("SceneTransitionFade");
         videoPanel.SetActive(true);

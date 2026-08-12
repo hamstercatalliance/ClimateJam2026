@@ -1,0 +1,36 @@
+{
+    "startingPath": "start",
+    "data": 
+    [
+        {
+            "name": "start",
+            "dialogue": 
+            [
+                {
+                    "dialogue": "Use Bait (x1) and fish?",
+                    "buttons": 
+                    [
+                        {
+                            "id": "rodless_start",
+                            "text": "Yes",
+                            "path": "reject"
+                        },
+                        {
+                            "text": "No" 
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "reject",
+            "dialogue": 
+            [
+                {
+                    "id": "no_rod",
+                    "dialogue": "You need a fishing rod to fish!"
+                }
+            ]
+        }
+    ]
+}

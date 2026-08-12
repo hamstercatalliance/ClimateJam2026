@@ -1,0 +1,52 @@
+{
+    "startingPath": "start",
+    "data": 
+    [
+        {
+            "name": "start",
+            "dialogue": 
+            [
+                {
+                    "dialogue": "Use Bait (x1) and fish?",
+                    "buttons": 
+                    [
+                        {
+                            "id": "fishing_start",
+                            "text": "Yes",
+                            "path": "fish"
+                        },
+                        {
+                            "text": "No" 
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "fish",
+            "dialogue":
+            [
+                {
+                    "dialogue": "..."
+                },
+                {
+                    "dialogue": "You feel a tug! Beneath the water, you see something long and unfamiliar. Reel it in?",
+                    "buttons": 
+                    [
+                        { "id": "reel_sturgeon", "text": "Yes", "path": "got_sturgeon", "signal": "sturgeon_caught" },
+                        { "text": "No" }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "got_sturgeon",
+            "dialogue": 
+            [
+                {
+                    "dialogue": "You got a Sturgeon!"
+                }
+            ]
+        }
+    ]
+}

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Bait
   m_EditorClassIdentifier: 
   worldSpacePrefab: {fileID: 0}
-  inventorySprite: {fileID: 0}
-  itemName: FIsh Bait
+  inventorySprite: {fileID: -833682014, guid: 0f2703ffc23bee342b2d50d7ed095733, type: 3}
+  itemName: Fish Bait
   itemID: item.bait
   itemDescription: It's fish bait
   sourceLink: 
-  cost: 75
+  cost: 10
   isVanityItem: 0

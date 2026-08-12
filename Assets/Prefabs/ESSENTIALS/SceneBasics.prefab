@@ -20477,6 +20477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: SaveScene
   IHasPersistentDataGameObjects: []
+  fadeToBlack: {fileID: 2383937747519123382}
 --- !u!1 &5787927671182126840
 GameObject:
   m_ObjectHideFlags: 0
@@ -21092,7 +21093,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1102234938051165557
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21134,7 +21135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -30397,6 +30398,18 @@ PrefabInstance:
       propertyPath: sellableItems.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: 1351aa3ad15136648a0a6c75eac8609d,
+        type: 2}
+    - target: {fileID: 4583523325549204244, guid: 586794b438a4c704b8fbe60afdad3db4,
+        type: 3}
+      propertyPath: purchasableItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9bfedba9e66819f4283106d68ad5ffab,
+        type: 2}
+    - target: {fileID: 4583523325549204244, guid: 586794b438a4c704b8fbe60afdad3db4,
+        type: 3}
+      propertyPath: purchasableItems.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4676052725207c54082e60d86f7e53ba,
         type: 2}
     - target: {fileID: 5687453606941620726, guid: 586794b438a4c704b8fbe60afdad3db4,
         type: 3}

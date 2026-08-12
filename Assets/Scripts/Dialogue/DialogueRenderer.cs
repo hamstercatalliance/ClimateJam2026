@@ -151,7 +151,7 @@ public class DialogueRenderer : MonoBehaviour
     private IEnumerator endDialogue(DialogueBox dialogue, GameObject dialoguePanel) {
         yield return new WaitForSecondsRealtime(0.1f); // Wait for 0.1 seconds to ensure the dialogue box is rendered before proceeding
         OnDialogueProceed?.Invoke(this, EventArgs.Empty);
-        if (LearnMoreButton.Instance.gameObject.activeSelf == true)
+        if (LearnMoreButton.Instance != null && LearnMoreButton.Instance.gameObject.activeSelf == true)
         {
             LearnMoreButton.Instance.ClearLearnMoreURL();
         }

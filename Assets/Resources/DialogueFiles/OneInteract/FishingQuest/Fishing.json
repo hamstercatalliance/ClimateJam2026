@@ -1,0 +1,68 @@
+{
+    "startingpath": "start",
+    "data":
+    [
+        {
+            "name": "caught_carp",
+            "dialogue": [
+                {
+                    "dialogue": "You feel a tug! You feel like you've seen this fish many times before. Reel it in?",
+                    "buttons": [
+                        { "id": "reel_carp", "text": "Yes", "path": "got_carp" },
+                        { "text": "No" }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "got_carp",
+            "dialogue": [
+                {
+                    "dialogue": "You got a Carp!"
+                }
+            ]
+        },
+
+        {
+            "name": "caught_sturgeon",
+            "dialogue": [
+                {
+                    "dialogue": "You feel a tug! Beneath the water, you see something long and unfamiliar. Reel it in?",
+                    "buttons": [
+                        { "id": "reel_sturgeon", "text": "Yes", "path": "got_sturgeon" },
+                        { "text": "No" }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "got_sturgeon",
+            "dialogue": [
+                {
+                    "dialogue": "You got a Sturgeon!"
+                }
+            ]
+        },
+
+        {
+            "name": "caught_catfish",
+            "dialogue": [
+                {
+                    "dialogue": "You feel a tug! There are whiskers peeking out of the water. Reel it in?",
+                    "buttons": [
+                        { "id": "reel_catfish", "text": "Yes", "path": "got_catfish" },
+                        { "text": "No" }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "got_catfish",
+            "dialogue": [
+                {
+                    "dialogue": "You got a Catfish!"
+                }
+            ]
+        }
+    ]
+}

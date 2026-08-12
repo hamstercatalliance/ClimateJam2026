@@ -4,26 +4,31 @@ using UnityEngine;
 
 public class FishingCarp : Quest
 {
-    [SerializeField] private GameItemSO carp;
+    public GameItemSO carp;
+    public GameItemSO sturgeon;
+    public GameItemSO catfish;
+
     [SerializeField] private GameItemSO fishingRod;
     [SerializeField] private GameItemSO bait;
     private int carpRequirement = 5;
 
     public bool CheckCarp()
     {
+        //CALL THIS AFTER EVERY FISHING ATTEMPT TO CHECK IF THE PLAYER HAS ENOUGH CARP TO COMPLETE THE QUEST
         int items = InventoryManager.Instance.GetItemCount(carp);
         if (carpRequirement <= items)
         {
-            Debug.Log("FishingCarp: Carp count sufficient");
+            base.CompleteQuest();
             return true;
         }
         Debug.Log("FishingCarp: Carp count insufficient");
         return false;
     }
 
-    public bool CheckFishingRod()
+    public bool HasFishingRod()
     {
         int items = InventoryManager.Instance.GetItemCount(fishingRod);
+        Debug.Log($"FishingCarp: Fishing rod count: {items}");
         if (items > 0)
         {
             Debug.Log("FishingCarp: Fishing rod available");
@@ -33,9 +38,10 @@ public class FishingCarp : Quest
         return false;
     }
 
-    public bool CheckBait()
+    public bool HasBait()
     {
         int items = InventoryManager.Instance.GetItemCount(bait);
+        Debug.Log($"FishingCarp: Bait count: {items}");
         if (items > 0)
         {
             Debug.Log("FishingCarp: Bait available");
@@ -43,5 +49,47 @@ public class FishingCarp : Quest
         }
         Debug.Log("FishingCarp: Bait not available");
         return false;
+    }
+
+    public GameItemSO Fish()
+    {
+        InventoryManager.Instance.RemoveItemFromInventory(bait, 1);
+        int randomNumber = Random.Range(0, 3); 
+        if (randomNumber == 0)
+        {
+            return carp;
+        }
+        else if (randomNumber == 1)
+        {
+            InventoryManager.Instance.AddItemToInventory(sturgeon);
+            int sturgeonSP = -50;
+            SympathyPointsManager.Instance.addSympathyPoints(sturgeonSP);
+            return sturgeon;
+        }
+        else
+        {
+            InventoryManager.Instance.AddItemToInventory(catfish);
+            return catfish;
+        }
+    }
+
+    public void ReelFish(GameItemSO gameItemSO)
+    {
+        if (gameItemSO.itemID == "item.carp")
+        {
+            InventoryManager.Instance.AddItemToInventory(carp);
+            SympathyPointsManager.Instance.addSympathyPoints(25);
+            CheckCarp();
+        }
+        else if (gameItemSO.itemID == "item.sturgeon")
+        {
+            InventoryManager.Instance.AddItemToInventory(sturgeon);
+            SympathyPointsManager.Instance.addSympathyPoints(-50);
+        }
+        else if (gameItemSO.itemID == "item.catfish")
+        {
+            InventoryManager.Instance.AddItemToInventory(catfish);
+            //No sympathy points for catfish
+        }
     }
 }

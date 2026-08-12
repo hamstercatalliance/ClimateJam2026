@@ -1,0 +1,52 @@
+{
+    "startingPath": "start",
+    "data": 
+    [
+        {
+            "name": "start",
+            "dialogue": 
+            [
+                {
+                    "dialogue": "Use Bait (x1) and fish?",
+                    "buttons": 
+                    [
+                        {
+                            "id": "fishing_start",
+                            "text": "Yes",
+                            "path": "fish"
+                        },
+                        {
+                            "text": "No" 
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "fish",
+            "dialogue":
+            [
+                {
+                    "dialogue": "..."
+                },
+                {
+                    "dialogue": "You feel a tug! There are whiskers peeking out of the water. Reel it in?",
+                    "buttons": 
+                    [
+                        { "id": "reel_catfish", "text": "Yes", "path": "got_catfish", "signal": "catfish_caught" },
+                        { "text": "No" }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "got_catfish",
+            "dialogue": 
+            [
+                {
+                    "dialogue": "You got a Catfish!"
+                }
+            ]
+        }
+    ]
+}
