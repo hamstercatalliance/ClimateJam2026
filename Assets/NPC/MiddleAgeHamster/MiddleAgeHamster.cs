@@ -9,6 +9,7 @@ public class MiddleAgeHamster : NonPlayableCharacter, IHasPersistentData
 
     protected override void Init()
     {
+        base.Init();
         LoadGameData();
         SceneLoader.OnSceneTransition += OnSceneTransitionHandler;
     }
