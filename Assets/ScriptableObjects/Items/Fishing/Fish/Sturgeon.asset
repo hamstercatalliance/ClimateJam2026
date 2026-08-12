@@ -20,5 +20,5 @@ MonoBehaviour:
   itemDescription: Sturgeon are classified as the most endangered species group in
     the world.
   sourceLink: https://www.unr.edu/nevada-today/news/2025/lake-sturgeon-recovery
-  cost: 0
+  cost: 30
   isVanityItem: 0

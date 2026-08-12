@@ -33,7 +33,7 @@
                     "dialogue": "You feel a tug! Beneath the water, you see something long and unfamiliar. Reel it in?",
                     "buttons": 
                     [
-                        { "id": "reel_sturgeon", "text": "Yes", "path": "got_sturgeon", "signal": "sturgeon_caught" },
+                        { "id": "reel_sturgeon", "text": "Yes", "path": "got_sturgeon" },
                         { "text": "No" }
                     ]
                 }

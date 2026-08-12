@@ -33,7 +33,7 @@
                     "dialogue": "You feel a tug! You feel like you've seen this fish many times before. Reel it in?",
                     "buttons": 
                     [
-                        { "id": "reel_carp", "text": "Yes", "path": "got_carp", "signal": "carp_caught" },
+                        { "id": "reel_carp", "text": "Yes", "path": "got_carp" },
                         { "text": "No" }
                     ]
                 }
