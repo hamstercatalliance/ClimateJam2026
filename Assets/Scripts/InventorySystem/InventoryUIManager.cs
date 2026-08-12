@@ -84,6 +84,7 @@ public class InventoryUIManager : MonoBehaviour
     {
 
         GameItemSO item = ScriptableObjectDatabase.Instance.GetScriptableObjectByID(slot.itemID) as GameItemSO;
+        Debug.Log($"InventoryUIManager: ShowSlot called for itemID: {slot.itemID}, item name: {item?.name}, amount: {slot.amount}");
         if (item.inventorySprite is not null)
         {
             slotUI.SetIcon(item);

@@ -120,10 +120,10 @@ MonoBehaviour:
   conversation: {fileID: 0}
   spawnPoints:
   - {x: 17.84482, y: 0.4158134, z: 20}
-  - {x: 17.84482, y: 0.4158134, z: 20}
-  - {x: 17.84482, y: 0.4158134, z: 20}
+  - {x: 14.67, y: -0.7541865, z: 15.98}
+  - {x: 16.86, y: -0.9, z: 10.8}
   - {x: -59.27, y: -9.02, z: -43.09}
-  isFacingRight: 00000001
+  isFacingRight: 00000101
   fishingStore: {fileID: 0}
 --- !u!114 &8240997754689260904
 MonoBehaviour:

@@ -16,7 +16,7 @@ public class FishingSpotInteractable : OneInteractable
     protected override void OnTalk()
     {
         fishingQuest = FindObjectOfType<FishingCarp>();
-
+        Debug.Log(fishingQuest.HasBait());
         bool hasFishingRod = fishingQuest.HasFishingRod();
         if (!hasFishingRod)
         {
@@ -27,6 +27,7 @@ public class FishingSpotInteractable : OneInteractable
         else if (!fishingQuest.HasBait())
         {
             Debug.Log("Player does not have bait.");
+            
             conversation.Execute(FishingNoBaitDialoguePath);
             return;
         }

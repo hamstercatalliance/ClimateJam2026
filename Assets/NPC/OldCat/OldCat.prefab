@@ -106,7 +106,7 @@ MonoBehaviour:
   conversation: {fileID: 0}
   spawnPoints:
   - {x: 2.11, y: 1.25, z: 0}
-  - {x: 2.11, y: 1.25, z: 0}
-  - {x: 2.11, y: 1.25, z: 0}
+  - {x: -6.46, y: 0.08000004, z: -12.32}
+  - {x: 15.8, y: -1.57, z: -3}
   - {x: -62.05, y: -8.95, z: -46.45}
-  isFacingRight: 00000001
+  isFacingRight: 00000101
