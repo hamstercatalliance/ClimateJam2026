@@ -41,16 +41,22 @@ public class DayEndCutscenePlayer : MonoBehaviour
         screenFadeAnimator.Play("BasicFade");
         yield return new WaitUntil(() => screenFadeAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f);
         screenFadeAnimator.Play("SceneTransitionFade");
-        OnCutsceneStart?.Invoke(this, EventArgs.Empty);
         videoPanel.SetActive(true);
         endNormalCutscene.time = 1.5f;
         endNormalCutscene.Play();
+        
         yield return new WaitUntil(() => endNormalCutscene.isPlaying);
-
+        StartCoroutine(PlayJingleAfterDelay(2.5f));
         yield return new WaitWhile(() => endNormalCutscene.isPlaying);
 
        screenFadeAnimator.Play("BasicFade");
         yield return null;
         yield return new WaitUntil(() => screenFadeAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f);
+    }
+
+    private IEnumerator PlayJingleAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        OnCutsceneStart?.Invoke(this, EventArgs.Empty);
     }
 }
