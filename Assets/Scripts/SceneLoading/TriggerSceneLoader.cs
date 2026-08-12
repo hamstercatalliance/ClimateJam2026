@@ -8,10 +8,10 @@ public class TriggerSceneLoader : SceneLoader, IHasPersistentData
     public bool DataSuccessfullyWritten { get; private set; }
     [Header("This is the player's position RELATIVE to the scene esentials prefab (local position)")]
     [SerializeField] private Vector3 playerSpawnPosition;
+    public bool exitLeft = false;
     private void Start()
     {
         Player.Instance.OnSceneLoaderCollided += SceneLoader_OnSceneLoaderCollided;
-
     }
     private void OnDestroy()
     {

@@ -8282,6 +8282,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 847793935}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &849101915 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2383937747519123382, guid: 221645e9bd166d648b1ab79e4237004b,
+    type: 3}
+  m_PrefabInstance: {fileID: 6465163116645222949}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &849620294
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18197,6 +18203,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7354116474864284672, guid: 695b4edda38f7bb438408a47b41cfa47,
         type: 3}
+      propertyPath: fadeToBlack
+      value: 
+      objectReference: {fileID: 849101915}
+    - target: {fileID: 7354116474864284672, guid: 695b4edda38f7bb438408a47b41cfa47,
+        type: 3}
       propertyPath: cameraSpawnPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -20280,6 +20291,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SceneBasics
+      objectReference: {fileID: 0}
+    - target: {fileID: 4480609774355289057, guid: 221645e9bd166d648b1ab79e4237004b,
+        type: 3}
+      propertyPath: fadeToBlack
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4633604537755474315, guid: 221645e9bd166d648b1ab79e4237004b,
         type: 3}
