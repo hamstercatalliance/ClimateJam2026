@@ -8016,9 +8016,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7354116474864284672, guid: 695b4edda38f7bb438408a47b41cfa47,
         type: 3}
+      propertyPath: exitLeft
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354116474864284672, guid: 695b4edda38f7bb438408a47b41cfa47,
+        type: 3}
       propertyPath: sceneName
       value: Home
       objectReference: {fileID: 0}
+    - target: {fileID: 7354116474864284672, guid: 695b4edda38f7bb438408a47b41cfa47,
+        type: 3}
+      propertyPath: fadeToBlack
+      value: 
+      objectReference: {fileID: 1271122522}
     - target: {fileID: 7354116474864284672, guid: 695b4edda38f7bb438408a47b41cfa47,
         type: 3}
       propertyPath: playerSpawnPosition.x
@@ -41560,6 +41570,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7354116474864284672, guid: 695b4edda38f7bb438408a47b41cfa47,
         type: 3}
+      propertyPath: fadeToBlack
+      value: 
+      objectReference: {fileID: 1271122522}
+    - target: {fileID: 7354116474864284672, guid: 695b4edda38f7bb438408a47b41cfa47,
+        type: 3}
       propertyPath: playerSpawnPosition.x
       value: -20
       objectReference: {fileID: 0}
@@ -60229,6 +60244,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 978825083}
   m_SourcePrefab: {fileID: 100100000, guid: 221645e9bd166d648b1ab79e4237004b, type: 3}
+--- !u!95 &1271122522 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2383937747519123382, guid: 221645e9bd166d648b1ab79e4237004b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1271122521}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1279951303
 PrefabInstance:
   m_ObjectHideFlags: 0
