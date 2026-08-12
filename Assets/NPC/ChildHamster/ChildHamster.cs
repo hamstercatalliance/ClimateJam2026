@@ -8,7 +8,7 @@ public class ChildHamster : NonPlayableCharacter
     public bool hasInteracted;
     public int dayInteracted = 3;
     protected override void OnTalk() {
-        if (dayInteracted < DayManager.Instance.dayCount) {
+        if (dayInteracted >= DayManager.Instance.dayCount || hasInteracted == false) {
             firstDayInteraction();
         } else
         {
