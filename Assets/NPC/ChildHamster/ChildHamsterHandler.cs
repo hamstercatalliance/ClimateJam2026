@@ -10,13 +10,11 @@ public class ChildHamsterHandler : DialogueSignalHandler
         DialogueSignal dialogueSignal = e as DialogueSignal;
         if (dialogueSignal.signal == "childHamster_negative")
         {
-            GetComponent<ChildHamster>().positiveConvo = false;
-            GetComponent<ChildHamster>().hasInteracted = true;
+            GetComponent<ChildHamster>().SetInteraction(false);
         }
         else if (dialogueSignal.signal == "childHamster_positive")
         {
-            GetComponent<ChildHamster>().positiveConvo = true;
-            GetComponent<ChildHamster>().hasInteracted = true;
+            GetComponent<ChildHamster>().SetInteraction(true);
         }
     }
 }

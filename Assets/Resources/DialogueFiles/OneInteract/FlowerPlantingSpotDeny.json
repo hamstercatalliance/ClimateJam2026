@@ -1,0 +1,30 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "dialogue": "Use Flower Seeds (x1) and plant?",
+                    "buttons": [
+                        {
+                            "path": "negative",
+                            "text": "Yes"
+                        },
+                        {
+                            "text": "No" 
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "negative",
+            "dialogue": [
+                {
+                    "dialogue": "You can't plant flowers without flower seeds!"
+                }
+            ]
+        }
+    ]
+}

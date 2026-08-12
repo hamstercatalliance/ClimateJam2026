@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlowerPlantingInteractable : OneInteractable
+public class FlowerPlantingInteractable : InteractableObject
 {
     public void DisableInteraction()
     {
@@ -10,6 +10,19 @@ public class FlowerPlantingInteractable : OneInteractable
         if (interactableObject != null)
         {
             interactableObject.enabled = false;
+        }
+    }
+
+    protected override void OnTalk()
+    {
+        FlowerPlanting flowerPlanting = FindObjectOfType<FlowerPlanting>();
+        if (flowerPlanting.CheckFlowerSeeds())
+        {
+            conversation.Execute("OneInteract/FlowerPlantingSpot");
+        }
+        else
+        {
+            conversation.Execute("OneInteract/FlowerPlantingSpotDeny");
         }
     }
 }

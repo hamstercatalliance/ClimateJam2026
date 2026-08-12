@@ -1,0 +1,63 @@
+{
+    "startingPath": "start",
+    "data": [
+        {
+            "name": "start",
+            "dialogue": [
+                {
+                    "characterID": "florist",
+                    "dialogue": "Hey you know I’ve been wondering."
+                },
+                {
+                    "characterID": "florist",
+                    "dialogue": "If the water from the river is used in the name of advancing technology, what is their goal anyways?"
+                },
+                {
+                    "characterID": "florist",
+                    "dialogue": "Sure, their technology helps us, but we simultaneously depend on our river."
+                },
+                {
+                    "characterID":"florist",
+                    "dialogue": "So are our lives improving or not?",
+                    "buttons": [
+                        {
+                            "text": "Quality of life is not their goal",
+                            "path": "positive"
+                        },
+                        {
+                            "text": "It's improving and getting worse",
+                            "path": "negative"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "positive",
+            "dialogue": [
+                {
+                    "characterID": "florist",
+                    "dialogue": "Are you saying that the data center is not meant to help us??"
+                },
+                {
+                    "characterID": "florist",
+                    "dialogue": "Then what really is it that they want from us..?",
+                    "link": "https://www.businessinsider.com/sam-altman-ai-utility-electricity-water-openai-2026-3"
+                }
+            ]
+        },
+        {
+            "name": "negative",
+            "dialogue": [
+                {
+                    "characterID": "florist",
+                    "dialogue": "Really?"
+                },
+                {
+                    "characterID": "florist",
+                    "dialogue": "Would you say we equally ned our river as much as we need Company's innovations?"
+                }
+            ]
+        }
+    ]
+}
