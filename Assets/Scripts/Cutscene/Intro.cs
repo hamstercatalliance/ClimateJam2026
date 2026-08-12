@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 public class Intro : Slideshow
 {
-    [SerializeField] private DayCountdown dayCountdown;
+    [SerializeField] private AlternativeMusicManager musicManager;
     private int slide2TextIndexTrigger = 1;
     private int slide3TextIndexTrigger = 4;
     private int slide4TextIndexTrigger = 7;
@@ -39,6 +39,7 @@ public class Intro : Slideshow
         else if (currentTextIndex == slide3TextIndexTrigger)
         {
             ShowNextSlide();
+            musicManager.FadeTransitionToIntro2();
         }
         else if (currentTextIndex == slide4TextIndexTrigger)
         {
