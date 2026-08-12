@@ -175,10 +175,21 @@ public class InventoryManager : MonoBehaviour, IHasPersistentData
                 }
                 inventorySlots[item.row, item.col] = item;
             }
-            OnInventoryAddition?.Invoke(this, new InventoryAdditionEventArgs //not actually adding anything, updating UI
+            if (item.amount > 0) //update the UI if there are still items left in the slot
             {
-                slot = item
-            });
+                OnInventoryAddition?.Invoke(this, new InventoryAdditionEventArgs
+                {
+                    slot = item
+                });
+            }
+            else
+            {
+                OnInventoryRemoval?.Invoke(this, new InventoryRemovalEventArgs
+                {
+                    row = item.row,
+                    col = item.col
+                });
+            }
             return true;
         }
         return false;

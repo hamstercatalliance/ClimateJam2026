@@ -10,8 +10,14 @@ public class FishingCarp : Quest
 
     [SerializeField] private GameItemSO fishingRod;
     [SerializeField] private GameItemSO bait;
+    [SerializeField] private GameObject playerFishingRod;
     private int carpRequirement = 5;
 
+    protected override void Start()
+    {
+        base.Start();
+        playerFishingRod.SetActive(false);
+    }
     public bool CheckCarp()
     {
         //CALL THIS AFTER EVERY FISHING ATTEMPT TO CHECK IF THE PLAYER HAS ENOUGH CARP TO COMPLETE THE QUEST
@@ -92,5 +98,14 @@ public class FishingCarp : Quest
             InventoryManager.Instance.AddItemToInventory(catfish);
             //No sympathy points for catfish
         }
+    }
+
+    public void ShowFishingRod()
+    {
+        playerFishingRod.SetActive(true);
+    }
+    public void HideFishingRod()
+    {
+        playerFishingRod.SetActive(false);
     }
 }

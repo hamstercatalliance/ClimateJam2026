@@ -21,13 +21,19 @@ public class FishingSignalHandler : DialogueSignalHandler
         Debug.Log($"FishingSignalHandler received signal: {signalString}");
         switch (signalString)
         {
+            case "fishing_start":
+                fishingQuest.ShowFishingRod();
+                break;
             case "reel_carp":
+                fishingQuest.HideFishingRod();
                 fishingQuest.ReelFish(fishingQuest.carp);
                 break;
             case "reel_sturgeon":
+                fishingQuest.HideFishingRod();
                 fishingQuest.ReelFish(fishingQuest.sturgeon);
                 break;
             case "reel_catfish":
+                fishingQuest.HideFishingRod();
                 fishingQuest.ReelFish(fishingQuest.catfish);
                 break;
         }
