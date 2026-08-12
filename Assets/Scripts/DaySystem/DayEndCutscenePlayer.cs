@@ -14,6 +14,7 @@ public class DayEndCutscenePlayer : MonoBehaviour
     [SerializeField] private GameObject screenFade;
     private AnimationClip fadeClip;
     private const float INITIAL_FADE_DURATION = 1.7f;
+    private Animator screenFadeAnimator;
     public static DayEndCutscenePlayer Instance { get; private set; }
     private void Awake()
     {
@@ -27,7 +28,7 @@ public class DayEndCutscenePlayer : MonoBehaviour
     private void Start()
     {
         videoPanel.SetActive(false);
-        fadeClip = screenFade.GetComponent<Animator>().runtimeAnimatorController.animationClips[0];
+        screenFadeAnimator = screenFade.GetComponent<Animator>();
     }
     public IEnumerator PlayEarlyEndCutscene()
     {
@@ -37,12 +38,19 @@ public class DayEndCutscenePlayer : MonoBehaviour
     public IEnumerator PlayEndOfDayCutscene()
     {
         screenFade.SetActive(true);
-        yield return new WaitForSeconds(INITIAL_FADE_DURATION);
-        
+        screenFadeAnimator.Play("BasicFade");
+        yield return new WaitUntil(() => screenFadeAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f);
+        screenFadeAnimator.Play("SceneTransitionFade");
         OnCutsceneStart?.Invoke(this, EventArgs.Empty);
         videoPanel.SetActive(true);
+        endNormalCutscene.time = 1.5f;
         endNormalCutscene.Play();
+        yield return new WaitUntil(() => endNormalCutscene.isPlaying);
 
-        yield return new WaitForSeconds(fadeClip.length - INITIAL_FADE_DURATION);
+        yield return new WaitWhile(() => endNormalCutscene.isPlaying);
+
+       screenFadeAnimator.Play("BasicFade");
+        yield return null;
+        yield return new WaitUntil(() => screenFadeAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f);
     }
 }
