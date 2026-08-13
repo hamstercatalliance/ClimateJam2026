@@ -11,6 +11,7 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
     public event EventHandler OnFourSecondsLeftInDay;
     private bool isCountingDown = false;
     public EventHandler<OnDayChangedEventArgs> OnDayChanged;
+    public bool endDayEarly = false;
     public class OnDayChangedEventArgs : EventArgs
     {
         public int day;
@@ -264,8 +265,15 @@ public int dayCount { get; private set; } = 0;
     }
     private IEnumerator EndDaySequence()
     {
-        yield return DayEndCutscenePlayer.Instance.PlayEndOfDayCutscene();
-
+        if (endDayEarly)
+        {
+            yield return DayEndCutscenePlayer.Instance.PlayEarlyEndCutscene();
+        }
+        else
+        {
+            yield return DayEndCutscenePlayer.Instance.PlayEndOfDayCutscene();
+        }
+        endDayEarly = false;
         timeElapsed = 0f;
         GameData.Instance.HasCompletedFirstDay = true;
         DayManagerUI.Instance.ResetTransitionProgress();

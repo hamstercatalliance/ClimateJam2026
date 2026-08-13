@@ -39,6 +39,12 @@ public class FinalDaySceneManager : SpatialSFX //MADE FOR DOWNTOWN
     {
         base.Start();
         blackScreen.SetActive(false);
+        StartCoroutine(LateStart());
+    }
+    private IEnumerator LateStart()
+    {
+        yield return null;
+
         if (FinalDayEndingManager.Instance.IsFinalDay())
         {
             newBorders.SetActive(true);
@@ -53,7 +59,7 @@ public class FinalDaySceneManager : SpatialSFX //MADE FOR DOWNTOWN
             {
                 protest.SetActive(false);
             }
-            return;
+            yield break;
         }
         endGameTrigger.SetActive(false);
         protest.SetActive(false);

@@ -13,7 +13,7 @@ public class FinalDayEndingManager : MonoBehaviour
     [SerializeField] private GameObject dayUI;
 
     [SerializeField] private AudioClip rainSounds;
-
+    [SerializeField] private InteractableObject[] interactableObjects;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -25,12 +25,24 @@ public class FinalDayEndingManager : MonoBehaviour
     }
     private void Start()
     {
+        StartCoroutine(LateStart());
+    }
+    private IEnumerator LateStart()
+    {
+        yield return null;
+        Debug.Log(IsFinalDay());
         if (IsFinalDay())
         {
             dayUI.SetActive(false);
             HowToPlay.Instance.HideHelpButton();
             QuestNotifyManager.Instance.HideQuestNotification();
-            
+            Debug.Log(interactableObjects.Length);
+            foreach (InteractableObject obj in interactableObjects)
+            {
+                Debug.Log("Disabling interactable object: " + obj.name);
+                obj.enabled = false;
+            }
+
             if (!SympathyPointsManager.Instance.HasReachedGoodEndingThreshold())
             {
                 Debug.Log("Final day, but not enough sympathy points for a good end.");
@@ -47,7 +59,7 @@ public class FinalDayEndingManager : MonoBehaviour
                 {
                     FinalDaySceneManager.Instance.BadEnd();
                 }
-                return;
+                yield break;
             }
             else
             {
@@ -64,6 +76,8 @@ public class FinalDayEndingManager : MonoBehaviour
     }
     public bool IsFinalDay()
     {
+        Debug.Log("Game data day count: " + GameData.Instance.DayManagerDayCount);
+        Debug.Log("Countdown days: " + DayCountdown.Instance.GetCountdownDays());
         return GameData.Instance.DayManagerDayCount == DayCountdown.Instance.GetCountdownDays();
     }
 
