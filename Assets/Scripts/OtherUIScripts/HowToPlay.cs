@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Diagnostics; //stack trace
+using System.Reflection;
 
 public class HowToPlay : MonoBehaviour
 {
@@ -23,6 +25,17 @@ public class HowToPlay : MonoBehaviour
     }
     public void OpenInstructions()
     {
+        StackTrace trace = new StackTrace(1, true);
+        StackFrame callerFrame = trace.GetFrame(0);
+
+        MethodBase callerMethod = callerFrame.GetMethod();
+        string callerClass = callerMethod.DeclaringType != null ? callerMethod.DeclaringType.FullName : "(Unknown Class)";
+        string callerName = callerMethod.Name;
+
+        UnityEngine.Debug.LogWarning(
+            $"MyButtonFunction was called by: {callerClass}.{callerName} (at {callerFrame.GetFileName()}:{callerFrame.GetFileLineNumber()})"
+        );
+        
         helpButton.SetActive(false);
         instructionsPrefab.SetActive(true);
     }

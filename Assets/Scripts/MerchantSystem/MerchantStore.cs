@@ -41,21 +41,12 @@ public class MerchantStore : MonoBehaviour
     private void Start()
     {
         Debug.Log("MerchantStore enabled, subscribing to currency change event.");
-        CurrencyManager.Instance.OnCurrencyChanged += OnCurrencyChanged;
         EnterBuyMode(); // Default to buy mode when the store is opened
+        DayManager.Instance.OnDayEnd += DayManager_OnDayEnd;
     }
-
     private void OnDestroy()
     {
-        CurrencyManager.Instance.OnCurrencyChanged -= OnCurrencyChanged;
-    }
-    private void OnCurrencyChanged(object sender, CurrencyManager.OnCurrencyChangedEventArgs e)
-    {
-        Debug.Log("Currency changed, updating buy list.");
-        if (currentMode == MerchantStoreMode.Buy)
-        {
-            PopulateBuyList();
-        }
+        DayManager.Instance.OnDayEnd -= DayManager_OnDayEnd;
     }
     private enum MerchantStoreMode
     {
@@ -63,6 +54,10 @@ public class MerchantStore : MonoBehaviour
         Sell
     }
     private MerchantStoreMode currentMode = MerchantStoreMode.Buy;
+    private void DayManager_OnDayEnd(object sender, EventArgs e)
+    {
+        LeaveStore();
+    }
     public void PurchaseItem()
     {
         if (selectedItem == null)
@@ -91,6 +86,8 @@ public class MerchantStore : MonoBehaviour
         CurrencyManager.Instance.RemoveCurrency(selectedItem.cost);
         //Debug.Log("Purchased item: " + selectedItem.name);
         OnTransaction?.Invoke(this, EventArgs.Empty);
+        PopulateBuyList();
+        Debug.Log("Purchased item: " + selectedItem.name);
     }
     public void SellItem()
     {
@@ -128,7 +125,6 @@ public class MerchantStore : MonoBehaviour
         //Debug.Log("Donated item: " + selectedItem.name);
         OnTransaction?.Invoke(this, EventArgs.Empty);
     }
-
     public void PopulateBuyList()
     {
         ClearButtonContainer();
@@ -138,6 +134,10 @@ public class MerchantStore : MonoBehaviour
             buttonObj.SetActive(true);
             BuyItemButtonUI buttonUI = buttonObj.GetComponent<BuyItemButtonUI>();
             buttonUI.SetUp(item, uiManager, this);
+            if (item == selectedItem)
+            {
+                itemListButtonDisplay.OnClick(buttonObj);
+            }
         }
         itemListButtonDisplay.UpdateButtonGroup(); //update the button group to include the newly created buttons
     }
@@ -169,18 +169,18 @@ public class MerchantStore : MonoBehaviour
     }
     public void EnterBuyMode()
     {
-        PopulateBuyList();
         selectedItemButton = null;
         selectedItem = null;
+        PopulateBuyList();
         uiManager.HideItemDisplay();
         uiManager.ShowBuyModeButtons();
         currentMode = MerchantStoreMode.Buy;
     }
     public void EnterSellMode()
     {
-        PopulateSellList();
         selectedItemButton = null;
         selectedItem = null;
+        PopulateSellList();
         uiManager.HideItemDisplay();
         uiManager.ShowSellModeButtons();
         currentMode = MerchantStoreMode.Sell;
@@ -190,6 +190,7 @@ public class MerchantStore : MonoBehaviour
         storeContent.SetActive(false);
         merchantStoreOpen = false;
         selectedItemButton = null;
+        selectedItem = null;
 
         OnStoreExited?.Invoke(this, EventArgs.Empty);
     }
