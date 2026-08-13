@@ -98,7 +98,10 @@ public class MerchantStore : MonoBehaviour
         {
             return;
         }
-
+        if (InventoryManager.Instance.GetItemCount(selectedItem) <= 0)
+        {
+            return;
+        }
         //remove item from inventory and add currency to player
         InventoryManager.Instance.RemoveItemFromInventory(selectedItem);
         CurrencyManager.Instance.AddCurrency(selectedItem.cost);

@@ -68,6 +68,7 @@ public class DayManagerUI : MonoBehaviour//, IHasPersistentData
         }
         else
         {
+            dayCountText.text = "Day\n1";
             Debug.Log("No game data found. Initializing default values.");
         }
     }
