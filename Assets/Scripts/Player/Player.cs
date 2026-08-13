@@ -11,6 +11,7 @@ public class Player : MonoBehaviour, IHasPersistentData
     public event EventHandler<OnSceneLoaderCollidedEventArgs> OnSceneLoaderCollided;
     private bool isInTransition = false;
     private bool PortalWalkLeft = false;
+    public bool disableMove = false;
     public class OnSceneLoaderCollidedEventArgs : EventArgs
     {
         public GameObject sceneLoaderGameObject;
@@ -137,7 +138,11 @@ public class Player : MonoBehaviour, IHasPersistentData
     }
     private void HandleMovement()
     {
-
+            if(disableMove)
+        {
+            IsWalking = true;
+            return;
+        }
             Vector2 inputVector = gameInput.GetMovementVectorNormalized();
             Vector3 moveDir = new Vector3(inputVector.x, 0, inputVector.y);
 

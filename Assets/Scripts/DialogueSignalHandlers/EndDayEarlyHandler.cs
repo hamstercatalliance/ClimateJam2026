@@ -12,6 +12,7 @@ public class EndDayEarlyHandler : DialogueSignalHandler
             if (e is DialogueSignal signal && signal.signal == "EndDayEarly")
             {
                 DialogueBox.dialogueActive = false;
+                DayManager.Instance.endDayEarly = true;
                 DayManager.Instance.EndDay();
             }
             //
