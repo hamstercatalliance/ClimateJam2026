@@ -81,6 +81,10 @@ public class GameData : MonoBehaviour
     public bool ChildHamsterHasInteracted;
     public int ChildHamsterDayInteracted;
     #endregion
+    #region Evil Genius
+    public bool EvilGeniusPositiveInteraction;
+    public bool EvilGeniusHasInteracted;
+    #endregion
     #endregion
     [Serializable]
     public class SaveData
@@ -111,6 +115,8 @@ public class GameData : MonoBehaviour
         public int ChildCatDayInteracted;
         public bool MiddleAgeHamsterPositiveInteraction;
         public bool MiddleAgeHamsterHasInteracted;
+        public bool EvilGeniusPositiveInteraction;
+        public bool EvilGeniusHasInteracted;
         public bool ChildHamsterPositiveConvo;
         public bool ChildHamsterHasInteracted;
         public int ChildHamsterDayInteracted;
@@ -141,6 +147,8 @@ public class GameData : MonoBehaviour
         saveData.ChildCatDayInteracted = ChildCatDayInteracted;
         saveData.MiddleAgeHamsterPositiveInteraction = MiddleAgeHamsterPositiveInteraction;
         saveData.MiddleAgeHamsterHasInteracted = MiddleAgeHamsterHasInteracted;
+        saveData.EvilGeniusPositiveInteraction = EvilGeniusPositiveInteraction;
+        saveData.EvilGeniusHasInteracted = EvilGeniusHasInteracted;
         saveData.FlowerSeedsPickedUp = FlowerSeedsPickedUp;
         saveData.ChildHamsterPositiveConvo = ChildHamsterPositiveConvo;
         saveData.ChildHamsterHasInteracted = ChildHamsterHasInteracted;
@@ -172,6 +180,8 @@ public class GameData : MonoBehaviour
         ChildCatDayInteracted = data.ChildCatDayInteracted;
         MiddleAgeHamsterPositiveInteraction = data.MiddleAgeHamsterPositiveInteraction;
         MiddleAgeHamsterHasInteracted = data.MiddleAgeHamsterHasInteracted;
+        EvilGeniusPositiveInteraction = data.EvilGeniusPositiveInteraction;
+        EvilGeniusHasInteracted = data.EvilGeniusHasInteracted;
         FlowerSeedsPickedUp = data.FlowerSeedsPickedUp;
         ChildHamsterPositiveConvo = data.ChildHamsterPositiveConvo;
         ChildHamsterHasInteracted = data.ChildHamsterHasInteracted;
@@ -208,6 +218,8 @@ public class GameData : MonoBehaviour
         ChildCatDayInteracted = 0;
         MiddleAgeHamsterPositiveInteraction = false;
         MiddleAgeHamsterHasInteracted = false;
+        EvilGeniusPositiveInteraction = false;
+        EvilGeniusHasInteracted = false;
         FlowerSeedsPickedUp = false;
         ChildHamsterPositiveConvo = false;
         ChildHamsterHasInteracted = false;

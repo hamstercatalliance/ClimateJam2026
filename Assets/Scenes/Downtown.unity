@@ -9037,13 +9037,25 @@ PrefabInstance:
         type: 3}
       propertyPath: sellableItems.Array.data[1]
       value: 
+      objectReference: {fileID: 11400000, guid: a14dd9d248f4a744fa06cc56837f1306,
+        type: 2}
+    - target: {fileID: 4583523325549204244, guid: 586794b438a4c704b8fbe60afdad3db4,
+        type: 3}
+      propertyPath: sellableItems.Array.data[2]
+      value: 
       objectReference: {fileID: 11400000, guid: 83f96fefcd161be4487710ff9f036fff,
+        type: 2}
+    - target: {fileID: 4583523325549204244, guid: 586794b438a4c704b8fbe60afdad3db4,
+        type: 3}
+      propertyPath: purchasableItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: ae039e361c045074d9508820243d9d6a,
         type: 2}
     - target: {fileID: 4583523325549204244, guid: 586794b438a4c704b8fbe60afdad3db4,
         type: 3}
       propertyPath: purchasableItems.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: a14dd9d248f4a744fa06cc56837f1306,
+      objectReference: {fileID: 11400000, guid: 83f96fefcd161be4487710ff9f036fff,
         type: 2}
     - target: {fileID: 5687453606941620726, guid: 586794b438a4c704b8fbe60afdad3db4,
         type: 3}

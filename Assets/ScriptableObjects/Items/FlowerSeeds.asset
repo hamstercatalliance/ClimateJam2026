@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 503d9c67db0c6f04c937f28131dde267, type: 3}
   m_Name: FlowerSeeds
   m_EditorClassIdentifier: 
-  worldSpacePrefab: {fileID: 0}
+  worldSpacePrefab: {fileID: 263509009383761881, guid: 64760a28e9ad64f41ac4478b6b8a493d,
+    type: 3}
   inventorySprite: {fileID: 21300000, guid: a0d3ad2ce7d499c47b4155572c2443f4, type: 3}
   itemName: Flower Seeds
   itemID: item.flower_seeds

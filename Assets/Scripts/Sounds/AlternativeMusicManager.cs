@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class AlternativeMusicManager : MonoBehaviour
@@ -12,21 +13,46 @@ public class AlternativeMusicManager : MonoBehaviour
     [Header("Intro only")]
     [SerializeField] private AudioSource intro1Player;
     [SerializeField] private AudioSource intro2Player;
+    private bool nextSwitch;
     void Start()
     {
         if (gameObject.scene.name == INTRO_SCENE)
         {
             intro1Player.volume = GameData.Instance.MusicVolume;
-            intro2Player.volume = 0f;
+            intro2Player.volume = GameData.Instance.MusicVolume;
+            StartCoroutine(PlayIntroMusic());
             return;
         }
         audioSource = GetComponent<AudioSource>();
         audioSource.volume = GameData.Instance.MusicVolume;
+
+    }
+
+    private IEnumerator PlayIntroMusic()
+    {
+        while (!nextSwitch) {
+            intro1Player.Play();
+            Debug.Log("Intro music 1 started");
+            while (intro1Player.isPlaying)
+            {
+                yield return null;
+            }
+        }
+        while (nextSwitch)
+        {
+            Debug.Log("Intro music 2 started");
+            intro2Player.Play();
+            while (intro2Player.isPlaying)
+            {
+                yield return null;
+            }
+        }
     }
 
     public void FadeTransitionToIntro2()
     {
-        StartCoroutine(FadeOutAudioSource(intro2Player, intro1Player, 1f));
+        //StartCoroutine(FadeOutAudioSource(intro2Player, intro1Player, 2f));
+        nextSwitch = true;
     }
 
     private IEnumerator FadeOutAudioSource(AudioSource audioSourceIn, AudioSource audioSourceOut, float fadeDuration)
