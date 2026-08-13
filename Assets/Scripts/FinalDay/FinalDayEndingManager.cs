@@ -25,12 +25,24 @@ public class FinalDayEndingManager : MonoBehaviour
     }
     private void Start()
     {
+        StartCoroutine(LateStart());
+    }
+    private IEnumerator LateStart()
+    {
+        yield return null;
+
         if (IsFinalDay())
         {
             dayUI.SetActive(false);
             HowToPlay.Instance.HideHelpButton();
             QuestNotifyManager.Instance.HideQuestNotification();
             
+            InteractableObject[] interactableObjects = FindObjectsOfType<InteractableObject>();
+            foreach (InteractableObject obj in interactableObjects)
+            {
+                obj.enabled = false;
+            }
+
             if (!SympathyPointsManager.Instance.HasReachedGoodEndingThreshold())
             {
                 Debug.Log("Final day, but not enough sympathy points for a good end.");
@@ -47,7 +59,7 @@ public class FinalDayEndingManager : MonoBehaviour
                 {
                     FinalDaySceneManager.Instance.BadEnd();
                 }
-                return;
+                yield break;
             }
             else
             {

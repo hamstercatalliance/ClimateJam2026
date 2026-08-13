@@ -72,7 +72,8 @@ public class DayManagerUI : MonoBehaviour//, IHasPersistentData
     }
     private void DayManager_OnDayChanged(object sender, DayManager.OnDayChangedEventArgs e)
     {
-        dayCountText.text = "Day\n" + e.day;
+        int dayDisplay = e.day +1;
+        dayCountText.text = "Day\n" + dayDisplay;
         SetGameObjectImageAlpha(sun, 1f);
         SetGameObjectImageAlpha(moon, 0f);
     }
