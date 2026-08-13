@@ -26,7 +26,7 @@ public class AlternativeMusicManager : MonoBehaviour
 
     public void FadeTransitionToIntro2()
     {
-        StartCoroutine(FadeOutAudioSource(intro2Player, intro1Player, 2f));
+        StartCoroutine(FadeOutAudioSource(intro2Player, intro1Player, 1f));
     }
 
     private IEnumerator FadeOutAudioSource(AudioSource audioSourceIn, AudioSource audioSourceOut, float fadeDuration)

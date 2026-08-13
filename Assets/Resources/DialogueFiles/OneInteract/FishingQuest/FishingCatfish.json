@@ -27,7 +27,8 @@
             "dialogue":
             [
                 {
-                    "dialogue": "..."
+                    "dialogue": "...",
+                    "signal": "wait_for_fish"
                 },
                 {
                     "dialogue": "You feel a tug! There are whiskers peeking out of the water. Reel it in?",

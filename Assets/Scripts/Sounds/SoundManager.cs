@@ -57,6 +57,12 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
     [SerializeField] private AudioClip boardCloseSound;
 
     [SerializeField] private AudioClip endOfDayBellSound;
+    [SerializeField] private AudioClip nightAmbianceSound;
+
+    [SerializeField] private AudioClip castFishingRodSound;
+    [SerializeField] private AudioClip fishSplashSound;
+    [SerializeField] private AudioClip reelFishSound;
+
 
     private float footstepsVolumeMultiplier = 0.1f;
     private float jumpVolumeMultiplier = 0.4f;
@@ -83,6 +89,9 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
         DayEndCountdown.OnCountdownStarted += DayEndCountdown_OnCountdownStarted;
         Player.Instance.OnPlayerJump += Player_OnPlayerJump;
         DialogueRenderer.OnDialogueProceed += DialogueRenderer_OnDialogueProceed;
+        FishingSignalHandler.OnFishHooked += FishingSignalHandler_OnFishHooked;
+        FishingSignalHandler.OnRodCasted += FishingSignalHandler_OnRodCasted;
+        FishingSignalHandler.OnFishReeled += FishingSignalHandler_OnFishReeled;
     }
     private void OnDestroy()
     {
@@ -104,6 +113,9 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
         DayEndCountdown.OnCountdownStarted -= DayEndCountdown_OnCountdownStarted;
         Player.Instance.OnPlayerJump -= Player_OnPlayerJump;
         DialogueRenderer.OnDialogueProceed -= DialogueRenderer_OnDialogueProceed;
+        FishingSignalHandler.OnRodCasted -= FishingSignalHandler_OnRodCasted;
+        FishingSignalHandler.OnFishHooked -= FishingSignalHandler_OnFishHooked;
+        FishingSignalHandler.OnFishReeled -= FishingSignalHandler_OnFishReeled;
     }
     public void PlayFootstepsSound(PlayerSounds.SurfaceType surfaceType = PlayerSounds.SurfaceType.Stone)
     {
@@ -128,7 +140,27 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
         }
             PlaySound(footstepSounds, audioSource.volume * footstepsVolumeMultiplier); 
     }
+    private IEnumerator ReelThenAddToInverntory()
+    {
+        float reelClipLength = reelFishSound.length;
+        audioSource.PlayOneShot(reelFishSound);
+        yield return new WaitForSeconds(reelClipLength);
+        audioSource.PlayOneShot(pickupSound);
+
+    }
     #region Event Handlers
+    private void FishingSignalHandler_OnRodCasted(object sender, EventArgs e)
+    {
+        audioSource.PlayOneShot(castFishingRodSound, audioSource.volume);
+    }
+    private void FishingSignalHandler_OnFishHooked(object sender, EventArgs e)
+    {
+        audioSource.PlayOneShot(fishSplashSound, audioSource.volume);
+    }
+    private void FishingSignalHandler_OnFishReeled(object sender, EventArgs e)
+    {
+        StartCoroutine(ReelThenAddToInverntory());
+    }
     private void DialogueRenderer_OnDialogueProceed(object sender, EventArgs e)
     {
         audioSource.PlayOneShot(clickSound, audioSource.volume);

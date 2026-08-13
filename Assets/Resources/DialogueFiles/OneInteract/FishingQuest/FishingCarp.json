@@ -27,7 +27,8 @@
             "dialogue":
             [
                 {
-                    "dialogue": "..."
+                    "dialogue": "...",
+                    "signal": "wait_for_fish"
                 },
                 {
                     "dialogue": "You feel a tug! You feel like you've seen this fish many times before. Reel it in?",

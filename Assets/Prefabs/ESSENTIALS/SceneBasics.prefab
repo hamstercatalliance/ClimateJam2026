@@ -8950,6 +8950,10 @@ MonoBehaviour:
   boardOpenSound: {fileID: 8300000, guid: bb6bfd448a0251849943087497b4447f, type: 3}
   boardCloseSound: {fileID: 8300000, guid: 1055236537c753e469606ee33b68d6fa, type: 3}
   endOfDayBellSound: {fileID: 8300000, guid: 6738d7a98db3b654caba7f9cf297548d, type: 3}
+  nightAmbianceSound: {fileID: 8300000, guid: 0c2269cee1ff76e4f991819ab3295cd2, type: 3}
+  castFishingRodSound: {fileID: 8300000, guid: 540ce2dc73cfbfa4e896228a4825fa6c, type: 3}
+  fishSplashSound: {fileID: 8300000, guid: 7b51df58b6481bd42aa8f98f4665fc2e, type: 3}
+  reelFishSound: {fileID: 8300000, guid: 348b97ca1a6af03409636e585fcd6f50, type: 3}
 --- !u!1 &2910088026999442539
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,7 +18,11 @@ public class DayManager : MonoBehaviour, IHasPersistentData//, IHasProgress
     public event EventHandler OnDayManagerDataLoaded;
     public bool HasFiredDataLoaded { get; private set; }
     public event EventHandler OnDayEnd;
-
+    public event EventHandler OnMoonRising; //slowly fade out town music / home ambiance, fade in night ambiance
+    public class OnMoonRisingEventArgs: EventArgs
+    {
+        public float duration;
+    }
     private float secondsInADay = 330f;
 
     [Header("Only modify for playtesting purposes")]
@@ -116,7 +120,6 @@ public int dayCount { get; private set; } = 0;
             if (isStartOfNewDay)
             {
                 StartCoroutine(DayRemainingRoutine());
-                
             }
             else
             {
@@ -229,6 +232,7 @@ public int dayCount { get; private set; } = 0;
                 {
                     Debug.Log("Switching to nighttime");
                     state = State.Nighttime;
+
                 }
                 break;
             case State.Nighttime:
