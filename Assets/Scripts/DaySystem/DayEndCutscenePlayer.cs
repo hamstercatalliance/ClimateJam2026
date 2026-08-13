@@ -82,6 +82,7 @@ public class DayEndCutscenePlayer : MonoBehaviour
         player.enabled = true;
         player.Play();
         yield return null;
+        player.playableGraph.GetRootPlayable(0).SetSpeed(0.5f);
         while (player.state == PlayState.Playing)
         {
             yield return null;

@@ -19,6 +19,7 @@ public abstract class InteractableObject : MonoBehaviour
 
     private Player player;
 
+
     private void Start()
     {
         interactNotice = Instantiate(Resources.Load<GameObject>("Prefabs/InteractNotice"), transform);
@@ -35,7 +36,7 @@ public abstract class InteractableObject : MonoBehaviour
     private void PlayerInteract_InteractableActivate(object sender, System.EventArgs e)
     {
         InteractableActivateEventArgs interactableArgs = e as InteractableActivateEventArgs;
-        if (interactableArgs.npcID == scriptableInteractable.interactableId)
+        if (interactableArgs.npcID == scriptableInteractable.interactableId && enabled)
         {
             OnTalk();
         }
@@ -69,6 +70,14 @@ public abstract class InteractableObject : MonoBehaviour
         }
     }
 
+
+    public void DisableInteraction()
+    {
+        { 
+            ZoneExited();
+            enabled = false;
+        }
+    }
     protected virtual void ZoneExited()
     {
         if (interactNotice != null)
