@@ -21,7 +21,7 @@ public class VideoWebSwitch : MonoBehaviour
         videoPlayer.url = desktopPath;
 #endif
 
-        // Pre-loads the first frame of the video and caches it in memory
+        
         videoPlayer.Prepare();
     }
 
