@@ -40,7 +40,7 @@ public class FinalDayEndingManager : MonoBehaviour
             foreach (InteractableObject obj in interactableObjects)
             {
                 Debug.Log("Disabling interactable object: " + obj.name);
-                obj.enabled = false;
+                obj.DisableInteraction();
             }
 
             if (!SympathyPointsManager.Instance.HasReachedGoodEndingThreshold())
