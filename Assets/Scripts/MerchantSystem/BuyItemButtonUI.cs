@@ -10,6 +10,10 @@ public class BuyItemButtonUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
     [SerializeField] private Button buyButton;
     [SerializeField] private CanvasGroup canvasGroup;
     private GameItemSO gameItemSO;
+    public GameItemSO GetItemSO()
+    {
+        return gameItemSO;
+    }
     private MerchantUIManager uiManager;
     private MerchantStore store;
     
@@ -19,7 +23,7 @@ public class BuyItemButtonUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
         this.store = store;
         gameItemSO = item;
         itemText.text = gameItemSO.itemName + " - $" + gameItemSO.cost.ToString();
-        Debug.Log(gameItemSO);
+        //Debug.Log(gameItemSO);
         
         buyButton.onClick.RemoveAllListeners();
         buyButton.onClick.AddListener(OnSelectButtonPressed);
