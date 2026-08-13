@@ -253,6 +253,7 @@ public int dayCount { get; private set; } = 0;
         MusicManager.Instance.StopMusic();
         QuestNotifyManager.Instance.HideQuestNotification();
         HowToPlay.Instance.HideHelpButton();
+        Conversation.Instance.CutOffDialogue();
         state = State.DayEnded;
         dayCount++;
         isStartOfNewDay = true;

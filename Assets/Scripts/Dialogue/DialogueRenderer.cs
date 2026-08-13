@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Runtime.CompilerServices;
 using System;
+using System.Linq;
 
 public class DialogueSignal : EventArgs
 {
@@ -37,11 +38,13 @@ public class DialogueRenderer : MonoBehaviour
     public EventHandler dialogueSignal { get; set; }
     [SerializeField] private GameObject buttonPrefab;
     [SerializeField] private GameObject box;
-
+    private GameObject dialoguePanel;
+    private DialogueBox dialogueObject;
     public static DialogueRenderer Instance { get; private set; } 
     private void Start()
     {
         gameInput = FindFirstObjectByType<GameInput>();
+        DialogueBox.dialogueActive = false;
     }
 
     private void Awake()
@@ -58,8 +61,8 @@ public class DialogueRenderer : MonoBehaviour
         //Instantiate(box);
         //Debug.Log("DialogueRenderer: Rendering dialogue box for character " + dialogueObject.getCharacterID() + " with content: " + dialogueObject.getContent());
         //box = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Textbox.prefab");
-        GameObject dialoguePanel = Instantiate(box, GameObject.Find("Canvas").transform);
-
+        dialoguePanel = Instantiate(box, GameObject.Find("Canvas").transform);
+        this.dialogueObject = dialogueObject;
 
         Transform characterText = dialoguePanel.transform.Find("CharacterText");
         Transform contentText = dialoguePanel.transform.Find("ContentText");
@@ -100,7 +103,7 @@ public class DialogueRenderer : MonoBehaviour
                 GameObject optionButton = Instantiate(buttonPrefab, optionsContainer);
                 optionButton.GetComponentInChildren<TMP_Text>().text = button.text;
                 optionButton.GetComponent<Button>().onClick.AddListener(() => {
-                    StartCoroutine(endDialogue(dialogueObject, dialoguePanel));
+                    StartCoroutine(endDialogue());
                     //Debug.Log("DialogueRenderer: Button clicked with text: " + button.text + " and path: " + button.path);
                     SendDialogueSignal(button.id, button.points);
                     if (button.path != null && button.path != "")
@@ -128,7 +131,7 @@ public class DialogueRenderer : MonoBehaviour
                 {
                     //Debug.Log("DialogueRenderer: Interact key pressed, ending dialogue box for character " + dialogueObject.getCharacterID() + " with content: " + dialogueObject.getContent());
 
-                    StartCoroutine(endDialogue(dialogueObject, dialoguePanel));
+                    StartCoroutine(endDialogue());
                 }
             }
         };
@@ -148,14 +151,19 @@ public class DialogueRenderer : MonoBehaviour
         }
     }
 
-    private IEnumerator endDialogue(DialogueBox dialogue, GameObject dialoguePanel) {
+    public IEnumerator endDialogue(bool Continue=true) {
+        if (!Continue)
+        {
+            Conversation.Instance.ResetConverstation();
+            DialogueBox.dialogueActive = false;
+        }
         yield return new WaitForSecondsRealtime(0.1f); // Wait for 0.1 seconds to ensure the dialogue box is rendered before proceeding
         OnDialogueProceed?.Invoke(this, EventArgs.Empty);
         if (LearnMoreButton.Instance != null && LearnMoreButton.Instance.gameObject.activeSelf == true)
         {
             LearnMoreButton.Instance.ClearLearnMoreURL();
         }
-        dialogue.setInactive();
+        dialogueObject.setInactive();
         //Debug.Log("DialogueRenderer: Ending dialogue box for character " + dialogue.getCharacterID() + " with content: " + dialogue.getContent());
         //if (dialogue.lastBox)
         //{

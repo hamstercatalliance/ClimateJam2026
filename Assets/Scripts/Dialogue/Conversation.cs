@@ -35,6 +35,8 @@ public class Conversation : MonoBehaviour
     private DialogueRenderer dialogueRenderer;
     public string dialogueName;
 
+    public static Conversation Instance;
+
     private void Awake()
     {
         
@@ -43,6 +45,11 @@ public class Conversation : MonoBehaviour
         {
             //Debug.LogError("Conversation: DialogueRenderer not found in the scene.");
         }
+        if (Instance != null && Instance != this)
+        {
+            Destroy(Instance);
+        }
+        Instance = this;
     }
 
     public void Execute(string dialogueName) {
@@ -73,6 +80,10 @@ public class Conversation : MonoBehaviour
         // set to can move
     }
 
+    public void CutOffDialogue()
+    {
+        StartCoroutine(dialogueRenderer.endDialogue(false));
+    }
 
     public void AddDialogue(List<DialogueBox> dialogue) {
         if (dialogue.Count > 0)
