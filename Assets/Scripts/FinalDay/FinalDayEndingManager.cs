@@ -13,7 +13,7 @@ public class FinalDayEndingManager : MonoBehaviour
     [SerializeField] private GameObject dayUI;
 
     [SerializeField] private AudioClip rainSounds;
-
+    [SerializeField] private InteractableObject[] interactableObjects;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -30,16 +30,16 @@ public class FinalDayEndingManager : MonoBehaviour
     private IEnumerator LateStart()
     {
         yield return null;
-
+        Debug.Log(IsFinalDay());
         if (IsFinalDay())
         {
             dayUI.SetActive(false);
             HowToPlay.Instance.HideHelpButton();
             QuestNotifyManager.Instance.HideQuestNotification();
-            
-            InteractableObject[] interactableObjects = FindObjectsOfType<InteractableObject>();
+            Debug.Log(interactableObjects.Length);
             foreach (InteractableObject obj in interactableObjects)
             {
+                Debug.Log("Disabling interactable object: " + obj.name);
                 obj.enabled = false;
             }
 
@@ -76,6 +76,8 @@ public class FinalDayEndingManager : MonoBehaviour
     }
     public bool IsFinalDay()
     {
+        Debug.Log("Game data day count: " + GameData.Instance.DayManagerDayCount);
+        Debug.Log("Countdown days: " + DayCountdown.Instance.GetCountdownDays());
         return GameData.Instance.DayManagerDayCount == DayCountdown.Instance.GetCountdownDays();
     }
 
