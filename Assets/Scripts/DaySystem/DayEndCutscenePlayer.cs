@@ -54,7 +54,7 @@ public class DayEndCutscenePlayer : MonoBehaviour
     public IEnumerator PlayEarlyEndCutscene()
     {
         //IMPLEMENT HERE
-        StartCoroutine(PlayJingleAfterDelay(0.001f));
+        StartCoroutine(PlayJingleAfterDelay(0f));
         Player.GetComponent<Player>().disableMove = true;
         float elapsed = 0.0f;
         float dur = 0.7f;
@@ -105,7 +105,7 @@ public class DayEndCutscenePlayer : MonoBehaviour
         endNormalCutscene.Play();
         
         yield return new WaitUntil(() => endNormalCutscene.isPlaying);
-        StartCoroutine(PlayJingleAfterDelay(1.9f));
+        StartCoroutine(PlayJingleAfterDelay(1.6f));
         yield return new WaitWhile(() => endNormalCutscene.isPlaying);
 
        screenFadeAnimator.Play("BasicFade");
