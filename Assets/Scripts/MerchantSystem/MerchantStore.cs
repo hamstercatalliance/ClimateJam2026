@@ -48,15 +48,18 @@ public class MerchantStore : MonoBehaviour
     {
         DayManager.Instance.OnDayEnd -= DayManager_OnDayEnd;
     }
-    private enum MerchantStoreMode
-    {
-        Buy,
-        Sell
-    }
-    private MerchantStoreMode currentMode = MerchantStoreMode.Buy;
+    // private enum MerchantStoreMode
+    // {
+    //     Buy,
+    //     Sell
+    // }
+    //private MerchantStoreMode currentMode = MerchantStoreMode.Buy;
     private void DayManager_OnDayEnd(object sender, EventArgs e)
     {
-        LeaveStore();
+        storeContent.SetActive(false);
+        merchantStoreOpen = false;
+        selectedItemButton = null;
+        selectedItem = null;
     }
     public void PurchaseItem()
     {
@@ -174,7 +177,7 @@ public class MerchantStore : MonoBehaviour
         PopulateBuyList();
         uiManager.HideItemDisplay();
         uiManager.ShowBuyModeButtons();
-        currentMode = MerchantStoreMode.Buy;
+        //currentMode = MerchantStoreMode.Buy;
     }
     public void EnterSellMode()
     {
@@ -183,7 +186,7 @@ public class MerchantStore : MonoBehaviour
         PopulateSellList();
         uiManager.HideItemDisplay();
         uiManager.ShowSellModeButtons();
-        currentMode = MerchantStoreMode.Sell;
+        //currentMode = MerchantStoreMode.Sell;
     }
     public void LeaveStore()
     {

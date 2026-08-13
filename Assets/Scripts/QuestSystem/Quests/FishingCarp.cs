@@ -60,16 +60,16 @@ public class FishingCarp : Quest
     public GameItemSO Fish()
     {
         InventoryManager.Instance.RemoveItemFromInventory(bait, 1);
-        int randomNumber = Random.Range(0, 3); 
-        if (randomNumber == 0)
+        int randomNumber = Random.Range(0, 6); 
+        if (randomNumber == 0 || randomNumber == 1 || randomNumber == 2) // 1/2
         {
             return carp;
         }
-        else if (randomNumber == 1)
+        else if (randomNumber == 3) // 1/3
         {
             return sturgeon;
         }
-        else
+        else // 1/6 -- randomNumber == 4 || randomNumber == 5
         {
             return catfish;
         }

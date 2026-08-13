@@ -89,6 +89,10 @@ public class GameData : MonoBehaviour
     public bool GrosterHasInteracted;
     #endregion
     #endregion
+    #region Petition Data
+    public bool PetitionSigned;
+    #endregion
+    
     [Serializable]
     public class SaveData
     {
@@ -124,6 +128,7 @@ public class GameData : MonoBehaviour
         public bool ChildHamsterHasInteracted;
         public int ChildHamsterDayInteracted;
         public bool GrosterHasInteracted;
+        public bool PetitionSigned;
     }
     public SaveData GetSaveData()
     {
@@ -158,6 +163,7 @@ public class GameData : MonoBehaviour
         saveData.ChildHamsterHasInteracted = ChildHamsterHasInteracted;
         saveData.ChildHamsterDayInteracted = ChildHamsterDayInteracted;
         saveData.GrosterHasInteracted = GrosterHasInteracted;
+        saveData.PetitionSigned = PetitionSigned;
         return saveData;
     }
     private void SetSaveData(SaveData data)
@@ -192,6 +198,7 @@ public class GameData : MonoBehaviour
         ChildHamsterHasInteracted = data.ChildHamsterHasInteracted;
         ChildHamsterDayInteracted = data.ChildHamsterDayInteracted;
         GrosterHasInteracted = data.GrosterHasInteracted;
+        PetitionSigned = data.PetitionSigned;
     }
     public void LoadFromSaveData(SaveData data)
     {
@@ -231,6 +238,7 @@ public class GameData : MonoBehaviour
         ChildHamsterHasInteracted = false;
         ChildHamsterDayInteracted = 0;
         GrosterHasInteracted = false;
+        PetitionSigned = false;
     }
 
 
