@@ -5,6 +5,8 @@ using System;
 [RequireComponent(typeof(AudioSource))]
 public class SoundManager : MonoBehaviour, IHasPersistentData
 {
+    private const string TOWN_SCENE = "Downtown";
+    private const string HOME_SCENE = "Home";
     //this will eventully be used to play SFX and adjust SFX volume
     private AudioSource audioSource;
     public AudioSource GetAudioSource()
@@ -63,6 +65,8 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
     [SerializeField] private AudioClip fishSplashSound;
     [SerializeField] private AudioClip reelFishSound;
 
+    [SerializeField] private AudioClip coinsSound;
+
 
     private float footstepsVolumeMultiplier = 0.1f;
     private float jumpVolumeMultiplier = 0.4f;
@@ -92,6 +96,7 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
         FishingSignalHandler.OnFishHooked += FishingSignalHandler_OnFishHooked;
         FishingSignalHandler.OnRodCasted += FishingSignalHandler_OnRodCasted;
         FishingSignalHandler.OnFishReeled += FishingSignalHandler_OnFishReeled;
+        DayManager.Instance.OnMoonRising += DayManager_OnMoonRising;
     }
     private void OnDestroy()
     {
@@ -116,6 +121,17 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
         FishingSignalHandler.OnRodCasted -= FishingSignalHandler_OnRodCasted;
         FishingSignalHandler.OnFishHooked -= FishingSignalHandler_OnFishHooked;
         FishingSignalHandler.OnFishReeled -= FishingSignalHandler_OnFishReeled;
+        DayManager.Instance.OnMoonRising -= DayManager_OnMoonRising;
+    }
+    private void PlayEveningAmbiance()
+    {
+        audioSource.clip = nightAmbianceSound;
+        audioSource.Play();
+        audioSource.loop = true;
+    }
+    public void PlayCoinsSound()
+    {
+        audioSource.PlayOneShot(coinsSound, audioSource.volume);
     }
     public void PlayFootstepsSound(PlayerSounds.SurfaceType surfaceType = PlayerSounds.SurfaceType.Stone)
     {
@@ -149,6 +165,13 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
 
     }
     #region Event Handlers
+    private void DayManager_OnMoonRising(object sender, EventArgs e)
+    {
+        if (gameObject.scene.name == TOWN_SCENE || gameObject.scene.name == HOME_SCENE)
+        {
+            PlayEveningAmbiance();
+        }
+    }
     private void FishingSignalHandler_OnRodCasted(object sender, EventArgs e)
     {
         audioSource.PlayOneShot(castFishingRodSound, audioSource.volume);
@@ -232,6 +255,20 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
     {
         WriteToGameData();
     }
+    private IEnumerator DelayedCheck()
+    {
+        yield return null;
+        if (gameObject.scene.name == TOWN_SCENE || gameObject.scene.name == HOME_SCENE)
+        {
+            if (DayManager.Instance.GetState() == DayManager.State.Moonrising || DayManager.Instance.GetState() == DayManager.State.Nighttime)
+            {
+                Debug.Log("Playing night ambiance");
+                audioSource.clip = nightAmbianceSound;
+                audioSource.Play();
+                audioSource.loop = true;
+            }
+        }
+    }
     public void LoadGameData()
     {
         if (GameData.Instance != null && GameData.Instance.HasLoadedRunData)
@@ -241,6 +278,7 @@ public class SoundManager : MonoBehaviour, IHasPersistentData
             { 
                 newVolume = audioSource.volume
             });
+            StartCoroutine(DelayedCheck());
         }
         else
         {

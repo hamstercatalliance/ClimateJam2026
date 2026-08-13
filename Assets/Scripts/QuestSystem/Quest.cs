@@ -42,6 +42,10 @@ public abstract class Quest : MonoBehaviour, IHasPersistentData
         OnQuestCompleted?.Invoke(this, EventArgs.Empty);
         
         CurrencyManager.Instance.AddCurrency(questSO.currencyAward);
+        if (questSO.currencyAward > 0)
+        {
+            SoundManager.Instance.PlayCoinsSound();
+        }
         SympathyPointsManager.Instance.addSympathyPoints(questSO.sympathyAward);
     }
     public virtual void WriteToGameData()

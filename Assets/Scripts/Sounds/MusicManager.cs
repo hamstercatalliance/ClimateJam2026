@@ -38,6 +38,7 @@ public class MusicManager : MonoBehaviour, IHasPersistentData
         }
 
         DayEndCutscenePlayer.OnCutsceneStart += OnCutsceneStart;
+        DayManager.Instance.OnMoonRising += DayManager_OnMoonRising;
     }
     private void OnSceneTransitionHandler(object sender, EventArgs e)
     {
@@ -47,6 +48,14 @@ public class MusicManager : MonoBehaviour, IHasPersistentData
     {
         SceneLoader.OnSceneTransition -= OnSceneTransitionHandler;
         DayEndCutscenePlayer.OnCutsceneStart -= OnCutsceneStart;
+        DayManager.Instance.OnMoonRising -= DayManager_OnMoonRising;
+    }
+    private void DayManager_OnMoonRising(object sender, EventArgs e)
+    {
+        if (gameObject.scene.name == TOWN_SCENE)
+        {
+            audioSource.clip = null;
+        }
     }
     private void OnCutsceneStart(object sender, EventArgs e)
     {
@@ -72,6 +81,18 @@ public class MusicManager : MonoBehaviour, IHasPersistentData
     {
         audioSource.Stop();
     }
+    private IEnumerator DelayedCheck()
+    {
+        yield return null;
+        if (gameObject.scene.name == TOWN_SCENE)
+        {
+            if (DayManager.Instance.GetState() == DayManager.State.Moonrising || DayManager.Instance.GetState() == DayManager.State.Nighttime)
+            {
+                audioSource.clip = null;
+                audioSource.Stop();
+            }
+        }
+    }
 
     public void LoadGameData()
     {
@@ -82,6 +103,7 @@ public class MusicManager : MonoBehaviour, IHasPersistentData
             { 
                 newVolume = audioSource.volume
             });
+            StartCoroutine(DelayedCheck());
         }
         else
         {

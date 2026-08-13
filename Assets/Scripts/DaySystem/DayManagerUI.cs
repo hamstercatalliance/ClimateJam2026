@@ -62,7 +62,8 @@ public class DayManagerUI : MonoBehaviour//, IHasPersistentData
     {
         if (GameData.Instance != null && GameData.Instance.HasLoadedRunData)
         {
-            dayCountText.text = "Day\n" + GameData.Instance.DayManagerDayCount;
+            int dayDisplay = GameData.Instance.DayManagerDayCount + 1;
+            dayCountText.text = "Day\n" + dayDisplay;
             Debug.Log("Game data found.");
         }
         else
@@ -72,7 +73,7 @@ public class DayManagerUI : MonoBehaviour//, IHasPersistentData
     }
     private void DayManager_OnDayChanged(object sender, DayManager.OnDayChangedEventArgs e)
     {
-        int dayDisplay = e.day +1;
+        int dayDisplay = e.day + 1;
         dayCountText.text = "Day\n" + dayDisplay;
         SetGameObjectImageAlpha(sun, 1f);
         SetGameObjectImageAlpha(moon, 0f);

@@ -105,6 +105,12 @@ public class MerchantStore : MonoBehaviour
         uiManager.UpdateRemovedItemButton();
         //Debug.Log("Sold item: " + selectedItem.name);
         OnTransaction?.Invoke(this, EventArgs.Empty);
+        StartCoroutine(PauseThenPlaySound(0.5f));
+    }
+    private IEnumerator PauseThenPlaySound(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SoundManager.Instance.PlayCoinsSound();
     }
     public void DonateItem()
     {
