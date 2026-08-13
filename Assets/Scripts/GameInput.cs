@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
-
 public class GameInput : MonoBehaviour
 {
     public event EventHandler OnInteractAction;
@@ -41,8 +40,12 @@ public class GameInput : MonoBehaviour
         //{
         //    OnInteractAction(this, EventArgs.Empty);
         //}
-        OnInteractAction?.Invoke(this, EventArgs.Empty); //same as above but more compact 
-        Debug.Log("GameInput: Interact action triggered");
+        if (!FinalDayEndingManager.Instance.IsFinalDay())
+        {
+            OnInteractAction?.Invoke(this, EventArgs.Empty); //same as above but more compact 
+            Debug.Log("GameInput: Interact action triggered");
+        }
+        
         //send out event ^
     }
     private void InteractAlternate_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)

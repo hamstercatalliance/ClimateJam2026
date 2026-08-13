@@ -6,6 +6,7 @@ using UnityEngine.Rendering;
 public class FinalDayEndingManager : MonoBehaviour
 {
     private const string DOWNTOWN_SCENE_NAME = "Downtown";
+    private const string HOME_SCENE_NAME = "Home";
     public static FinalDayEndingManager Instance { get; private set; }
 
     [SerializeField] private GameObject gloomyEffect;
@@ -13,6 +14,7 @@ public class FinalDayEndingManager : MonoBehaviour
     [SerializeField] private GameObject dayUI;
 
     [SerializeField] private AudioClip rainSounds;
+    [SerializeField] private GameObject doorInteractable;
 
     private void Awake()
     {
@@ -37,10 +39,9 @@ public class FinalDayEndingManager : MonoBehaviour
             HowToPlay.Instance.HideHelpButton();
             QuestNotifyManager.Instance.HideQuestNotification();
             
-            InteractableObject[] interactableObjects = FindObjectsOfType<InteractableObject>();
-            foreach (InteractableObject obj in interactableObjects)
+            if (gameObject.scene.name == HOME_SCENE_NAME)
             {
-                obj.enabled = false;
+                doorInteractable.SetActive(false);
             }
 
             if (!SympathyPointsManager.Instance.HasReachedGoodEndingThreshold())
