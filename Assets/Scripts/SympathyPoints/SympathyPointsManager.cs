@@ -9,7 +9,7 @@ public class SympathyPointsManager : DialogueSignalHandler, IHasPersistentData
     public static SympathyPointsManager Instance { get; private set; }
     public int SympathyPoints { get; private set; }
 
-    private int goodEndingThreshold = 50; //CHANGE TO REFLECT ACTUAL GAME LATER
+    private int goodEndingThreshold = 900;
     public bool HasReachedGoodEndingThreshold()
     {
         Debug.Log("Checking if good ending threshold is reached. Current points: " + SympathyPoints + ", Threshold: " + goodEndingThreshold);

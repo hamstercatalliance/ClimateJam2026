@@ -20905,14 +20905,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8673364545973316302, guid: 221645e9bd166d648b1ab79e4237004b,
         type: 3}
-      propertyPath: interactableObjects.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8673364545973316302, guid: 221645e9bd166d648b1ab79e4237004b,
-        type: 3}
-      propertyPath: interactableObjects.Array.data[0]
+      propertyPath: doorInteractable
       value: 
-      objectReference: {fileID: 496490261}
+      objectReference: {fileID: 496490258}
     - target: {fileID: 9153697665749098454, guid: 221645e9bd166d648b1ab79e4237004b,
         type: 3}
       propertyPath: Player

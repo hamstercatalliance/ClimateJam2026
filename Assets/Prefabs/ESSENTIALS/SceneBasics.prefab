@@ -1719,7 +1719,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 5
   m_Viewport: {fileID: 5687166662159006734}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 8284262103885011899}
@@ -12226,6 +12226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408954a2b41e5db4f89aad2b584acfa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endDayEarly: 0
   timeElapsed: 0
   day: {fileID: 5194986480667184047}
   night: {fileID: 4144230620257399412}
@@ -13166,7 +13167,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 5
   m_Viewport: {fileID: 6701671760399951094}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 378010599470939140}
@@ -14622,6 +14623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad073c2cb2472f408ab1b9398e16e91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableMove: 0
   moveSpeed: 7
   rotateSpeed: 10
   jumpHeight: 8
@@ -21747,6 +21749,7 @@ MonoBehaviour:
   rain: {fileID: 5592186699310078362}
   dayUI: {fileID: 6107762249043035211}
   rainSounds: {fileID: 8300000, guid: 5fad1899d5a058545b45db8a51fe31e6, type: 3}
+  doorInteractable: {fileID: 0}
 --- !u!1 &6107762249043035211
 GameObject:
   m_ObjectHideFlags: 0
@@ -22987,6 +22990,7 @@ GameObject:
   - component: {fileID: 6701147000967062893}
   - component: {fileID: 1447969891322775871}
   - component: {fileID: 2085966050321532275}
+  - component: {fileID: 7494865334282836896}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -23055,6 +23059,20 @@ MonoBehaviour:
   originalColor: {r: 1, g: 1, b: 1, a: 1}
   onClickColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
   selectedButtonIsDeselectable: 1
+--- !u!114 &7494865334282836896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6680971219153299258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!1 &6724433533445671793
 GameObject:
   m_ObjectHideFlags: 0
@@ -23244,6 +23262,10 @@ MonoBehaviour:
   endNormalCutscene: {fileID: 8420073622919049376}
   videoPanel: {fileID: 707746281160357805}
   screenFade: {fileID: 5949655154455133653}
+  WalkTo: {fileID: 0}
+  Player: {fileID: 0}
+  player: {fileID: 0}
+  playerAnimator: {fileID: 0}
 --- !u!1 &6831151787303183806
 GameObject:
   m_ObjectHideFlags: 0
@@ -26668,6 +26690,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2742632775435890091}
   - component: {fileID: 9077767425694238147}
+  - component: {fileID: 201063910527074623}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -26719,6 +26742,20 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 2
+--- !u!114 &201063910527074623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8312765465215835136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!1 &8380001438184780612
 GameObject:
   m_ObjectHideFlags: 0
