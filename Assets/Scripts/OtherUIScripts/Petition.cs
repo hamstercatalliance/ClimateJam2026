@@ -39,7 +39,7 @@ public class Petition : MonoBehaviour, IHasPersistentData
             petitionSigned = true;
             GameData.Instance.PetitionSigned = true;
             signButton.SetActive(false);
-            SympathyPointsManager.Instance.addSympathyPoints(100);
+            SympathyPointsManager.Instance.AddSympathyPoints(100);
         }
     }
     public void LoadGameData()

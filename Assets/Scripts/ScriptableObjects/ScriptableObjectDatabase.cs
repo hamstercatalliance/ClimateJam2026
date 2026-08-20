@@ -17,7 +17,7 @@ public class ScriptableObjectDatabase : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
     [SerializeField] private List<ScriptableObject> allScriptableObjectRegistry; // every possible vanity item
-    private Dictionary<string, ScriptableObject> scriptableObjectDictionary = new Dictionary<string, ScriptableObject>();
+    private readonly Dictionary<string, ScriptableObject> scriptableObjectDictionary = new Dictionary<string, ScriptableObject>();
     void Start()
     {
         foreach (ScriptableObject obj in allScriptableObjectRegistry)

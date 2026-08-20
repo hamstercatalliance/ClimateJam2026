@@ -27,7 +27,7 @@ public class SympathyPointsManager : DialogueSignalHandler, IHasPersistentData
         if (e is AddPointsDialogueSignal)
         {
             AddPointsDialogueSignal addPointsSignal = e as AddPointsDialogueSignal;
-            addSympathyPoints(addPointsSignal.points);
+            AddSympathyPoints(addPointsSignal.points);
             Debug.Log("Sympathy points changed by " + addPointsSignal.points + ". Total sympathy points: " + SympathyPoints);
         }
     }
@@ -45,7 +45,8 @@ public class SympathyPointsManager : DialogueSignalHandler, IHasPersistentData
     public bool DataSuccessfullyWritten { get; private set; }
 
 
-    public void addSympathyPoints(int addedPoints) {
+    public void AddSympathyPoints(int addedPoints) {
+        Debug.Log("Adding sympathy points: " + addedPoints + ". Current sympathy points: " + SympathyPoints);
         SympathyPoints += addedPoints;
     }
 
@@ -55,10 +56,12 @@ public class SympathyPointsManager : DialogueSignalHandler, IHasPersistentData
     public void WriteToGameData() {
         GameData.Instance.SympathyPoints = SympathyPoints;
         DataSuccessfullyWritten = true;
+        Debug.Log("Sympathy points written to GameData: " + SympathyPoints);
     }
 
     public void LoadGameData()
     {
+        Debug.Log("Loading" + GameData.Instance.SympathyPoints + " sympathy points from GameData.");
         SympathyPoints = GameData.Instance.SympathyPoints;
         if (GameData.Instance != null && GameData.Instance.HasLoadedRunData)
         {

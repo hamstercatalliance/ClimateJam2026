@@ -115,6 +115,10 @@ public class Player : MonoBehaviour, IHasPersistentData
     {
         if (other.gameObject.CompareTag("Item"))
         {
+            if (InventoryManager.Instance.IsFull())
+            {
+                return;
+            }
             GameItem gameItem = other.GetComponent<GameItem>();
             OnPickup?.Invoke(this, new OnPickupEventArgs
             {

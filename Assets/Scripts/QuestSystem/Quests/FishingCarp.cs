@@ -12,6 +12,7 @@ public class FishingCarp : Quest
     [SerializeField] private GameItemSO bait;
     [SerializeField] private GameObject playerFishingRod;
     private int carpRequirement = 5;
+    private int carpCount = 0; //implement revamp later
 
     protected override void Start()
     {
@@ -82,7 +83,7 @@ public class FishingCarp : Quest
         if (gameItemSO.itemID == "item.carp")
         {
             InventoryManager.Instance.AddItemToInventory(carp);
-            SympathyPointsManager.Instance.addSympathyPoints(25);
+            SympathyPointsManager.Instance.AddSympathyPoints(25);
 
             Debug.Log(InventoryManager.Instance.GetItemCount(carp));
 
@@ -91,7 +92,7 @@ public class FishingCarp : Quest
         else if (gameItemSO.itemID == "item.sturgeon")
         {
             InventoryManager.Instance.AddItemToInventory(sturgeon);
-            SympathyPointsManager.Instance.addSympathyPoints(-50);
+            SympathyPointsManager.Instance.AddSympathyPoints(-50);
         }
         else if (gameItemSO.itemID == "item.catfish")
         {

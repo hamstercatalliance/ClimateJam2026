@@ -46,7 +46,7 @@ public abstract class Quest : MonoBehaviour, IHasPersistentData
         {
             SoundManager.Instance.PlayCoinsSound();
         }
-        SympathyPointsManager.Instance.addSympathyPoints(questSO.sympathyAward);
+        SympathyPointsManager.Instance.AddSympathyPoints(questSO.sympathyAward);
     }
     public virtual void WriteToGameData()
     {

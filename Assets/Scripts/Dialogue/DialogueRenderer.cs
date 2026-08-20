@@ -38,6 +38,7 @@ public class DialogueRenderer : MonoBehaviour
     public EventHandler dialogueSignal { get; set; }
     [SerializeField] private GameObject buttonPrefab;
     [SerializeField] private GameObject box;
+    [SerializeField] private Canvas canvas;
     private GameObject dialoguePanel;
     private DialogueBox dialogueObject;
     public static DialogueRenderer Instance { get; private set; } 
@@ -61,7 +62,7 @@ public class DialogueRenderer : MonoBehaviour
         //Instantiate(box);
         //Debug.Log("DialogueRenderer: Rendering dialogue box for character " + dialogueObject.getCharacterID() + " with content: " + dialogueObject.getContent());
         //box = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Textbox.prefab");
-        dialoguePanel = Instantiate(box, GameObject.Find("Canvas").transform);
+        dialoguePanel = Instantiate(box, canvas.transform);
         this.dialogueObject = dialogueObject;
 
         Transform characterText = dialoguePanel.transform.Find("CharacterText");

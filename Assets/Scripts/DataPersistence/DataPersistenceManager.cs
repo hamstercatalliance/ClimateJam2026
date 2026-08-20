@@ -36,6 +36,7 @@ public class DataPersistenceManager : MonoBehaviour
         //(unencrypted)
         string json = JsonUtility.ToJson(GameData.Instance.GetSaveData(), true);
         File.WriteAllText(SavePath, json);
+        Debug.Log("Game data saved to: " + SavePath);
     }
     public void LoadPlayerData()
     {

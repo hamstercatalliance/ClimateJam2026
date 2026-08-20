@@ -46,6 +46,7 @@ public class GameData : MonoBehaviour
     #endregion
     #region Custom Quest Data (SAVE SPECIFIC PROGRESS FOR CUSTOM QUESTS.)
     public int TestQuestProgress;
+    public int FishingQuestProgress;
     public bool OpenedQuestBoard;
     public int BeachCleanupProgress;
     public bool FlowerSeedsPickedUp;

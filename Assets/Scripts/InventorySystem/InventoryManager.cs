@@ -241,4 +241,19 @@ public class InventoryManager : MonoBehaviour, IHasPersistentData
             OnItemDiscarded?.Invoke(this, EventArgs.Empty);
         }
     }
+
+    public bool IsFull()
+    {
+        for (int i = 0; i < inventorySlots.GetLength(0); i++)
+        {
+            for (int j = 0; j < inventorySlots.GetLength(1); j++)
+            {
+                if (!inventorySlots[i, j].isOccupied)
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }

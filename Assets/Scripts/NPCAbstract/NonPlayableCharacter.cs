@@ -33,16 +33,7 @@ public abstract class NonPlayableCharacter : InteractableObject
             }
             else
             {
-                Debug.Log("Using spawn point for day " + curDay + ": " + spawnPoints[curDay]);
-                bool isFinalDayBadEnd = FinalDayEndingManager.Instance.IsFinalDay() && GameData.Instance.SympathyPoints < 50;
-                if (isFinalDayBadEnd)
-                {
-                    //dont move the NPC if its the bad end day
-                    transform.localPosition = nonPlayableCharacterSO.location; //just default
-                    return;
-                }
-                Debug.Log("Moving NPC to spawn point for day " + curDay);
-                transform.localPosition = spawnPoints[curDay];
+                StartCoroutine(CheckForSpawn(curDay, nonPlayableCharacterSO));
             }
         }
     
@@ -70,5 +61,20 @@ public abstract class NonPlayableCharacter : InteractableObject
                 }
             }
         }
+    }
+
+    private IEnumerator CheckForSpawn(int curDay, NonPlayableCharacterSO nonPlayableCharacterSO)
+    {
+        yield return null; //wait for the next frame to ensure day data is loaded
+        Debug.Log("Using spawn point for day " + curDay + ": " + spawnPoints[curDay]);
+        bool isFinalDayBadEnd = FinalDayEndingManager.Instance.IsFinalDay() && GameData.Instance.SympathyPoints < 50;
+        if (isFinalDayBadEnd)
+        {
+            //dont move the NPC if its the bad end day
+            transform.localPosition = nonPlayableCharacterSO.location; //just default
+            yield break; //exit the coroutine
+        }
+        Debug.Log("Moving NPC to spawn point for day " + curDay);
+        transform.localPosition = spawnPoints[curDay];
     }
 }

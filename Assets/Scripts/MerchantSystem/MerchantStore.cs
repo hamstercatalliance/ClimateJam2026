@@ -124,6 +124,7 @@ public class MerchantStore : MonoBehaviour
 
         //remove item from inventory and add SYMPATHY POINTS to player
         InventoryManager.Instance.RemoveItemFromInventory(selectedItem);
+        SympathyPointsManager.Instance.AddSympathyPoints(1);
         uiManager.UpdateRemovedItemButton();
         //Debug.Log("Donated item: " + selectedItem.name);
         OnTransaction?.Invoke(this, EventArgs.Empty);
